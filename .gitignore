@@ -1,0 +1,31 @@
+# LaTeX temporaries
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex*
+*.toc
+*.glg
+*.glo
+*.gls
+*.ist
+
+# figure temporaries
+/figures/src/*.pdf
+
+# main document
+/fields.pdf
+/fields-v*.pdf
+
+# VSCode
+/.vscode
+
+# macOS temporaries
+.DS_Store
+
+# do not track PDF versions
+/versions
+
+# no solution
+/solutions

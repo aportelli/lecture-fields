@@ -1,0 +1,269 @@
+% !TEX root = fields.tex
+\documentclass[a4paper,12pt]{book}
+% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% language, encoding & layout
+\usepackage[british]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
+\usepackage{CrimsonPro}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{microtype}
+%% arrays
+\usepackage{booktabs}
+\usepackage{array} % Required for manipulating table columns
+\renewcommand{\arraystretch}{1.25} % Increase the height of table rows
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+%% glossaries
+\usepackage[toc,nonumberlist,nopostdot,sort=use]{glossaries}
+\setglossarystyle{alttree}
+\glssetwidest{xxxxxxxxxxxxxxx}
+%% math symbols
+\usepackage{isomath,amsmath,amssymb,braket,slashed,mathrsfs,bm,cancel}
+%% theorems
+\usepackage{amsthm}
+%% TikZ
+\usepackage{tikz}
+%% units
+\usepackage[squaren,Gray,cdot,binary]{SIunits}
+%% figures
+\usepackage{graphicx}
+\graphicspath{{./figures/}}
+%% bibliography
+\usepackage[square,authoryear]{natbib}
+%% hyperlinks
+\usepackage{hyperref}
+\definecolor{linkcolor}{rgb}{.17578125,.1875,.5703125}
+\hypersetup{
+  pdfstartview={FitH},
+  pdftitle={TITLE},
+  pdfauthor={AUTHOR},
+  pdfsubject={},
+  pdfcreator={pdflatex},
+  pdfkeywords={},
+  colorlinks=true,
+  linkcolor=linkcolor,
+  citecolor=linkcolor,
+  filecolor=black,
+  urlcolor=linkcolor
+}
+%% compressed references
+\usepackage{cleveref}
+\newcommand{\crefrangeconjunction}{--}
+%%% chapter
+\crefformat{chapter}{Chapter~#2#1#3}
+\crefmultiformat{chapter}{Chapters~#2#1#3}
+{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
+\crefrangeformat{chapter}{Chapters~#3#1#4\,--\,#5#2#6}
+%%% section
+\crefformat{section}{Sec.~#2#1#3}
+\crefmultiformat{section}{Sec.~#2#1#3}
+{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
+\crefrangeformat{section}{Sec.~#3#1#4\,--\,#5#2#6}
+%%% subsection
+\crefformat{subsection}{Sec.~#2#1#3}
+\crefmultiformat{subsection}{Sec.~#2#1#3}
+{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
+\crefrangeformat{subsection}{Sec.~#3#1#4\,--\,#5#2#6}
+%%% figure
+\crefformat{figure}{Fig.~#2#1#3}
+\crefmultiformat{figure}{Figs.~#2#1#3}
+{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
+\crefrangeformat{figure}{Figs.~#3#1#4\,--\,#5#2#6}
+%%% table
+\crefformat{table}{Tab.~#2#1#3}
+\crefmultiformat{table}{Tabs.~#2#1#3}
+{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
+\crefrangeformat{table}{Tabs.~#3#1#4\,--\,#5#2#6}
+%%% equation
+\crefformat{equation}{Eq.~(#2#1#3)}
+\crefmultiformat{equation}{Eqs.~(#2#1#3)}{ and~(#2#1#3)}{, (#2#1#3)}{
+and~(#2#1#3)}
+\crefrangeformat{equation}{Eqs.~(#3#1#4)--(#5#2#6)}
+\graphicspath{{./figures/}}
+%% exercises
+\usepackage[answerdelayed]{exercise}
+\usepackage{chngcntr}
+\counterwithin{Exercise}{chapter}
+\crefformat{Exercise}{Exercise~#2#1#3}
+%% Header & footer
+\usepackage[twoside]{fancyhdr}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[LE,RO]{\textit{\nouppercase{\rightmark}}}
+\fancyhead[LO,RE]{\textit{\nouppercase{\leftmark}}}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{6mm}
+\setlength{\headsep}{3mm}
+\setlength{\footskip}{8mm}
+%% Page geometry
+\usepackage[a4paper,left=25mm,right=25mm,top=20mm,bottom=20mm]{geometry}
+\fancyhfoffset[E,O]{0pt} % recalculate the headers
+%% git info
+\usepackage{gitinfo2}
+
+% Theorem environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{plain}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{plain}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{plain}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+%%% cref labels
+\crefformat{theorem}{Theorem~#2#1#3}
+\crefformat{corollary}{Corollary~#2#1#3}
+\crefformat{proposition}{Proposition~#2#1#3}
+\crefformat{lemma}{Lemma~#2#1#3}
+\crefformat{definition}{Definition~#2#1#3}
+\crefformat{example}{Example~#2#1#3}
+
+% New commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% abbreviations
+\newcommand{\cf}{{cf.}~}
+\newcommand{\eg}{{e.g.}~}
+\newcommand{\ie}{{i.e.}~}
+%% math
+\DeclareMathOperator{\sq}{sq}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\sw}{s}
+\DeclareMathOperator{\cw}{c}
+\DeclareMathOperator{\ew}{e}
+\DeclareMathOperator{\gauss}{g}
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\erf}{erf}
+\newcommand{\diff}{\mathrm{d}}
+\newcommand{\td}[2]{\frac{\diff #1}{\diff #2}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdn}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\sumn}[1]{\sum_{#1=0}^{+\infty}}
+\newcommand{\sumnp}[1]{\sum_{#1=1}^{+\infty}}
+\newcommand{\sumz}[1]{\sum_{#1=-\infty}^{+\infty}}
+\renewcommand{\vec}[1]{\bm{#1}}
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\intr}[1]{\int_{-\infty}^{+\infty}\diff{#1}\,}
+
+% Title
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Glossaries
+% \input{notations}
+
+% Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\pagestyle{plain}
+\frontmatter
+\thispagestyle{empty}
+\vspace*{-0.065\textheight}
+\hfill\includegraphics[width=10cm]{UoE_Stacked Logo_Black_v1_160215.pdf}
+\vfill
+\vspace{0.15\textheight}
+\parbox{0.9\linewidth}{\fontsize{32pt}{36pt}\selectfont\raggedright\textbf{Fields
+    and Vector Calculus}\par}
+
+\vspace{0.03\textheight}
+{\Large\textit{\textbf{PHYS08053 -- Introductory Fields and Waves}}\par}
+\vfill
+{\Large Antonin Portelli\par}
+\vfill\vfill\vfill
+{\large\today\par}
+\thispagestyle{empty}
+\newpage
+
+% Info page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{ \footnotesize % Reduce font size
+  \subsection*{Copyright}
+  \textcopyright~Antonin Portelli, The University of Edinburgh, 2024--2026.
+  \vspace*{10pt}\\
+  \noindent\includegraphics[width=2cm]{by-nc.pdf}\\
+  This work is licensed under the Creative Commons
+  Attribution-NonCommercial 4.0 International
+  License. To view a copy of this licence, visit
+  \url{http://creativecommons.org/licenses/by-nc/4.0/} or send a
+  letter to Creative Commons, PO
+  Box 1866, Mountain View, CA 94042, USA.
+
+  \subsection*{Source code and supplemental material}
+  The code associated with these lecture notes is available at
+  \url{https://github.com/aportelli/lecture-fields}.
+
+  \subsection*{Acknowledgements}
+  AP would like to warmly thanks the students of the Introductory Fields and Waves course
+  at the University of Edinburgh for their interest and patience, as well as the
+  significant feedback on these notes.
+
+  \subsection*{Contact}
+  Office 4404, James Clerk Maxwell Building,\\ Peter Guthrie Tait Road,\\ Edinburgh EH9
+  3FD, UK\\ Email: \href{mailto:antonin.portelli@ed.ac.uk}{antonin.portelli@ed.ac.uk}
+
+  \vfill
+  \subsubsection*{Changelog}
+  \scriptsize
+  Git revision: \gitDescribe\vspace*{0.2cm}\\
+  \begin{tabular}{@{} L{0.05\linewidth} L{0.15\linewidth} L{0.6\linewidth} @{}}
+    \toprule
+    \bottomrule
+  \end{tabular}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+% \glsaddallunused
+% \printglossary[title=Symbols and Notation]
+% \chapter*{Preface}
+% \input{chapters/preface.tex}
+% \mainmatter
+% \pagestyle{fancy}
+% \chapter{Introduction to the wave equation}
+% \label{chap:wave-eq}
+% \input{chapters/wave-eq}
+% \vfill\pagebreak
+% \input{exercises/wave-eq}
+% \shipoutAnswer
+% \chapter{Elementary waves}
+% \label{chap:elementary-waves}
+% \input{chapters/elementary-waves}
+% \vfill\pagebreak
+% \input{exercises/elementary-waves}
+% \shipoutAnswer
+% \chapter{Fourier series}
+% \label{chap:series}
+% \input{chapters/series}
+% \vfill\pagebreak
+% \input{exercises/series}
+% \shipoutAnswer
+% \vfill\pagebreak
+% \input{problems/gibbs}
+% \shipoutAnswer
+% \chapter{Fourier transform}
+% \label{chap:transform}
+% \input{chapters/transform}
+% \vfill\pagebreak
+% \input{exercises/transform}
+% \shipoutAnswer
+% \chapter{Differential equations}
+% \input{chapters/diff-eq}
+% \vfill\pagebreak
+% \input{exercises/diff-eq}
+% \shipoutAnswer
+\end{document}
