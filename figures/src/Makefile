@@ -1,4 +1,5 @@
 MKPLOT = mkplot/mkplot
+PDFCROP = pdfcrop
 
 GPPREF = gp_
 TIKZPREF = tikz_
@@ -16,6 +17,7 @@ $(GPPREF)%.pdf: %.plt common.gp $(DEPS)
 
 $(TIKZPREF)%.pdf: %.tikz $(DEPS)
 	$(MKPLOT) tikz $< $@
+	$(PDFCROP) --margin 1 $@ $@
 	cp $@ $(OUTDIR)/
 
 .PHONY: clean veryclean
