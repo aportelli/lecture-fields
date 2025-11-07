@@ -1,0 +1,3145 @@
+% !TEX root = ../fields.tex
+%% Brian Lecture 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Review of vectors}
+
+\subsection{Physics terminology}
+
+To get started, we recall two basic geometrical definitions:
+
+\textbf{Scalar}: quantity specified by a single number;
+
+\textbf{Vector} : quantity specified by a number (magnitude)
+and a \emph{direction} (two numbers in three dimensions, \emph{e.g.}~two angles);
+
+In this course, we will (re)define vectors by the way their components transform under
+rotations of the coordinate basis, and scalars as numbers that are unchanged by such
+transformations.\footnote{ These definitions can be generalised to define \emph{tensors}
+  in a straightforward way-- see next year.}
+
+\emph{Examples:} velocity is a vector, speed is a scalar.
+
+\subsection{Geometrical approach}
+A vector is \emph{represented} by a `directed line segment' with a length and direction
+proportional to the magnitude and direction of the vector (in appropriate units). A
+vector can be considered as a class of equivalent directed line segments {\it e.g.}\\[3mm]
+\parbox{4cm}{
+  \epsfxsize=4cm
+  \includegraphics{dls.pdf}
+}\hspace{0.5cm}
+%
+\parbox{12cm}
+%
+{Both displacements from P to Q and from R to S are represented by the
+  same vector. Also, different quantities can be represented by the
+  same vector {\it e.g.} a displacement of $a$~cm, or a velocity of
+  $a$ ms$^{-1}$ , where $a$ is the magnitude or \emph{length} of
+  vector~$\v{a}$. Of course, the units of $\v{a}$ are different in the
+  two cases.}\\
+
+\textbf{Notation}: Denote a vector by $\v{a}$ and its magnitude (or
+length) by $|\v{a}|$ or $a$. \emph{Always} underline a vector to
+distinguish it from its magnitude.
+
+A unit vector is often denoted by a hat $\v{\hat{a}} = \v{a}\ /\, a $ and represents a
+direction. Clearly, $|\v{\hat{a}}| = 1$.
+
+The vector $\v{n}$ is generally taken to be a unit vector (usually without a hat).
+$\v{n}$ is often the unit vector normal to a surface or plane.
+
+Sometimes, we use an `overarrow' to write $ \overrightarrow{PQ} = \overrightarrow{RS}$.
+
+\subsubsection*{Addition of vectors -- parallelogram law (geometrical)}
+
+{\it i.e.}\\
+\parbox{4cm}{
+  \includegraphics{tikz_parallelogram.pdf}
+}
+\parbox{35em}{
+  \begin{eqnarray*}
+    \v{a} + \v{b} & = & \v{b} + \v{a}\mbox{\hspace*{10ex} (commutative) }\\
+    (\v{a} + \v{b}) + \v{c} & = & \v{a} + (\v{b} + \v{c})
+    \mbox{\hspace*{5ex} (associative) }
+  \end{eqnarray*}
+}
+
+\subsubsection*{Multiplication by scalars} A vector $\v{a}$ may be
+multiplied by a scalar $\alpha$ to give a new vector $\alpha \,
+  \v{a}$, {\it e.g.} \\[3mm]
+\hspace*{1cm}
+\epsfysize=1.5cm
+\includegraphics{tikz_scalar_mult.pdf}
+
+Also, for scalars $\alpha$, $\beta$ and vectors $\v{a}$ and $\v{b}$
+\begin{eqnarray*}
+  | \alpha \v{a} | & = & |\alpha| |\v{a}| \\
+  \alpha(\v{a} + \v{b}) & = & \alpha\v{a} + \alpha\v{b}
+  \;\;\qquad\mbox{  (distributive)}\\
+  \alpha(\beta\v{a}) & = & (\alpha\beta)\v{a}\;\;\;
+  \quad\qquad\mbox{  (associative)}\\
+  (\alpha + \beta)\v{a} & = & \alpha\v{a} + \beta\v{a}\;.
+\end{eqnarray*}
+
+\subsection{Scalar or dot product}\label{sec:scalarproduct}
+
+The scalar product (also known as the dot product or inner product) between two vectors
+is \emph{defined} to be
+\begin{center}
+  \bigbox{ $\v{a}\cdot\v{b} \equiv ab\cos\theta, \mbox{ where $\theta$
+        is the angle between $\v{a}$ and $\v{b}$} $ }
+\end{center}
+\parbox{3cm}{
+  \epsfxsize=3cm
+  \includegraphics{tikz_scalar_prod.pdf}}
+\hspace*{15mm}
+\parbox{50em}{
+\bigbox{$\v{a}\cdot\v{b}$ is a scalar -- {\it i.e.} a single number.}
+}
+
+\subsubsection*{Notes on scalar product}
+
+\begin{enumerate}
+  \item $\v{a}\cdot\v{b}=\v{b}\cdot\v{a} \quad
+          \mbox{(commutative)}$
+
+  \item $\v{a}\cdot(\v{b}+\v{c})=\v{a}\cdot\v{b}+ \v{a}\cdot\v{c} \qquad
+          \mbox{(distributive)}$
+
+  \item $\v{n}\cdot \v{a}= a \cos\theta~=$ the
+        scalar projection of $\v{a}$ onto $\v{n}$, where $\v{n}$ is a unit
+        vector
+
+  \item $(\v{n}\cdot \v{a})\, \v{n} = a \cos\theta\,
+          \v{n}~=$ the vector projection of $\v{a}$ onto $\v{n}$
+
+  \item A vector may be resolved with respect to some direction $\v{n}$ into a parallel component
+        $\v{a}_\parallel = \left(\v{n}\cdot \v{a}\right) \v{n}$ and a perpendicular component
+        $\v{a}_\perp = \v{a}-\v{a}_\parallel$. You should check that $\v{a}_\perp\cdot \v{n} =0$
+
+  \item \bigbox{$\v{a}\cdot\v{a} \equiv |\v{a}|^2 \equiv
+            a^2$} which defines the magnitude (or norm) $|\v{a}|$ of a vector.
+
+  \item For a unit vector, $\v{\hat{a}}\cdot\v{\hat{a}}= 1$.
+
+\end{enumerate}
+
+\subsection{The vector or `cross' product}
+
+\begin{center}
+  \bigbox{$\v{a}\times\v{b} \ \equiv \ ab\sin\theta\;\v{n}\;,$ where
+    $\v{n}$ is in the `right-hand screw direction'}
+\end{center}
+$\v{n}$ is a unit vector normal to the plane of $\v{a}$ and
+$\v{b}$, in the direction of a right-handed screw for rotation of
+$\v{a}$ to $\v{b}$ (through $< \pi$ radians).
+
+\parbox{3cm}{
+  \epsfxsize=3cm
+  \includegraphics{tikz_vector_prod.pdf}}
+\hspace*{20mm}
+\parbox[b]{60em}{
+  \bigbox{$\v{a}\times\v{b}$ is a vector -- \emph{i.e.} it has
+    a direction and a length.}
+}
+
+[It is sometimes called the \emph{wedge} product (although this has a
+  more general meaning), and in this case is denoted by   $\v{a}\wedge\v{b}$. ]
+
+\subsubsection*{Notes on vector product}
+\begin{enumerate}
+  \item $\v{a}\times\v{b}=-\v{b}\times\v{a}$ \quad
+        (\emph{not} commutative)
+
+  \item $\v{a}\times \v{b}= 0$\ if\ $\v{a},\v{b}$ are
+        parallel
+
+  \item $\v{a}\times( \v{b} + \v{c} ) = \v{a}\times \v{b} +
+          \v{a}\times\v{c} $
+
+  \item $\v{a}\times( \alpha \v{b} ) = \alpha \v{a}\times
+          \v{b}$
+\end{enumerate}
+
+%An example from mechanics is
+%\v{v}= \v{\omega} \times \v{r}$ where $\v{omega}$ is angular velocity
+
+\subsection{The scalar triple product}
+The scalar triple product is defined as follows
+\begin{eqnarray*}
+  (\v{a},\v{b},\v{c}) & \equiv & \v{a}\cdot(\v{b}\times\v{c})
+  %& = & \v{c}\cdot(\v{a}\times\v{b})\\
+  %& = & \v{b}\cdot(\v{c}\times\v{a})\,.
+\end{eqnarray*}
+
+\textbf{Notes}
+
+\begin{enumerate}
+  \item
+        If $\v{a}$, $\v{b}$ and $\v{c}$ are three concurrent edges
+        of a parallelepiped, the volume is $(\v{a},\v{b},\v{c})$.
+
+        %To see this, note that\\
+        \hspace*{-3ex}
+        \parbox{10cm}
+        {To see this, note that:
+          \begin{eqnarray*}
+            \mbox{area of the base}&=&\mbox{area of parallelogram $OBDC$}\\
+            &=&
+            b\;c\,\sin\theta \,=\, |\v{b}\times\v{c}|\\
+            \mbox{height}
+            &=&
+            a \cos \phi \,=\, \v{n}\cdot\v{a}\\
+            \mbox{volume}
+            &=&
+            \mbox{area of base $\times$ height}\\
+            &=&
+            b\, c\, \sin\theta\, \v{n} \cdot \v{a}\\
+            &=&
+            \v{a}\cdot( \v{b}\times \v{c} )
+          \end{eqnarray*}\\
+        }
+        \parbox{6cm}{ \epsfxsize=6cm \includegraphics{tikz_volume.pdf}}
+
+        \vspace*{-5ex}
+
+        In this case $\v{n}$ is a unit vector parallel to $\v{b}\times\v{c}$, which is normal to
+        the plane of $\v{b}$ and $\v{c}$.
+
+  \item
+        If we choose $\v{c}, \v{a}$ to define the base then a similar calculation
+        gives volume = $\v{b}\cdot( \v{c}\times \v{a})$
+
+        We deduce the following symmetry/antisymmetry properties (exercise):
+        \[
+          (\v{a}, \v{b}, \v{c} )
+          \,=\,  (\v{b}, \v{c}, \v{a} )
+          \,=\,  (\v{c}, \v{a}, \v{b} )
+          \,=\, -(\v{a}, \v{c}, \v{b} )
+          \,=\, -(\v{b}, \v{a}, \v{c} )
+          \,=\, -(\v{c}, \v{b}, \v{a} )
+        \]
+
+  \item
+
+        \bigbox{
+          \parbox{0.8\textwidth}{
+            \medskip
+            If $\ds \v{a}, \v{b}$ and $\v{c}$ are \emph{coplanar}
+            (\emph{i.e.}~all three vectors lie in the same plane)
+            then $\ds V = (\v{a},\v{b},\v{c}) = 0$, and vice-versa.
+            \medskip
+          }}
+\end{enumerate}
+
+\subsection{The vector triple product}
+
+There are \emph{several} ways of combining 3 vectors to form a new vector.\\ {\it e.g.}
+$\v{a}\times(\v{b}\times\v{c})$; $(\v{a}\times\v{b})\times\v{c}$, etc. Note carefully
+that \emph{brackets are important}, since the cross product is \emph{not} associative
+\[
+  \v{a}\times(\v{b}\times\v{c}) ~\neq~ (\v{a}\times\v{b})\times\v{c}\;.
+\]
+Expressions involving two (or more) vector products can be simplified by using the
+identity
+\begin{center}
+  \bigbox{$\v{a}\times(\v{b}\times\v{c}) \ =
+      \ (\v{a}\cdot\v{c})\, \v{b} - (\v{a}\cdot\v{b})\,\v{c}$} .
+\end{center}
+This is a result you \emph{must} know -- memorise it!
+
+It's sometimes known as the `bac-cab rule', but you must write the vectors in front of
+the scalar products to use it correctly: $\v{a}\times(\v{b}\times\v{c}) = \v{b} \,
+  (\v{a}\cdot\v{c})- \v{c} \, (\v{a}\cdot\v{b})$
+
+\parbox{13.5cm}{\textbf{Proof:} First note that $\v{b}\times\v{c}$ is
+  $\perp$ to the $(\v{b},\, \v{c})$ plane. Now $\v{a} \times
+    (\v{b}\times\v{c})$ is $\perp$ to $\v{b}\times\v{c}$, so it must lie
+  in $(\v{b},\, \v{c})$ plane. Hence we can write
+  \[
+    \v{a}\times(\v{b}\times\v{c}) = \beta\,\v{b} + \gamma\,\v{c}
+  \]
+  with $\beta$, $\gamma$ scalars which must be linear in $\v{a}$ \& $\v{c}$ and in $\v{a}$
+  \& $\v{b}$ respectively. (Exercise: think about why this must be the case.)
+
+  \medskip
+
+  Taking the scalar product with $\v{a}$ gives
+  \[
+    \v{a} \cdot (\v{a}\times(\v{b}\times\v{c}))
+    \,=\,
+    0
+    \,=\,
+    \beta \, (\v{a}\cdot\v{b}) \,+\, \gamma \, (\v{a}\cdot\v{c}),
+  \]
+  and from this we deduce that $\beta = \alpha\, (\v{a}\cdot\v{c})$, $\gamma = -\alpha \,
+    (\v{a}\cdot\v{b})$ for some \emph{constant} $\alpha$, to give
+  \[
+    \v{a}\times(\v{b}\times\v{c})
+    \,=\,
+    \alpha
+    \left[
+      \left(\v{a}\cdot\v{c}\right)\v{b}
+      \,-\,
+      \left(\v{a}\cdot\v{b}\right)\v{c}
+      \right]
+  \]
+  The constant $\alpha$ may be determined by considering the particular case when $\v{b} \,
+    \perp \v{c}$ and $\v{c} \, \parallel \, \v{a}$ (\emph{e.g.}~$\v{b} = b\,\v{e}_{\,x}$,\ \
+  $\v{c} = c\,\v{e}_{\,y}$,\ \ $\v{a} = a\,\v{e}_{\,y}$), to give
+  %%% \footnote{$\v{e}_{\,x}$, $\v{e}_{\,y}$ and $\v{e}_{\,z}$
+  %%% are unit vectors parallel to the $x$, $y$ and $z$ axes)}
+  \[
+    \v{a}\times(\v{b}\times\v{c})
+    \,=\,
+    ac\,\v{b}
+    \,=\,
+    \alpha \,(ac\v{b}-0),
+  \]
+  so $\alpha = 1$. (Exercise: work through this for yourself.)} \hspace*{-3ex}
+\parbox{4.5cm}{ \epsfxsize=4cm \includegraphics{tikz_vector_triple_prod.pdf} }
+
+Note that this is a \emph{coordinate-independent} derivation of the bac-cab rule. We
+didn't use orthonormal basis vectors or take components in any basis (unless using the
+explicit $\v{b} = b\,\v{e}_{\,x}$, etc, in the very last step) to determine the constant
+$\alpha$.\footnote{By \emph{constant} $\alpha$, we mean $\alpha$ is a number that's
+  independent of the vectors $\v{a}$, $\v{b}$, $\v{c}$ \& $\v{d}$.}
+
+\mnote{01L 08/01/08}
+\mnote{01L 13/01/09}
+
+\subsection{Some examples of vector products in physics}
+
+\textbf{Torque}
+
+The \emph{torque} or \emph{couple} or \emph{moment} of a force about the origin is
+defined as $\v{G} = \v{r} \times \v{F}$ where $\v{r}$ is the position vector of the point
+where the force is acting and $\v{F}$ is the force vector at that point. Thus torque
+about the origin is a vector quantity.
+
+\parbox{3cm}{
+  \epsfxsize=3cm
+  \includegraphics{tikz_torque.pdf}}
+\hspace*{1cm}
+\parbox{12cm} {The magnitude of the torque about an axis through the
+  origin in direction $\v{n}$ is given by $\v{n} \cdot \v{G} =
+    \v{n}\cdot (\v{r} \times \v{F})$. Note that this is a scalar
+  quantity formed by a scalar triple product.  }
+
+\textbf{Angular velocity}
+
+\parbox{12cm}{
+  %
+  Consider a point in a rigid body rotating with \emph{angular velocity} $\v{\omega}\,$,
+  where $\,|\v{\omega}| \equiv \omega$ is the angular speed of rotation measured in radians
+  per second, and the unit vector $\v{\hat{\omega}}$ lies along the axis of rotation, so
+  $\v{\omega} = \omega \, \v{\hat{\omega}}$. Let the position vector of the point with
+  respect to an origin $O$ on the axis of rotation be $\v{r}$.
+
+  The velocity of the point is \qquad \bigbox{ \( \v{v} \,=\, \v{\omega}\times\v{r} \) }
+  \medskip
+
+  We can show this as follows:}
+%
+%From the first figure, we note that $\v{v}$ is parallel to $\v{\omega}\times\v{r}$.  }
+%
+\hspace{1cm}
+%
+\parbox{3cm}{
+  \epsfxsize=3cm
+  \includegraphics{tikz_rotate.pdf}
+}\hspace*{1cm}
+
+%\parbox{12cm}{
+
+% You should convince yourself that the point's velocity is given by
+% $\v{v}= \v{\omega}\times \v{r}$ by checking that this gives the right
+% direction for $\v{v}$; that it is perpendicular to the plane of
+% $\v{\omega}$ and $\v{r}$; that the magnitude $|\v{v}| = \omega r \sin
+% \theta$ = $\omega \rho$, where $\rho$ is the radius of the circle in
+% which the point is travelling. }
+
+%
+
+%\vspace*{-4ex}
+
+\parbox{0.67\textwidth}{
+  %
+
+  \vspace*{0.5ex}
+
+  In time $\delta t$, the point rotates through angle $\delta\phi$ from $\v{r}$ to $\v{r} +
+    \delta\v{r}$.
+
+  From the second figure, the distance $|\delta \v{r}|$ moved in time $\delta t$, is
+  \[
+    |\delta \v{r}|
+    \,= \,
+    r\sin\theta \: \delta\phi
+    \,=\,
+    \left|\v{\hat{\omega}} \times \v{r}  \right| \, \delta\phi
+  \]
+  Since $\delta\v{r}$ is parallel to $\v{\omega}\times\v{r}$, we deduce that
+  \[
+    \delta\v{r}
+    \,=\,
+    \v{\hat{\omega}} \times \v{r} \; \delta\phi
+  \]
+  and hence
+  \[
+    \frac{\delta\v{r}}{\delta t}
+    \,=\,
+    \v{\hat{\omega}} \times \v{r} \; \frac{\delta\phi}{\delta t}
+  \]
+  In the limit $\delta t \to 0$, we find
+  \[
+    \v{v}
+    \,=\,
+    \frac{d\v{r}}{dt}
+    \,=\,
+    \v{\omega} \times \v{r}
+    \quad \mbox{where} \quad
+    \v{\omega}
+    \,=\,
+    \frac{d\phi}{dt} \, \v{\hat{\omega}}
+  \]
+}
+%
+\hspace*{0.05\textwidth}
+%
+\parbox{0.3\textwidth}{
+  \begin{center}
+    \epsfxsize=0.25\textwidth
+    \includegraphics{fig_small_rotation-eps-converted-to.pdf}
+  \end{center}
+}
+
+\textbf{Angular momentum}
+
+Now consider the \emph{angular momentum} of a rotating particle, this is defined by
+$\v{L}= \v{r}\times (m\v{v})$ where $m$ is the mass of the particle.
+
+Using the above expression for $\v{v}$ we obtain
+\[
+  \v{L}
+  \,=\, m \v{r}\times(\v{\omega}\times \v{r})
+  \,=\, m \left[ r^2 \, \v{\omega}  \,-\, (\v{r}\cdot \v{\omega}) \, \v{r} \right]
+\]
+where we have used the identity for the vector triple product. Note that only if $\v{r}$
+is perpendicular to $\v{\omega}$ do we obtain $\v{L} = m r^2 \v{\omega}$, which means
+that only then are $\v{L}$ and $\v{\omega}$ in the same direction. Also note that
+$\v{L}=0$ if $\v{\omega}$ and $\v{r}$ are parallel.
+
+%% Brian Lecture 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Equations of points, lines and planes}
+
+\subsection{Position vector}
+
+A \emph{position vector} is a vector bound to some origin and gives the position of a
+point relative to that origin. It is often denoted by $\v{r}$ (or $\overrightarrow{OP}$
+or $\v{x}$).
+
+\medskip
+
+\parbox{3cm}{
+  \epsfxsize=3cm
+  \includegraphics{tikz_position_vec.pdf}
+}
+%
+\hspace*{5ex}
+%
+\parbox{65ex}{The equation for a point is simply $\v{r}=\v{a}$ where
+  $\v{a}$ is some vector.}
+
+\subsection{The equation of a line}
+
+Suppose that $P$ lies on a straight line which passes through a point $A$ which has a
+position vector $\v{a}$ with respect to an origin $O$. Let $P$ have position vector
+$\v{r}$ relative to $O$ and let $\v{u}$ be a vector through the origin in a direction
+parallel to the line.
+
+\parbox{4cm}{
+  \epsfxsize=4cm
+  \includegraphics{tikz_line.pdf}
+}
+\hspace{0.25in}
+\parbox{11.5cm}{
+  We may write
+  \[
+    \v{r} = \v{a} + \lambda\v{u}
+  \]
+  which is the \emph{parametric equation of the line}, \emph{i.e.} as we vary the parameter
+  $\lambda$ from $-\infty$ to $\infty$, $\v{r}$ describes all points on the line.}
+
+Rearranging and using $\v{u}\times\v{u} = 0$, we can also write this as
+\[
+  (\v{r} - \v{a})\times\v{u} \, = \, 0
+\]
+or \vspace*{-2ex}
+\begin{center}
+  \bigbox{ $\v{r}\times \v{u} = \v{c}$}
+\end{center}
+where $\v{c} = \v{a}\times \v{u}$ is normal to the plane containing
+the line and origin.
+
+The magnitude $c = |\v{c}| = |\v{a}\times \v{u}|$ is the perpendicular distance of the
+line from the origin.
+
+\paragraph{Physical example:}
+If angular momentum $\vL$ of a particle and its velocity $\v{v}$ are known, we still
+don't know the position exactly because the solution for $\v{r}$ of $\vL = m \vr \times
+  \vv $ is a line $\vr = \vr_{0} + \lambda \vv$.
+
+\medskip
+
+\textbf{Notes:}
+\begin{enumerate}
+
+  \item $\v{r}\times \v{u} = \v{c}$ is an \emph{implicit
+          equation} for a line
+
+  \item $\v{r}\times \v{u} = 0$ is the equation of a line
+        through the origin.
+
+\end{enumerate}
+
+\subsection{The equation of a plane}
+\parbox{5.2cm}{
+  \epsfxsize=5cm
+  \includegraphics{tikz_plane.pdf}
+}
+\hspace*{1ex}
+\parbox[b]{60ex}{
+  $\v{r}$ is the position vector of an arbitrary point $P$ on the plane \\[0.5ex]
+  $\v{a}$ is the position vector of a fixed point $A$ in the plane \\[0.5ex]
+  $\v{u}$ and $\v{v}$ are parallel to  the plane
+  but non-collinear: $\v{u}\times\v{v} \neq 0$.}
+
+We can express the vector $\overrightarrow{AP}$ in terms of $\v{u}$ and $\v{v}$, so that:
+\[
+  \v{r} = \v{a} + \overrightarrow{AP}
+  = \v{a} + \lambda\v{u} + \mu\v{v}
+\]
+for some $\lambda$ and $\mu$. This is the \emph{parametric equation of the plane}.
+
+We define the \emph{unit normal} to the plane
+\[
+  \v{n} = \frac{\v{u}\times\v{v}}{|\v{u}\times\v{v}|}\;.
+\]
+Since $\v{u}\cdot\v{n} = \v{v}\cdot\v{n} = 0$, we have the implicit equation
+\[
+  (\v{r} - \v{a})\cdot\v{n} = 0\;.
+\]
+Alternatively, we can write this as
+\begin{center}
+  \bigbox{$\v{r}\cdot\v{n} ~=~ p$}
+\end{center}
+where $p = \v{a}\cdot\v{n}$ is the perpendicular distance of the plane
+from the origin.
+
+This is a very important equation which you must be able to recognise.
+
+  {\bf Note}: $\v{r}\cdot\v{n} = 0$ is the equation for a plane
+through the origin (with unit normal $\v{n}$).
+
+\subsection{Examples of dealing with vector equations}
+
+Before going through some worked examples let us state two simple rules which will help
+you to avoid many common mistakes
+
+\begin{enumerate}
+
+  \item
+        %
+        {\bfseries Always} check that the quantities on both sides of an equation
+        are of the same type. For example, any equation of the form
+        \emph{vector} = \emph{scalar} is clearly wrong, as is \emph{vector} =
+        \emph{scalar} + \emph{vector}. (The only exception to this is when we
+        write \emph{vector} = $0$ instead of $\v{0}\,$.)
+
+  \item {\bfseries Never} try to divide by a vector -- there is no such
+        operation!
+\end{enumerate}
+
+\paragraph{Example 1:} Is the following set of equations consistent?
+\begin{eqnarray}
+  \v{r}\times\v{b} \,=\, \v{c} \label{line} \\[0.5ex]
+  \v{r} \,=\, \v{a}\times\v{c}
+  \label{pt}
+\end{eqnarray}
+Geometrical interpretation: the first equation is the (implicit)
+equation for a line whereas the second equation is the (explicit)
+equation for a point. Thus the question is whether the point is on the
+line. To do this, take the vector product of equation~(\ref{pt}) with $\v{b}$
+%If we insert equation~(\ref{pt}) for $\v{r}$ into the LHS of
+%equation~(\ref{line}) we find
+\begin{equation}
+  \v{r}\times\v{b}
+  \,=\,
+  (\v{a}\times\v{c})\times\v{b}
+  \,=\,
+  -\v{b}\times(\v{a}\times\v{c})
+  \,=\,
+  -\v{a}\,(\v{b}\cdot\v{c})+\v{c}\,(\v{a}\cdot\v{b})
+  \label{linea}
+\end{equation}
+Now from (\ref{line}) we have that $\v{b}\cdot\v{c} = \v{b}\cdot
+  (\v{r}\times\v{b})=0$ thus (\ref{linea}) becomes
+\begin{equation}
+  \v{r}\times\v{b}
+  =
+  \v{c}\, (\v{a}\cdot\v{b})
+  \label{lineb}
+\end{equation}
+so that, on comparing (\ref{line}) and (\ref{lineb}), we require
+\[
+  \v{a}\cdot\v{b}=1
+\]
+for the equations to be consistent.
+
+\paragraph{Example 2:}
+Solve the following set of equations for $\v{r}$.
+\begin{eqnarray}
+  \v{r}\times\v{a} &=& \v{b}			\label{line2} \\
+  \v{r}\times\v{c} &=& \v{d}			\label{line3}
+\end{eqnarray}
+Geometrical interpretation: both equations are equations for lines,
+\emph{e.g.}~(\ref{line2}) is for a line parallel to $\v{a}$ where
+$\v{b}$ is normal to the plane containing the line and the origin. The
+problem is to find the intersection of two lines -- assuming the
+equations are consistent and the lines do indeed have an intersection.
+
+Extending what we did in Example~1, we can check consistency and indeed solve these
+equations for $\v{r}$ by taking scalar and vector products of the equations with the
+vectors they contain, namely $\v{a}$, $\v{b}$, $\v{c}$ and $\v{d}$.
+
+Are these equations consistent? Take the scalar product of (\ref{line2}) with $\v{c}$,
+and of (\ref{line3}) with $\v{a}$:
+\begin{eqnarray}
+  (\v{r}\times\v{a}) \cdot \v{c} &=& \v{b} \cdot \v{c}  \label{line22} \\
+  (\v{r}\times\v{c}) \cdot \v{a} &=& \v{d} \cdot \v{a}  \label{line33}
+\end{eqnarray}
+Using the cyclic properties of the scalar triple product, we must have
+$\v{b}\cdot\v{c} = - \v{d}\cdot\v{a}$ for consistency.
+
+To solve (\ref{line2}) and (\ref{line3}), we take the vector product of
+equation~(\ref{line2}) with $\v{d}$, which gives
+\[
+  \v{b}\times\v{d}
+  \,=\,  (\v{r}\times\v{a})\times\v{d}
+  \,=\, -\v{d}\times(\v{r}\times\v{a})
+  \,=\, -\v{r}\, (\v{a}\cdot\v{d}) + \v{a}\, (\v{d}\cdot\v{r})
+\]
+From (\ref{line3}) we see that $\v{d}\cdot\v{r} = \v{r}\cdot(\v{r}\times\v{c})= 0$, so
+the solution is
+\[
+  \v{r}
+  \,=\,
+  -\frac{\v{b}\times\v{d}}{\v{a}\cdot\v{d}}
+  \qquad(\mbox{for\ \ }
+  \v{a}\cdot\v{d}\neq 0)
+\]
+Alternatively, we could have taken the vector product of $\v{b}$ with
+equation~(\ref{line3}) to obtain
+\[
+  \v{b}\times\v{d}
+  \,=\,
+  \v{b}\times(\v{r}\times\v{c})
+  \,=\,
+  \v{r}\, (\v{b}\cdot\v{c}) - \v{c}\, (\v{b}\cdot\v{r})\;.
+\]
+From equation~(\ref{line2}), we find $\v{b}\cdot\v{r} = 0$, hence
+\[
+  \v{r} \,=\, \frac{\v{b}\times\v{d}}{\v{b}\cdot\v{c}}
+  \qquad(\mbox{for\ \ }
+  \v{b}\cdot\v{c}\neq 0)
+\]
+in agreement with our first solution (when $\v{b}\cdot\v{c} = - \v{d}\cdot\v{a}$).
+
+\mnote{02L 11/01/08}
+
+What happens when $\v a \cdot \v d = \v b \cdot \v c= 0$? In this case the above approach
+does not give an expression for $\v{r}$. However from (\ref{line33}) we see
+$\v{a}\cdot\v{d} = 0$ implies that $\v{a}\cdot(\v{r}\times\v{c})=0$ so that $\v{a},\;
+  \v{c},\; \v{r}$ are coplanar. We can therefore write $\v{r}$ as a linear combination of
+$\v{a}, \v{c}$:
+\begin{equation}
+  \v{r} \,=\, \alpha\, \v{a} + \gamma\,\v{c} \; .
+  \label{lincom}
+\end{equation}
+To determine the scalar $\alpha$ we can take the vector product with
+$\v{c}$ to find
+\begin{equation}
+  \v{d}\,=\, \alpha\,\v{a}\times\v{c}
+  \label{alpha}
+\end{equation}
+(because $\v{r}\times\v{c} = \v{d}$ from (\ref{line3}) and
+$\v{c}\times\v{c} =0$). In order to extract $\alpha$ we need to
+convert the vectors in (\ref{alpha}) into scalars. We do this by
+taking, for example, a scalar product with $\v{b}$
+\[
+  \v{b}\cdot\v{d} \,=\, \alpha\,\v{b}\cdot(\v{a}\times\v{c})
+\]
+so that
+\[
+  \alpha \,=\, \frac{-\v{b}\cdot\v{d}}{\stpr{a}{b}{c}}\;.
+\]
+Similarly, one can determine $\gamma$ by taking the vector product of (\ref{lincom}) with
+$\v{a}$:
+\[
+  \v{b} \,=\, \gamma\,\v{c}\times\v{a}
+\]
+then taking a scalar product with $\v{b}$ to obtain finally
+\[
+  \gamma \,=\, \frac{\v{b}\cdot\v{b}}{\stpr{a}{b}{c}} \;\;.
+\]
+
+\mnote{02L 16/01/09}
+
+\paragraph{Example 3:} Solve for $\v{r}$ the vector equation
+\begin{equation}
+  \v{r} + (\v{n}\cdot\v{r})\;\v{n} +2\v{n}\times\v{r} + 2\v{b}
+  \,=\, 0
+  \label{eq}
+\end{equation}
+where $\v{n}\cdot\v{n} = 1$.
+
+In order to unravel this equation we can try taking scalar and vector products of the
+equation with the vectors involved. However straight away we see that taking various
+products with $\v{r}$ will not help, since it will produce terms that are quadratic in
+$\v{r}$. Instead, we want to eliminate $(\v{n}\cdot\v{r})$ and $(\v{n}\times\v{r})$ so we
+try taking scalar and vector products with $\v{n}$.
+
+Taking the scalar product of $\v{n}$ with both sides of equation~(\ref{eq}) one finds
+\[
+  \v{n}\cdot\v{r} + (\v{n}\cdot\v{r})(\v{n}\cdot\v{n})
+  + 0 + 2\v{n}\cdot\v{b}
+  \,=\, 0
+\]
+so that, since $(\v{n}\cdot\v{n}) = 1$, we have
+\begin{equation}
+  \v{n}\cdot\v{r} \,=\, -\v{n}\cdot\v{b}
+  \label{ndotr}
+\end{equation}
+Taking the vector product of $\v{n}$ with equation~(\ref{eq}) gives
+\[
+  \v{n}\times\v{r} + 0
+  + 2 \left[\, \v{n}(\v{n}\cdot\v{r}) - \v{r} \,\right]
+  + 2\v{n}\times\v{b}
+  \,=\, 0
+\]
+so that
+\begin{equation}
+  \v{n}\times\v{r}
+  \,=\,
+  2\left[\, \v{n}(\v{b}\cdot\v{n}) + \v{r} \,\right] - 2\v{n}\times\v{b}
+  \label{ncrossr}
+\end{equation}
+where we have used (\ref{ndotr}). Substituting (\ref{ndotr}) and
+(\ref{ncrossr}) into (\ref{eq}) one (eventually) obtains
+\begin{equation}
+  \v{r}
+  \,=\,
+  \frac{1}{5}
+  \left[\,
+    - 3(\v{b}\cdot\v{n})\,\v{n} + 4(\v{n}\times\v{b})
+    - 2\v{b}
+    \,\right]
+\end{equation}
+
+%% Brian Lecture 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Vector spaces and orthonormal bases}
+
+%\nsection{Vector Spaces and Orthonormal Bases  {\it RHB, 7.1.0, 7.1.1, 6.4}}
+
+\subsection{Review of linear vector spaces}
+
+Let $V$ denote a linear vector space. Then vectors in $V$ obey the following rules for
+addition and multiplication by scalars
+\begin{eqnarray*}
+  \v{a} + \v{b}&\in& V \qquad\mbox{ if}\quad \v{a},\v{b} \in V \\
+  \alpha \v{a}&\in& V \qquad\mbox{ if}\quad\v{a} \in V \\
+  \alpha(\v{a}+\v{b}) &=& \alpha \v{a} + \alpha \v{b}\\
+  (\alpha+\beta)\v{a} &=& \alpha \v{a} + \beta \v{a}
+\end{eqnarray*}
+The space contains a zero vector or null vector, $\v{0}$, so that, for
+example $\v{a}+(-\v{a})=\v{0}$. We usually omit the underline from the
+zero vector.
+
+Of course as we have seen, vectors in $\thickR^3$ (usual 3-dimensional real space) obey
+these axioms. Other simple examples are a plane through the origin which forms a
+two-dimensional space and a line through the origin which forms a one-dimensional space.
+
+\subsection{Linear independence}
+
+Let $\v{a}$ and $\v{b}$ be two vectors in a plane through the origin, and consider the
+equation
+\begin{center}
+  \bigbox{$\alpha\v{a} + \beta\v{b}$ = 0}
+\end{center}
+If this is satisfied for \emph{non-zero} $\alpha$ and $\beta$ then
+$\v{a}$ and $\v{b}$ are said to be \emph{linearly dependent},
+\[
+  \mbox{\emph{i.e.}} \quad \v{b} = -\frac{\alpha}{\beta}\,\v{a}\;.
+\]
+Clearly $\v{a}$ and $\v{b}$ are \emph{collinear} (either parallel or anti-parallel).
+
+If this equation can be satisfied \emph{only} for $\alpha = \beta = 0$, then $\v{a}$ and
+$\v{b}$ are \emph{linearly independent}; they are obviously \emph{not} collinear, and no
+$\lambda$ can be found such that $\v{b} = \lambda\v{a}$.
+
+\paragraph{Notes}
+\begin{enumerate}
+  \item If $\v{a},\ \v{b}$ are linearly independent then any vector $\v{r}$ in the plane may be
+        written uniquely as a linear combination
+        \[
+          \v{r}=\alpha \v{a} + \beta \v{b}
+        \]
+
+  \item We say $\v{a},\ \v{b}$ \emph{span} the plane, or $\v{a},\ \v{b}$ form a \emph{basis} for
+        the plane.
+
+  \item We call $(\alpha,\beta)$ a \emph{representation} of $\v{r}$ in the basis formed by
+        $\v{a},\ \v{b}\,$, and we say that $\alpha,\ \beta$ are the \emph{components} of $\v{r}$
+        in this basis.
+\end{enumerate}
+
+\textbf{In three dimensions} three vectors are linearly dependent if we
+can find non-trivial $\alpha, \beta, \gamma$ (\emph{i.e.}~not all
+zero) such that
+\begin{center}
+  \bigbox{$\alpha\v{a} + \beta\v{b} +\gamma\v{c} = 0$}
+\end{center}
+otherwise $\v{a},\,\v{b},\,\v{c}$ are linearly independent (no one is a
+linear combination of the other two).
+
+  {\bf Notes}
+\begin{enumerate}
+  \item
+        If $\v{a}$, $\v{b}$ and $\v{c}$ are linearly independent they span
+        $\thickR^3$ and form a basis, \emph{i.e.}~for any vector $\vr$ we can
+        find scalars $\alpha, \beta, \gamma$ such that
+        \[
+          \v{r} = \alpha\v{a} + \beta\v{b} + \gamma\v{c}\;.
+        \]
+
+  \item
+        The \emph{triple} of numbers ($\alpha, \beta, \gamma$) is the
+        \emph{representation} of $\v{r}$ in this basis, and
+        $\alpha$,\ $\beta$,\ $\gamma$ are the \emph{components} of $\v{r}$ in
+        this basis.
+
+  \item
+        The geometrical interpretation of linear dependence in three
+        dimensions is that
+        \begin{center}
+          \bigbox{three linearly dependent vectors $~\Leftrightarrow$~ three
+            coplanar vectors}
+        \end{center}
+
+        To see this, note that if $\alpha\v{a} + \beta\v{b} +\gamma\v{c} = 0$ then
+        \begin{eqnarray*}
+          \mbox{for } \alpha \neq 0:
+          &&
+          \v{a}\cdot (\v{b} \times \v{c}) = 0
+          \qquad\quad\;\; \Rightarrow  \quad
+          \v{a},\, \v{b},\, \v{c} \quad \mbox{are coplanar}\\
+          \mbox{for } \alpha =  0:
+          &&
+          \mbox{$\v{b}$ is collinear with $\v{c}$}
+          \quad \Rightarrow  \quad
+          \v{a},\, \v{b},\, \v{c} \quad \mbox{are coplanar}
+        \end{eqnarray*}
+
+        The converse (that three co-planar vectors are linearly dependent) follows automatically
+        from the definition of linear dependence. Thus $\stpr{a}{b}{c} =0$ is a necessary and
+        sufficient condition for 3 vectors to be linearly dependent in 3 dimensions
+
+  \item Generally, in order to find the components $\alpha$, $\beta$, $\gamma$ one can use
+        \[
+          \alpha \,=\, \vr\cdot\v{a}^*\quad   \beta  = \vr\cdot\v{b}^* \quad \gamma = \vr\cdot\v{c}^*
+        \]
+        where the reciprocal basis vectors $\v{a}^*,\ \v{b}^*,\ \v{c}^*$ are defined by
+        \[
+          \v{a}^* \,=\, \frac{ \v{b} \times \v{c}}{ \v{a}\cdot(\v{b} \times \v{c})}
+          \quad
+          \v{b}^* \,=\, \frac{ \v{c} \times \v{a}}{ \v{b}\cdot(\v{c} \times \v{a})}
+          \quad
+          \v{c}^* \,=\, \frac{ \v{a} \times \v{b}}{ \v{c}\cdot(\v{a} \times \v{b})}
+        \]
+        You should verify this by substitution. Question sheet 2 explores reciprocal vectors
+        further. They are of prime importance in crystallography, for example in describing the
+        positions of sites on a non-cubic lattice.
+
+\end{enumerate}
+
+These ideas can be generalised to vector spaces of arbitrary dimension. For a space of
+dimension $n$ one can find at most $n$ linearly independent vectors.
+
+%\subsection{Reciprocal basis}
+
+%If $\vL, \vM, \vN$ form a basis for $\thickR^3$ then the components
+%of an arbitrary vector 
+%\[\vr \ = \ l\vL + m\vM + n\vN\;.\] can be found using
+%\[ l = \vr\cdot\vL^*\quad   m = \vr\cdot\vM^* \quad n = \vr\cdot\vN^* \]
+%where the reciprocal basis vectors $\vL^*,\ \vM^*,\ \vN^*$ are defined by
+%\[
+%\vL^*= \frac{ \vM \times \vN}{ \vL\cdot(\vM \times \vN)}
+%\quad
+%\vM^*= \frac{ \vN \times \vL}{ \vM\cdot(\vN \times \vL)}
+%\quad
+%\vN^*= \frac{ \vL \times \vM}{ \vN\cdot(\vL \times \vM)}
+%\]\\
+%You should verify this by substitution. Question 2.5 and 2.6 explore
+%reciprocal vectors further. They are of prime importance in
+%crystallography, for example  in describing the positions
+%of sites on a non-cubic lattice (see Physics 2 Properties of Matter course).
+
+%\subsection{Scalar Product}
+
+%Consider the scalar product of
+%$\vr = l\vL + m\vM + n\vN$
+%with a different vector
+%$\vr' = l'\vL + m'\vM + n'\vN$:
+%\begin{eqnarray*}
+%\vr\cdot\vr' & = &
+%ll'L^2 + mm'M^2 + nn'N^2
+%+ (ml' + lm')\vL\cdot\vM\\
+%& & + (ln' + nl')\vL\cdot\vN
+%+ (mn' + nm')\vM\cdot\vN\,\;.
+%\end{eqnarray*}
+%For a general basis comprising  \vL, \vM\ and \vN, this is very clumsy.
+%It simplifies if the basis vectors are 
+%of \emph{unit length} ($L^2 = M^2 = N^2 = 1$) and
+%\emph{mutually orthogonal}
+%($\vL\cdot\vM = \vL\cdot\vN = \vM\cdot\vN = 0$),
+%so that
+%\[
+%\vr\cdot\vr' \ = \ ll' + mm' + nn'.
+%\]
+%and the components are easily obtained
+%\[
+%l= \vr\cdot\vL \quad m= \vr\cdot\vM\quad n= \vr\cdot\vN 
+%\]
+%This is a very special type of basis that is {\em self-reciprocal} {\it i.e.}
+%$\vL^* =\vL$, $\vM^* =\vM$, $\vN^* =\vN$
+
+\subsection{Standard orthonormal basis: Cartesian basis}
+
+A basis in which the basis vectors are \emph{orthogonal} and \emph{normalised} (of unit
+length) is called an \textbf{orthonormal} basis.
+
+You have already encountered the idea of \emph{Cartesian coordinates} in which points in
+space are labelled by coordinates $(x,y,z)$. We introduce orthonormal basis vectors
+denoted by $\ex,\ \ey$\ and $\ez$ which point along the $x$, $y$ and $z$-axes,
+respectively.
+
+% It is usually understood that the basis vectors are related by the
+% right-hand screw rule, with $\ex \times \ey = \ek$ and so on,
+% cyclically.
+
+In the `$x y z$' notation the components of a vector $\v{a}$ are $a_x$, $a_y$, $a_z$, and
+a vector is written in terms of the basis vectors as
+\[
+  \v{a}  \,=\,  \ad{x}\,\ex + \ad{y}\,\ey + \ad{z}\,\ez\,
+  \quad\mbox{ (or\ \ }
+  \v{a} \,=\, a_x\;\vi + a_y\;\vj + a_z\;\vk\, \mbox{)} \;.
+\]
+\textbf{NB} We will NOT use the notation `$\vi$, $\vj$, $\vk$' for basis
+vectors as this causes confusion in suffix notation.
+
+%Also note that \emph{in this basis} the basis vectors themselves are
+%represented by
+%\[
+%  \vi = \ex = (1, 0, 0) \quad
+%  \vj = \ey = (0, 1, 0)  \quad
+%  \vk = \ez = (0, 0, 1)
+%\]
+
+\subsection{Introduction to suffix or index notation}
+
+A more systematic labelling of orthonormal basis vectors for $\thickR^3$ is to use
+$\eone,\ \etwo$ and $\ethree$. Instead of $\ex$ we write $\eone$, instead of $\ey$ we
+write $\etwo$, and instead of $\ez$ we write $\ethree$. Then, from the definition of the
+scalar product in Section~(\ref{sec:scalarproduct}), we get
+\begin{equation}\label{triad}
+  \bigbox{$
+      \ds\eone\cdot\eone = \etwo\cdot\etwo = \ethree\cdot\ethree = 1
+      \qquad\mbox{and}\qquad
+      \eone\cdot\etwo = \etwo\cdot\ethree = \ethree\cdot\eone = 0
+    $}
+\end{equation}
+
+Similarly the components of any vector $\v{a}$ in 3-d space are denoted by $a_1$, $a_2$
+\mbox{and $a_3$}.
+
+This scheme is known as the \emph{suffix} or \emph{index} notation. Its great advantages
+over `$x y z$' notation are that it clearly generalises easily to any number of
+dimensions, and it greatly simplifies manipulations and the verification of various
+identities (see later in the course).
+
+\begin{picture}(330,110)(0,-30)
+  \put(20,0){\vector(1,0){40}}
+  \put(65,-10){\makebox(0,0)[rb]{\mbox{$\vi$}}}
+  \put(20,0){\vector(0,1){40}}
+  \put(5,40){\makebox(0,0)[lt]{$\vk$}}
+  \put(20,0){\vector(3,2){25}}
+  \put(38,31){\makebox(0,0)[lt]{$\vj$}}
+  \put(20,-30){\makebox(0,0)[lb]{$\vr = x\v{i}+y\v{j} +z\v{k}$}}
+  \put(15,50){\makebox(0,0)[lb]{\bf Old notation}}
+  \put(80,20){\makebox(0,0)[lb]{\bf or}}
+  \put(130,0){\vector(1,0){40}}
+  \put(170,-10){\makebox(0,0)[rb]{\mbox{$\ex$}}}
+  \put(130,0){\vector(0,1){40}}
+  \put(115,40){\makebox(0,0)[lt]{$\ez$}}
+  \put(130,0){\vector(3,2){25}}
+  \put(148,29){\makebox(0,0)[lt]{$\ey$}}
+  \put(130,-30){\makebox(0,0)[lb]{$\vr = x\,\ex+y\,\ey +z\,\ez$}}
+  \put(260,0){\vector(1,0){40}}
+  \put(310,-10){\makebox(0,0)[rb]{$\eone$}}
+  \put(260,0){\vector(0,1){40}}
+  \put(245,40){\makebox(0,0)[lt]{$\ethree$}}
+  \put(260,0){\vector(3,2){25}}
+  \put(278,29){\makebox(0,0)[lt]{$\etwo$}}
+  \put(255,50){\makebox(0,0)[lb]{\bf New notation}}
+  \put(260,-30){\makebox(0,0)[lb]{$\vr = x_1\,\eone+x_2\,\etwo +x_3\,\ethree$}}
+  %%% Roger/Cambridge-ism!                                 \equiv  r_1\,\eone+r_2\,\etwo+r_3\,\ethree$}}
+\end{picture}
+
+Thus any vector $\v{a}$ is written in this new notation as
+\[
+  \v{a}
+  \,=\,
+  a_1 \;\eone + a_2\;\etwo + a_3\; \ethree \\
+  \,=\,
+  \sum_{i=1}^3\; \ad{i}\;\ei\;.
+\]
+\[
+  \bigbox{The last summation will often be abbreviated to $\displaystyle
+      \v{a} =\sum_{i} \ad{i}\;\ei\ $}
+\]
+
+\paragraph{Notes}
+\begin{enumerate}
+
+  \item
+        The three numbers $\ad{i}$, $i=1,\,2,\,3,$ are called the (Cartesian)
+        \emph{components} of $\v{a}$ with respect to the basis set $\{\ei\}$.
+
+  \item
+        We may write $\ds \v{a} = \sum_{i=1}^3\ad{i}\, \ei =
+          \sum_{j=1}^3\ad{j}\,\ej =\sum_{p=1}^3 \ad{p}\,\ed{p} =
+          \sum_{\alpha=1}^3 \ad{\alpha}\,\ed{\alpha}$ where the summed indices
+        $i,\, j, \, p$, $\alpha$ are called `dummy', `repeated' or `summation'
+        indices. We can choose \emph{any} letter or symbol for them.
+
+  \item
+        The components $a_i$ of a vector $\v{a}$ may be obtained using the
+        orthonormality properties of equation~(\ref{triad}):
+        \[
+          \v{a}\cdot\eone
+          =
+          (a_1\,\eone + a_2\,\etwo + a_3\,\ethree)\cdot\eone  =  a_1
+        \]
+        \begin{center}
+          \bigbox{$a_1$ is the projection of $\v{a}$ in the direction of $\eone$.}
+        \end{center}
+        Similarly for the components $a_2$ and $a_3$.  So in general we may
+        write
+        \begin{center}
+          \bigbox{$\v{a}\cdot\ei = \ad{i}\quad\mbox{or sometimes}\quad
+              (\v{a})_i$}
+        \end{center}
+        where in this equation $i$ is a `free' index and may take values
+        $i=1,2,3$.  In this way we are in fact condensing three equations into
+        one.
+
+  \item
+        In terms of these components, the scalar product is
+        \[
+          \v{a}\cdot\v{b}
+          \,=\,
+          (a_1\,\eone + a_2\,\etwo + a_3\,\ethree)
+          \cdot
+          (b_1\,\eone + b_2\,\etwo + b_3\,\ethree)
+        \]
+        Using the orthonormality of the basis vectors (equation~(\ref{triad})), this becomes
+        \begin{center}
+          \bigbox{
+            $\displaystyle\v{a}\cdot\v{b}  =  \sum_{i=1}^3\;a_i \, b_i$
+          }
+        \end{center}
+        In particular the magnitude of a vector is now
+        \[
+          a
+          \,=\,
+          |\v{a}|
+          \,=\,
+          \sqrt{\v{a}\cdot\v{a}}
+          \,=\,
+          \sqrt{a_1^2+a_2^2+a_3^2} \,.
+        \]
+
+        \mnote{03L 15/01/08}
+
+        % Zap/postpone the next section? No, because Roger refers to the
+        % elements of the transofrmation matrix as direction cosines.
+
+        % \item
+        % From Notes 3 and 4 above we can define {\bf direction cosines} $l_1$,
+        % $l_2$, $l_3$ of the vector $\v{a}$ as the cosines of the angles
+        % between the vector and the basis axes, namely
+        % \[
+        %    l_i \equiv \cos\theta_i
+        %    \,=\,
+        %    {\v{a}\cdot\v{e_i} \over a}
+        %    \,=\,
+        %    {a_i \over a}\,, \qquad i = 1, 2, 3 \,.  \nonumber
+        % \]
+        % It follows that
+        % \[
+        %   \sum_{i=1}^3 l_i^2 \equiv l_1^2 + l_2^2 + l_3^2
+        %   \,=\,
+        %   1 \,.
+        % \]
+        % If $\v{a}$ has direction cosines $l_i\,$, $\v{b}$ has direction
+        % cosines $m_i\,$, and $\theta$ is the angle between $\v{a}$ and
+        % $\v{b}$, then
+        % \[
+        %   \v{a}\cdot\v{b}
+        %   \,=\,
+        %   \sum_{i=1}^{3} a_i b_i 
+        %   \,=\,
+        %   ab \sum_{i=1}^{3} l_i m_i
+        %   \,=\,
+        %   ab\cos\theta \,,
+        % \]
+        % or
+        % \[
+        %   \cos\theta
+        %   \,=\,
+        %   \sum_{i=1}^{3} l_i m_i \,.
+        % \]
+
+\end{enumerate}
+\mnote{03L 20/01/09}
+
+%% Brian Lecture 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Using suffix notation}
+\label{suffix}
+
+\subsection{The Kronecker delta symbol $\delt{ij}$}
+We \emph{define} the symbol $\delt{ij}$ (pronounced \emph{``delta i
+  j''}), where $i$ and $j$ can take on the values $1,\, 2,\, 3$, as follows
+\vspace*{-2ex}
+\begin{center}
+  \fbox{
+    \parbox[c]{45mm}{
+      \vspace*{-3ex}
+      \begin{eqnarray*}
+        \delt{ij}
+        & = & 1 \quad \mbox{when $i = j$ }\\
+        & = & 0 \quad \mbox{when $i \neq j$ }
+      \end{eqnarray*}
+      \vspace*{-4ex}
+    }}
+\end{center}
+\emph{i.e.}~~$\delta_{11} = \delta_{22} = \delta_{33} = 1$ and
+$\delta_{12} = \delta_{13} = \delta_{23} = \cdots = 0$.
+
+The equations satisfied by the three \emph{orthonormal basis vectors} $\ei$ can now be
+written as
+
+\begin{center}
+  \bigbox{$\ei\cdot\ej ~=~ \delt{ij}$}
+\end{center}
+\emph{e.g.}~~$\eone\cdot\etwo ~=~ \delta_{12} =0\;, \quad
+  \eone\cdot\eone \ = \ \delta_{11}=1$
+
+%%%% New bit from Martin/Kristel
+
+We can use this relation to easily extract the $k^{\rm th}$ component, $a_k$, of a vector
+$\v{a}$ since
+\[
+  \va\cdot \ek
+  \,=\,
+  \sum_{j=1}^3 a_{j} \, \ej \cdot \ek
+  \,=\,
+  \sum_{j=1}^3 a_{j} \,\delt{jk}
+  \,=\,
+  a_1 \, \delt{1k} \,+\, a_2 \, \delt{2k} \,+\, a_3 \, \delt{3 k}
+\]
+
+To go further, first note that $k$ is a \emph{free index} -- we are not summing over $k$
+and the equation holds irrespective of whether $k = 1$, $2$ or $3$.
+
+If $k=1$, then only the first term on the RHS contributes and the RHS $=a_1$. Similarly,
+if $k=2$ then the RHS $=a_2$, and if $k=3$ the RHS $=a_3$. Hence
+\[
+  \bigbox{$\ds \sum_{j=1}^3 a_{j} \, \delt{jk}
+      \,=\,
+      a_{k}$}
+\]
+In other words, Kronecker delta $\delta_{jk}$ picks out the $k^{\rm th}$ term in the sum
+over $j$.
+
+So in the end we have (as expected)
+\[
+  \bigbox{$\ds\va\cdot \ek  \ = a_{k}$}
+\]
+
+\paragraph{Matrix representation:}  $\delt{ij}$ may be thought of as the
+elements of a $3\times3$ unit matrix
+\[
+  \left(\begin{array}{ccc}
+      \delta_{11} & \delta_{12} & \delta_{13} \\
+      \delta_{21} & \delta_{22} & \delta_{33} \\
+      \delta_{31} & \delta_{32} & \delta_{33}
+    \end{array}\right)
+  \,=\,
+  \left(\begin{array}{ccc}
+      1 & 0 & 0 \\
+      0 & 1 & 0 \\
+      0 & 0 & 1
+    \end{array}\right)
+  \,=\,
+  I
+\]
+In other words, $\delta_{ij}$ is the $ij^{\rm th}$ element of the unit matrix $I$,
+\emph{i.e.}~$I_{ij}=\delta_{ij}$.
+
+\paragraph{Notes}
+\begin{enumerate}
+  \item Since there are two free indices $i$ and $j$, \ $\ei\cdot\ej = \delt{ij}$ is equivalent
+        to 9 equations.
+
+  \item $\delt{ij} = \delt{ji}$. \ \ We say $\delt{ij}$ is \emph{symmetric}
+        in its indices.
+
+  \item ${\displaystyle
+              \sum_{i=1}^3 \delt{ii}
+              \,=\, \delta_{11} + \delta_{22} + \delta_{33} = 3}$.
+
+  \item
+        %
+        % We showed above that
+        % \[
+        %   \sum_{j=1}^3a_{j}\delt{jk}
+        %   =
+        %   a_1 \delt{1k}+a_2\delt{2k}+a_3\delt{3 k}
+        % \]  
+        % To go further, first note that $k$ is a free index.
+        % 
+        % If $k=1$, then only the first term on the RHS contributes and the RHS
+        % $=a_1$.  Similarly, if $k=2$ then the RHS $=a_2$, and if $k=3$ the RHS $=a_3$.
+        %
+        We showed above that
+        \[
+          \bigbox{$\ds\sum_{j=1}^3a_{j} \, \delt{jk} \ = a_{k}$}
+        \]
+        In other words, Kronecker delta $\delta_{jk}$ picks out the $k^{\rm th}$ term in the sum
+        over $j$.
+
+        Generalising the reasoning implies the so-called \emph{sifting property} of Kronecker
+        delta
+        \[
+          \bigbox{${
+                  \displaystyle\sum_{j=1}^3(\mbox{anything})_{j} \,\delt{jk}
+                  \,=\,
+                  (\mbox{anything})_{k}}
+            $}
+        \]
+        where (anything)$_{j}$ denotes any expression that has a single free index $j$.
+
+\end{enumerate}
+
+\mnote{04L 18/01/08}
+\mnote{04L 23/01/09}
+
+\paragraph{Examples of the use of Kronecker delta}
+\[
+  \begin{array}{lrcl}
+    \mbox{(1)} \qquad
+     &
+    \v{a}\cdot\ej
+     & = & \left(\ds\sum_{i=1}^3 a_{i} \, \ei\right) \cdot \ej
+    \, = \,  \ds\sum_{i=1}^3 a_{i}\; (\ei\cdot\ej)             \\[3.5ex]
+    %
+     &
+     & = &
+    \ds\sum_{i=1}^3a_{i} \, \delt{ij}
+    \, = \,
+    a_{j} \quad \mbox{because terms with $i \neq j$ vanish.}   \\[5.5ex]
+    %
+    \mbox{(2)} \qquad
+     &
+    \v{a} \cdot \v{b}
+     & = &
+    \left(\ds\sum_{i=1}^3 a_{i} \, \ei \right)
+    \cdot \left(\ds \sum_{j=1}^3 b_{j} \, \ej \right)          \\[3.5ex]
+    %
+     &
+     & = &
+    \ds\sum_{i=1}^3 \ds\sum_{j=1}^3 a_{i} b_{j}\: (\ei\cdot\ej)
+    ~ = ~
+    \ds\sum_{i=1}^3 \ds\sum_{j=1}^3 a_{i} b_{j} \delt{ij}      \\[3.5ex]
+    %
+     &
+     & = &
+    \ds\sum_{i=1}^3 a_{i} b_{i}
+    \quad
+    \left( \mbox{ or } \ds\sum_{j=1}^3a_{j}b_{j} \right)
+  \end{array}
+\]
+
+%\nsection{Suffix notation}
+
+\subsection{Free indices and summation indices}
+
+Consider the vector equation
+\begin{equation}
+  \v{a} - (\v{b}\cdot\v{c})\, \v{d} + 3 \v{n}=0
+\end{equation}
+The basis vectors are linearly independent, so this equation must hold
+for each component separately
+\begin{equation}\label{example}
+  a_i - (\v{b}\cdot\v{c})\, d_i + 3 n_i = 0
+  \quad\mbox{for all} \quad i=1,2,3
+\end{equation}
+The free index $i$ occurs \emph{once}, and \emph{only} once, in each
+term of the equation.  In general every term in the equation must be
+of the same kind, \emph{i.e.}~it must have the \emph{same free
+  indices}.
+
+Now suppose that we want to write the scalar product that appears in the second term of
+equation~(\ref{example}) in suffix notation. As we have seen, summation indices are
+`dummy' indices and can be relabelled. For example
+\[
+  \v{b}\cdot\v{c}
+  \,=\,
+  \sum_{i=1}^3 b_i \, c_i
+  \,=\,
+  \sum_{k=1}^3 b_k \, c_k
+\]
+This freedom should \emph{always} be used to avoid confusion with other indices in the
+equation. In this case, we avoid using $i$ as a summation index, as we have already used
+it as a free index, and rewrite equation~(\ref{example}) as
+\[
+  a_i - \left(\sum_{k=1}^3 b_k \, c_k\right) d_i + 3 n_i
+  \,=\,
+  0 \quad\mbox{for} \quad i=1,2,3
+\]
+\textbf{NB} Do \emph{not} write equation~(\ref{example}) as
+\[
+  a_i - \left(\sum_{i=1}^3 b_i \, c_i\right) d_i + 3 n_i=0
+  \quad\mbox{for} \quad i=1,2,3
+\]
+which would lead to great confusion and inevitably lead to mistakes when the brackets are
+removed -- as they will be very soon!
+
+\subsection{Handedness of basis}
+
+In the usual Cartesian basis that we've considered up to now, the basis vectors $\eone$,
+$\etwo$, and $\ethree$ form a \emph{right-handed} basis: $\eone\times\etwo = \ethree,
+  \;\, \etwo\times\ethree = \eone, \;\, \ethree\times\eone = \etwo$.
+
+However, we \emph{could} choose $\eone\times\etwo = -\ethree$, and so on, in which case
+the basis is said to be \emph{left-handed}.
+
+\begin{picture}(300,90)(0,-10)
+  \put(20,0){\vector(1,0){40}}
+  \put(65,-12){\makebox(0,0)[rb]{$\eone$}}
+  \put(20,0){\vector(0,1){40}}
+  \put(5,40){\makebox(0,0)[lt]{$\ethree$}}
+  \put(20,0){\vector(3,2){25}}
+  \put(35,28){\makebox(0,0)[lt]{$\etwo$}}
+  \put(18,50){\makebox(0,0)[lb]{\bf Right handed}}
+  \put(220,0){\vector(1,0){40}}
+  \put(265,-12){\makebox(0,0)[rb]{$\eone$}}
+  \put(220,0){\vector(0,1){40}}
+  \put(205,40){\makebox(0,0)[lt]{$\etwo$}}
+  \put(220,0){\vector(3,2){25}}
+  \put(238,28){\makebox(0,0)[lt]{$\ethree$}}
+  \put(218,50){\makebox(0,0)[lb]{\bf Left handed}}
+\end{picture}
+
+\vspace*{-5ex}
+\begin{minipage}[t]{2in}
+  \begin{eqnarray*}
+    \ethree &=& \eone\times\etwo \\
+    \eone &=& \etwo\times\ethree \\
+    \etwo &=& \ethree\times\eone
+  \end{eqnarray*}%&&\\
+  \vspace*{-3ex}
+  \[
+    \bigbox{$(\eone,\, \etwo,\, \ethree) ~=~ 1$}
+  \]
+\end{minipage}
+%
+\hspace{0.5in}
+%
+\begin{minipage}[t]{2in}
+  \begin{eqnarray*}
+    \ethree &=& \etwo\times\eone \\
+    \eone   &=& \ethree\times\etwo \\
+    \etwo   &=& \eone\times\ethree
+  \end{eqnarray*}
+  \vspace*{-3ex}
+  \[
+    \bigbox{$(\eone,\, \etwo,\, \ethree) ~=~ -1$}
+  \]
+\end{minipage}
+
+\medskip
+
+In this course, we will always use a right-handed basis unless stated otherwise.
+
+\newpage
+
+\subsection{The vector product in a right-handed basis}
+\[
+  \v{a}\times\v{b}
+  ~=~
+  \left(\sum_{i=1}^3\;a_{i}\;\ei\right)
+  \times
+  \left(\sum_{j=1}^3\;b_{j}\;\ej\right)
+  ~=~
+  \sum_{i=1}^3\;\sum_{j=1}^3\;a_{i}\;b_{j}\;(\ei\times\ej)\;.
+\]
+Since $\eone\times\eone = \etwo\times\etwo = \ethree\times\ethree = 0$, and
+$\eone\times\etwo =- \etwo\times\eone= \ethree $, \emph{etc}, we have
+\begin{equation}\label{vecprod}
+  \v{a}\times\v{b}
+  \,=\,
+  \eone(a_2b_3 - a_3b_2)
+  + \etwo(a_3b_1 - a_1b_3)
+  + \ethree(a_1b_2 - a_2b_1)
+\end{equation}
+from which we deduce that
+\[
+  (\v{a}\times\v{b})_1 = a_2b_3 - a_3b_2 \mbox{ , \emph{etc}.}
+\]
+Notice that the right-hand side of equation (\ref{vecprod}) corresponds to the expansion
+of the determinant
+\[
+  \left|
+  \begin{array}{ccc}
+    \eone & \etwo & \ethree \\
+    a_1   & a_2   & a_3     \\
+    b_1   & b_2   & b_3
+  \end{array}
+  \right|
+\]
+by the first row (see the next section for some properties of determinants.)
+
+\subsection{Determinants and the scalar triple product}
+We may label the elements of a $3\times 3$ array of numbers or \emph{matrix} $A$ by
+$a_{ij}$ (or alternatively by $A_{ij}$) where $i$ labels the row and $j$ labels the
+column in which $a_{ij}$ appears
+\[
+  A
+  \,=\,
+  \left(\begin{array}{ccc}
+      a_{11} & a_{12} & a_{13} \\
+      a_{21} & a_{22} & a_{23} \\
+      a_{31} & a_{32} & a_{33}
+    \end{array}\right).
+\]
+Then the \emph{determinant} of the matrix $A$ is defined as
+\begin{eqnarray*}
+  \det A
+  &\equiv&
+  \left| \begin{array}{ccc}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33}
+  \end{array}
+  \right|
+  \,=\,
+  a_{11} \left| \begin{array}{cc}
+    a_{22} & a_{23} \\
+    a_{32} & a_{33} \\
+  \end{array}
+  \right|
+  \,-\,
+  a_{12} \left| \begin{array}{cc}
+    a_{21} & a_{23} \\
+    a_{31} & a_{33} \\
+  \end{array}
+  \right|
+  \,+\,
+  a_{13} \left| \begin{array}{cc}
+    a_{21} & a_{22} \\
+    a_{31} & a_{32} \\
+  \end{array}
+  \right| \\[1ex]
+  &=&
+  a_{11} \left(a_{22}a_{33} - a_{23}a_{32}\right) -
+  a_{12} \left(a_{21}a_{33} - a_{23}a_{31}\right) +
+  a_{13} \left(a_{21}a_{32} - a_{22}a_{31}\right)
+\end{eqnarray*}
+It is now easy to write down an expression for the scalar triple
+product
+\begin{eqnarray*}
+  \v{a}\cdot\left(\v{b}\times\v{c}\right)
+  & = &
+  \sum_{i=1}^3 a_{i} \, \left(\v{b} \times \v{c}\right)_{i} \\[0.5ex]
+  &=&
+  a_1 \left(b_2 c_3 - b_3 c_2 \right)
+  - a_2 \left(b_1 c_3 - b_3 c_1 \right)
+  + a_3 \left(b_1 c_2 - b_2 c_1  \right) \\[1.5ex]
+  &=&
+  \left|
+  \begin{array}{ccc}
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3 \\
+  \end{array}
+  \right|
+\end{eqnarray*}
+which you should commmit to memory (if you haven't already done so already).
+
+\subsubsection*{Some properties of the determinant}
+An alternative expression for the determinant is given by noting that
+\begin{eqnarray*}
+  \det A &=& a_{11} (a_{22}a_{33} - a_{23}a_{32}) -
+  a_{12} (a_{21}a_{33} - a_{23}a_{31}) +
+  a_{13} (a_{21}a_{32} - a_{22}a_{31})
+  \\
+  &=& a_{11} (a_{22}a_{33} - a_{23}a_{32}) -
+  a_{21} (a_{12}a_{33} - a_{32}a_{13}) +
+  a_{31} (a_{12}a_{23} - a_{22}a_{13})
+  \\[1ex]
+  &=& \left| \begin{array}{ccc}
+    a_{11} & a_{21} & a_{31} \\
+    a_{12} & a_{22} & a_{32} \\
+    a_{13} & a_{23} & a_{33} \\
+  \end{array} \right|
+\end{eqnarray*}
+Evidently, the rows and columns of the matrix can be interchanged or
+\emph{transposed} without changing the determinant. This may be
+written more elegantly by defining the \emph{transpose} $A^T$ of a
+matrix $A$ as the matrix with elements $(A^T)_{ij} = a_{ji}$. Then
+\[
+  \det A = \det A^T \,.
+\]
+The symmetry properties of the determinant may be deduced from the scalar triple product
+(STP) by noting that interchanging two adjacent vectors in the STP is equivalent to
+interchanging two adjacent rows (or columns) of the determinant and changes its value by
+a factor $-1$. Also adding a multiple of one row (or column) to another does not change
+the value of $\det A$.
+
+\subsection{Summary of the algebraic approach to vectors}
+We are now able to define vectors and the various products of vectors in an algebraic way
+(as opposed to the geometrical approach of lectures 1 and 2).
+
+A \textbf{vector} is \emph{represented} (in some orthonormal basis $\eone,\, \etwo,\,
+\ethree$) by an ordered set of 3 numbers with certain laws of addition. For example
+\begin{eqnarray*}
+  \v{a} & \mbox{is represented by} & \left( \begin{array}{c} a_1\\ a_2\\ a_3\end{array} \right)\qquad
+  \v{a} + \v{b} \quad
+  \mbox{is represented by}
+  \left( \begin{array}{c} a_1+b_1\\ a_2+b_2\\ a_3+b_3\end{array} \right)
+  % \quad (a_1 + b_1,\, a_2 + b_2\, , a_3 + b_3)\,.
+\end{eqnarray*}
+It is important to remember that the representation \emph{depends on
+  the basis}.  We usually use a column vector, as we do here.  Sometimes
+we use a row vector which we denote
+$\v{a}^{T}$.%
+%
+\footnote{Beware:~sometimes we break these conventions and represent
+  $\v{a}$ by a row vector $(a_1,\, a_2,\, a_3)$. We may even write
+  $\v{a} = (a_1,\, a_2,\, a_3)$ when the meaning is not ambiguous.}
+
+The various `products' of vectors are now defined as follows:
+
+\textbf{The Scalar Product} is denoted by $\v{a}\cdot\v{b}$ and
+\emph{defined} as
+\begin{eqnarray*}
+  \v{a}\cdot\v{b}
+  & \equiv &
+  \sum_{i} a_{i}b_{i}\\
+  %
+  \v{a}\cdot\v{a}
+  & = &
+  a^2  \quad \mbox{defines the magnitude $a$ of the vector.}
+\end{eqnarray*}
+
+\textbf{The vector product} is denoted by $\v{a}\times\v{b}$ and
+\emph{defined} in a right-handed basis as
+\[
+  \v{a} \times \v{b}
+  \equiv
+  \left|
+  \begin{array}{ccc}
+    \eone & \etwo & \ethree \\
+    a_1   & a_2   & a_3     \\
+    b_1   & b_2   & b_3
+  \end{array}
+  \right|
+\]
+
+\textbf{The scalar triple product}
+\[
+  (\v{a},\v{b},\v{c})
+  ~\equiv~
+  \sumi a_{i} \, (\v{b}\times\v{c})_{i}
+  ~=~
+  \left|
+  \begin{array}{ccc}
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3
+  \end{array}
+  \right|
+\]
+
+In all the above formula the summations imply sums over each index taking values
+$1,\,2,\,3$.
+
+%% Brian Lecture 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{More About Suffix Notation}
+
+%\nsection{More About Suffix Notation}
+
+\section{The Einstein summation convention}
+
+The novelty of writing out summations soon wears thin. The standard way to avoid this
+tedium is to adopt the Einstein summation convention. By adhering \emph{strictly} to the
+following conventions or ``rules'' the summation signs are suppressed completely.
+
+\paragraph{Rules of the summation convention}
+\begin{enumerate}
+
+  \item Omit \emph{all} summation signs.
+
+  \item If a suffix appears \emph{twice}, a summation is implied, \emph{e.g.}~$a_i b_i = a_1 b_1
+          +a_2 b_2 +a_3 b_3\,$.
+
+        Here $i$ is a \emph{dummy} or \emph{repeated} index.
+
+  \item If a suffix appears only \emph{once} it can take any value \emph{e.g.}~$a_i = b_i$ holds
+        for $i=1,\, 2,\, 3$.
+
+        Here $i$ is a \emph{free} index. Note that there may be more than one free index.
+
+        \textbf{Always} check that the free indices match on both sides of an
+        equation.\\ For example, $a_{j}=b_{i}$ is WRONG.
+
+  \item A given suffix must \textbf{not} appear more than \textbf{twice} in any term in an
+        expression.
+
+        \textbf{Always} check that there aren't more than two identical
+        indices \emph{e.g.}~$a_i b_i c_i$ is simply WRONG.
+
+\end{enumerate}
+
+\paragraph{Examples}\mbox{}
+
+\hspace{5ex} $\v{a} = a_{i} \, \ei$ \hfill ($i$ is a dummy index)
+
+\hspace{5ex} $\v{a}\cdot \ej = a_{i} \, \ei \cdot \ej = a_{i} \delt{ij}
+  = a_{j}$ \hfill ($i$ is a dummy index, but $j$ is a free index)
+
+\hspace{5ex} $\v{a}\cdot \v{b} = (a_{i} \, \ei) \cdot (b_{j} \, \ej ) =
+  a_{i} b_{j} \delt{ij}= a_{j} b_{j}$ \hfill ($i,\,j$ are both dummy
+indices)
+
+\hspace{5ex} $(\v{a}\cdot \v{b})(\v{a}\cdot
+  \v{c})=a_{i}b_{i}a_{j}c_{j}$\hfill (again $i,\,j$ are dummy
+indices)
+
+\bigskip
+
+Armed with the summation convention one can rewrite many of the equations from the
+previous sections without summation signs, \emph{e.g.}~the sifting property of
+$\delt{ij}$ now becomes
+\begin{center}
+  \bigbox{${ [\ldots]_{j} \, \delt{jk}  = [\ldots]_{k}}$}
+\end{center}
+The repeated index $j$ is implicitly summed over, so that, for
+example, $\displaystyle \delt{ij} \delt{jk} = \delt{ik}$.
+
+\begin{center}
+  \fbox{\parbox{15cm}{
+      \vspace*{1ex}
+      From now on, except where indicated, the summation convention
+      will be assumed.\\
+      You should make sure that you are completely at ease with it.
+      \vspace*{1ex}
+    }}
+\end{center}
+
+\subsection{Levi-Civita symbol $\eps{ijk}$}
+
+We have seen how $\delt{ij}$ can be used to express the orthonormality of basis vectors
+succinctly.
+
+We now seek to make a similar simplification for the vector products of basis vectors
+(taken here to be right handed), \emph{i.e.}~we seek a simple, uniform way of writing the
+equations
+\[
+  \begin{array}{rcl rcl rcl}
+    \eone \times\etwo    & =      & \ethree
+                         & \qquad
+    \etwo\times\ethree   & =      & \eone
+                         & \qquad
+    \ethree\times\eone   & =      & \etwo   \\[1ex]
+    %
+    \eone\times\eone     & =      & 0
+                         &
+    \etwo\times\etwo     & =      & 0
+                         &
+    \ethree\times\ethree & =      & 0
+  \end{array}
+\]
+To do so we define the Levi-Cevita or `epsilon symbol' $\eps{ijk}$ (pronounced
+\emph{`epsilon i j k'}), where $i$, $j$ and $k$ can take on the values 1 to 3, such that
+\begin{center}
+  \fbox{
+    \parbox[c]{27em}{
+      \vspace*{-2ex}
+      \begin{eqnarray*}
+        \eps{ijk} & = & +1
+        \mbox{ if $ijk$ is an \emph{even} permutation of 123} \\
+        & = & -1
+        \mbox{ if $ijk$ is an \emph{odd\,}\ \ permutation of 123} \\
+        & = &
+        \ \ 0 \mbox{ otherwise (\emph{i.e.}~2 or more indices are the same)}
+      \end{eqnarray*}
+      \vspace*{-3ex}
+    }}
+\end{center}
+An \emph{even} permutation consists of an \emph{even} number of
+transpositions of two indices;\\
+An \emph{odd\,}\ \ permutation consists of
+an \emph{odd\,}\ \ number of transpositions of two indices.
+\begin{eqnarray*}
+  \mbox{\textbf{Examples:}} \qquad\quad\;
+  \epsilon_{123} & = & +1\\
+  \epsilon_{213} & = & -1
+  \mbox{ \{since (123) $\to$ (213) under \emph{one} transposition
+      [1 $\leftrightarrow$ 2]\}}\\
+  \epsilon_{312} & = & +1
+  \mbox{ \{(123) $\to$ (132) $\to$ (312);
+  2 transpositions; [2 $\leftrightarrow$ 3][1 $\leftrightarrow$ 3]\}}\\
+  \epsilon_{113} & = & 0\,;\quad\epsilon_{111} \ = \ 0\,;\mbox{ \emph{etc.}}
+\end{eqnarray*}
+
+\begin{center}
+  \bigbox{$\epsilon_{123} = \epsilon_{231} = \epsilon_{312} = +1 \qquad
+      \epsilon_{213} = \epsilon_{321} = \epsilon_{132} = -1 \qquad
+      \mbox{all others } = 0$}
+\end{center}
+
+%This symbol is also called the {\bf alternating}
+%symbol, or even the {\bf epsilon} symbol.
+%\{ It generalizes straightforwardly to any number of dimensions. \}\\
+
+Note the symmetry of $\eps{ijk}$ under \emph{cyclic permutations}
+\begin{equation}
+  \eps{ijk} =  \eps{kij} =  \eps{jki} =
+  -\eps{jik} = -\eps{ikj} = -\eps{kji}
+  \label{eq:cyclic-perms}
+\end{equation}
+This holds for all values of $i$, $j$ and $k$. To understand it, note
+that
+\begin{enumerate}
+  \item If any two of the free indices $i$, $j$, $k$ are the same, all terms vanish.
+
+  \item If ($ijk$) is an even (odd) permutation of (123), then so are ($jki$) and ($kij$), but
+        ($jik$), ($ikj$) and ($kji$) are odd (even) permutations of (123).
+\end{enumerate}
+Each of equations~(\ref{eq:cyclic-perms}) has three free indices so
+they each represent $3^3 = 27$ equations.\\ \emph{E.g.} in $\eps{ijk} =
+  \eps{kij}$, 3 equations say `$1=1$', 3 equations say `$-1=-1$', and 21
+equations say `$0=0$'.
+
+\subsection{Vector product}
+The equations satisfied by the vector products of the (right-handed) orthonormal basis
+vectors $\ei$ can now be written uniformly as
+\begin{center}
+  \bigbox{
+    $\ei\times\ej =  \eps{ijk}\,\ek$
+  }
+  \qquad $\forall \, i,j$ = 1,2,3
+\end{center}
+where there is an implicit sum over the `dummy' or `repeated' index
+$k$. For example,
+\begin{eqnarray*}
+  \eone\times\etwo
+  &=&
+  \eps{12k}\:\ek
+  \,=\,
+  \epsilon_{121}\;\eone + \epsilon_{122}\;\etwo + \epsilon_{123}\;\ethree
+  \,=
+  \phantom{-}\,\ethree
+  \\[0.75ex]
+  \etwo\times\eone
+  &=&
+  \eps{21k}\:\ek
+  \,=\,
+  \epsilon_{211}\;\eone + \epsilon_{212}\;\etwo + \epsilon_{213}\;\ethree
+  \,=\,
+  -\ethree
+  \\[0.75ex]
+  \eone\times\eone
+  &=&
+  \eps{11k}\:\ek
+  \,=\,
+  \epsilon_{111}\;\eone + \epsilon_{112}\;\etwo + \epsilon_{113}\;\ethree
+  \,= \,
+  \phantom{-}0
+\end{eqnarray*}
+Now consider
+\[
+  \v{a}\times\v{b}
+  \,=\,
+  a_{i}\, b_{j}\, \ei\times\ej
+  \,=\,
+  \eps{ijk}\,a_{i}b_{j}\,\ek
+\]
+but, by definition, we also have
+\[
+  \v{a}\times\v{b} \,=\,  (\v{a}\times\v{b})_{k}\,\ek
+\]
+therefore
+\begin{center}
+  \bigbox{
+    $(\v{a}\times\v{b})_{k} \,=\, \eps{ijk}\,a_{i}b_{j}$
+  }
+\end{center}
+Note that we are using the summation convention. For example, writing
+out the sums
+\begin{eqnarray*}
+  (\v{a}\times\v{b})_{3}
+  &=&
+  \epsilon_{113}\,a_1 b_1 +
+  \epsilon_{123}\,a_2 b_3 +
+  \epsilon_{133}\,a_3 b_3 +
+  \epsilon_{213}\,a_2 b_1 +
+  \cdots \\
+  &=&
+  \epsilon_{123}\,a_1 b_2 + \epsilon_{213}\,a_2 b_1
+  \qquad\mbox{(plus terms that are zero)}\\
+  &=&
+  a_1 b_2 - a_2 b_1
+\end{eqnarray*}
+
+We can use the cyclic symmetry of the $\epsilon$ symbol to find an alternative form for
+the components of the vector product
+\[
+  (\v{a}\times\v{b})_{k}
+  \,=\,
+  \eps{ijk}\,a_{i}b_{j}
+  \,=\,
+  \eps{kij}\,a_{i}b_{j} \,,
+\]
+or \emph{relabelling} both the free index $k\to i,$ and the dummy indices $i\to j, \quad
+  j \to k$
+\begin{center}
+  \bigbox{$(\v{a}\times\v{b})_{i} \,=\, \eps{ijk}\,a_{j}b_{k}$}
+\end{center}
+which is (probably) the most useful form.
+
+\mnote{05L 22/01/08}
+\mnote{05L 27/01/09}
+
+\newpage
+
+The scalar triple product can also be written using $\eps{ijk}$
+\[
+  (\v{a},\v{b},\v{c})
+  \,=\,
+  \v{a}\cdot \, (\v{b}\times\v{c})
+  \,=\,
+  a_{i}(\v{b}\times\v{c})_{i}
+\]
+giving \vspace*{-2ex}
+\begin{center}
+  \bigbox{$
+      (\v{a},\v{b},\v{c}) \,=\,  \eps{ijk}\,a_{i}b_{j}c_{k}$}
+\end{center}
+As an exercise in index manipulation we can prove the
+cyclic symmetry of the scalar product
+\vspace*{-2ex}
+\begin{eqnarray*}
+  (\v{a},\, \v{b},\, \v{c})
+  &=&
+  % \phantom{-}
+  \eps{ijk}\,a_{i}b_{j}c_{k}\\[0.5ex]
+  %  &=&
+  %  -\eps{ikj}\,a_{i}b_{j}c_{k}
+  %  \qquad\qquad\mbox{(interchanging two indices of $\eps{ijk}$})\\[0.5ex]
+  %
+  %  &=&
+  %  +\eps{kij}\,a_{i}b_{j}c_{k}
+  %  \qquad\qquad \mbox{(interchanging two indices again)}\\[0.5ex]
+  &=&
+  \eps{kij}\,a_{i}b_{j}c_{k}
+  \qquad\qquad \mbox{(cyclic permutation of the indices of $\eps{ijk}$)}\\[0.5ex]
+  &=&
+  %  \phantom{-}
+  \eps{ijk}\,a_{j}b_{k}c_{i}\quad\quad\qquad
+  \mbox{(relabelling indices}\; k\to i,\; i\to j,\; j \to k) \\[0.5ex]
+  &=&
+  %  \phantom{-}
+  \eps{ijk}\,c_{i} a_{j}b_{k}\\[0.5ex]
+  &=&
+  %  \phantom{-}
+  (\v{c},\, \v{a},\, \v{b})
+\end{eqnarray*}
+
+\subsection{Product of two Levi-Civita symbols}
+We have already shown geometrically that
+\[
+  \v{a}\times(\v{b}\times\v{c})
+  \,=\,
+  (\v{a}\cdot\v{c})\v{b} - (\v{a}\cdot\v{b})\v{c}
+\]
+This can be derived independently using components. For example,
+\begin{eqnarray*}
+  [\v{a}\times(\v{b}\times\v{c})]_1
+  &=& a_2\, (\v{b}\times\v{c})_3 - a_3\, (\v{b}\times\v{c})_2 \\
+  &=& a_2\, (b_1c_2-b_2c_1) - a_3\, (b_3c_1-b_1c_3) \\
+  &=& b_1\, (a_2c_2+a_3c_3) - c_1\, (a_2b_2+a_3b_3) \\
+  &=& b_1\, (a_1c_1 + a_2c_2+a_3c_3) - c_1\, (a_1b_1 +  a_2b_2+a_3b_3) \\
+  &=& b_1\, (\v{a}\cdot\v{c}) - c_1\, (\v{a}\cdot\v{b})
+\end{eqnarray*}
+From this equality we deduce that there must be a relation between two
+$\epsilon$ symbols (because there are two cross products on the LHS)
+and some number of $\delta$ symbols (because there are dot products on
+the RHS). Consider
+\begin{eqnarray*}
+  [\v{a}\times(\v{b}\times\v{c})]_i
+  &=& \epsilon_{ijk}a_j \, (\v{b}\times\v{c})_k \\
+  &=& \epsilon_{ijk}a_j \, \epsilon_{klm} \, b_l \, c_m \\
+  &=& \epsilon_{ijk} \, \epsilon_{klm} \, a_j \, b_l \, c_m
+\end{eqnarray*}
+Alternatively
+\begin{eqnarray*}
+  [(\v{a}\cdot\v{c})\v{b} - (\v{a}\cdot\v{b})\v{c}]_i
+  &=&
+  (\v{a}\cdot\v{c}) \, b_i - (\v{a}\cdot\v{b}) \,c_i \\
+  &=& (a_j \, c_m \, \delta_{jm}) \, \delta_{il} \, b_l -
+  (a_j \, b_l \, \delta_{jl})\, \delta_{im} \, c_m \\
+  &=& (\delta_{il} \, \delta_{jm} -
+  \delta_{im} \, \delta_{jl}) \,
+  a_j \, b_l \, c_m \,.
+\end{eqnarray*}
+These equations must be equal for \emph{all} components $a_j$, $b_l$, $c_m$
+independently, so we must have
+\begin{center}
+  \bigbox{
+    $\epsilon_{ijk} \, \epsilon_{klm}
+      = \delta_{il} \, \delta_{jm} - \delta_{im} \, \delta_{jl}$}
+\end{center}
+This is a \textbf{very} important result and must be learnt by heart.
+
+\newpage
+
+To verify it, one can check all possible cases. For example
+\[\epsilon_{12k}\,\epsilon_{k12}
+  \,=\,
+  \epsilon_{121}\,\epsilon_{112} +
+  \epsilon_{122}\,\epsilon_{212} +
+  \epsilon_{123}\,\epsilon_{312}
+  \,=\,
+  1
+  \,=\,
+  \delta_{11}\delta_{22} - \delta_{12}\delta_{21}
+\]
+However as we have $3^4 = 81$ equations, $6$ saying `$1=1$', $6$ saying `$-1=-1$', and
+$69$ saying $0=0$', this will take some time. More generally, note that the left hand
+side of the boxed equation may be written out as \vspace*{-2ex}
+\begin{itemize}
+  \item $\epsilon_{ij1}\,\epsilon_{1lm} + \epsilon_{ij2}\,\epsilon_{2lm}
+          + \epsilon_{ij3}\,\epsilon_{3lm}$
+        where $i,j,l,m$ are free indices;
+  \item for this to be non-zero we must have $i\neq j$ and $l\neq m$;
+  \item only one term of the three in the sum can be non-zero;
+  \item if $i=l$ and $j=m$ we have $+1$,\ \ if $i=m$ and $j=l$ we have $-1$.
+\end{itemize}
+
+%\subsection{Product of two Levi-Civita symbols}
+%We state without formal proof the following identity (see 
+%questions on Problem Sheet 3)
+%\begin{center}
+%\bigbox{
+%\rule{0cm}{.5cm}
+%$
+%\eps{ijk}\,\eps{rsk} 
+% = \delt{ir}\delt{js} - \delt{is}\delt{jr}.
+%$ }
+%\end{center}
+
+%To verify this is true one can check all possible cases
+%{\it e.g.} $\epsilon_{12k}\,\epsilon_{12k} 
+%=\epsilon_{121}\,\epsilon_{121}+ \epsilon_{122}\,\epsilon_{122}+\epsilon_{123}\,\epsilon_{123}
+%=1 = \delta_{11}\delta_{22}-\delta_{12}\delta_{21}$.
+%More generally, note that the left hand side of the boxed equation
+%may be written out as
+%\vspace*{-2ex}
+%\begin{itemize}
+%\item $\epsilon_{ij1}\,\epsilon_{rs1}+ \epsilon_{ij2}\,\epsilon_{rs2}+\epsilon_{ij3}\,\epsilon_{rs3}$
+%where $i,j,r,s$ are free indices;
+%\item for this to be non-zero we must have $i\neq j$ and
+%$r\neq s$
+%\item only one term of the three in the sum can be non-zero ;
+%\item if $i=r$ and $j=s$ we have  $+1\quad$ ; if $i=s$ and $j=r$ we
+%  have  $-1$ .
+%\end{itemize}
+
+%The product identity furnishes an  algebraic
+%proof for the `BAC-CAB' rule. Consider the $i^{\rm th}$ 
+%component of $\v{a}\times(\v{b}\times\v{c})$:
+%\begin{eqnarray*}
+%\left[\v{a}\times(\v{b}\times\v{c})\right]_{\ds\,i}  & = &
+%\eps{ijk}\,a_{j}(\v{b}\times\v{c})_{k}\\[1ex]
+%& = & \eps{ijk}\,a_{j}\,\eps{krs}\,b_{r}c_{s}
+%\ = \  \eps{ijk}\,\eps{rsk}\,a_{j}b_{r}c_{s}\\[1ex]
+%& = & (\delt{ir}\,\delt{js} - \delt{is}\,\delt{jr})\,a_{j}b_{r}c_{s}\\[9pt]
+%& = & (a_{j}b_{i}c_{j} - a_{j}b_{j}c_{i})\\[9pt]
+%& = & b_{i}(\v{a}\cdot\v{c}) - c_{i}(\v{a}\cdot\v{b})\\[9pt]
+%& = & \left[\v{b}(\v{a}\cdot\v{c}) - \v{c}(\v{a}\cdot\v{b})\right]_{\ds\,i}
+%\end{eqnarray*}
+%Since $i$ is a free index we have proven the identity for 
+%all three components $i=1,2,3$.
+
+\paragraph{Example:}
+Simplify $(\v{a}\times\v{b}) \cdot (\v{c}\times\v{d})$ using suffix notation.
+\begin{eqnarray*}
+  (\v{a}\times\v{b}) \cdot (\v{c}\times\v{d})
+  & = &
+  (\v{a}\times\v{b})_i \: (\v{c}\times\v{d})_i
+  \,=\,
+  \epsilon_{ijk}\,  a_j\, b_k \: \epsilon_{ilm}\,  c_l\, d_m \\[0.5ex]
+  & = &
+  (\delta_{jl} \, \delta_{km} - \delta_{jm} \, \delta_{kl}) \,
+  a_j \, b_k \, c_l \, d_m
+  \,=\,
+  a_j \, b_k \, c_j \, d_k - a_j \, b_k \, c_k \, d_j \\[0.5ex]
+  & = &
+  (\v{a} \cdot \v{c}) \, (\v{b} \cdot \v{d})
+  \, - \,
+  (\v{a} \cdot \v{d}) \, (\v{b} \cdot \v{c})
+\end{eqnarray*}
+where we used the cyclic property $\epsilon_{ijk} = \epsilon_{jki}$ to
+obtain the first expression in the second line.
+
+\subsection{Determinants using the Levi-Civita symbol}\label{subsec:det-eps}
+
+The result for the scalar triple product gives another expression for the determinant
+\begin{equation}
+  \left| \begin{array}{ccc}
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3 \\
+  \end{array} \right|
+  =
+  \left(\v{a}, \v{b},\v{c}\right)
+  =
+  \epsilon_{ijk} \, a_i \, b_j \, c_k \,.
+  \label{eq:det}
+\end{equation}
+
+%We may label the elements of a $3\times3$ matrix $A$ by $a_{ij}$ (or
+%alternatively by $A_{ij}$), where $i$ labels the row and $j$
+%labels the column in which $a_{ij}$ appears:
+
+Consider the $3\times3$ matrix $A$, with elements $a_{ij}$
+\[
+  A \ = \ \left(\begin{array}{ccc}
+      a_{11} & a_{12} & a_{13} \\
+      a_{21} & a_{22} & a_{23} \\
+      a_{31} & a_{32} & a_{33}
+    \end{array}\right)
+\]
+Relabelling the rows in the matrix in equation~(\ref{eq:det}): $a_i \to a_{1i}, \; b_j
+  \to a_{2j}, \; c_k \to a_{3k}$ gives
+\begin{center}
+  \bigbox{
+    $\det A = \epsilon_{ijk} \, a_{1i} \, a_{2j} \, a_{3k}$}
+\end{center}
+which may be taken as the \emph{definition} of a determinant.
+
+An alternative expression is given by noting that previously we showed that
+\begin{eqnarray}
+  \left| \begin{array}{ccc}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33} \\
+  \end{array} \right|
+  =
+  \left| \begin{array}{ccc}
+    a_{11} & a_{21} & a_{31} \\
+    a_{12} & a_{22} & a_{32} \\
+    a_{13} & a_{23} & a_{33} \\
+  \end{array} \right| \qquad \mbox{or} \quad \det A = \det A^T
+  \nonumber
+\end{eqnarray}
+where $A^T_{ij} = a_{ji}$ so now $\det A = \det A^T = \epsilon_{ijk}
+  A^T_{1i} \, A^T_{2j} \,A^T_{3k}$ which may be rewritten
+\begin{center}
+  \bigbox{
+    $\det A = \epsilon_{ijk} \, a_{i1} \, a_{j2} \, a_{k3}$}
+\end{center}
+
+The other properties of determinants can be proved easily: namely interchanging two rows
+or columns changes the sign of the determinant and adding a multiple of one row/column to
+another row/column respectively does not change the value of the determinant (exercises
+for the student).
+
+For completeness, we quote here one further important result
+\begin{center}
+  \bigbox{
+    $\det AB = \det A \, \det B$}
+\end{center}
+[The definition of matix multiplication in suffix notation is given in
+Section~(\ref{transf_matrix}).] The proof of this result is
+discussed in a tutorial sheet.
+
+Another important result is
+\[
+  (AB)^T  \,=\, B^T A^T
+\]
+which follows because
+\[
+  {\left( AB \right)^T}_{ij}
+  \,=\, (AB)_{ji}
+  \,=\, a_{jk} \, b_{ki}
+  \,=\, (B^T)_{ik} \, (A^T)_{kj}
+  \,=\, (B^TA^T)_{ij}
+\]
+
+%\vfill
+
+%\vfill
+%% Brian Lecture 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Change of basis}
+
+%\nsection{Change of Basis {\it ( BK 1.5 RHB 7.14)}} 
+
+\subsection{Linear transformation of basis in suffix notation}
+Suppose $\{\ei\}$ and $\{\ei\!'\}$ are two different orthonormal bases. How do we relate
+them?
+
+Clearly $\eone\!'$ can be written as a linear combination of the vectors $\eone, \,
+  \etwo, \, \ethree$. Let us write the linear combination as
+\[
+  \eone\!'
+  ~=~
+  \ell_{11} \, \eone + \ell_{12} \, \etwo + \ell_{13} \, \ethree
+\]
+with similar expressions for $\etwo\!'$ and $\ethree\!'$. Hence we may write
+\begin{equation}
+  \bigbox{$\ei\!'\ ~=~  \ell_{ij}\,\ej$}
+\end{equation}
+where we are using the summation convention. The nine numbers
+$\ell_{ij}$, with $i,\,j = 1,2,3$, relate the basis vectors $\eone\!',\
+  \etwo\!'$, $\ethree\!'$ to the basis vectors $\eone$, $\etwo$, $\ethree$.
+
+\paragraph{Notes}
+\begin{enumerate}
+
+  \item The nine numbers $\ell_{ij}$ define the change of basis or `linear transformation'.
+
+        %\item [Here a linear transformation is `passive' and only the basis
+        %changes. In your maths courses you may have also met `active
+        %transformations' which are mappings between vector spaces]
+
+  \item
+        To determine $\ell_{ij}$, consider the quantity
+        \begin{eqnarray*}
+          \ei\!' \cdot \,\ej
+          & = &
+          (\ell_{ik} \, \ek) \cdot \ej
+          =
+          \ell_{ik} \, \delt{kj}
+          =
+          \ell_{ij}\,.
+        \end{eqnarray*}
+        Therefore
+        \begin{equation}
+          \bigbox{$\ds\ei\!' \cdot \, \ej  =  \ell_{ij}\;$}
+        \end{equation}
+        so $\ell_{ij}$ are the projections (or direction cosines) of
+        $\ei\!'\,$ ($i = 1,\, 2,\, 3$) onto the $\v{e}_{\,i}$ basis.
+
+  \item
+        The basis vectors $\ei\!'$ are orthonormal, therefore
+        \[
+          \ei\!'\cdot\ej\!' ~=~ \delt{ij}
+        \]
+        The LHS of this equation may be written as
+        \[
+          \ei\!'\cdot\ej\!'
+          =
+          (\ell_{ik}\,\ek) \cdot ( \ell_{jl}\, \e{l})
+          =
+          \ell_{ik} \, \ell_{jl} \, (\ek\cdot\e{l})
+          =
+          \ell_{ik} \, \ell_{jl} \, \delt{kl}
+          =
+          \ell_{ik}\, \ell_{jk}
+        \]
+        where we used the sifting property of $\delt{kl}$ in the final step. Hence
+        \begin{equation}\label{orthog1}
+          \bigbox{$ \ell_{ik}\ell_{jk} ~ = ~ \delt{ij}$}
+        \end{equation}
+
+\end{enumerate}
+
+\mnote{06L 30/01/09}
+
+\subsection{Inverse relations}
+Let us now express the unprimed basis in terms of the primed basis. If we write
+\[
+  \ei =  m_{ij}\,\ej\!'
+\]
+then
+\[
+  \ell_{ij}
+  = \ei\!' \cdot \, \ej
+  = \ei\!' \cdot \big(m_{jk} \, \ek\!'\big)
+  = m_{jk} \, \delta_{ik}
+  = m_{ji}
+\]
+and we deduce that
+\begin{equation}
+  m_{ij} = \ell_{ji}
+  \label{eq:m}
+\end{equation}
+The $\ei$ are orthonormal so $\ei\cdot \ej =\delta_{ij}$. The LHS of
+this equation may be re-written
+\[
+  \ei\cdot \ej
+  = \big(m_{ik} \: \ek\!'\big) \cdot \big(m_{jl} \: \e{l}\!'\big)
+  = m_{ik} \, m_{jl}\, \delta_{kl}
+  = m_{ik} \, m_{jk}
+  = \ell_{ki} \, \ell_{kj}
+\]
+and we obtain a second relation
+\begin{equation}\label{orthog2}
+  \bigbox{$ \ell_{ki}\ell_{kj} \ = \ \delt{ij}$}
+\end{equation}
+
+%Note that $\delt{ij} \ = \ \ei\cdot\ej \ =
+% m_{ik}(\v{e}^\prime_k\cdot\v{e}_j) \ =
+% \ell_{ki}\,(\e{\ds k\phantom{i}\!\!}'\cdot\ej) \ =
+% \ell_{ki} \ell_{kl} (\v{e}_l\cdot\v{e}_j) \ =
+% \ell_{ki} \ell_{kl} \delta_{lj} \ =
+% \ell_{ki}\ell_{kj}$ and so we obtain a second relation
+
+\mnote{06L 25/01/08}
+
+%\vspace*{-2ex}
+\subsection{The transformation matrix}
+\label{transf_matrix}
+
+Let us re-write the above results using matrix notation.
+
+Recall (again) that we may label the elements of a $3\times3$ matrix $A$ by $a_{ij}$, or
+alternatively $(A)_{ij}$, where $i$ labels the row and $j$ labels the column in which
+$a_{ij}$ appears:
+\[
+  A
+  \,=\,
+  \left(
+  \begin{array}{ccc}
+      a_{11} & a_{12} & a_{13} \\
+      a_{21} & a_{22} & a_{23} \\
+      a_{31} & a_{32} & a_{33}
+    \end{array}
+  \right).
+\]
+First note that the summation convention can be used to describe matrix multiplication.
+The $ij^{\rm th}$ component of the product of two $3\times 3$ matrices $A$ and $B$ is
+obtained by `multiplying the $i^{\rm th}$ row of $A$ into the $j^{\rm th}$ column of
+$B$', namely
+\begin{equation}\label{mat_mult}
+  (AB)_{ij}
+  \,=\,
+  a_{i1} \, b_{1j} \,+\,
+  a_{i2} \, b_{2j} \,+\,
+  a_{i3} \, b_{3j}
+  \,=\,
+  a_{ik} \, b_{kj}
+\end{equation}
+Likewise, recalling the definition of the transpose of a matrix
+$(A^T)_{ij}= A_{ji}$ (or $a_{ji}$),
+\begin{equation}\label{trans_mult}
+  (A^{T} B)_{ij}
+  \,=\,
+  (A^{T})_{ik} \, (B)_{kj}
+  \,=\,
+  a_{ki} b_{kj}
+\end{equation}
+We may identify the nine numbers $\ell_{ij}$ as the elements of a
+square matrix, denoted by $L$, and known as the \emph{transformation
+  matrix}
+\[
+  L
+  \,=\,
+  \left(
+  \begin{array}{ccc}
+      \ell_{11} & \ell_{12} & \ell_{13} \\
+      \ell_{21} & \ell_{22} & \ell_{23} \\
+      \ell_{31} & \ell_{32} & \ell_{33}
+    \end{array}
+  \right)
+\]
+Equation (\ref{eq:m}) then tells us that $M= L^T$ is the transformation matrix for the
+\emph{inverse} transformation.
+
+% We also note that $\delt{ij}$ may be thought of as elements of
+% a $3\times3$ unit matrix:
+% \vspace*{-3ex}
+% \begin{center}
+% \[\left(\begin{array}{ccc}
+% \delta_{11} & \delta_{12} & \delta_{13}\\
+% \delta_{21} & \delta_{22} & \delta_{33}\\
+% \delta_{31} & \delta_{32} & \delta_{33}
+% \end{array}\right)=
+% \left(\begin{array}{ccc}
+% 1 & 0 & 0\\
+% 0 & 1 & 0\\
+% 0 & 0 & 1
+% \end{array}\right)\ =\ I .\]
+% \end{center}
+% $i.e.$ the matrix representation of the Kronecker delta symbol
+% is  the {\bf unit matrix} $I$.
+
+Comparing equation~(\ref{orthog1}) with equation~(\ref{mat_mult}), and
+equation~(\ref{orthog2}) with equation (\ref{trans_mult}), and recalling that
+$\delta_{ij}$ is the $ij^{\rm th}$ element of the \emph{unit matrix} $I$, we see that the
+relations $\ell_{ik}\, \ell_{jk} = \ell_{ki} \, \ell_{kj} = \delt{ij}$ can be written in
+matrix notation as
+\begin{center}
+  \bigbox{$L L^T ~=~ \ L^T L ~=~ I$}
+  \quad \mbox{and hence} \quad
+  \bigbox{$L^{-1} ~=~ \ L^T$}
+\end{center}
+where $L^{-1}$ is the matrix inverse of $L$.
+
+A matrix that satisfies these conditions is called an \emph{orthogonal matrix}, and the
+transformation (from the $\ei$ basis to the $\ei\!'$ basis) is called an \emph{orthogonal
+  transformation}.
+
+Now from $\ei\!' = \ell_{ij} \, \v{e}_j$, we have for the scalar triple product (assuming
+$\ei$ is a RH basis)
+\begin{eqnarray*}
+  \big(\eone\!', \, \etwo\!', \, \ethree\!' \big)
+  &=&
+  \eone\!' \cdot \big(\etwo\!' \times \ethree\!'\big) \\[0.5ex]
+  &=&
+  \ell_{1i} \, \ei \cdot
+  (\ell_{2j} \, \ej \times \ell_{3k} \, \ek) \\[0.5ex]
+  &=&
+  \ell_{1i}\, \ell_{2j} \, \ell_{3k} \;
+  \ei \cdot (\ej \times \ek) \\[0.5ex]
+  &=&
+  \ell_{1i}\, \ell_{2j} \, \ell_{3k} \;
+  \ei \cdot (\epsilon_{ljk} \, \el) \\[0.5ex]
+  &=&
+  \ell_{1i}\, \ell_{2j} \, \ell_{3k} \,
+  \epsilon_{ljk} \, \delta_{il} \\[0.5ex]
+  &=&
+  \epsilon_{ijk} \, \ell_{1i}\, \ell_{2j} \, \ell_{3k}
+  ~=~ \det L
+\end{eqnarray*}
+So
+\[
+  \det L ~=~ \big(\eone\!', \, \etwo\!', \, \ethree\!' \big)
+  ~=~ \left\{ \begin{array}{cl}
+    +1 & \mbox{if primed basis is RH} \\
+    -1 & \mbox{if primed basis is LH} \\
+  \end{array}
+  \right.
+\]
+We say
+%\vspace*{-4ex}
+\begin{center}
+  \bigbox{
+    \vspace*{-6ex}
+    \parbox{60mm}{
+      \vspace*{-2ex}
+      \begin{tabbing}
+        If \= $\det L=+1$ \= the orthogonal transformation is `proper'\\[0.5ex]
+        If \> $ \det L=-1$ \> the orthogonal transformation is `improper'
+      \end{tabbing}
+      \vspace*{-2ex}
+    }
+  }
+\end{center}
+
+An alternative proof uses the following properties of determinants: $\det AB = \det A \,
+  \det B$ and $\det A^T = \det A$. These, together with $\det I = 1$, give
+\[
+  \det{LL^T} = \det{L}\,\det{L^T} = (\det{L})^2 = 1 \,,
+\]
+hence $\det{L} = \pm 1$.
+
+\newpage
+
+\subsection{Examples of orthogonal transformations}
+\label{sec:ExamplesofTransformations}
+
+\paragraph{Rotation about the $\ethree$ axis:}
+We have $\ethree\!' = \ethree$ and thus for a rotation through $\theta$,
+
+\medskip
+
+\parbox{5cm}{
+  \epsfxsize=5cm
+  \includegraphics{tikz_rot_basis.pdf}
+}\hfill
+\parbox{11cm}{
+  \begin{eqnarray*}
+    \quad
+    \ethree\!'\cdot\eone
+    & = &
+    \eone\!'\cdot\ethree
+    = \ethree\!'\cdot\etwo
+    =
+    \etwo\!'\cdot\ethree
+    = 0\,,
+    \quad \ethree\!'\cdot\ethree=1 \\
+    \eone\!'\cdot\eone
+    & = &
+    \cos\theta\\
+    \eone\!'\cdot\etwo
+    & = &
+    \cos\left(\pi/2 - \theta\right) ~ = ~ \sin\theta\\
+    \etwo\!'\cdot\etwo
+    & = &
+    \cos\theta\\
+    \etwo\!'\cdot\eone
+    & = &
+    \cos\left(\pi/2 + \theta\right) ~ = ~ -\sin\theta
+  \end{eqnarray*}
+}
+
+\medskip
+
+Thus
+\[
+  L
+  ~ = ~
+  \left(
+  \begin{array}{ccc}
+      \msp\cos\theta & \sin\theta & 0 \\
+      -\sin\theta    & \cos\theta & 0 \\
+      \msp0          & 0          & 1
+    \end{array}\right).
+\]
+
+It is easy to check that $ L L^T = I$. Since $\det{L} = \cos^2\theta + \sin^2\theta = 1$,
+this is a \emph{proper} transformation. Note that rotations cannot change the handedness
+of the basis vectors.
+
+\paragraph{Inversion or parity transformation:} This is defined by $\ei\!' = -\ei, \;\; i = 1, \, 2, \, 3$.
+
+\[
+  \mbox{\emph{i.e. } $\ell_{ij} \ = \ -\delt{ij}$\qquad or}\qquad
+  L  \ = \ \left(
+  \begin{array}{rrr}
+      -1 & 0  & 0  \\
+      0  & -1 & 0  \\
+      0  & 0  & -1
+    \end{array}\right) \ = \ - I\,.
+\]
+
+\parbox{7.5cm}{ Clearly $L L^T = I$. Since $\det{L} = -1$, this is an
+  \emph{improper} transformation. Note that the handedness of the
+  basis is reversed: $\eone\!'\times\etwo\!'=-\ethree\!'$
+} \hfill
+\parbox{8.5cm}{
+  \epsfxsize=8.5cm
+  \includegraphics{tikz_parity.pdf}
+}
+
+\paragraph{Reflection:}
+Consider reflection of the axes in $\etwo{-}\ethree$ plane so that $\eone\!' = -\eone$,
+$\;\etwo\!' = \etwo$ and $\ethree\!' = \ethree$. The transformation matrix is
+\[
+  L
+  ~=~
+  \left(
+  \begin{array}{rrr}
+      -1 & 0 & 0 \\
+      0  & 1 & 0 \\
+      0  & 0 & 1
+    \end{array}\right)
+\]
+Since $\det{L} = -1$, this is an \emph{improper} transformation, therefore the handedness
+of the basis changes.
+
+\newpage
+
+\subsection{Products of transformations}
+Consider a transformation $L$ to the basis $\{\ei\!'\}$ followed by a transformation $M$
+to another basis $\{\ei\!''\}$
+\[
+  \ei
+  \begin{array}[b]{c}
+    L \\[-1.2ex]
+    ~\rightarrow~
+  \end{array}
+  \ei\!'
+  \begin{array}[b]{c}
+    M \\[-1.2ex]
+    ~\rightarrow~
+  \end{array}
+  \ei\!''
+\]
+Clearly there must be an orthogonal transformation $ \ei \begin{array}[b]{c} N \\[-1.2ex] \rightarrow \end{array} \ei\!''.$
+\ \ To find it, we write
+\[
+  \ei\!''
+  =
+  m_{ij} \, \ej\!'
+  =
+  m_{ij} \, \ell_{jk} \, \ek
+  =
+  (ML)_{ik} \, \ek
+  \quad \mbox{so} \quad \bigbox{$\ds N = M L$}
+\]
+
+\vspace*{-5ex}
+
+\paragraph{Notes}
+\begin{enumerate}
+  \item Note the order of the product: the matrix corresponding to the first change of basis
+        stands to the right of that for the second change of basis. In general, transformations
+        do not commute, \emph{i.e.} $ML \ne LM$.
+
+        \textbf{Example:} a rotation of $\theta$ about $\ethree$ followed by a
+        reflection in the $\etwo{-}\ethree$ plane.
+        %\vspace*{-2ex}
+        \[
+          \left(
+          \begin{array}{rrr}
+              -1 & 0 & 0 \\
+              0  & 1 & 0 \\
+              0  & 0 & 1
+            \end{array}\right)
+          \left(
+          \begin{array}{ccc}
+              \msp\cos\theta & \sin\theta & 0 \\
+              -\sin\theta    & \cos\theta & 0 \\
+              \msp0          & 0          & 1
+            \end{array}\right)
+          = \left(
+          \begin{array}{ccc}
+              -\cos\theta & -\sin\theta    & 0 \\
+              -\sin\theta & \msp\cos\theta & 0 \\
+              \msp0       & 0              & 1
+            \end{array}\right)
+        \]
+        whereas if we reverse the order
+        %\vspace*{-1em}
+        \[
+          \left(
+          \begin{array}{ccc}
+              \msp\cos\theta & \sin\theta & 0 \\
+              -\sin\theta    & \cos\theta & 0 \\
+              \msp0          & 0          & 1
+            \end{array}\right)
+          \left(
+          \begin{array}{rrr}
+              -1 & 0 & 0 \\
+              0  & 1 & 0 \\
+              0  & 0 & 1
+            \end{array}\right)
+          =
+          \left(
+          \begin{array}{ccc}
+              -\cos\theta    & \sin\theta & 0 \\
+              \msp\sin\theta & \cos\theta & 0 \\
+              \msp0          & 0          & 1
+            \end{array}\right)
+        \]
+
+  \item The inversion and the identity transformations commute with all transformations.
+\end{enumerate}
+
+\mnote{07L 03/02/09}
+
+\subsection{Improper transformations}
+
+We may write any improper transformation $M$ (for which $ \det{M} = -1$) as $ M = (-I)
+  L$, where $L= -M$ and $\det{L} = +1$. Thus an improper transformation can always be
+expressed as a proper transformation followed by an inversion.
+
+\textbf{Example:} The matrix $M$ for a reflection in the
+$\eone{-}\ethree$ plane is
+\[
+  \left(
+  \begin{array}{rrr}
+      1 & 0  & 0 \\
+      0 & -1 & 0 \\
+      0 & 0  & 1
+    \end{array}\right)
+  =
+  \left(
+  \begin{array}{rrr}
+      -1 & 0  & 0  \\
+      0  & -1 & 0  \\
+      0  & 0  & -1
+    \end{array}\right)
+  \left(
+  \begin{array}{rrr}
+      -1 & 0 & 0  \\
+      0  & 1 & 0  \\
+      0  & 0 & -1
+    \end{array}\right)
+\]
+Identifying $L$ from $M = \left(- I \right) L$ we see that $L$ is a rotation of $\pi$
+about $\etwo$.
+
+\medskip
+
+\begin{picture}(270,60)(-35,-15)
+  \unitlength 1.5pt
+  \put(0,-10){\vector(1,0){30}}
+  \put(34,-12){\makebox(0,0)[lb]{$\eone$}}
+  \put(0,-10){\vector(0,1){30}}
+  \put(4,20){\makebox(0,0)[lt]{$\ethree$}}
+  \put(0,-10){\vector(2,1){25}}
+  \put(25,5){\makebox(0,0)[lb]{$\etwo$}}
+
+  \put(70,0){\makebox(0,0)[ct]{$\rightarrow$}}
+  \put(70,3){\makebox(0,0)[cb]{$L$}}
+
+  \put(130,10){\vector(-1,0){30}}
+  \put(100,14){\makebox(0,0)[lb]{$\eone\!'$}}
+  \put(130,10){\vector(0,-1){30}}
+  \put(135,-20){\makebox(0,0)[lb]{$\ethree\!'$}}
+  \put(130,10){\vector(2,1){25}}
+  \put(160,20){\makebox(0,0)[lb]{$\etwo\!'$}}
+
+  \put(190,0){\makebox(0,0)[ct]{$\rightarrow$}}
+  \put(190,3){\makebox(0,0)[cb]{$-I$ }}
+
+  \put(240,0){\vector(1,0){30}}
+  \put(270,2){\makebox(0,0)[lb]{$\eone\!''$}}
+  \put(240,0){\vector(0,1){30}}
+  \put(243,32){\makebox(0,0)[lt]{$\ethree\!''$}}
+  \put(240,0){\vector(-2,-1){25}}
+  \put(220,-20){\makebox(0,0)[lb]{$\etwo\!''$}}
+\end{picture}
+
+\subsection{Summary}
+If $\det{L}=+1$ we have a \emph{proper} orthogonal transformation which is equivalent to
+rotation of axes. It can be proven that any rotation is a proper orthogonal
+transformation and vice-versa. The essence of the proof is that any rotation through a
+finite angle $\theta$ can be \emph{continuously} connected to an infinitesimal or zero
+rotation for which $\det L = \det I = 1$ trivially, whereas $\det L = 1 \mapsto \det L =
+  -1$ is discontinuous.
+
+%\vspace*{2ex}
+If $\det{L}=-1$ we have an \emph{improper} orthogonal transformation which is equivalent
+to rotation of axes then inversion. This is known as an improper rotation since it
+\emph{changes the handedness of the basis}.
+
+%\vfill
+%% Brian Lecture 7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Transformation properties of vectors and scalars}
+
+%\nsection{Transformation Properties of Vectors and Scalars
+%{(\it RHB 7.14; 19.10)}}
+
+\subsection{Transformation of vector components}
+
+Let $\v{a}$ be any vector, with components $a_{i}$ in the basis $\{\ei\}$ and $a_{i}'$ in
+the basis $\{\ei\!'\}$ \emph{i.e.}
+\begin{center}
+  \bigbox{$\v{a} \ =  a_{i}\,\ei \ =  a_{i}'\,\ei\!'$} .
+\end{center}
+The components are related as follows, taking care with dummy indices
+\[
+  a_{i}'
+  ~ = ~
+  \v{a}\cdot\ei\!'
+  ~ = ~
+  (a_{j} \, \ej)\cdot\ei\!'
+  ~=~
+  (\ei\!'\cdot\ej) \, a_{j}
+  ~=~
+  \ell_{ij} \, a_{j}
+\]
+\begin{center}
+  \bigbox{$a_{i}' = \ell_{ij} \, a_{j}$}
+\end{center}
+\vspace*{-2ex} % Too much space here - it looked silly
+\begin{eqnarray*}
+  a_{i}
+  ~ = ~
+  \v{a}\cdot\ei
+  ~ = ~
+  (a_{k}'\, \ed{k}\!') \cdot\ei
+  ~ =  ~
+  \ell_{ki} \, a_{k}'
+  ~ = ~
+  (L^T)_{ik} \, a_{k}'.
+\end{eqnarray*}
+\begin{center}
+  \bigbox{Note carefully that the \textbf{vector} $\v{a}$ does \emph{not} change}
+\end{center}
+Therefore we do \emph{not} put a prime on the vector itself. However,
+the \emph{components} of this vector \emph{are} different in different
+bases, and so are denoted by $a_{i}$ in the basis $\{\ei\}$, and by
+$a_{i}'$ in the basis $\{\ei\!'\}$, and so on.
+
+These transformations are called \emph{passive transformations}: the basis is
+transformed, but the vector remains \emph{fixed}. Alternatively we can keep the basis
+fixed and transform the vector, this is an \emph{active transformation}. They are
+equivalent (and indeed one is just the inverse of the other). In this course we shall
+only consider the passive viewpoint (to avoid confusion).
+
+\mnote{07L 29/01/08}
+
+In matrix form we can write the transformation of components as
+\[
+  \bigbox{$
+      \left(
+      \begin{array}{c}
+        a_1' \\
+        a_2' \\
+        a_3'
+      \end{array}\right)
+      ~ = ~
+      \left(
+      \begin{array}{ccc}
+        \ell_{11} & \ell_{12} & \ell_{13} \\
+        \ell_{21} & \ell_{22} & \ell_{23} \\
+        \ell_{31} & \ell_{32} & \ell_{33}
+      \end{array}\right)
+      \left( \begin{array}{c}
+        a_1 \\
+        a_2 \\
+        a_3
+      \end{array}\right)
+      ~ = ~
+      L\,
+      \left(\begin{array}{c}
+        a_1 \\
+        a_2 \\
+        a_3
+      \end{array}\right)
+    $}
+\]
+and since $L^{-1} = L^T$
+\[
+  \left(\begin{array}{c}
+      a_1 \\
+      a_2 \\
+      a_3
+    \end{array}\right)
+  =
+  L^T
+  \left(\begin{array}{c}
+      a_1' \\
+      a_2' \\
+      a_3'
+    \end{array}\right)
+\]
+
+\paragraph{Example:}
+Consider a rotation of the axes about $\ethree$
+\[
+  \left(\begin{array}{c}
+      a_1' \\
+      a_2' \\
+      a_3'
+    \end{array}\right)
+  =
+  \left(
+  \begin{array}{ccc}
+      \msp\cos\theta & \sin\theta & 0 \\
+      -\sin\theta    & \cos\theta & 0 \\
+      \msp0          & 0          & 1
+    \end{array}\right)
+  \left( \begin{array}{c}
+      a_1 \\
+      a_2 \\
+      a_3
+    \end{array}\right)
+  =
+  \left( \begin{array}{c}\cos\theta\; a_1 +\sin\theta \; a_2 \\
+      \cos\theta\;  a_2 -\sin\theta\; a_1    \\ a_3\end{array}\right)
+\]
+A direct check of this using trigonometric considerations is significantly harder!
+
+\subsection{Transformation of the scalar product}
+Let $\v{a}$ and $\v{b}$ be vectors with components $a_{i}$ and $b_{i}$ in the $\{\ei\}$
+basis, and components $a_{i}'$ and $b_{i}'$ in the $\{\ei\!'\}$ basis. In the $\{\ei\}$
+basis, the scalar product, denoted by $\v{a}\cdot\v{b}$, is
+\[
+  \v{a}\cdot\v{b}
+  =
+  a_{i} \, b_{i}\,.
+\]
+In the basis $\{\ei\!'\}$, we denote the scalar product by $(\v{a}\cdot\v{b})\,'$, and we
+have
+\begin{eqnarray*}
+  (\v{a}\cdot\v{b})\,'
+  &=&
+  a_{i}' \, b_{i}'
+  ~=~
+  \ell_{ij} \, a_{j} \, \ell_{ik} \, b_{k}\
+  ~=~
+  \delt{jk} a_{j}  b_{k}\\
+  &=&
+  a_{j} \, b_{j}
+  ~=~
+  \v{a}\cdot\v{b}\,.
+\end{eqnarray*}
+Thus the scalar product is the same when evaluated in any basis. This
+is of course expected from the geometrical definition of scalar
+product which is independent of basis. We say that the scalar product
+is \emph{invariant} under a change of basis.
+
+\paragraph{Summary:}
+We have now obtained an algebraic definition of scalar and vector quantities.
+
+Under the orthogonal transformation from the basis $\{\ei\}$ to the basis $\{\ei\!'\}$,
+defined by the transformation matrix $L$ such that $\ei\!' = \ell_{ij}\,\ej$, we have
+that:
+
+\begin{itemize}
+  \item A \textbf{scalar} is a single number $\phi$ which is invariant:
+        \begin{center}
+          \bigbox{$\phi' ~=~ \phi$}
+        \end{center}
+        Of course, not all scalar quantities in physics are expressible as the
+        scalar product of two vectors \emph{e.g.}\ mass, temperature.
+
+  \item A \textbf{vector} is an `ordered triple' of numbers $a_{i}$ which transforms to $a_{i}'$
+        such that
+        \begin{center}
+          \bigbox{$a_{i}' \ =  \ell_{ij}a_{j}$}
+        \end{center}
+\end{itemize}
+
+% originally not there:
+
+\subsection{Transformation of the vector product}
+\label{transf_vp}
+%\subsection{A technical aside: transformation of the Vector Product}
+Great care is needed with the vector product under improper transformations.
+
+\paragraph{Inversion:} Let $\ei\!' = - \ei$, so $\ell_{ij} = -\delt{ij}$ and hence $a_{i}' = - a_{i}$ and
+$b_{i}' = - b_{i}$. Therefore
+\[
+  a_{i}' \, \ei\!' ~=~ (-a_{i}) \, (-\ei) ~=~ a_{i} \, \ei ~=~ \v{a}
+  \quad \mbox{and} \quad
+  b_{i}' \, \ei\!' ~=~ (-b_{i}) \, (-\ei) ~=~ b_{i} \, \ei ~=~ \v{b}
+\]
+The vectors $\v{a}$ and $\v{b}$ are unchanged by the transformation -- as they should be.
+
+However if we calculate the vector product $\v{c}=\v{a}\times\v{b}$ in the new basis
+using the determinant formula, we obtain
+\[
+  \ds \left|
+  \begin{array}{ccc}
+    \eone\!' & \etwo\!' & \ethree\!' \\
+    a_1'     & a_2'     & a_3'       \\
+    b_1'     & b_2'     & b_3'       \\
+  \end{array}
+  \right|
+  ~=~
+  (-1)^3
+  \left|
+  \begin{array}{ccc}
+    \eone & \etwo & \ethree \\
+    a_1   & a_2   & a_3     \\
+    b_1   & b_2   & b_3     \\
+  \end{array}
+  \right|
+  ~=~
+  -\left|
+  \begin{array}{ccc}
+    \eone & \etwo & \ethree \\
+    a_1   & a_2   & a_3     \\
+    b_1   & b_2   & b_3     \\
+  \end{array}
+  \right|
+\]
+which is $-\v{c}$ as calculated in the original basis!
+
+The explanation is that if $\{\ei\}$ is a \emph{RH basis}, then $\{\ei\!'\}$ is a
+\emph{LH basis} because $L$ is an \emph{improper} transformation. The formula we used for
+the vector product holds in a right-handed basis. If we use this formula in a left-handed
+basis, the direction of the vector product is reversed (it is equivalent to using a
+left-hand rule rather than a right-hand rule to calculate the vector product).
+
+Let us then \emph{define} the \emph{components} $c_i$ of $\v{c} = \v{a}\times\v{b}$ as
+\begin{center}
+  \bigbox{$c_i \equiv (\v{a}\times\v{b})_i = \epsilon_{ijk} a_jb_k$}
+\end{center}
+in \emph{any} orthonormal basis (LH or RH). This is equivalent to using the
+determinant formula. With this definition $\v{a}$, $\v{b}$ and $\v{c}$
+have the \emph{same} `handedness' as the underlying basis.
+
+\paragraph{General case:} To derive the transformation law for the vector product for arbitrary $L$ requires
+several steps, and is not quite trivial.
+
+In section~({\ref{subsec:det-eps}), we showed that the determinant of a $3\times3$ matrix
+$A$ can be written as
+\[
+  \det A = \epsilon_{ijk} \, a_{i1} \, a_{j2} \, a_{k3}
+\]
+This can be generalised to [see tutorial sheet~4.]
+\begin{center}
+  \bigbox{$
+      \epsilon_{rst} \, \det A = \epsilon_{ijk} \, a_{ir} \, a_{js} \, a_{kt}
+    $}
+\end{center}
+The extra $\epsilon$ on the LHS of this equation tells us that the
+determinant changes sign when we swap two columns of the matrix.
+Applying this to the transformation matrix $L$ gives
+\[
+  \epsilon_{rst} \, \det L
+  =
+  \epsilon_{ijk} \, \ell_{ir} \, \ell_{js} \, \ell_{kt}
+\]
+Multiplying this equation by $\ell_{lt}$ and using the orthogonality relation $\ell_{lt}
+  \, \ell_{kt} = \delta_{lk}$, gives
+\[
+  (\det L) \, \epsilon_{rst} \, \ell_{lt}
+  =
+  \epsilon_{ijl} \, \ell_{ir} \,
+  \ell_{js}.
+\] Relabelling the free index $l\mapsto k$ gives
+\begin{center}
+  \bigbox{$\ds
+      (\det L) \, \epsilon_{rst} \, \ell_{kt}
+      =
+      \epsilon_{ijk} \, \ell_{ir} \, \ell_{js}$
+  }
+\end{center}
+We can now calculate the transformation law for the components of the
+vector product. Recalling that $a_{j}' = \ell_{jr} \, a_r$ and
+$b_{k}' = \ell_{ks} \, b_s$, we find
+\begin{eqnarray*}
+  (\va\times\vb)_{i}'
+  & = &
+  \eps{ijk} \, a_j' \, b_k'
+  ~ = ~
+  \eps{ijk} \, \ell_{jr} \, \ell_{ks} \, a_r \, b_s
+  ~ = ~
+  \eps{jki} \, \ell_{jr} \, \ell_{ks} \, a_r \, b_s \\[0.5ex]
+  & = &
+  (\det L) \, \eps{rst} \, \ell_{it} \, a_r \, b_s
+  ~ = ~
+  (\det L) \, \ell_{it} \,
+  (\eps{trs} \, a_r \, b_s)
+\end{eqnarray*}
+where we used the last boxed identity (relabelling a lot of indices -
+exercise!) to get the first expression in the second line. Finally, we
+have
+\begin{center}
+  \bigbox{$\ds (\va\times\vb)_{i}'
+      ~=~
+      (\det L) \, \ell_{it} \, (\va\times\vb)_{t}$}
+\end{center}
+So the vector product transforms just like a vector under proper
+transformations, for which $\det L=+1$, but it picks up an extra minus
+sign under improper transformations, for which $\det L=-1$.
+
+The vector product is an example of what is known as a \emph{pseudovector} or \emph{axial
+  vector}.
+
+In general, a pseudovector $\v{c}$ is defined by the transformation law
+\begin{center}
+  \bigbox{ $c_{i}' = (\det L) \, \ell_{ij} \, c_{j}$}
+\end{center}
+You should know this result, but the detailed derivation is a bit
+tough, so you wouldn't be expected to reproduce it in an examination.
+
+\subsubsection*{Physical Examples}
+The following are \emph{true} or \emph{polar} vectors:
+\[
+  \begin{array}{lrcl}
+    \mbox{Position}       & \v{r}                                           \\
+    \mbox{Velocity}       & \v{v} & = & \v{\dot{r}}
+    \mbox{\ \ \ where $\v{r} = \v{r}(t)$, and }
+    \v{\dot{r}} \equiv \ds \frac{d\v{r}}{dt} \quad \mbox{($t$ is a scalar)} \\[1ex]
+    \mbox{Acceleration}   & \v{a} & = & \v{\dot{v}}                         \\[1ex]
+    \mbox{Force}          & \vF   & = & m\,\v{a}
+    \mbox{ \ (defined by Newton's law)}                                     \\[1ex]
+    \mbox{Electric field} & \v{E} & = & \ds \frac{1}{q}\,\vF
+    \mbox{ \ (where $\vF$ is the force on a particle of charge $q$)}
+  \end{array}
+\]
+The following are \emph{pseudo} or \emph{axial} vectors:
+\[
+  \begin{array}{lrcl}
+    \mbox{Angular momentum}         & \v{L} & = & \v{r} \times m\v{v}     \\[1ex]
+    \mbox{Torque}                   & \v{G} & = & \v{r} \times \v{F}      \\[1ex]
+    \mbox{Angular velocity ($\v{\omega}$)}
+                                    & \v{v} & = & \v{\omega} \times \v{r} \\[1ex]
+    \mbox{Magnetic field ($\v{B}$)} & \v{F} & = & q\,\v{v} \times \v{B}
+    \mbox{ \ (where $\vF$ is the force on a particle of}                  \\[1ex]
+                                    &       &   & \qquad \qquad \;\:
+    \mbox{charge $q$ and velocity $\v{v}$ due to $\v{B}$)}
+  \end{array}
+\]
+
+%For more details see `Tensors and Fields' course in third year.
+
+\clearpage
+
+\subsection{Summary of the story so far}
+We now take the opportunity to summarise some key-points of the course thus far.
+
+\textbf{NB} this is NOT a list of everything you need to know!
+
+\subsubsection*{Key points from the geometrical approach}
+You should recognise on sight that
+\begin{eqnarray*}
+  \v{r}\times \v{u} = \v{c}
+  &&
+  \mbox{is a line\ \ \ ($\v{r}$ lies on a line)}\\
+  \v{r}\cdot \v{n} = p
+  && \mbox{is a plane ($\v{r}$ lies in a plane)}
+\end{eqnarray*}
+Useful properties of scalar and vector products to remember
+\begin{eqnarray*}
+  \v{a}\cdot\v{b}=0 \quad &\Leftrightarrow&  \mbox{vectors orthogonal}\\
+  \v{a}\times\v{b}=0 \quad &\Leftrightarrow&  \mbox{vectors collinear}\\
+  \v{a}\cdot(\v{b}\times\v{c})=0 \quad &\Leftrightarrow&
+  \mbox{vectors co-planar
+    or linearly dependent}\\
+  \v{a}\times(\v{b}\times\v{c}) \quad
+  &=&
+  (\v{a}\cdot\v{c})\v{b} - (\v{a}\cdot\v{b})\v{c}
+\end{eqnarray*}
+
+\subsubsection*{Key points of suffix notation and the summation convention}
+We label orthonormal basis vectors by $\eone, \, \etwo, \,\ethree$ (or
+just $\{\ei\}$), and write the expansion of a vector $\v{a}$ as
+\[
+  \v{a} =  a_{i} \, \ei  \quad \left(\equiv \sum_{i=1}^{3} a_{i} \, \ei\right)
+\]
+There is \emph{always} an implicit sum over any \emph{repeated} or \emph{dummy} index,
+$i$ in this case.
+
+The Kronecker delta symbol $\delt{ij}$ can be used to express the orthonormality of the
+basis
+\[
+  \ei\cdot\ej = \delta_{ij}
+\]
+Kronecker delta has a very useful sifting property when one of the indices is summed
+\[
+  [\cdots]_{j}\delta_{jk}= [\cdots]_{k}
+\]
+Whether the basis is right- or left-handed is determined by
+\[
+  (\eone, \etwo, \ethree)= \pm 1
+\]
+We introduce $\eps{ijk}$ to enable us to write the vector products of basis vectors in a
+RH basis in a uniform way
+\[
+  \ei\times \ej= \eps{ijk} \, \ek \,.
+\]
+The vector and scalar triple products in any orthonormal basis are
+\begin{eqnarray*}
+  \v{a}\times \v{b}=
+  \ds \left|
+  \begin{array}{ccc}
+    \eone & \etwo & \ethree \\
+    a_1   & a_2   & a_3     \\
+    b_1   & b_2   & b_3     \\
+  \end{array}
+  \right|
+  &\mbox{or equivalently}&
+  (\v{a}\times \v{b})_{i}
+  ~ = ~
+  \eps{ijk}a_{j}b_{k} \\[1ex]
+  \v{a}\cdot(\v{b} \times \v{c})
+  ~=~
+  \ds
+  \left|
+  \begin{array}{ccc}
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3
+  \end{array}
+  \right|
+  &\mbox{or equivalently}&
+  \v{a}\cdot (\v{b}\times \v{c})
+  ~ = ~
+  \eps{ijk}a_{i}b_{j}c_{k}
+\end{eqnarray*}
+
+The \emph{most important} identity in the game is
+\[
+  \epsilon_{ijk}\,\epsilon_{klm}
+  ~=~
+  \delta_{il}\,\delta_{jm} - \delta_{im}\,\delta_{jl}
+\]
+
+\subsubsection*{Key points of the algebraic approach to change of basis}
+The new basis is written in terms of the old through
+\[
+  \ei\!'
+  ~=~
+  \ell_{ij} \, \ej \quad
+  \mbox{where $\ell_{ij}$ are elements of the $3\times 3$ transformation matrix $L$}
+\]
+$L$ is an orthogonal matrix, the defining property of which is $L^{-1}
+  = L^{T}$, and this can be written as
+\[
+  L L^T = L^T L = I
+  \qquad \mbox{or} \qquad
+  \ell_{ik}\ell_{jk} = \ell_{ki}\ell_{kj} = \delt{ij}
+\]
+The determinant $\det{L} = \pm 1$ tells us whether the transformation is proper or
+improper, \emph{i.e.} whether the handedness of the basis is changed.
+
+A \emph{scalar} is \emph{defined} as a number that is invariant under an orthogonal
+transformation.
+
+A \emph{vector} is \emph{defined} as an object $\v{a}$ represented in a basis by three
+numbers $a_{i}$ which transform to $a_{i}'$ through
+\[
+  a_{i}' \ =  \ell_{ij} a_{j} .
+\]
+or in matrix form
+\[
+  \left(\begin{array}{c}
+      a_1' \\
+      a_2' \\
+      a_3'
+    \end{array}\right)
+  ~=~
+  L
+  \left(\begin{array}{c}
+      a_1 \\
+      a_2 \\
+      a_3
+    \end{array}\right)
+\]
+
+%
+% The statement below is way too dangerous, so remove it!
+%
+% Regarding $a$ and $a'$ as $3\times 1$ column matrices, this may be written
+% succinctly as
+% \[
+%    a^\prime = L \,a \,.
+% \]
+
+A \emph{pseudoscalar} as a number that is invariant under a proper orthogonal
+transformation but changes sign under an improper orthogonal transformation.
+
+A \emph{pseudovector} or \emph{axial vector} transforms as a vector under a proper
+orthogonal transformation but has an additional sign change under an improper orthogonal
+transformation.
+
+\clearpage
+
+%\vfill
+
+\mnote{08L 06/02/09}

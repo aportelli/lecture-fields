@@ -1,0 +1,81 @@
+\usetikzlibrary{arrows.meta,bending}
+{\pgfkeys{/pgf/fpu/.try=false}%
+\ifx\XFigwidth\undefined\dimen1=0pt\else\dimen1\XFigwidth\fi
+\divide\dimen1 by 3513
+\ifx\XFigheight\undefined\dimen3=0pt\else\dimen3\XFigheight\fi
+\divide\dimen3 by 2752
+\ifdim\dimen1=0pt\ifdim\dimen3=0pt\dimen1=3946sp\dimen3\dimen1
+  \else\dimen1\dimen3\fi\else\ifdim\dimen3=0pt\dimen3\dimen1\fi\fi
+\tikzpicture[x=+\dimen1, y=+\dimen3]
+{\ifx\XFigu\undefined\catcode`\@11
+\def\temp{\alloc@1\dimen\dimendef\insc@unt}\temp\XFigu\catcode`\@12\fi}
+\XFigu3946sp
+% Uncomment to scale line thicknesses with the same
+% factor as width of the drawing.
+%\pgfextractx\XFigu{\pgfqpointxy{1}{1}}
+\ifdim\XFigu<0pt\XFigu-\XFigu\fi
+\pgfdeclarearrow{
+  name = xfiga1,
+  parameters = {
+    \the\pgfarrowlinewidth \the\pgfarrowlength \the\pgfarrowwidth\ifpgfarrowopen o\fi},
+  defaults = {
+	  line width=+7.5\XFigu, length=+120\XFigu, width=+60\XFigu},
+  setup code = {
+    % miter protrusion = thk * sqrt(wd^2 + (tipmv*len)^2) / (2 * wd)
+    \dimen7 2.1\pgfarrowlength\pgfmathveclen{\the\dimen7}{\the\pgfarrowwidth}
+    \dimen7 2\pgfarrowwidth\pgfmathdivide{\pgfmathresult}{\the\dimen7}
+    \dimen7 \pgfmathresult\pgfarrowlinewidth
+    \pgfarrowssettipend{+\dimen7}
+    \pgfarrowssetbackend{+-\pgfarrowlength}
+    \dimen9 -\pgfarrowlength\advance\dimen9 by-0.45\pgfarrowlinewidth
+    \pgfarrowssetlineend{+\dimen9}
+    \dimen9 -\pgfarrowlength\advance\dimen9 by-0.5\pgfarrowlinewidth
+    \pgfarrowssetvisualbackend{+\dimen9}
+    \pgfarrowshullpoint{+\dimen7}{+0pt}
+    \pgfarrowsupperhullpoint{+-\pgfarrowlength}{+0.5\pgfarrowwidth}
+    \pgfarrowssavethe\pgfarrowlinewidth
+    \pgfarrowssavethe\pgfarrowlength
+    \pgfarrowssavethe\pgfarrowwidth
+  },
+  drawing code = {\pgfsetdash{}{+0pt}
+    \ifdim\pgfarrowlinewidth=\pgflinewidth\else\pgfsetlinewidth{+\pgfarrowlinewidth}\fi
+    \pgfpathmoveto{\pgfqpoint{-\pgfarrowlength}{-0.5\pgfarrowwidth}}
+    \pgfpathlineto{\pgfqpoint{0pt}{0pt}}
+    \pgfpathlineto{\pgfqpoint{-\pgfarrowlength}{0.5\pgfarrowwidth}}
+    \pgfpathclose
+    \ifpgfarrowopen\pgfusepathqstroke\else\pgfsetfillcolor{pgfstrokecolor}
+	\ifdim\pgfarrowlinewidth>0pt\pgfusepathqfillstroke\else\pgfusepathqfill\fi\fi
+  }
+}
+\clip(742,-3352) rectangle (4255,-600);
+\tikzset{inner sep=+0pt, outer sep=+0pt}
+\pgfsetfillcolor{black}
+\pgftext[base,left,at=\pgfqpointxy{976}{-945}] {\fontsize{20}{24}\selectfont '}
+\pgfsetlinewidth{+7.5\XFigu}
+\pgfsetstrokecolor{black}
+\draw (2625,-2610) arc[start angle=+69.0, end angle=+-23.1, radius=+294.2];
+\pgfsetarrows{[line width=7.5\XFigu]}
+\pgfsetarrowsend{xfiga1}
+\draw (1815,-3000)--(3885,-3000);
+\draw (1798,-2995)--(3674,-2121);
+\draw (1800,-2985)--(1800,-915);
+\draw (1790,-3003)--(916,-1127);
+\pgftext[base,left,at=\pgfqpointxy{3768}{-2123}] {\fontsize{16}{19.2}\selectfont \_}
+\pgftext[base,left,at=\pgfqpointxy{2610}{-2888}] {\fontsize{16}{19.2}\selectfont q}
+\pgftext[base,left,at=\pgfqpointxy{1597}{-2438}] {\fontsize{16}{19.2}\selectfont q}
+\pgftext[base,left,at=\pgfqpointxy{1755}{-762}] {\fontsize{16}{19.2}\selectfont \_}
+\pgftext[base,left,at=\pgfqpointxy{1732}{-750}] {\fontsize{20}{24}\selectfont e}
+\pgftext[base,left,at=\pgfqpointxy{3765}{-2100}] {\fontsize{20}{24}\selectfont e}
+\pgftext[base,left,at=\pgfqpointxy{3982}{-3015}] {\fontsize{20}{24}\selectfont e}
+\pgftext[base,left,at=\pgfqpointxy{757}{-997}] {\fontsize{20}{24}\selectfont e}
+\pgftext[base,left,at=\pgfqpointxy{773}{-1018}] {\fontsize{16}{19.2}\selectfont \_}
+\pgftext[base,left,at=\pgfqpointxy{3993}{-3023}] {\fontsize{16}{19.2}\selectfont \_}
+\pgftext[base,left,at=\pgfqpointxy{922}{-1110}] {\fontsize{16}{19.2}\selectfont 2}
+\pgftext[base,left,at=\pgfqpointxy{1898}{-885}] {\fontsize{16}{19.2}\selectfont 2}
+\pgftext[base,left,at=\pgfqpointxy{3915}{-2251}] {\fontsize{16}{19.2}\selectfont 1}
+\pgftext[base,left,at=\pgfqpointxy{4117}{-3157}] {\fontsize{16}{19.2}\selectfont 1}
+\pgftext[base,left,at=\pgfqpointxy{1560}{-3337}] {\fontsize{20}{24}\selectfont O}
+\pgftext[base,left,at=\pgfqpointxy{3967}{-2055}] {\fontsize{20}{24}\selectfont '}
+\pgfsetarrowsend{}
+\draw (1462,-2273) arc[start angle=+145.1, end angle=+53.2, radius=+232.5];
+\endtikzpicture}%

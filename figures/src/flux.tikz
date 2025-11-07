@@ -1,0 +1,130 @@
+\usetikzlibrary{arrows.meta,bending}
+{\pgfkeys{/pgf/fpu/.try=false}%
+\ifx\XFigwidth\undefined\dimen1=0pt\else\dimen1\XFigwidth\fi
+\divide\dimen1 by 3378
+\ifx\XFigheight\undefined\dimen3=0pt\else\dimen3\XFigheight\fi
+\divide\dimen3 by 3210
+\ifdim\dimen1=0pt\ifdim\dimen3=0pt\dimen1=3946sp\dimen3\dimen1
+  \else\dimen1\dimen3\fi\else\ifdim\dimen3=0pt\dimen3\dimen1\fi\fi
+\tikzpicture[x=+\dimen1, y=+\dimen3]
+{\ifx\XFigu\undefined\catcode`\@11
+\def\temp{\alloc@1\dimen\dimendef\insc@unt}\temp\XFigu\catcode`\@12\fi}
+\XFigu3946sp
+% Uncomment to scale line thicknesses with the same
+% factor as width of the drawing.
+%\pgfextractx\XFigu{\pgfqpointxy{1}{1}}
+\ifdim\XFigu<0pt\XFigu-\XFigu\fi
+\pgfdeclarearrow{
+  name = xfiga0,
+  parameters = {
+    \the\pgfarrowlinewidth \the\pgfarrowlength \the\pgfarrowwidth},
+  defaults = {
+	  line width=+7.5\XFigu, length=+120\XFigu, width=+60\XFigu},
+  setup code = {
+    % miter protrusion = thk * sqrt(wd^2 + (tipmv*len)^2) / (2 * wd)
+    \dimen7 2.15\pgfarrowlength\pgfmathveclen{\the\dimen7}{\the\pgfarrowwidth}
+    \dimen7 2\pgfarrowwidth\pgfmathdivide{\pgfmathresult}{\the\dimen7}
+    \dimen7 \pgfmathresult\pgfarrowlinewidth
+    \pgfarrowssettipend{+\dimen7}
+    \pgfarrowssetbackend{+-\pgfarrowlength}
+    \dimen9 -0.5\pgfarrowlinewidth
+    \pgfarrowssetvisualbackend{+\dimen9}
+    \pgfarrowssetlineend{+-0.5\pgfarrowlinewidth}
+    \pgfarrowshullpoint{+\dimen7}{+0pt}
+    \pgfarrowsupperhullpoint{+-\pgfarrowlength}{+0.5\pgfarrowwidth}
+    \pgfarrowssavethe\pgfarrowlinewidth
+    \pgfarrowssavethe\pgfarrowlength
+    \pgfarrowssavethe\pgfarrowwidth
+  },
+  drawing code = {\pgfsetdash{}{+0pt}
+    \ifdim\pgfarrowlinewidth=\pgflinewidth\else\pgfsetlinewidth{+\pgfarrowlinewidth}\fi
+    \pgfpathmoveto{\pgfqpoint{-\pgfarrowlength}{0.5\pgfarrowwidth}}
+    \pgfpathlineto{\pgfqpoint{0pt}{0pt}}
+    \pgfpathlineto{\pgfqpoint{-\pgfarrowlength}{-0.5\pgfarrowwidth}}
+    \pgfusepathqstroke
+  }
+}
+\pgfdeclarearrow{
+  name = xfiga1,
+  parameters = {
+    \the\pgfarrowlinewidth \the\pgfarrowlength \the\pgfarrowwidth\ifpgfarrowopen o\fi},
+  defaults = {
+	  line width=+7.5\XFigu, length=+120\XFigu, width=+60\XFigu},
+  setup code = {
+    % miter protrusion = thk * sqrt(wd^2 + (tipmv*len)^2) / (2 * wd)
+    \dimen7 2.1\pgfarrowlength\pgfmathveclen{\the\dimen7}{\the\pgfarrowwidth}
+    \dimen7 2\pgfarrowwidth\pgfmathdivide{\pgfmathresult}{\the\dimen7}
+    \dimen7 \pgfmathresult\pgfarrowlinewidth
+    \pgfarrowssettipend{+\dimen7}
+    \pgfarrowssetbackend{+-\pgfarrowlength}
+    \dimen9 -\pgfarrowlength\advance\dimen9 by-0.45\pgfarrowlinewidth
+    \pgfarrowssetlineend{+\dimen9}
+    \dimen9 -\pgfarrowlength\advance\dimen9 by-0.5\pgfarrowlinewidth
+    \pgfarrowssetvisualbackend{+\dimen9}
+    \pgfarrowshullpoint{+\dimen7}{+0pt}
+    \pgfarrowsupperhullpoint{+-\pgfarrowlength}{+0.5\pgfarrowwidth}
+    \pgfarrowssavethe\pgfarrowlinewidth
+    \pgfarrowssavethe\pgfarrowlength
+    \pgfarrowssavethe\pgfarrowwidth
+  },
+  drawing code = {\pgfsetdash{}{+0pt}
+    \ifdim\pgfarrowlinewidth=\pgflinewidth\else\pgfsetlinewidth{+\pgfarrowlinewidth}\fi
+    \pgfpathmoveto{\pgfqpoint{-\pgfarrowlength}{-0.5\pgfarrowwidth}}
+    \pgfpathlineto{\pgfqpoint{0pt}{0pt}}
+    \pgfpathlineto{\pgfqpoint{-\pgfarrowlength}{0.5\pgfarrowwidth}}
+    \pgfpathclose
+    \ifpgfarrowopen\pgfusepathqstroke\else\pgfsetfillcolor{pgfstrokecolor}
+	\ifdim\pgfarrowlinewidth>0pt\pgfusepathqfillstroke\else\pgfusepathqfill\fi\fi
+  }
+}
+\clip(1125,-4744) rectangle (4503,-1534);
+\tikzset{inner sep=+0pt, outer sep=+0pt}
+\pgfsetfillcolor{black}
+\pgftext[base,left,at=\pgfqpointxy{2419}{-2599}] {\fontsize{16}{19.2}\selectfont q}
+\pgfsetroundcap
+\pgfsetlinewidth{+7.5\XFigu}
+\pgfsetdash{{+60\XFigu}{+60\XFigu}}{++0pt}
+\pgfsetstrokecolor{black}
+\draw  (3482,-4144) ellipse [x radius=+675,y radius=+375,rotate=+30];
+\draw  (2760,-3225) ellipse [x radius=+675,y radius=+375,rotate=+30];
+\pgfsetdash{}{+0pt}
+\draw  (2579,-2994) ellipse [x radius=+791,y radius=+353];
+\pgfsetbuttcap
+\pgfsetarrows{[line width=7.5\XFigu]}
+\pgfsetarrowsend{xfiga1}
+\draw (3593,-4579)--(1650,-2100);
+\draw (3826,-4432)--(1875,-1950);
+\draw (3379,-4732)--(1425,-2250);
+\draw (4039,-4265)--(2100,-1800);
+\pgfsetdash{{+60\XFigu}{+60\XFigu}}{++0pt}
+\pgfsetarrowsend{}
+\draw (4063,-3797)--(3313,-2845);
+\draw (3344,-2862)--(3686,-2605);
+\draw (4061,-3798)--(4403,-3541);
+\pgfsetdash{}{+0pt}
+\pgfsetarrowsend{xfiga1}
+\draw (3758,-2955)--(3571,-2710);
+\draw (4026,-3292)--(4297,-3616);
+\draw (2592,-3027)--(2592,-1827);
+\pgfsetbeveljoin
+\pgfsetarrowsend{xfiga0}
+\pgfsetdash{}{+0pt}
+\draw (1513,-3525)--(1514,-3525)--(1517,-3523)--(1526,-3520)--(1540,-3514)--(1559,-3506)
+  --(1580,-3497)--(1602,-3488)--(1622,-3480)--(1641,-3472)--(1658,-3465)--(1673,-3459)
+  --(1687,-3454)--(1700,-3448)--(1712,-3444)--(1726,-3438)--(1741,-3433)--(1755,-3428)
+  --(1770,-3422)--(1786,-3417)--(1801,-3412)--(1817,-3408)--(1832,-3404)--(1847,-3401)
+  --(1861,-3398)--(1875,-3396)--(1889,-3394)--(1903,-3393)--(1918,-3393)--(1933,-3392)
+  --(1949,-3393)--(1965,-3393)--(1982,-3394)--(2000,-3396)--(2016,-3398)--(2033,-3400)
+  --(2049,-3402)--(2064,-3404)--(2078,-3406)--(2093,-3409)--(2108,-3412)--(2124,-3415)
+  --(2142,-3418)--(2162,-3423)--(2185,-3427)--(2208,-3432)--(2230,-3437)--(2266,-3445);
+\pgftext[base,left,at=\pgfqpointxy{1597}{-1897}] {\fontsize{16}{19.2}\selectfont v}
+\pgftext[base,left,at=\pgfqpointxy{1589}{-1927}] {\fontsize{16}{19.2}\selectfont \_}
+\pgftext[base,left,at=\pgfqpointxy{1140}{-3765}] {\fontsize{16}{19.2}\selectfont dS\ cos}
+\pgftext[base,left,at=\pgfqpointxy{1851}{-3776}] {\fontsize{16}{19.2}\selectfont q}
+\pgftext[base,left,at=\pgfqpointxy{3750}{-3184}] {\fontsize{16}{19.2}\selectfont \textbar v\textbar dt}
+\pgftext[base,left,at=\pgfqpointxy{3902}{-3221}] {\fontsize{16}{19.2}\selectfont \_}
+\pgftext[base,left,at=\pgfqpointxy{2465}{-1729}] {\fontsize{16}{19.2}\selectfont dS}
+\pgftext[base,left,at=\pgfqpointxy{2607}{-1754}] {\fontsize{16}{19.2}\selectfont \_}
+\pgfsetarrowsend{}
+\draw (2231,-2404) arc[start angle=+147.5, end angle=+94.4, radius=+488.9];
+\endtikzpicture}%

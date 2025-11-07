@@ -1,0 +1,144 @@
+\usetikzlibrary{arrows.meta,bending}
+{\pgfkeys{/pgf/fpu/.try=false}%
+\ifx\XFigwidth\undefined\dimen1=0pt\else\dimen1\XFigwidth\fi
+\divide\dimen1 by 4460
+\ifx\XFigheight\undefined\dimen3=0pt\else\dimen3\XFigheight\fi
+\divide\dimen3 by 4947
+\ifdim\dimen1=0pt\ifdim\dimen3=0pt\dimen1=4143sp\dimen3\dimen1
+  \else\dimen1\dimen3\fi\else\ifdim\dimen3=0pt\dimen3\dimen1\fi\fi
+\tikzpicture[x=+\dimen1, y=+\dimen3]
+{\ifx\XFigu\undefined\catcode`\@11
+\def\temp{\alloc@1\dimen\dimendef\insc@unt}\temp\XFigu\catcode`\@12\fi}
+\XFigu4143sp
+% Uncomment to scale line thicknesses with the same
+% factor as width of the drawing.
+%\pgfextractx\XFigu{\pgfqpointxy{1}{1}}
+\ifdim\XFigu<0pt\XFigu-\XFigu\fi
+\pgfdeclarearrow{
+  name = xfiga2,
+  parameters = {
+    \the\pgfarrowlinewidth \the\pgfarrowlength \the\pgfarrowwidth\ifpgfarrowopen o\fi},
+  defaults = {
+	  line width=+7.5\XFigu, length=+120\XFigu, width=+60\XFigu},
+  setup code = {
+    % miter protrusion = thk * sqrt(wd^2 + (tipmv*len)^2) / (2 * wd)
+    \dimen7 2.6\pgfarrowlength\pgfmathveclen{\the\dimen7}{\the\pgfarrowwidth}
+    \dimen7 2\pgfarrowwidth\pgfmathdivide{\pgfmathresult}{\the\dimen7}
+    \dimen7 \pgfmathresult\pgfarrowlinewidth
+    \pgfarrowssettipend{+\dimen7}
+    \pgfarrowssetbackend{+-1.25\pgfarrowlength}
+    \dimen9 -\pgfarrowlength\advance\dimen9 by-0.5\pgfarrowlinewidth
+    \pgfarrowssetlineend{+\dimen9}
+    \dimen9 -\pgfarrowlength\advance\dimen9 by-0.5\pgfarrowlinewidth
+    \pgfarrowssetvisualbackend{+\dimen9}
+    \pgfarrowshullpoint{+\dimen7}{+0pt}
+    \pgfarrowsupperhullpoint{+-1.25\pgfarrowlength}{+0.5\pgfarrowwidth}
+    \pgfarrowssavethe\pgfarrowlinewidth
+    \pgfarrowssavethe\pgfarrowlength
+    \pgfarrowssavethe\pgfarrowwidth
+  },
+  drawing code = {\pgfsetdash{}{+0pt}
+    \ifdim\pgfarrowlinewidth=\pgflinewidth\else\pgfsetlinewidth{+\pgfarrowlinewidth}\fi
+    \pgfpathmoveto{\pgfqpoint{-1.25\pgfarrowlength}{-0.5\pgfarrowwidth}}
+    \pgfpathlineto{\pgfqpoint{0pt}{0pt}}
+    \pgfpathlineto{\pgfqpoint{-1.25\pgfarrowlength}{0.5\pgfarrowwidth}}
+    \pgfpathlineto{\pgfqpoint{-\pgfarrowlength}{0pt}}
+    \pgfpathclose
+    \ifpgfarrowopen\pgfusepathqstroke\else\pgfsetfillcolor{pgfstrokecolor}
+	\ifdim\pgfarrowlinewidth>0pt\pgfusepathqfillstroke\else\pgfusepathqfill\fi\fi
+  }
+}
+\clip(2695,-6959) rectangle (7155,-2012);
+\tikzset{inner sep=+0pt, outer sep=+0pt}
+\pgfsetfillcolor{black}
+\pgftext[base,left,at=\pgfqpointxy{2710}{-2435}] {\fontsize{32}{38.4}\selectfont $y$}
+\pgfsetlinewidth{+30\XFigu}
+\pgfsetstrokecolor{black}
+\pgfsetarrows{[line width=45\XFigu, width=105\XFigu, length=180\XFigu]}
+\pgfsetarrowsend{xfiga2}
+\draw (3135,-6299)--(6930,-6300);
+\pgfsetlinewidth{+7.5\XFigu}
+\pgfsetarrows{[line width=7.5\XFigu, width=60\XFigu, length=120\XFigu]}
+\draw (3507,-4571)--(3862,-5469);
+\pgfsetlinewidth{+30\XFigu}
+\pgfsetarrows{[line width=45\XFigu, width=105\XFigu, length=180\XFigu]}
+\pgfsetarrows{xfiga2-}
+\draw (3150,-2070)--(3150,-6345);
+\pgfsetlinewidth{+7.5\XFigu}
+\pgfsetarrows{[line width=7.5\XFigu, width=60\XFigu, length=120\XFigu]}
+\pgfsetarrows{-xfiga2}
+\draw (5982,-4879)--(5469,-4311);
+\pgfsetarrowsend{}
+\pgfsetfillcolor{yellow}
+\filldraw (4972,-3456)--(5114,-3560)--(5271,-3684)--(5455,-3838)--(5576,-3953)--(5659,-4048)
+  --(5709,-4098)--(5052,-4678)--(4969,-4572)--(4810,-4427)--(4709,-4338)--(4576,-4231)
+  --(4499,-4190)--(4982,-3458);
+\pgfsetarrowsend{xfiga2}
+\draw (6630,-2745)--(5130,-4049);
+\draw (4338,-2927)--(4786,-4404);
+\draw (5291,-5705)--(4659,-5045);
+\pgfsetarrowsend{}
+\draw (3172,-6292)--(6172,-3712);
+\pgfsetbeveljoin
+\draw (4966,-3452)--(4967,-3452)--(4971,-3455)--(4980,-3462)--(4993,-3470)--(5007,-3480)
+  --(5021,-3490)--(5034,-3498)--(5045,-3506)--(5055,-3513)--(5066,-3521)--(5075,-3527)
+  --(5084,-3534)--(5094,-3541)--(5105,-3549)--(5116,-3557)--(5128,-3565)--(5139,-3574)
+  --(5151,-3582)--(5162,-3590)--(5172,-3598)--(5182,-3606)--(5192,-3613)--(5203,-3622)
+  --(5214,-3631)--(5225,-3640)--(5237,-3649)--(5249,-3659)--(5260,-3668)--(5271,-3677)
+  --(5281,-3686)--(5291,-3694)--(5300,-3702)--(5309,-3709)--(5318,-3717)--(5328,-3724)
+  --(5337,-3733)--(5347,-3741)--(5357,-3749)--(5367,-3757)--(5376,-3765)--(5385,-3773)
+  --(5394,-3780)--(5402,-3788)--(5411,-3796)--(5421,-3804)--(5431,-3813)--(5441,-3822)
+  --(5451,-3831)--(5461,-3840)--(5471,-3849)--(5479,-3857)--(5488,-3865)--(5496,-3872)
+  --(5505,-3880)--(5514,-3889)--(5523,-3897)--(5532,-3906)--(5541,-3914)--(5549,-3922)
+  --(5557,-3930)--(5565,-3937)--(5572,-3944)--(5580,-3952)--(5588,-3961)--(5597,-3971)
+  --(5605,-3980)--(5614,-3990)--(5622,-3999)--(5631,-4008)--(5639,-4017)--(5645,-4024)
+  --(5652,-4032)--(5660,-4041)--(5670,-4051)--(5681,-4063)--(5692,-4076)--(5703,-4087)
+  --(5711,-4096)--(5714,-4099)--(5715,-4100);
+\draw (4502,-4192)--(4503,-4192)--(4507,-4195)--(4516,-4201)--(4528,-4210)--(4542,-4219)
+  --(4555,-4228)--(4566,-4236)--(4576,-4243)--(4585,-4249)--(4593,-4256)--(4602,-4262)
+  --(4610,-4268)--(4620,-4275)--(4630,-4283)--(4640,-4290)--(4650,-4298)--(4661,-4306)
+  --(4671,-4314)--(4681,-4322)--(4691,-4330)--(4700,-4336)--(4709,-4343)--(4719,-4350)
+  --(4729,-4358)--(4739,-4366)--(4750,-4375)--(4761,-4383)--(4772,-4392)--(4782,-4400)
+  --(4792,-4408)--(4801,-4416)--(4810,-4424)--(4821,-4433)--(4831,-4443)--(4842,-4453)
+  --(4853,-4463)--(4864,-4474)--(4875,-4484)--(4885,-4494)--(4895,-4503)--(4904,-4512)
+  --(4912,-4520)--(4920,-4528)--(4928,-4536)--(4937,-4543)--(4945,-4551)--(4954,-4559)
+  --(4962,-4567)--(4970,-4575)--(4977,-4582)--(4984,-4589)--(4990,-4596)--(4998,-4605)
+  --(5006,-4614)--(5015,-4626)--(5026,-4639)--(5037,-4654)--(5046,-4666)--(5051,-4673)
+  --(5052,-4674);
+\draw (3162,-6312)--(5272,-2982);
+\pgfsetdash{{+60\XFigu}{+60\XFigu}}{++0pt}
+\draw (3688,-5479)--(3689,-5480)--(3694,-5483)--(3704,-5490)--(3715,-5498)--(3726,-5505)
+  --(3734,-5511)--(3741,-5516)--(3747,-5521)--(3753,-5526)--(3760,-5532)--(3766,-5538)
+  --(3773,-5544)--(3779,-5550)--(3785,-5556)--(3792,-5562)--(3799,-5569)--(3808,-5577)
+  --(3817,-5584)--(3825,-5592)--(3832,-5599)--(3839,-5605)--(3845,-5612)--(3852,-5619)
+  --(3858,-5625)--(3863,-5632)--(3868,-5637)--(3873,-5643)--(3879,-5649)--(3885,-5656)
+  --(3892,-5665)--(3897,-5670)--(3898,-5671);
+\draw (4284,-5330)--(4284,-5331)--(4287,-5334)--(4294,-5343)--(4303,-5354)--(4313,-5367)
+  --(4323,-5379)--(4331,-5391)--(4339,-5401)--(4346,-5410)--(4353,-5420)--(4359,-5428)
+  --(4365,-5437)--(4372,-5446)--(4379,-5456)--(4386,-5466)--(4394,-5477)--(4401,-5488)
+  --(4408,-5500)--(4416,-5511)--(4422,-5521)--(4429,-5532)--(4435,-5542)--(4441,-5552)
+  --(4447,-5563)--(4453,-5574)--(4460,-5585)--(4466,-5597)--(4473,-5610)--(4479,-5622)
+  --(4485,-5634)--(4490,-5645)--(4496,-5656)--(4500,-5667)--(4505,-5678)--(4510,-5690)
+  --(4516,-5703)--(4521,-5716)--(4527,-5730)--(4532,-5744)--(4537,-5759)--(4542,-5773)
+  --(4547,-5786)--(4552,-5799)--(4556,-5812)--(4560,-5823)--(4563,-5834)--(4567,-5845)
+  --(4571,-5858)--(4575,-5870)--(4579,-5883)--(4583,-5896)--(4587,-5909)--(4590,-5921)
+  --(4594,-5933)--(4597,-5944)--(4600,-5956)--(4603,-5969)--(4606,-5982)--(4609,-5996)
+  --(4613,-6011)--(4616,-6025)--(4618,-6039)--(4621,-6052)--(4623,-6065)--(4625,-6076)
+  --(4627,-6087)--(4628,-6099)--(4630,-6112)--(4631,-6124)--(4633,-6137)--(4634,-6149)
+  --(4635,-6162)--(4635,-6173)--(4636,-6184)--(4637,-6196)--(4637,-6208)--(4638,-6222)
+  --(4639,-6235)--(4639,-6248)--(4640,-6259)--(4640,-6269)--(4641,-6278)--(4641,-6288)
+  --(4640,-6297)--(4640,-6305)--(4639,-6311)--(4639,-6312);
+\pgfsetfillcolor{black}
+\pgftext[base,left,at=\pgfqpointxy{2790}{-6660}] {\fontsize{32}{38.4}\selectfont $O$}
+\pgftext[base,left,at=\pgfqpointxy{3980}{-6071}] {\fontsize{36}{43.2}\selectfont $\phi$}
+\pgftext[base,left,at=\pgfqpointxy{6087}{-5021}] {\fontsize{36}{43.2}\selectfont ${\rm d}\rho$}
+\pgftext[base,left,at=\pgfqpointxy{3268}{-4493}] {\fontsize{36}{43.2}\selectfont ${\rm d}\phi$}
+\pgftext[base,left,at=\pgfqpointxy{4184}{-2829}] {\fontsize{36}{43.2}\selectfont $\rho \, {\rm d}\phi$}
+\pgftext[base,left,at=\pgfqpointxy{5347}{-5916}] {\fontsize{36}{43.2}\selectfont $\rho$}
+\pgftext[base,left,at=\pgfqpointxy{7140}{-3405}] {\fontsize{36}{43.2}\selectfont $x = \rho\cos\phi$}
+\pgftext[base,left,at=\pgfqpointxy{7140}{-3975}] {\fontsize{36}{43.2}\selectfont $y = \rho\sin\phi$}
+\pgftext[base,left,at=\pgfqpointxy{6899}{-2819}] {\fontsize{36}{43.2}\selectfont ${\rm d}S = \rho \,{\rm d}\rho \,{\rm d}\phi$}
+\pgftext[base,left,at=\pgfqpointxy{6610}{-6800}] {\fontsize{36}{43.2}\selectfont $x$}
+\pgfsetdash{}{+0pt}
+\filldraw  (5036,-4678) circle [radius=+54];
+\endtikzpicture}%

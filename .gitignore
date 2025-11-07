@@ -13,6 +13,7 @@
 
 # figure temporaries
 /figures/src/*.pdf
+/figures/figs
 
 # main document
 /fields.pdf

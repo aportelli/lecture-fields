@@ -1,0 +1,260 @@
+% !TEX root = fields.tex
+%Macros for Course Notes and Tutorial sheets for the
+%Vectors, Tensors and Applications course
+%for Mathematical Physics 2/2Ah
+%Filed in /users/staff/lance/LaTeX_files/VTAmacros.tex
+%
+%
+% \newcommand{\therefore}{
+%   \unitlength=1.5mm
+%   \begin{picture}(6,4)
+%     \put(0,0){.}
+%     \put(2.6,0){.}
+%     \put(1.3,2.2){.}
+%   \end{picture}
+% }
+%
+\newcommand{\vA}{\v{A}}
+\newcommand{\vB}{\v{B\!}\,}
+\newcommand{\vC}{\v{C\!}\,}
+\newcommand{\vD}{\v{D\!}\,}
+\newcommand{\vE}{\v{E}}
+\newcommand{\vF}{\v{F\!}\,}
+\newcommand{\vG}{\v{G\!}\,}
+\newcommand{\vH}{\v{H}}
+\newcommand{\vJ}{\v{J}}
+\newcommand{\vS}{\v{S}}
+\newcommand{\vP}{\v{P\!}\,}
+\newcommand{\vL}{\v{L\!}\,}
+\newcommand{\vM}{\v{M\!}\,}
+\newcommand{\vN}{\v{N\!}\,}
+\newcommand{\vR}{\v{R}}
+\newcommand{\vV}{\v{V}}
+\newcommand{\va}{\v{a}}
+\newcommand{\vb}{\v{b}}
+\newcommand{\vc}{\v{c}}
+\newcommand{\vi}{\v{i}}
+\newcommand{\vj}{\v{j}}
+\newcommand{\vm}{\v{m}}
+\newcommand{\vp}{\v{p}}
+\newcommand{\vn}{\v{n}}
+\newcommand{\vk}{\v{k}}
+\newcommand{\vr}{\v{r}}
+\newcommand{\vs}{\v{s}}
+\newcommand{\vt}{\v{t}}
+\newcommand{\vv}{\v{v}}
+\newcommand{\ve}{\v{e}}
+\newcommand{\vx}{\v{x}}
+
+\newcommand{\vtau}{\v{\tau}}
+
+\newcommand{\vAr}{\v{A}(\v{r})}
+\newcommand{\vBr}{\v{B}(\v{r})}
+\newcommand{\phir}{\phi(\v{r})}
+\newcommand{\vri}{\v{\r{i}}}
+
+\newcommand{\e}[1]{\mbox{$\underline{\mbox{$e$}}_{{\,#1}}$}}	% underlined
+\newcommand{\ed}[1]{\mbox{$\underline{\mbox{$e$}}_{{\,#1}}$}}	% underlined:displaystyle
+%\newcommand{\ed}[1]{\mbox{$\underline{\mbox{$e$}}_{{\ds #1}}$}}	% underlined:displaystyle
+\newcommand{\ex}{\ed{x}}
+\newcommand{\ey}{\ed{y}}
+\newcommand{\ez}{\ed{z}}
+\newcommand{\eone}{\e{1}}
+\newcommand{\etwo}{\e{2}}
+\newcommand{\etre}{\e{3}}
+\newcommand{\ethree}{\e{3}}
+\newcommand{\ei}{\ed{i}}
+\newcommand{\ej}{\ed{j}}
+\newcommand{\ek}{\ed{k}}
+\newcommand{\el}{\ed{\ell}}
+\newcommand{\ep}{\ed{p}}
+\newcommand{\eq}{\ed{q}}
+\newcommand{\er}{\ed{r}}
+\newcommand{\es}{\ed{s}}
+\renewcommand{\eth}{\e{\theta}}
+\newcommand{\etheta}{\ed{\theta}}
+\newcommand{\eph}{\e{\phi}}
+\newcommand{\ephi}{\ed{\phi}}
+\newcommand{\erho}{\ed{\rho}}
+\newcommand{\epsi}{\e{\psi}}
+
+\newcommand{\eR}[1]{\mbox{$\b{\mbox{$e$}}^{{#1}}$}}	% raised index
+\newcommand{\edR}[1]{\mbox{$\b{\mbox{$e$}}^{{\ds #1}}$}}
+% raised index:displystyle
+\newcommand{\eoneR}{\eR{1}}
+\newcommand{\etwoR}{\eR{2}}
+\newcommand{\etreR}{\eR{3}}
+\newcommand{\ethreeR}{\eR{3}}
+\newcommand{\eiR}{\edR{i}}
+\newcommand{\ejR}{\edR{j}}
+\newcommand{\ekR}{\edR{k}}
+
+\newcommand{\A}[1]{A_{\ds #1}}
+\newcommand{\B}[1]{B_{\ds #1}}
+\newcommand{\C}[1]{C_{\ds #1}}
+\newcommand{\D}[1]{D_{\ds #1}}
+\newcommand{\E}[1]{E_{\ds #1}}
+\newcommand{\J}[1]{J_{\ds #1}}
+\newcommand{\Ld}[1]{L_{#1}}
+\newcommand{\M}[1]{M_{\ds #1}}
+\newcommand{\N}[1]{N_{\ds #1}}
+\newcommand{\PP}[1]{P_{\ds #1}}
+\newcommand{\V}[1]{V_{\ds #1}}
+\newcommand{\ad}[1]{a_{\,#1}}
+%\newcommand{\ad}[1]{a_{\ds #1}}
+\newcommand{\bd}[1]{b_{\ds #1}}
+\newcommand{\cd}[1]{c_{\ds #1}}
+\newcommand{\h}[1]{h_{\ds #1}}
+\newcommand{\q}[1]{q_{\ds #1}}
+%%%	\newcommand{\r}[1]{r_{\ds #1}}
+\newcommand{\x}[1]{x_{#1}}
+\newcommand{\y}[1]{y_{\ds #1}}
+\newcommand{\z}[1]{z_{\ds #1}}
+\newcommand{\n}[1]{n_{#1}}
+\newcommand{\m}[1]{m_{#1}}
+%\newcommand{\n}[1]{n_{\ds #1}}
+%\newcommand{\m}[1]{m_{\ds #1}}
+\newcommand{\R}[1]{R_{\ds #1}}
+%%%	\newcommand{\SS}[1]{S_{\ds #1}}
+\newcommand{\T}[1]{T_{#1}}
+\newcommand{\X}[1]{X_{\ds #1}}
+\newcommand{\ud}[1]{u_{\ds #1}}
+\newcommand{\vd}[1]{v_{\ds #1}}
+%\newcommand{\es}[1]{e_{\ds #1}}	%for strain tensor
+
+\newcommand{\bv}[1]{\mbox{\boldmath${#1}$}}		% boldface
+\newcommand{\bvA}{\bv{A}}
+\newcommand{\bvB}{\bv{B}}
+\newcommand{\bvD}{\bv{D}}
+\newcommand{\bvE}{\bv{E}}
+\newcommand{\bvH}{\bv{H}}
+\newcommand{\bvJ}{\bv{J}}
+\newcommand{\bvS}{\bv{S}}
+\newcommand{\bvP}{\bv{P}}
+\newcommand{\bvM}{\bv{M}}
+\newcommand{\bvN}{\bv{N}}
+\newcommand{\bvR}{\bv{R}}
+\newcommand{\bvj}{\bv{j}}
+\newcommand{\bvm}{\bv{m}}
+\newcommand{\bvp}{\bv{p}}
+\newcommand{\bvn}{\bv{n}}
+\newcommand{\bvk}{\bv{k}}
+\newcommand{\bvr}{\bv{r}}
+\newcommand{\bvt}{\bv{t}}
+\newcommand{\bvv}{\bv{v}}
+\newcommand{\bve}{\bv{e}}
+
+\newcommand{\bee}[1]{\mbox{\boldmath$e$}$_{{#1}}$ }	% boldface
+\newcommand{\bex}{\bee{x}}
+\newcommand{\bey}{\bee{y}}
+\newcommand{\bez}{\bee{z}}
+\newcommand{\beone}{\bee{1}}
+\newcommand{\betwo}{\bee{2}}
+\newcommand{\betre}{\bee{3}}
+\newcommand{\bethree}{\bee{3}}
+\newcommand{\bei}{\bee{i}}
+\newcommand{\bej}{\bee{j}}
+\newcommand{\bek}{\bee{k}}
+\newcommand{\bep}{\bee{p}}
+\newcommand{\beq}{\bee{q}}
+\newcommand{\ber}{\bee{r}}
+\renewcommand{\beth}{\bee{\theta}}
+\newcommand{\betheta}{\bee{\theta}}
+\newcommand{\beph}{\bee{\phi}}
+\newcommand{\bephi}{\bee{\phi}}
+\newcommand{\berho}{\bee{\rho}}
+\newcommand{\bepsi}{\bee{\psi}}
+
+\newcommand{\vpr}[2]{\v{{#1}}\!\times\!\v{{#2}}}%	VECTOR PRODUCT
+\newcommand{\bvpr}[2]{\bv{{#1}}\!\times\!\bv{{#2}}}%	Bold VECTOR PRODUCT
+\newcommand{\spr}[2]{\v{{#1}}\!\cdot\!\v{{#2}}}	%	SCALAR PRODUCT
+\newcommand{\stpr}[3]{(\v{{#1}} \, ,\; \v{{#2}}\, ,\; \v{{#3}})}	%SCALAR TRIPLE PRODUCT
+\newcommand{\bspr}[2]{\bv{{#1}}\!\cdot\!\bv{{#2}}} %	Bold SCALAR PRODUCT
+
+\newcommand{\equals}{\;=\;}
+\newcommand{\plus}{\,+\,}
+\newcommand{\minus}{\,-\,}
+\newcommand{\pdiff}[1]{\frac{\partial}{\partial x_{#1}}}
+\newcommand{\parpar}[2]{\frac{\partial #1}{\partial #2}}  % the original
+\newcommand{\pdiffI}[1]{\frac{\partial   }{\partial #1}} % d / d [1]
+\newcommand{\pdiffII}[2]{\frac{\partial #1}{\partial #2}} % d [1] / d [2]
+
+\newcommand{\sech}{{\rm sech}}
+\newcommand{\csch}{{\rm csch}}
+\newcommand{\cosec}{{\rm cosec}}
+\newcommand{\arctanh}{{\rm arctanh}}
+\newcommand{\arcsinh}{{\rm arcsinh}}
+\newcommand{\arccosh}{{\rm arccosh}}
+\newcommand{\ddx}{\frac{{\textstyle \rm d}}{{\textstyle{\rm d}x}}}
+
+\newcommand{\bigbox}[1]{\fbox{\rule[-2ex]{0ex}{5ex}\ #1\ }}
+\newcommand{\Bigbox}[1]{\fbox{\rule[-3ex]{0ex}{7ex}\ #1\ }}
+
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\sst}{\scriptstyle}
+\newcommand{\delt}[1]{\delta_{#1}}
+%\newcommand{\delt}[1]{\delta_{\ds #1}}  % old version
+\newcommand{\eps}[1]{\epsilon_{#1}}
+%\newcommand{\eps}[1]{\epsilon_{\ds #1}} % old version
+\newcommand{\lam}[1]{\lambda_{\ds #1}}
+\newcommand{\mud}[1]{\mu_{\ds #1}}
+\newcommand{\sig}[1]{\sigma_{\ds #1}}
+\newcommand{\om}[1]{\omega_{#1}}
+\newcommand{\Om}[1]{\Omega_{\ds #1}}
+%\renewcommand{\v}[1]{\mbox{\underline{${#1}$}}}	% underlined
+%\renewcommand{\v}[1]{\mbox{\underline{\strut${#1}$}}}	% underlined
+\renewcommand{\v}[1]{\mbox{\underline{\rule[-.3ex]{0ex}{1ex}${#1}$}}}	% underlined
+%\newcommand{\e}[1]{\mbox{$\b{\mbox{$e$}}_{{#1}}$}}	% underlined
+
+\def\pmb#1{\setbox0=\hbox{#1}%
+  \kern-.025em\copy0\kern-\wd0
+  \kern.05em\copy0\kern-\wd0
+  \kern-.025em\raise.0433em\box0 }
+%\def\del{\pmb{$\nabla$}}				% BOLD del
+
+%\newcommand{\del}{\ul{\nabla}\,}			% Underlined del
+\newcommand{\del}{\v{\nabla}}			% Underlined del
+%\newcommand{\del}{\mbox{\boldmath $\nabla$}}		%Also BOLD del?
+\newcommand{\lap}{\nabla^{2}}				% del-squared
+\newcommand{\grad}{\del}  				% del
+\newcommand{\Div}{\del \cdot}				% del dot
+\newcommand{\curl}{\del \times}			% del cross
+%
+%							% D'Alembertian
+\def\sqr#1#2{{\phantom{\vrule width.15em}
+      \lower.05em\vbox{\hrule height.#2pt
+        \hbox{\vrule width.#2pt height#1pt \kern#1pt
+          \vrule width.#2pt}
+        \hrule height.#2pt}
+      \phantom{\vrule width.15em}}}
+\def\dalem{\mathchoice\sqr64\sqr64\sqr43\sqr33}
+\newcommand{\thickone}{\mbox{$1\!\!1$}}
+\newcommand{\setR}{\mbox{$I\!\!R$}}
+%\newcommand{\grad}{\ul{\nabla}\,}
+%\newcommand{\grad}{\nabla\,}
+%\newcommand{\Div}{\ul{\nabla}\cdot }	% divergence: note Cap D
+%\newcommand{\Div}{\del\cdot }	% divergence: note Cap D
+%\newcommand{\curl}{\ul{\nabla}\times }
+%\newcommand{\curl}{\nabla\times }
+%\newcommand{\lap}{\nabla^{2}}
+\newcommand{\intV}{\displaystyle\int_{_{\scriptstyle V}}}
+\newcommand{\intS}{\displaystyle\int_{_{\scriptstyle S}}}
+\newcommand{\intC}{\displaystyle\int_{_{\scriptstyle C}}}
+\newcommand{\ointC}{\displaystyle\oint_{_{\scriptstyle C}}}
+\newcommand{\ointS}{\displaystyle\oint_{_{\scriptstyle S}}}
+\newcommand{\dintS}{\displaystyle\int\!\!\int_{_{\scriptstyle S}}}
+%
+\newcommand{\ointdC}{\displaystyle\oint_{_{\scriptstyle \delta C}}}
+%
+\newcommand{\msp}{\phantom{-}}
+\newcommand{\half}{\frac{1}{2}}
+\def\sfrac#1#2{{\textstyle{\sst{#1}\over\sst{#2}}}}
+\newcommand{\shalf}{\sfrac{1}{2}}
+\newcommand{\epz}{\varepsilon_{0}}	% epsilon-zero
+\newcommand{\muz}{\mu_{0}}		% mu-zero
+\newcommand{\Def}{\stackrel{\rm def}{=}}
+
+\newcommand{\sqfrac}[2]{{\ds\frac{\raisebox{-2pt}{$#1$}}{\raisebox{2pt}{$#2$}}}}
+\newcommand{\piccy}[2]{\setlength{\epsfxsize}{#2}\epsfbox{#1}}
+
