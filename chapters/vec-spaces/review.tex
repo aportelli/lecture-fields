@@ -4,21 +4,31 @@
 To get started, we recall two basic geometrical definitions:
 \begin{itemize}
   \item \textbf{Scalar}: quantity specified by a single number;
-  \item \textbf{Vector}: quantity specified by $D$ numbers in $D$ dimensions.
+  \item \textbf{Vector}: quantity specified by a magnitude, which is a scalar quantity,
+        and a direction. The direction is given by $d-1$ angles in $d$ dimensions (\eg one
+        needs only one angle to define a direction in a plane, two in a three-dimensional
+        volume, etc.).
 \end{itemize}
 In this course, we will (re)define vectors by the way their components transform under
 rotations of the coordinate basis, and scalars as numbers that are unchanged by such
-transformations.\footnote{ These definitions can be generalised to define \emph{tensors}
-  in a straightforward way-- see next year.}
+transformations.
 
 \noindent\emph{Examples:} velocity is a vector, speed is a scalar.
 
+Vector are often noted using a bold font (\eg $\v{a}$), which is the notation we will
+mainly use here. Another common notation is the over arrow symbol $\vec{a}$, which is
+more convenient for handwriting. Such notation helps to identify vectors quickly in
+equations, but is not fully necessary if objects are defined unambiguously. Therefore, it
+is also common to find literature where no special notation is used with vectors.
+
 \subsection{Geometrical approach}
-A vector is \emph{represented} by a `directed line segment' with a length and direction
-proportional to the magnitude and direction of the vector (in appropriate units). A
-vector can be considered as a class of equivalent directed line segments. For example,
-in~\cref{fig:dls} both displacements from P to Q and from R to S are represented by the
-same vector.
+A vector is \emph{represented} by a \emph{directed line segment} with a length and
+direction proportional to the magnitude and direction of the vector (in appropriate
+units). A vector can be considered as a class of equivalent directed line segments. For
+example, in~\cref{fig:dls} both displacements from $P$ to $Q$ and from $R$ to $S$ are
+represented by the same vector. The vector given by the displacement from $P$ to $Q$ is
+noted $\smash{\overrightarrow{PQ}}$, and therefore in the case of~\cref{fig:dls} we have
+$\smash{ \overrightarrow{PQ} = \overrightarrow{RS}}$.
 \begin{figure}[t]
   \centering
   \includegraphics{tikz_dls.pdf}
@@ -27,16 +37,9 @@ same vector.
 \end{figure}
 
 \noindent\textbf{Notation}: For a vector $\v{a}$ its magnitude (or
-length) is noted $|\v{a}|$. A unit vector is often denoted by a hat $\v{\hat{a}} = \v{a}\ /\, |\v{a}|$ and represents a direction. Clearly, $|\v{\hat{a}}| = 1$.
-
-The vector $\v{n}$ is generally taken to be a unit vector (usually without a hat).
-$\v{n}$ is often the unit vector normal to a surface or plane.
-
-Sometimes, we use an `overarrow' to write $ \overrightarrow{PQ} = \overrightarrow{RS}$.
-
+length) is noted $|\v{a}|$. A unit vector is a dimensionless vector with magnitude $1$.
+%
 \subsubsection*{Addition of vectors -- parallelogram law (geometrical)}
-
-{\it i.e.}\\
 \parbox{4cm}{
   \includegraphics{tikz_parallelogram.pdf}
 }
@@ -53,8 +56,7 @@ multiplied by a scalar $\alpha$ to give a new vector $\alpha \,
   \v{a}$, {\it e.g.} \\[3mm]
 \hspace*{1cm}
 \epsfysize=1.5cm
-\includegraphics{tikz_scalar_mult.pdf}
-
+\includegraphics{tikz_scalar_mult.pdf}\\
 Also, for scalars $\alpha$, $\beta$ and vectors $\v{a}$ and $\v{b}$
 \begin{eqnarray*}
   | \alpha \v{a} | & = & |\alpha| |\v{a}| \\
@@ -64,128 +66,126 @@ Also, for scalars $\alpha$, $\beta$ and vectors $\v{a}$ and $\v{b}$
   \quad\qquad\mbox{  (associative)}\\
   (\alpha + \beta)\v{a} & = & \alpha\v{a} + \beta\v{a}\;.
 \end{eqnarray*}
+\subsubsection*{Notes}
+\begin{enumerate}
+  \item The direction of $\v{a}$ can be represented by the unit vector $\v{\hat{a}} =
+          \v{a}/|\v{a}|$. Clearly, $|\v{\hat{a}}| = 1$.
+  \item If for two vectors $\v{a}$ and $\v{b}$ there exist a scalar $\alpha$ such that
+        $\v{b}=\alpha\v{a}$, then $\v{a}$ and $\v{b}$ are said to be \emph{collinear} (\ie they
+        lie on the same line) and we use the notation $\v{a}\parallel\v{b}$.
+  \item In three dimensions, $\v{a}$, $\v{b}$ and $\v{c}$ are said to be \emph{coplanar} if there
+        exists two scalars $\beta$ and $\gamma$ such that $\v{a}=\beta\v{b}+\gamma\v{c}$ (\ie
+        they lie in the same plane).
+  \item There is a unique vector with zero magnitude noted $\v{0}$. Its direction is undefined,
+        and it is collinear to all vectors. The zero vector represents the displacement from a
+        point to itself (\ie no displacement).
+\end{enumerate}
 
 \subsection{Scalar or dot product}\label{sec:scalarproduct}
 
-The scalar product (also known as the dot product or inner product) between two vectors
-is \emph{defined} to be
+The \emph{scalar product} (also known as the \emph{dot product} or \emph{inner product})
+between two vectors is the scalar quantity noted $\v{a}\cdot\v{b}$ and defined by
 \begin{center}
-  \bigbox{ $\v{a}\cdot\v{b} \equiv ab\cos\theta, \mbox{ where $\theta$
+  \parbox{4.5cm}{
+    \includegraphics{tikz_scalar_prod.pdf}
+  }
+  \hspace{0.5cm}
+  \bigbox{ $\v{a}\cdot\v{b} = |\v{a}||\v{b}|\cos(\theta), \mbox{ where $\theta$
         is the angle between $\v{a}$ and $\v{b}$} $ }
 \end{center}
-\parbox{3cm}{
-  \epsfxsize=3cm
-  \includegraphics{tikz_scalar_prod.pdf}}
-\hspace*{15mm}
-\parbox{50em}{
-\bigbox{$\v{a}\cdot\v{b}$ is a scalar -- {\it i.e.} a single number.}
-}
 
 \subsubsection*{Notes on scalar product}
-
 \begin{enumerate}
-  \item $\v{a}\cdot\v{b}=\v{b}\cdot\v{a} \quad
-          \mbox{(commutative)}$
-
+  \item $\v{a}\cdot\v{b}=\v{b}\cdot\v{a} \quad \mbox{(commutative)}$
   \item $\v{a}\cdot(\v{b}+\v{c})=\v{a}\cdot\v{b}+ \v{a}\cdot\v{c} \qquad
           \mbox{(distributive)}$
-
-  \item $\v{n}\cdot \v{a}= a \cos\theta~=$ the
-        scalar projection of $\v{a}$ onto $\v{n}$, where $\v{n}$ is a unit
-        vector
-
-  \item $(\v{n}\cdot \v{a})\, \v{n} = a \cos\theta\,
-          \v{n}~=$ the vector projection of $\v{a}$ onto $\v{n}$
-
-  \item A vector may be resolved with respect to some direction $\v{n}$ into a parallel component
-        $\v{a}_\parallel = \left(\v{n}\cdot \v{a}\right) \v{n}$ and a perpendicular component
-        $\v{a}_\perp = \v{a}-\v{a}_\parallel$. You should check that $\v{a}_\perp\cdot \v{n} =0$
-
-  \item \bigbox{$\v{a}\cdot\v{a} \equiv |\v{a}|^2 \equiv
-            a^2$} which defines the magnitude (or norm) $|\v{a}|$ of a vector.
-
-  \item For a unit vector, $\v{\hat{a}}\cdot\v{\hat{a}}= 1$.
-
+  \item $\v{n}\cdot \v{a}= |\v{a}| \cos(\theta)$: scalar projection of $\v{a}$ onto
+        $\v{n}$, where $\v{n}$ is a unit vector
+  \item $(\v{n}\cdot \v{a})\, \v{n} = |\v{a}|\cos(\theta)\, \v{n}$: the vector projection
+        of $\v{a}$ onto $\v{n}$
+  \item $\v{a}\cdot\v{b}=0$ if and only if they form a right angle, then
+        $\v{a}$ and $\v{b}$ are said to be \emph{orthogonal}, and we note $\v{a}\perp\v{b}$
+  \item A vector $\v{a}$ can be decomposed with respect to some direction $\v{n}$ into a parallel
+        component $\v{a}_\parallel = \left(\v{n}\cdot \v{a}\right) \v{n}$ and a perpendicular
+        component $\v{a}_\perp = \v{a}-\v{a}_\parallel$. One can check easily that
+        $\v{a}_\perp\cdot \v{n} =0$.
+  \item $\boxed{|\v{a}|^2=\v{a}\cdot\v{a}}$\,, for a unit vector $\v{n}$ clearly $\v{n}\cdot\v{n}= 1$.
+        The notation $\v{n}^2=\v{n}\cdot\v{n}$ is often used.
 \end{enumerate}
 
-\subsection{The vector or `cross' product}
-
+\subsection{The vector or cross product}
+In three dimensions, the \emph{cross product} (also known as vector product) between two
+vectors is the vector noted $\v{a}\times\v{b}$ and defined by
 \begin{center}
-  \bigbox{$\v{a}\times\v{b} \ \equiv \ ab\sin\theta\;\v{n}\;,$ where
-    $\v{n}$ is in the `right-hand screw direction'}
+  \bigbox{$\v{a}\times\v{b}=|\v{a}||\v{b}|\sin(\theta)\;\v{n}$}\;,
 \end{center}
-$\v{n}$ is a unit vector normal to the plane of $\v{a}$ and
-$\v{b}$, in the direction of a right-handed screw for rotation of
-$\v{a}$ to $\v{b}$ (through $< \pi$ radians).
-
-\parbox{3cm}{
-  \epsfxsize=3cm
-  \includegraphics{tikz_vector_prod.pdf}}
-\hspace*{20mm}
-\parbox[b]{60em}{
-  \bigbox{$\v{a}\times\v{b}$ is a vector -- \emph{i.e.} it has
-    a direction and a length.}
-}
-
-[It is sometimes called the \emph{wedge} product (although this has a
-  more general meaning), and in this case is denoted by   $\v{a}\wedge\v{b}$. ]
-
+where $\theta$ is the angle between $\v{a}$ and $\v{b}$ chosen such that $0\leq
+  \theta<\pi$, and where $\v{n}$ is a unit vector orthogonal (or \emph{normal}) to the
+plane of $\v{a}$ and $\v{b}$, in the direction given by the \emph{right-hand rule}, as
+represented in \cref{fig:vector_prod}. The cross-product is defined in that way
+\emph{only for three-dimensional vectors}. In $d$ dimensions, the cross-product can be
+defined from $d-1$ vectors similarly, however this definition is out of scope for this
+course.
+\begin{figure}[t]
+  \centering
+  \includegraphics{tikz_vector_prod.pdf}
+  \includegraphics[height=4.5cm]{right_hand.pdf}
+  \caption{Cross-product and right-hand rule representation.}
+  \label{fig:vector_prod}
+\end{figure}
 \subsubsection*{Notes on vector product}
 \begin{enumerate}
   \item $\v{a}\times\v{b}=-\v{b}\times\v{a}$ \quad
-        (\emph{not} commutative)
+        (anti-commutative)
 
-  \item $\v{a}\times \v{b}= 0$\ if\ $\v{a},\v{b}$ are
-        parallel
+  \item $\v{a}\times \v{b}= 0$ if $\v{a}$ and $\v{b}$ are
+        collinear
 
   \item $\v{a}\times( \v{b} + \v{c} ) = \v{a}\times \v{b} +
           \v{a}\times\v{c} $
 
-  \item $\v{a}\times( \alpha \v{b} ) = \alpha \v{a}\times
-          \v{b}$
+  \item $\v{a}\times( \alpha \v{b} ) = (\alpha \v{a})\times
+          \v{b}=\alpha(\v{a}\times\v{b})$
 \end{enumerate}
 
-%An example from mechanics is
-%\v{v}= \v{\omega} \times \v{r}$ where $\v{omega}$ is angular velocity
-
 \subsection{The scalar triple product}
-The scalar triple product is defined as follows
+In three dimensions, the scalar triple product is defined as follows
 \begin{eqnarray*}
   (\v{a},\v{b},\v{c}) & \equiv & \v{a}\cdot(\v{b}\times\v{c})
   %& = & \v{c}\cdot(\v{a}\times\v{b})\\
   %& = & \v{b}\cdot(\v{c}\times\v{a})\,.
 \end{eqnarray*}
 
-\textbf{Notes}
-
+\subsubsection*{Notes on scalar triple product}
+\begin{figure}[t]
+  \centering
+  \includegraphics{tikz_volume.pdf}
+  \caption{Parallelepiped with volume given by the triple scalar product $(\v{a},\v{b},\v{c})$.}
+  \label{fig:volume}
+\end{figure}
 \begin{enumerate}
   \item
         If $\v{a}$, $\v{b}$ and $\v{c}$ are three concurrent edges
-        of a parallelepiped, the volume is $(\v{a},\v{b},\v{c})$.
+        of a parallelepiped, its volume is $(\v{a},\v{b},\v{c})$.
 
-        %To see this, note that\\
-        \hspace*{-3ex}
-        \parbox{10cm}
-        {To see this, note that:
-          \begin{eqnarray*}
-            \mbox{area of the base}&=&\mbox{area of parallelogram $OBDC$}\\
-            &=&
-            b\;c\,\sin\theta \,=\, |\v{b}\times\v{c}|\\
-            \mbox{height}
-            &=&
-            a \cos \phi \,=\, \v{n}\cdot\v{a}\\
-            \mbox{volume}
-            &=&
-            \mbox{area of base $\times$ height}\\
-            &=&
-            b\, c\, \sin\theta\, \v{n} \cdot \v{a}\\
-            &=&
-            \v{a}\cdot( \v{b}\times \v{c} )
-          \end{eqnarray*}\\
-        }
-        \parbox{6cm}{ \epsfxsize=6cm \includegraphics{tikz_volume.pdf}}
-
-        \vspace*{-5ex}
+          %To see this, note that\\
+          {To see this, note that:
+            \begin{eqnarray*}
+              \mbox{area of the base}&=&\mbox{area of parallelogram $OBDC$}\\
+              &=&
+              |\v{b}||\v{c}|\sin(\theta) \,=\, |\v{b}\times\v{c}|\\
+              \mbox{height}
+              &=&
+              |\v{a}| \cos(\phi) \,=\, \v{n}\cdot\v{a}\\
+              \mbox{volume}
+              &=&
+              \mbox{area of base $\times$ height}\\
+              &=&
+              |\v{b}||\v{c}|\sin(\theta)\,\v{n} \cdot \v{a}\\
+              &=&
+              \v{a}\cdot( \v{b}\times \v{c} )
+            \end{eqnarray*}
+          }
 
         In this case $\v{n}$ is a unit vector parallel to $\v{b}\times\v{c}$, which is normal to
         the plane of $\v{b}$ and $\v{c}$.
@@ -203,22 +203,16 @@ The scalar triple product is defined as follows
           \,=\, -(\v{b}, \v{a}, \v{c} )
           \,=\, -(\v{c}, \v{b}, \v{a} )
         \]
+  \item \bigbox{
+          $\v{a}$, $\v{b}$ and $\v{c}$ are coplanar
+          if and only if $(\v{a},\v{b},\v{c}) = 0$
+        }\,.
 
-  \item
-
-        \bigbox{
-          \parbox{0.8\textwidth}{
-            \medskip
-            If $\ds \v{a}, \v{b}$ and $\v{c}$ are \emph{coplanar}
-            (\emph{i.e.}~all three vectors lie in the same plane)
-            then $\ds V = (\v{a},\v{b},\v{c}) = 0$, and vice-versa.
-            \medskip
-          }}
 \end{enumerate}
 
 \subsection{The vector triple product}
 
-There are \emph{several} ways of combining 3 vectors to form a new vector.\\ {\it e.g.}
+There are \emph{several} ways of combining three vectors to form a new vector, \eg
 $\v{a}\times(\v{b}\times\v{c})$; $(\v{a}\times\v{b})\times\v{c}$, etc. Note carefully
 that \emph{brackets are important}, since the cross product is \emph{not} associative
 \[
@@ -230,186 +224,123 @@ identity
   \bigbox{$\v{a}\times(\v{b}\times\v{c}) \ =
       \ (\v{a}\cdot\v{c})\, \v{b} - (\v{a}\cdot\v{b})\,\v{c}$} .
 \end{center}
-This is a result you \emph{must} know -- memorise it!
+It's sometimes known as the ``bac-cab rule'', because the expression above can also be
+written $\v{a}\times(\v{b}\times\v{c}) = \v{b} \, (\v{a}\cdot\v{c})- \v{c} \,
+  (\v{a}\cdot\v{b})$.
 
-It's sometimes known as the `bac-cab rule', but you must write the vectors in front of
-the scalar products to use it correctly: $\v{a}\times(\v{b}\times\v{c}) = \v{b} \,
-  (\v{a}\cdot\v{c})- \v{c} \, (\v{a}\cdot\v{b})$
-
-\parbox{13.5cm}{\textbf{Proof:} First note that $\v{b}\times\v{c}$ is
-  $\perp$ to the $(\v{b},\, \v{c})$ plane. Now $\v{a} \times
-    (\v{b}\times\v{c})$ is $\perp$ to $\v{b}\times\v{c}$, so it must lie
-  in $(\v{b},\, \v{c})$ plane. Hence we can write
-  \[
-    \v{a}\times(\v{b}\times\v{c}) = \beta\,\v{b} + \gamma\,\v{c}
-  \]
-  with $\beta$, $\gamma$ scalars which must be linear in $\v{a}$ \& $\v{c}$ and in $\v{a}$
-  \& $\v{b}$ respectively. (Exercise: think about why this must be the case.)
-
-  \medskip
-
-  Taking the scalar product with $\v{a}$ gives
-  \[
-    \v{a} \cdot (\v{a}\times(\v{b}\times\v{c}))
-    \,=\,
-    0
-    \,=\,
-    \beta \, (\v{a}\cdot\v{b}) \,+\, \gamma \, (\v{a}\cdot\v{c}),
-  \]
-  and from this we deduce that $\beta = \alpha\, (\v{a}\cdot\v{c})$, $\gamma = -\alpha \,
-    (\v{a}\cdot\v{b})$ for some \emph{constant} $\alpha$, to give
-  \[
-    \v{a}\times(\v{b}\times\v{c})
-    \,=\,
-    \alpha
-    \left[
-      \left(\v{a}\cdot\v{c}\right)\v{b}
-      \,-\,
-      \left(\v{a}\cdot\v{b}\right)\v{c}
-      \right]
-  \]
-  The constant $\alpha$ may be determined by considering the particular case when $\v{b} \,
-    \perp \v{c}$ and $\v{c} \, \parallel \, \v{a}$ (\emph{e.g.}~$\v{b} = b\,\v{e}_{\,x}$,\ \
-  $\v{c} = c\,\v{e}_{\,y}$,\ \ $\v{a} = a\,\v{e}_{\,y}$), to give
-  %%% \footnote{$\v{e}_{\,x}$, $\v{e}_{\,y}$ and $\v{e}_{\,z}$
-  %%% are unit vectors parallel to the $x$, $y$ and $z$ axes)}
-  \[
-    \v{a}\times(\v{b}\times\v{c})
-    \,=\,
-    ac\,\v{b}
-    \,=\,
-    \alpha \,(ac\v{b}-0),
-  \]
-  so $\alpha = 1$. (Exercise: work through this for yourself.)} \hspace*{-3ex}
-\parbox{4.5cm}{ \epsfxsize=4cm \includegraphics{tikz_vector_triple_prod.pdf} }
-
-Note that this is a \emph{coordinate-independent} derivation of the bac-cab rule. We
-didn't use orthonormal basis vectors or take components in any basis (unless using the
-explicit $\v{b} = b\,\v{e}_{\,x}$, etc, in the very last step) to determine the constant
-$\alpha$.\footnote{By \emph{constant} $\alpha$, we mean $\alpha$ is a number that's
-  independent of the vectors $\v{a}$, $\v{b}$, $\v{c}$ \& $\v{d}$.}
-
-\mnote{01L 08/01/08}
-\mnote{01L 13/01/09}
+\noindent\textbf{Proof:} First note that $\v{b}\times\v{c}$ is
+orthogonal to the $(\v{b},\, \v{c})$ plane. Now $\v{a} \times
+  (\v{b}\times\v{c})$ is orthogonal to $\v{b}\times\v{c}$, so it must lie
+in the $(\v{b},\, \v{c})$ plane. Hence, we can write
+\[
+  \v{a}\times(\v{b}\times\v{c}) = \beta\,\v{b} + \gamma\,\v{c}
+\]
+with $\beta$, $\gamma$ scalars. Taking the scalar product with $\v{a}$ gives
+\[
+  \v{a} \cdot [\v{a}\times(\v{b}\times\v{c})]
+  \,=\,
+  0
+  \,=\,
+  \beta \, (\v{a}\cdot\v{b}) \,+\, \gamma \, (\v{a}\cdot\v{c}),
+\]
+and from this we deduce that $\beta = \alpha\, (\v{a}\cdot\v{c})$, $\gamma = -\alpha \,
+  (\v{a}\cdot\v{b})$ for some \emph{constant} $\alpha$, to give
+\[
+  \v{a}\times(\v{b}\times\v{c})
+  \,=\,
+  \alpha
+  \left[
+    \left(\v{a}\cdot\v{c}\right)\v{b}
+    \,-\,
+    \left(\v{a}\cdot\v{b}\right)\v{c}
+    \right]
+\]
+The constant $\alpha$ may be determined by considering the particular case when
+$\v{b}\perp\v{c}$ and $\v{c}\parallel\v{a}$, to give
+%%% \footnote{$\v{e}_{\,x}$, $\v{e}_{\,y}$ and $\v{e}_{\,z}$
+%%% are unit vectors parallel to the $x$, $y$ and $z$ axes)}
+\[
+  \v{a}\times(\v{b}\times\v{c})
+  \,=\,
+  |\v{a}||\v{c}|\,\v{b}
+  \,=\,
+  \alpha (|\v{a}||\v{c}|\v{b}-0),
+\]
+therefore $\alpha = 1$.
 
 \subsection{Some examples of vector products in physics}
-
-\textbf{Torque}
-
+\begin{figure}[t]
+  \centering
+  \includegraphics{tikz_torque.pdf}\hspace{2cm}
+  \includegraphics{tikz_rotate.pdf}
+  \caption{Representation of the torque and angular velocity.}
+  \label{fig:torque}
+\end{figure}
+\subsubsection{Torque}
 The \emph{torque} or \emph{couple} or \emph{moment} of a force about the origin is
 defined as $\v{G} = \v{r} \times \v{F}$ where $\v{r}$ is the position vector of the point
 where the force is acting and $\v{F}$ is the force vector at that point. Thus torque
-about the origin is a vector quantity.
+about the origin is a vector quantity. The magnitude of the torque about an axis through
+the origin in direction $\v{n}$ is given by $\v{n} \cdot \v{G} = \v{n}\cdot (\v{r} \times
+  \v{F})$. Note that this is a scalar quantity formed by a scalar triple product.
 
-\parbox{3cm}{
-  \epsfxsize=3cm
-  \includegraphics{tikz_torque.pdf}}
-\hspace*{1cm}
-\parbox{12cm} {The magnitude of the torque about an axis through the
-  origin in direction $\v{n}$ is given by $\v{n} \cdot \v{G} =
-    \v{n}\cdot (\v{r} \times \v{F})$. Note that this is a scalar
-  quantity formed by a scalar triple product.  }
+\subsubsection{Angular velocity}
 
-\textbf{Angular velocity}
+Consider a point in a rigid body rotating with \emph{angular velocity} $\v{\omega}\,$,
+where $\,|\v{\omega}| \equiv \omega$ is the angular speed of rotation measured in radians
+per second, and the unit vector $\v{\hat{\omega}}$ lies along the axis of rotation, so
+$\v{\omega} = \omega \, \v{\hat{\omega}}$. Let the position vector of the point with
+respect to an origin $O$ on the axis of rotation be $\v{r}$. The velocity of the point is
+given by
+\[
+  \boxed{\v{v} \,=\, \v{\omega}\times\v{r}}
+\]
+We can show this as follows: in time $\delta t$, the point rotates through angle
+$\delta\phi$ from $\v{r}$ to $\v{r} + \delta\v{r}$. The distance $|\delta \v{r}|$ moved
+in time $\delta t$, is
+\[
+  |\delta \v{r}|
+  \,= \,
+  |\v{r}|\sin(\theta)\delta\phi
+  \,=\,
+  \left|\v{\hat{\omega}} \times \v{r}  \right|\delta\phi
+\]
+Since $\delta\v{r}$ is parallel to $\v{\omega}\times\v{r}$, we deduce that
+\[
+  \delta\v{r}
+  \,=\,
+  \v{\hat{\omega}} \times \v{r} \; \delta\phi
+\]
+and hence
+\[
+  \frac{\delta\v{r}}{\delta t}
+  \,=\,
+  \v{\hat{\omega}} \times \v{r} \; \frac{\delta\phi}{\delta t}
+\]
+In the limit $\delta t \to 0$, we find
+\[
+  \v{v}
+  \,=\,
+  \frac{\diff\v{r}}{\diff t}
+  \,=\,
+  \v{\omega} \times \v{r}
+  \quad \mbox{where} \quad
+  \v{\omega}
+  \,=\,
+  \frac{\diff\phi}{\diff t} \, \v{\hat{\omega}}\,.
+\]
 
-\parbox{12cm}{
-  %
-  Consider a point in a rigid body rotating with \emph{angular velocity} $\v{\omega}\,$,
-  where $\,|\v{\omega}| \equiv \omega$ is the angular speed of rotation measured in radians
-  per second, and the unit vector $\v{\hat{\omega}}$ lies along the axis of rotation, so
-  $\v{\omega} = \omega \, \v{\hat{\omega}}$. Let the position vector of the point with
-  respect to an origin $O$ on the axis of rotation be $\v{r}$.
-
-  The velocity of the point is \qquad \bigbox{ \( \v{v} \,=\, \v{\omega}\times\v{r} \) }
-  \medskip
-
-  We can show this as follows:}
-%
-%From the first figure, we note that $\v{v}$ is parallel to $\v{\omega}\times\v{r}$.  }
-%
-\hspace{1cm}
-%
-\parbox{3cm}{
-  \epsfxsize=3cm
-  \includegraphics{tikz_rotate.pdf}
-}\hspace*{1cm}
-
-%\parbox{12cm}{
-
-% You should convince yourself that the point's velocity is given by
-% $\v{v}= \v{\omega}\times \v{r}$ by checking that this gives the right
-% direction for $\v{v}$; that it is perpendicular to the plane of
-% $\v{\omega}$ and $\v{r}$; that the magnitude $|\v{v}| = \omega r \sin
-% \theta$ = $\omega \rho$, where $\rho$ is the radius of the circle in
-% which the point is travelling. }
-
-%
-
-%\vspace*{-4ex}
-
-\parbox{0.67\textwidth}{
-  %
-
-  \vspace*{0.5ex}
-
-  In time $\delta t$, the point rotates through angle $\delta\phi$ from $\v{r}$ to $\v{r} +
-    \delta\v{r}$.
-
-  From the second figure, the distance $|\delta \v{r}|$ moved in time $\delta t$, is
-  \[
-    |\delta \v{r}|
-    \,= \,
-    r\sin\theta \: \delta\phi
-    \,=\,
-    \left|\v{\hat{\omega}} \times \v{r}  \right| \, \delta\phi
-  \]
-  Since $\delta\v{r}$ is parallel to $\v{\omega}\times\v{r}$, we deduce that
-  \[
-    \delta\v{r}
-    \,=\,
-    \v{\hat{\omega}} \times \v{r} \; \delta\phi
-  \]
-  and hence
-  \[
-    \frac{\delta\v{r}}{\delta t}
-    \,=\,
-    \v{\hat{\omega}} \times \v{r} \; \frac{\delta\phi}{\delta t}
-  \]
-  In the limit $\delta t \to 0$, we find
-  \[
-    \v{v}
-    \,=\,
-    \frac{d\v{r}}{dt}
-    \,=\,
-    \v{\omega} \times \v{r}
-    \quad \mbox{where} \quad
-    \v{\omega}
-    \,=\,
-    \frac{d\phi}{dt} \, \v{\hat{\omega}}
-  \]
-}
-%
-\hspace*{0.05\textwidth}
-%
-\parbox{0.3\textwidth}{
-  \begin{center}
-    \epsfxsize=0.25\textwidth
-    \includegraphics{fig_small_rotation-eps-converted-to.pdf}
-  \end{center}
-}
-
-\textbf{Angular momentum}
+\subsubsection{Angular momentum}
 
 Now consider the \emph{angular momentum} of a rotating particle, this is defined by
-$\v{L}= \v{r}\times (m\v{v})$ where $m$ is the mass of the particle.
-
-Using the above expression for $\v{v}$ we obtain
+$\v{L}= \v{r}\times (m\v{v})$ where $m$ is the mass of the particle. Using the above
+expression for $\v{v}$ we obtain
 \[
   \v{L}
   \,=\, m \v{r}\times(\v{\omega}\times \v{r})
-  \,=\, m \left[ r^2 \, \v{\omega}  \,-\, (\v{r}\cdot \v{\omega}) \, \v{r} \right]
+  \,=\, m \left[ \v{r}^2 \, \v{\omega}  \,-\, (\v{r}\cdot \v{\omega}) \, \v{r} \right]
 \]
 where we have used the identity for the vector triple product. Note that only if $\v{r}$
-is perpendicular to $\v{\omega}$ do we obtain $\v{L} = m r^2 \v{\omega}$, which means
+is perpendicular to $\v{\omega}$ do we obtain $\v{L} = m \v{r}^2 \v{\omega}$, which means
 that only then are $\v{L}$ and $\v{\omega}$ in the same direction. Also note that
 $\v{L}=0$ if $\v{\omega}$ and $\v{r}$ are parallel.
