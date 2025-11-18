@@ -1,0 +1,459 @@
+% !TEX root = ../../fields.tex
+%% Brian Lecture 10 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\nsection{More on Vector Operators {\it (RHB 8.7.2, 8.7.3)}}
+
+We now combine the vector operator $\grad$ \emph{(del)} with a vector field to define two
+new operations \emph{div} and \emph{curl}. Then we define the \emph{Laplacian}.
+
+\subsection{Divergence}
+
+We define the \emph{divergence} of a vector field $\v{a}(\v{r})$ (pronounced \emph{`div
+  a'}) by
+\begin{center}
+  \fbox{
+    \parbox{45mm}{
+      \[
+        {\rm div}\: \v{a}(\vr) ~\equiv~ \Div \v{a}(\vr)
+      \]
+    }}
+\end{center}
+
+In Cartesian coordinates
+\begin{center}
+  \bigbox{
+    \parbox{0.6\textwidth}{
+      \begin{eqnarray*}
+        \Div \v{a}
+        &\equiv&
+        \frac{\partial a_1}{\partial x_1}\,
+        + \frac{\partial a_2}{\partial x_2}\,
+        + \frac{\partial a_3}{\partial x_3}
+        ~=~
+        \frac{\partial a_x}{\partial x}\,
+        + \frac{\partial a_y}{\partial y}\,
+        + \frac{\partial a_z}{\partial z} \\[0.5ex]
+        &\equiv&
+        \frac{\partial}{\partial \x{i}} \; a_{i}
+        ~\equiv~
+        \partial_i \, a_i
+      \end{eqnarray*}
+      %\begin{eqnarray*}
+      %        \Div \v{a}(\vr)
+      %                =  \partia\ell_i \, a_i(\vr) 
+      %                \equiv \frac{\partial}{\partial \x{i}} \; a_{i}(\vr) 
+      %                &=&    \frac{\partial a_1(\vr)}{\partial x_1}\,
+      %                      +  \frac{\partial a_2(\vr)}{\partial x_2}\,
+      %                      +  \frac{\partial a_3(\vr)}{\partial x_3}\\[1ex]
+      %        \;\mbox{or}\; &&   \frac{\partial a_x(\vr)}{\partial x}\,
+      %                      +  \frac{\partial a_y(\vr)}{\partial y}\,
+      %                      +  \frac{\partial a_z(\vr)}{\partial z}
+      %\quad\mbox{in $xyz$ notation}
+      %\end{eqnarray*}
+      %\vspace*{-1.5ex}
+    }}
+\end{center}
+
+It's easy to show that $\Div\v{a}$ is a scalar field when $\v{a}$ is a vector field:
+
+Under a transformation $x_i^\prime = \ell_{ij}\;x_j$, we have $\partial^\prime_i =
+  \ell_{ij} \, \partial_j$ so
+\[
+  (\grad \cdot\v{a})^\prime
+  = \partial^\prime_i \, a_i^\prime
+  = (\ell_{ij}\,\partial_j) \, (\ell_{ik}\,a_k)
+  = \delta_{jk} \, \partial_j \, a_k
+  = \partial_j \, a_j
+  = \grad \cdot\v{a}
+\]
+%\begin{eqnarray*}
+%%% 1
+%        \left(\grad\cdot \v{a})\right)'
+%                & = & \frac{\partial}{\partial \x{i}'}\;
+%                         a'(x_1',\, x_2',\, x_3')\ =\
+%                      \frac{\partial\x{j}}{\partial \x{i}'}\;
+%                      \frac{\partial}{\partial \x{j}}\;
+%                      \left(\ell_{ik} a_{k}(x_1,\, x_2,\, x_3)\right)\\
+%%% 2
+%                & = & \ell_{ij}\,\ell_{ik} \, \frac{\partial}{\partial \x{j}}\;
+%                         a_{k}(x_1,\, x_2,\, x_3)\ =\ 
+%                      \delt{jk}\, \frac{\partial}{\partial \x{j}}\;
+%                      a_{k}(x_1,\, x_2,\, x_3)\\
+%%% 3
+%                & = &  \frac{\partial}{\partial \x{j}}\;
+%                                 a_{j}(x_1,\, x_2,\, x_3)
+%                         =  \grad\cdot \v{a}
+%\end{eqnarray*}
+Hence $\Div\v{a}$ is invariant under a change of basis and is thus a {\bf scalar field}.
+
+\paragraph{Example:} If $\v{a}(\vr)=\vr$ then \quad \bigbox{ $\Div \vr ~=~ 3$} \quad which is a useful and
+important result.
+
+\bigskip
+
+\mbox{Explicitly:} \hspace*{0.15\textwidth}
+\parbox{0.5\textwidth}{
+  \(
+  \ds \Div \vr
+  = \frac{\partial x_1}{\partial x_1} +
+  \frac{\partial x_2}{\partial x_2} +
+  \frac{\partial x_3}{\partial x_3}
+  =
+  1+1+1
+  =
+  3
+  \)}
+
+\medskip
+
+In suffix notation:
+\[
+  \Div \vr = \frac{\partial\x{i}}{\partial \x{i}} = \delt{ii} = 3
+\]
+
+\paragraph{Example:} In \emph{`xyz'} notation, let $\v{a} = x^2 z \,\v{e}_{\,x} - 2 y^3 z^2 \,\v{e}_{\,y} + x
+  y^2 z \,\v{e}_{\,z}$
+\begin{eqnarray*}
+  \Div \v{a}
+  & = &
+  \frac{\partial}{\partial x}\; (x^2z)
+  - \frac{\partial}{\partial y}\; (2 y^3z^2)
+  + \frac{\partial}{\partial z}\; (x y^2 z)\\
+  & = &
+  2 x z - 6 y^2 z^2 + x y^2
+\end{eqnarray*}
+Then, at the point $(1,1,1)$ for instance, $\Div \v{a} = 2-6+1=-3$.
+
+\subsection{Curl}
+We define the \emph{curl} of a vector field $\v{a}(\v{r})$ by
+\begin{center}
+  \fbox{
+    \parbox{45mm}{
+      \[
+        \mbox{curl}\: \v{a}(\vr) \;\equiv\; \curl \v{a}(\vr)
+      \]
+    }}
+\end{center}
+If $\v{a}$ is a (true) vector field, then $\curl \v{a}$ is a
+\emph{pseudovector} field.  Exercise: Show that if $\v{a}$ is a
+pseudovector field then $\curl \v{a}$ is a vector field.
+
+In Cartesian coordinates
+\[
+  \curl\v{a}
+  ~=~
+  \ei\; \left(\curl \v{a}\right)_{i}
+  ~=~
+  \ei\; \eps{ijk}\, {\partial \over \partial x_j} \: a_{k}
+\]
+Equivalently, the $i^{\rm th}$ component of $\curl\v{a}$ is
+\begin{center}
+  \fbox{
+    \parbox{55mm}{
+      \[
+        \left(\curl \v{a}\right)_{i}
+        ~=~
+        \eps{ijk}\, \partial_j \, a_{k}
+      \]
+    }
+  }
+\end{center}
+More explicitly, the components of $\curl\v{a}$ are:
+\[
+  \left(\curl\v{a}\right)_1
+  ~=~
+  \frac{\partial a_3}{\partial x_2} -
+  \frac{\partial a_2}{\partial x_3}
+  \qquad
+  %
+  \left(\curl\v{a}\right)_2
+  ~=~
+  \frac{\partial a_1}{\partial x_3} -
+  \frac{\partial a_3}{\partial x_1}
+  \qquad
+  %
+  \left(\curl\v{a}\right)_3
+  ~=~
+  \frac{\partial a_2}{\partial x_1} -
+  \frac{\partial a_1}{\partial x_2}
+\]
+We can also write the curl in determinant form, as for the ordinary vector product:
+\begin{center}
+  \bigbox{
+    \parbox{105mm}{
+      \[
+        \curl\v{a}
+        ~=~
+        \left|
+        \begin{array}{ccc}
+          \eone                            & \etwo & \ethree \\[1.25ex]
+          \ds\frac{\partial}{\partial x_1} &
+          \ds\frac{\partial}{\partial x_2} &
+          \ds\frac{\partial}{\partial x_3}                   \\[1.25ex]
+          a_1                              & a_2   & a_3
+        \end{array}
+        \right|
+        %
+        \quad \mbox{or} \quad
+        %
+        \left|
+        \begin{array}{ccc}
+          \ex                            & \ey & \ez \\[1.25ex]
+          \ds\frac{\partial}{\partial x} &
+          \ds\frac{\partial}{\partial y} &
+          \ds\frac{\partial}{\partial z}             \\[1.25ex]
+          a_x                            & a_y & a_z
+        \end{array}
+        \right|
+      \]
+    }}
+\end{center}
+
+\paragraph{Example:}
+If $\v{a}(\vr)=\vr$ \quad then \quad \bigbox{$ \curl \vr \,=\, 0 $} \quad another useful
+and important result
+
+\bigskip
+
+\mbox{Explicitly:} \hspace*{0.15\textwidth}
+\parbox{0.5\textwidth}{
+  \(
+  (\curl\vr)_i
+  ~=~
+  \eps{ijk}\, \partial_j x_{k}
+  ~=~
+  \eps{ijk}\, \delt{jk}  =  \eps{ijj} = 0
+  \)
+}
+
+\medskip
+
+or, using the determinant formula, \quad \( \ds \curl\vr ~=~ \left|
+\begin{array}{ccc}
+  \eone         & \etwo & \ethree \\[1ex]
+  \ds\partial_1 &
+  \ds\partial_2 &
+  \ds\partial_3                   \\[1ex]
+  x_1           & x_2   & x_3
+\end{array}
+\right|
+~\equiv~
+0
+\)
+
+In terms of explicit components
+\[
+  \curl \v{r}
+  ~=~
+  \eone
+  \left(
+  \frac{\partial x_3}{\partial x_2} -
+  \frac{\partial x_2}{\partial x_3}
+  \right)
+  ~+~
+  \etwo
+  \left(
+  \frac{\partial x_1}{\partial x_3} -
+  \frac{\partial x_3}{\partial x_1}
+  \right)
+  ~+~
+  \ethree
+  \left(
+  \frac{\partial x_2}{\partial x_1} -
+  \frac{\partial x_1}{\partial x_2}
+  \right)
+  ~=~
+  0
+\]
+
+\paragraph{Example:}
+Compute the curl of $\v{a} = x^2y \, \eone +y^2x \, \etwo + xyz \, \ethree$
+\[
+  \curl\v{a}
+  ~=~
+  \left|
+  \begin{array}{ccc}
+    \v{e}_{\,x}                    & \v{e}_{\,y} & \v{e}_{\,z} \\[1.5ex]
+    \ds\frac{\partial}{\partial x} &
+    \ds\frac{\partial}{\partial y} &
+    \ds\frac{\partial}{\partial z}                             \\[2ex]
+    x^2y                           & y^2x        & xyz
+  \end{array}
+  \right|
+  =
+  (xz-0) \, \v{e}_{\,x}  -  (yz-0) \, \v{e}_{\,y}  + (y^2-x^2) \, \v{e}_{\,z}
+\]
+
+\subsection{Physical interpretation of \emph{div} and \emph{curl}} A full interpretation of the divergence and curl of a vector field is
+best left until after we have studied the Divergence Theorem and Stokes' Theorem
+respectively. However, we can gain some intuitive understanding by looking at simple
+examples where div and/or curl vanish.
+
+\parbox{11.5cm}{First consider the radial field $\v{a} = \v{r}$. We have
+  just shown that $\Div \v{r} = 3$ and $\curl \v{r} = 0$.  We may
+  sketch the vector field $\v{a}(\v{r})$ by drawing vectors of the
+  appropriate direction and magnitude at selected points. These give
+  the tangents of `flow lines'.  Roughly speaking, in this example the
+  divergence is positive because bigger arrows come out of any point
+  than go into it.  So the field `diverges'. (Once the concept of flux
+  of a vector field is understood this will make more sense.)  }\hfill
+\parbox{4.2cm}{
+  \epsfxsize=4.2cm
+  \includegraphics{tikz_myradial.pdf}
+}
+
+\parbox{4.2cm}{
+  \epsfxsize=4.2cm
+  \includegraphics{tikz_v_for_rigid_body.pdf}
+}\hfill
+\parbox{10cm}{ Now consider the field $\v{v} = \v{\omega} \times\vr$
+  where $\v{\omega}$ is a \emph{constant} vector.  One can think of
+  $\vv$ as the velocity of a point in a rigid rotating body.  The
+  sketch shows a cross-section of the field $\vv$ with $\v{\omega}$
+  chosen to point out of the page.  We can calculate $\curl\vv$ as
+  follows: }
+
+\begin{eqnarray*}
+  \left(\curl \left( \v{\omega} \times \vr\right)\right)_i
+  & = &
+  \eps{ijk}\, \partial_j
+  \left( \v{\omega} \times \vr\right)_{k}
+  ~=~
+  \eps{ijk}\, \partial_j \, \eps{klm} \,  \omega_{l} \, \x{m}\\
+  & = &
+  \left( \delt{il}\,\delt{jm} - \delt{im}\,\delt{jl} \right) \,
+  \omega_{l}\, \delt{jm}
+  \qquad \left(\mbox{because}\;
+  \frac{\partial\omega_{l}}{\partial\x{j}} = 0 \right)\\
+  & =
+  & \left(\omega_{i}\,\delt{jj}  - \delt{ij}\, \omega_{j} \right)
+  ~=~
+  2\,\omega_{i}
+\end{eqnarray*}
+Thus we obtain yet another useful and important result:
+\[
+  \bigbox{$
+      \curl \left( \v{\omega} \times \vr\right) = 2\v{\omega}
+    $}
+\]
+We also have \bigbox{$\grad\cdot(\v{\omega}\times\v{r}) = 0$}:
+\[
+  \grad\cdot(\v{\omega}\times\v{r})
+  = \partial_i \, \epsilon_{ijk} \, \omega_j \, x_k
+  = \epsilon_{ijk} \, \omega_j \, \delta_{ik}
+  = \epsilon_{iji} \, \omega_j
+  = 0
+\]
+
+To understand intuitively the non-zero curl imagine that the flow lines are those of a
+rotating fluid with a ball centred on a flow line of the field. The centre of the ball
+will follow the flow line. However the effect of the neighbouring flow lines is to make
+the ball rotate. Therefore the field has non-zero `curl' and the axis of rotation gives
+the direction of the curl. In the previous example ($\v{a}=\vr$) the ball would just move
+away from origin without rotating therefore the field $\vr$ has zero curl. Colloquially,
+the vector field $\v{a}(\v{r})=\vr\,,$ doesn't ``curl around'' any point.
+
+% Do this in the next section when we do the general case!
+
+\paragraph{Terminology:}
+\begin{enumerate}
+  \item If $\Div\,\v{a} = 0 \;\;\;$ in some region $R$, we say $\v{a}$ is \emph{solenoidal} in
+        $R$.
+  \item If $\curl\,\v{a} = 0\;$ in some region $R$, we say $\v{a}$ \emph{irrotational} in $R$.
+\end{enumerate}
+
+%\newpage
+
+\subsection{The Laplacian operator $\lap$ }
+Consider taking the \emph{divergence} of the \emph{gradient} of a scalar field
+$\phi(\vr)$
+\[
+  \Div \left(\grad\,\phi\right)
+  ~=~
+  \frac{\partial}{\partial \x{i}}\;
+  \frac{\partial}{\partial \x{i}}\, \phi
+  ~=~
+  \partial^2 \, \phi
+  ~\equiv~
+  \lap \phi
+\]
+$\lap$ is the \emph{Laplacian operator}, pronounced
+\emph{`del-squared'}.  In Cartesian coordinates
+\[
+  \lap
+  ~=~ \frac{\partial}{\partial \x{i}}\;
+  \frac{\partial}{\partial \x{i}}
+  ~\equiv~
+  \partial_i \, \partial_i
+  ~\equiv~
+  \partial^2
+\]
+More explicitly
+\begin{center}
+  \bigbox{
+    \parbox{100mm}{
+      \[
+        \lap\, \phi
+        ~=~
+        \frac{\partial^2 \phi}{\partial x_1^2} \plus
+        \frac{\partial^2 \phi}{\partial x_2^2} \plus
+        \frac{\partial^2 \phi}{\partial x_3^2}
+        %
+        \quad\mbox{or}\quad
+        %
+        \frac{\partial^2 \phi}{\partial x^2} \plus
+        \frac{\partial^2 \phi}{\partial y^2} \plus
+        \frac{\partial^2 \phi}{\partial x^2}
+      \]
+    }}
+\end{center}
+The Laplacian of a scalar field $\lap\,\phi$ is a scalar field,
+\emph{i.e.}~the Laplacian is a \emph{scalar operator}. Under the
+transformation $x_i^\prime = \ell_{ij} \, x_j$ we have
+$\partial^\prime_i = \ell_{ij} \, \partial_j$ so
+\[
+  (\lap)^\prime
+  ~=~ \partial_i^\prime \, \partial_i^\prime
+  ~=~ \ell_{ij}\,\partial_j \, \ell_{ik} \, \partial_k
+  ~=~ \delta_{jk}\,\partial_j \, \partial_k
+  ~=~  \partial_j \,\partial_j
+  ~=~ \lap
+\]
+
+\paragraph{Example:} Using indices
+\[
+  \lap \, r^2
+  ~=~ \partial_i \, \partial_i \, \left(x_j x_j\right)
+  ~=~ \partial_i \, (2 x_i)
+  ~=~ 2 \, \delt{ii}
+  ~=~
+  6
+\]
+Or, directly, using simple results derived previously,
+\[
+  \lap \, r^2
+  ~=~
+  \Div \left(\grad r^2\right)
+  ~=~ \Div \left(2\v{r}\right)
+  ~=~ 2 \times 3
+  ~=~
+  6\;.
+\]
+
+In \emph{Cartesian coordinates only}, the effect of the Laplacian on a vector field
+$\v{a}$ is \emph{defined} to be
+\[
+  \lap \v{a}
+  ~=~
+  \partial_i \, \partial_i \, \v{a}
+  ~=~
+  \frac{\partial^2}{\partial x_1^2}\;\, \v{a}
+  ~+~
+  \frac{\partial^2}{\partial x_2^2}\;\, \v{a}
+  ~+~
+  \frac{\partial^2}{\partial x_3^2}\;\,  \v{a}
+\]
+
+The Laplacian acts on a vector field to produce another vector field.
+
+\mnote{14L 22/02/08}
+\mnote{15L 03/03/09}
