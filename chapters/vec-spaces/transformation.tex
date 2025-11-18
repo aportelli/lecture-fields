@@ -1,0 +1,501 @@
+% !TEX root = ../../fields.tex
+%% Brian Lecture 7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\nsection{Transformation Properties of Vectors and Scalars
+%{(\it RHB 7.14; 19.10)}}
+
+\subsection{Transformation of vector components}
+
+Let $\v{a}$ be any vector, with components $a_{i}$ in the basis $\{\ei\}$ and $a_{i}'$ in
+the basis $\{\ei\!'\}$ \emph{i.e.}
+\begin{center}
+  \bigbox{$\v{a} \ =  a_{i}\,\ei \ =  a_{i}'\,\ei\!'$} .
+\end{center}
+The components are related as follows, taking care with dummy indices
+\[
+  a_{i}'
+  ~ = ~
+  \v{a}\cdot\ei\!'
+  ~ = ~
+  (a_{j} \, \ej)\cdot\ei\!'
+  ~=~
+  (\ei\!'\cdot\ej) \, a_{j}
+  ~=~
+  \ell_{ij} \, a_{j}
+\]
+\begin{center}
+  \bigbox{$a_{i}' = \ell_{ij} \, a_{j}$}
+\end{center}
+\vspace*{-2ex} % Too much space here - it looked silly
+\begin{eqnarray*}
+  a_{i}
+  ~ = ~
+  \v{a}\cdot\ei
+  ~ = ~
+  (a_{k}'\, \ed{k}\!') \cdot\ei
+  ~ =  ~
+  \ell_{ki} \, a_{k}'
+  ~ = ~
+  (L^T)_{ik} \, a_{k}'.
+\end{eqnarray*}
+\begin{center}
+  \bigbox{Note carefully that the \textbf{vector} $\v{a}$ does \emph{not} change}
+\end{center}
+Therefore we do \emph{not} put a prime on the vector itself. However,
+the \emph{components} of this vector \emph{are} different in different
+bases, and so are denoted by $a_{i}$ in the basis $\{\ei\}$, and by
+$a_{i}'$ in the basis $\{\ei\!'\}$, and so on.
+
+These transformations are called \emph{passive transformations}: the basis is
+transformed, but the vector remains \emph{fixed}. Alternatively we can keep the basis
+fixed and transform the vector, this is an \emph{active transformation}. They are
+equivalent (and indeed one is just the inverse of the other). In this course we shall
+only consider the passive viewpoint (to avoid confusion).
+
+\mnote{07L 29/01/08}
+
+In matrix form we can write the transformation of components as
+\[
+  \bigbox{$
+      \left(
+      \begin{array}{c}
+        a_1' \\
+        a_2' \\
+        a_3'
+      \end{array}\right)
+      ~ = ~
+      \left(
+      \begin{array}{ccc}
+        \ell_{11} & \ell_{12} & \ell_{13} \\
+        \ell_{21} & \ell_{22} & \ell_{23} \\
+        \ell_{31} & \ell_{32} & \ell_{33}
+      \end{array}\right)
+      \left( \begin{array}{c}
+        a_1 \\
+        a_2 \\
+        a_3
+      \end{array}\right)
+      ~ = ~
+      L\,
+      \left(\begin{array}{c}
+        a_1 \\
+        a_2 \\
+        a_3
+      \end{array}\right)
+    $}
+\]
+and since $L^{-1} = L^T$
+\[
+  \left(\begin{array}{c}
+      a_1 \\
+      a_2 \\
+      a_3
+    \end{array}\right)
+  =
+  L^T
+  \left(\begin{array}{c}
+      a_1' \\
+      a_2' \\
+      a_3'
+    \end{array}\right)
+\]
+
+\paragraph{Example:}
+Consider a rotation of the axes about $\ethree$
+\[
+  \left(\begin{array}{c}
+      a_1' \\
+      a_2' \\
+      a_3'
+    \end{array}\right)
+  =
+  \left(
+  \begin{array}{ccc}
+      \msp\cos\theta & \sin\theta & 0 \\
+      -\sin\theta    & \cos\theta & 0 \\
+      \msp0          & 0          & 1
+    \end{array}\right)
+  \left( \begin{array}{c}
+      a_1 \\
+      a_2 \\
+      a_3
+    \end{array}\right)
+  =
+  \left( \begin{array}{c}\cos\theta\; a_1 +\sin\theta \; a_2 \\
+      \cos\theta\;  a_2 -\sin\theta\; a_1    \\ a_3\end{array}\right)
+\]
+A direct check of this using trigonometric considerations is significantly harder!
+
+\subsection{Transformation of the scalar product}
+Let $\v{a}$ and $\v{b}$ be vectors with components $a_{i}$ and $b_{i}$ in the $\{\ei\}$
+basis, and components $a_{i}'$ and $b_{i}'$ in the $\{\ei\!'\}$ basis. In the $\{\ei\}$
+basis, the scalar product, denoted by $\v{a}\cdot\v{b}$, is
+\[
+  \v{a}\cdot\v{b}
+  =
+  a_{i} \, b_{i}\,.
+\]
+In the basis $\{\ei\!'\}$, we denote the scalar product by $(\v{a}\cdot\v{b})\,'$, and we
+have
+\begin{eqnarray*}
+  (\v{a}\cdot\v{b})\,'
+  &=&
+  a_{i}' \, b_{i}'
+  ~=~
+  \ell_{ij} \, a_{j} \, \ell_{ik} \, b_{k}\
+  ~=~
+  \delt{jk} a_{j}  b_{k}\\
+  &=&
+  a_{j} \, b_{j}
+  ~=~
+  \v{a}\cdot\v{b}\,.
+\end{eqnarray*}
+Thus the scalar product is the same when evaluated in any basis. This
+is of course expected from the geometrical definition of scalar
+product which is independent of basis. We say that the scalar product
+is \emph{invariant} under a change of basis.
+
+\paragraph{Summary:}
+We have now obtained an algebraic definition of scalar and vector quantities.
+
+Under the orthogonal transformation from the basis $\{\ei\}$ to the basis $\{\ei\!'\}$,
+defined by the transformation matrix $L$ such that $\ei\!' = \ell_{ij}\,\ej$, we have
+that:
+
+\begin{itemize}
+  \item A \textbf{scalar} is a single number $\phi$ which is invariant:
+        \begin{center}
+          \bigbox{$\phi' ~=~ \phi$}
+        \end{center}
+        Of course, not all scalar quantities in physics are expressible as the
+        scalar product of two vectors \emph{e.g.}\ mass, temperature.
+
+  \item A \textbf{vector} is an `ordered triple' of numbers $a_{i}$ which transforms to $a_{i}'$
+        such that
+        \begin{center}
+          \bigbox{$a_{i}' \ =  \ell_{ij}a_{j}$}
+        \end{center}
+\end{itemize}
+
+% originally not there:
+
+\subsection{Transformation of the vector product}
+\label{transf_vp}
+%\subsection{A technical aside: transformation of the Vector Product}
+Great care is needed with the vector product under improper transformations.
+
+\paragraph{Inversion:} Let $\ei\!' = - \ei$, so $\ell_{ij} = -\delt{ij}$ and hence $a_{i}' = - a_{i}$ and
+$b_{i}' = - b_{i}$. Therefore
+\[
+  a_{i}' \, \ei\!' ~=~ (-a_{i}) \, (-\ei) ~=~ a_{i} \, \ei ~=~ \v{a}
+  \quad \mbox{and} \quad
+  b_{i}' \, \ei\!' ~=~ (-b_{i}) \, (-\ei) ~=~ b_{i} \, \ei ~=~ \v{b}
+\]
+The vectors $\v{a}$ and $\v{b}$ are unchanged by the transformation -- as they should be.
+
+However if we calculate the vector product $\v{c}=\v{a}\times\v{b}$ in the new basis
+using the determinant formula, we obtain
+\[
+  \ds \left|
+  \begin{array}{ccc}
+    \eone\!' & \etwo\!' & \ethree\!' \\
+    a_1'     & a_2'     & a_3'       \\
+    b_1'     & b_2'     & b_3'       \\
+  \end{array}
+  \right|
+  ~=~
+  (-1)^3
+  \left|
+  \begin{array}{ccc}
+    \eone & \etwo & \ethree \\
+    a_1   & a_2   & a_3     \\
+    b_1   & b_2   & b_3     \\
+  \end{array}
+  \right|
+  ~=~
+  -\left|
+  \begin{array}{ccc}
+    \eone & \etwo & \ethree \\
+    a_1   & a_2   & a_3     \\
+    b_1   & b_2   & b_3     \\
+  \end{array}
+  \right|
+\]
+which is $-\v{c}$ as calculated in the original basis!
+
+The explanation is that if $\{\ei\}$ is a \emph{RH basis}, then $\{\ei\!'\}$ is a
+\emph{LH basis} because $L$ is an \emph{improper} transformation. The formula we used for
+the vector product holds in a right-handed basis. If we use this formula in a left-handed
+basis, the direction of the vector product is reversed (it is equivalent to using a
+left-hand rule rather than a right-hand rule to calculate the vector product).
+
+Let us then \emph{define} the \emph{components} $c_i$ of $\v{c} = \v{a}\times\v{b}$ as
+\begin{center}
+  \bigbox{$c_i \equiv (\v{a}\times\v{b})_i = \epsilon_{ijk} a_jb_k$}
+\end{center}
+in \emph{any} orthonormal basis (LH or RH). This is equivalent to using the
+determinant formula. With this definition $\v{a}$, $\v{b}$ and $\v{c}$
+have the \emph{same} `handedness' as the underlying basis.
+
+\paragraph{General case:} To derive the transformation law for the vector product for arbitrary $L$ requires
+several steps, and is not quite trivial.
+
+In section~({\ref{subsec:det-eps}), we showed that the determinant of a $3\times3$ matrix
+$A$ can be written as
+\[
+  \det A = \epsilon_{ijk} \, a_{i1} \, a_{j2} \, a_{k3}
+\]
+This can be generalised to [see tutorial sheet~4.]
+\begin{center}
+  \bigbox{$
+      \epsilon_{rst} \, \det A = \epsilon_{ijk} \, a_{ir} \, a_{js} \, a_{kt}
+    $}
+\end{center}
+The extra $\epsilon$ on the LHS of this equation tells us that the
+determinant changes sign when we swap two columns of the matrix.
+Applying this to the transformation matrix $L$ gives
+\[
+  \epsilon_{rst} \, \det L
+  =
+  \epsilon_{ijk} \, \ell_{ir} \, \ell_{js} \, \ell_{kt}
+\]
+Multiplying this equation by $\ell_{lt}$ and using the orthogonality relation $\ell_{lt}
+  \, \ell_{kt} = \delta_{lk}$, gives
+\[
+  (\det L) \, \epsilon_{rst} \, \ell_{lt}
+  =
+  \epsilon_{ijl} \, \ell_{ir} \,
+  \ell_{js}.
+\] Relabelling the free index $l\mapsto k$ gives
+\begin{center}
+  \bigbox{$\ds
+      (\det L) \, \epsilon_{rst} \, \ell_{kt}
+      =
+      \epsilon_{ijk} \, \ell_{ir} \, \ell_{js}$
+  }
+\end{center}
+We can now calculate the transformation law for the components of the
+vector product. Recalling that $a_{j}' = \ell_{jr} \, a_r$ and
+$b_{k}' = \ell_{ks} \, b_s$, we find
+\begin{eqnarray*}
+  (\va\times\vb)_{i}'
+  & = &
+  \eps{ijk} \, a_j' \, b_k'
+  ~ = ~
+  \eps{ijk} \, \ell_{jr} \, \ell_{ks} \, a_r \, b_s
+  ~ = ~
+  \eps{jki} \, \ell_{jr} \, \ell_{ks} \, a_r \, b_s \\[0.5ex]
+  & = &
+  (\det L) \, \eps{rst} \, \ell_{it} \, a_r \, b_s
+  ~ = ~
+  (\det L) \, \ell_{it} \,
+  (\eps{trs} \, a_r \, b_s)
+\end{eqnarray*}
+where we used the last boxed identity (relabelling a lot of indices -
+exercise!) to get the first expression in the second line. Finally, we
+have
+\begin{center}
+  \bigbox{$\ds (\va\times\vb)_{i}'
+      ~=~
+      (\det L) \, \ell_{it} \, (\va\times\vb)_{t}$}
+\end{center}
+So the vector product transforms just like a vector under proper
+transformations, for which $\det L=+1$, but it picks up an extra minus
+sign under improper transformations, for which $\det L=-1$.
+
+The vector product is an example of what is known as a \emph{pseudovector} or \emph{axial
+  vector}.
+
+In general, a pseudovector $\v{c}$ is defined by the transformation law
+\begin{center}
+  \bigbox{ $c_{i}' = (\det L) \, \ell_{ij} \, c_{j}$}
+\end{center}
+You should know this result, but the detailed derivation is a bit
+tough, so you wouldn't be expected to reproduce it in an examination.
+
+\subsubsection*{Physical Examples}
+The following are \emph{true} or \emph{polar} vectors:
+\[
+  \begin{array}{lrcl}
+    \mbox{Position}       & \v{r}                                           \\
+    \mbox{Velocity}       & \v{v} & = & \v{\dot{r}}
+    \mbox{\ \ \ where $\v{r} = \v{r}(t)$, and }
+    \v{\dot{r}} \equiv \ds \frac{d\v{r}}{dt} \quad \mbox{($t$ is a scalar)} \\[1ex]
+    \mbox{Acceleration}   & \v{a} & = & \v{\dot{v}}                         \\[1ex]
+    \mbox{Force}          & \vF   & = & m\,\v{a}
+    \mbox{ \ (defined by Newton's law)}                                     \\[1ex]
+    \mbox{Electric field} & \v{E} & = & \ds \frac{1}{q}\,\vF
+    \mbox{ \ (where $\vF$ is the force on a particle of charge $q$)}
+  \end{array}
+\]
+The following are \emph{pseudo} or \emph{axial} vectors:
+\[
+  \begin{array}{lrcl}
+    \mbox{Angular momentum}         & \v{L} & = & \v{r} \times m\v{v}     \\[1ex]
+    \mbox{Torque}                   & \v{G} & = & \v{r} \times \v{F}      \\[1ex]
+    \mbox{Angular velocity ($\v{\omega}$)}
+                                    & \v{v} & = & \v{\omega} \times \v{r} \\[1ex]
+    \mbox{Magnetic field ($\v{B}$)} & \v{F} & = & q\,\v{v} \times \v{B}
+    \mbox{ \ (where $\vF$ is the force on a particle of}                  \\[1ex]
+                                    &       &   & \qquad \qquad \;\:
+    \mbox{charge $q$ and velocity $\v{v}$ due to $\v{B}$)}
+  \end{array}
+\]
+
+%For more details see `Tensors and Fields' course in third year.
+
+\clearpage
+
+\subsection{Summary of the story so far}
+We now take the opportunity to summarise some key-points of the course thus far.
+
+\textbf{NB} this is NOT a list of everything you need to know!
+
+\subsubsection*{Key points from the geometrical approach}
+You should recognise on sight that
+\begin{eqnarray*}
+  \v{r}\times \v{u} = \v{c}
+  &&
+  \mbox{is a line\ \ \ ($\v{r}$ lies on a line)}\\
+  \v{r}\cdot \v{n} = p
+  && \mbox{is a plane ($\v{r}$ lies in a plane)}
+\end{eqnarray*}
+Useful properties of scalar and vector products to remember
+\begin{eqnarray*}
+  \v{a}\cdot\v{b}=0 \quad &\Leftrightarrow&  \mbox{vectors orthogonal}\\
+  \v{a}\times\v{b}=0 \quad &\Leftrightarrow&  \mbox{vectors collinear}\\
+  \v{a}\cdot(\v{b}\times\v{c})=0 \quad &\Leftrightarrow&
+  \mbox{vectors co-planar
+    or linearly dependent}\\
+  \v{a}\times(\v{b}\times\v{c}) \quad
+  &=&
+  (\v{a}\cdot\v{c})\v{b} - (\v{a}\cdot\v{b})\v{c}
+\end{eqnarray*}
+
+\subsubsection*{Key points of suffix notation and the summation convention}
+We label orthonormal basis vectors by $\eone, \, \etwo, \,\ethree$ (or
+just $\{\ei\}$), and write the expansion of a vector $\v{a}$ as
+\[
+  \v{a} =  a_{i} \, \ei  \quad \left(\equiv \sum_{i=1}^{3} a_{i} \, \ei\right)
+\]
+There is \emph{always} an implicit sum over any \emph{repeated} or \emph{dummy} index,
+$i$ in this case.
+
+The Kronecker delta symbol $\delt{ij}$ can be used to express the orthonormality of the
+basis
+\[
+  \ei\cdot\ej = \delta_{ij}
+\]
+Kronecker delta has a very useful sifting property when one of the indices is summed
+\[
+  [\cdots]_{j}\delta_{jk}= [\cdots]_{k}
+\]
+Whether the basis is right- or left-handed is determined by
+\[
+  (\eone, \etwo, \ethree)= \pm 1
+\]
+We introduce $\eps{ijk}$ to enable us to write the vector products of basis vectors in a
+RH basis in a uniform way
+\[
+  \ei\times \ej= \eps{ijk} \, \ek \,.
+\]
+The vector and scalar triple products in any orthonormal basis are
+\begin{eqnarray*}
+  \v{a}\times \v{b}=
+  \ds \left|
+  \begin{array}{ccc}
+    \eone & \etwo & \ethree \\
+    a_1   & a_2   & a_3     \\
+    b_1   & b_2   & b_3     \\
+  \end{array}
+  \right|
+  &\mbox{or equivalently}&
+  (\v{a}\times \v{b})_{i}
+  ~ = ~
+  \eps{ijk}a_{j}b_{k} \\[1ex]
+  \v{a}\cdot(\v{b} \times \v{c})
+  ~=~
+  \ds
+  \left|
+  \begin{array}{ccc}
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3
+  \end{array}
+  \right|
+  &\mbox{or equivalently}&
+  \v{a}\cdot (\v{b}\times \v{c})
+  ~ = ~
+  \eps{ijk}a_{i}b_{j}c_{k}
+\end{eqnarray*}
+
+The \emph{most important} identity in the game is
+\[
+  \epsilon_{ijk}\,\epsilon_{klm}
+  ~=~
+  \delta_{il}\,\delta_{jm} - \delta_{im}\,\delta_{jl}
+\]
+
+\subsubsection*{Key points of the algebraic approach to change of basis}
+The new basis is written in terms of the old through
+\[
+  \ei\!'
+  ~=~
+  \ell_{ij} \, \ej \quad
+  \mbox{where $\ell_{ij}$ are elements of the $3\times 3$ transformation matrix $L$}
+\]
+$L$ is an orthogonal matrix, the defining property of which is $L^{-1}
+  = L^{T}$, and this can be written as
+\[
+  L L^T = L^T L = I
+  \qquad \mbox{or} \qquad
+  \ell_{ik}\ell_{jk} = \ell_{ki}\ell_{kj} = \delt{ij}
+\]
+The determinant $\det{L} = \pm 1$ tells us whether the transformation is proper or
+improper, \emph{i.e.} whether the handedness of the basis is changed.
+
+A \emph{scalar} is \emph{defined} as a number that is invariant under an orthogonal
+transformation.
+
+A \emph{vector} is \emph{defined} as an object $\v{a}$ represented in a basis by three
+numbers $a_{i}$ which transform to $a_{i}'$ through
+\[
+  a_{i}' \ =  \ell_{ij} a_{j} .
+\]
+or in matrix form
+\[
+  \left(\begin{array}{c}
+      a_1' \\
+      a_2' \\
+      a_3'
+    \end{array}\right)
+  ~=~
+  L
+  \left(\begin{array}{c}
+      a_1 \\
+      a_2 \\
+      a_3
+    \end{array}\right)
+\]
+
+%
+% The statement below is way too dangerous, so remove it!
+%
+% Regarding $a$ and $a'$ as $3\times 1$ column matrices, this may be written
+% succinctly as
+% \[
+%    a^\prime = L \,a \,.
+% \]
+
+A \emph{pseudoscalar} as a number that is invariant under a proper orthogonal
+transformation but changes sign under an improper orthogonal transformation.
+
+A \emph{pseudovector} or \emph{axial vector} transforms as a vector under a proper
+orthogonal transformation but has an additional sign change under an improper orthogonal
+transformation.
+
+\clearpage
+
+%\vfill
+
+\mnote{08L 06/02/09}

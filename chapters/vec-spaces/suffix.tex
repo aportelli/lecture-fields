@@ -1,0 +1,470 @@
+% !TEX root = ../../fields.tex
+%% Brian Lecture 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Kronecker delta symbol $\delt{ij}$}
+We \emph{define} the symbol $\delt{ij}$ (pronounced \emph{``delta i
+  j''}), where $i$ and $j$ can take on the values $1,\, 2,\, 3$, as follows
+\vspace*{-2ex}
+\begin{center}
+  \fbox{
+    \parbox[c]{45mm}{
+      \vspace*{-3ex}
+      \begin{eqnarray*}
+        \delt{ij}
+        & = & 1 \quad \mbox{when $i = j$ }\\
+        & = & 0 \quad \mbox{when $i \neq j$ }
+      \end{eqnarray*}
+      \vspace*{-4ex}
+    }}
+\end{center}
+\emph{i.e.}~~$\delta_{11} = \delta_{22} = \delta_{33} = 1$ and
+$\delta_{12} = \delta_{13} = \delta_{23} = \cdots = 0$.
+
+The equations satisfied by the three \emph{orthonormal basis vectors} $\ei$ can now be
+written as
+
+\begin{center}
+  \bigbox{$\ei\cdot\ej ~=~ \delt{ij}$}
+\end{center}
+\emph{e.g.}~~$\eone\cdot\etwo ~=~ \delta_{12} =0\;, \quad
+  \eone\cdot\eone \ = \ \delta_{11}=1$
+
+%%%% New bit from Martin/Kristel
+
+We can use this relation to easily extract the $k^{\rm th}$ component, $a_k$, of a vector
+$\v{a}$ since
+\[
+  \va\cdot \ek
+  \,=\,
+  \sum_{j=1}^3 a_{j} \, \ej \cdot \ek
+  \,=\,
+  \sum_{j=1}^3 a_{j} \,\delt{jk}
+  \,=\,
+  a_1 \, \delt{1k} \,+\, a_2 \, \delt{2k} \,+\, a_3 \, \delt{3 k}
+\]
+
+To go further, first note that $k$ is a \emph{free index} -- we are not summing over $k$
+and the equation holds irrespective of whether $k = 1$, $2$ or $3$.
+
+If $k=1$, then only the first term on the RHS contributes and the RHS $=a_1$. Similarly,
+if $k=2$ then the RHS $=a_2$, and if $k=3$ the RHS $=a_3$. Hence
+\[
+  \bigbox{$\ds \sum_{j=1}^3 a_{j} \, \delt{jk}
+      \,=\,
+      a_{k}$}
+\]
+In other words, Kronecker delta $\delta_{jk}$ picks out the $k^{\rm th}$ term in the sum
+over $j$.
+
+So in the end we have (as expected)
+\[
+  \bigbox{$\ds\va\cdot \ek  \ = a_{k}$}
+\]
+
+\paragraph{Matrix representation:}  $\delt{ij}$ may be thought of as the
+elements of a $3\times3$ unit matrix
+\[
+  \left(\begin{array}{ccc}
+      \delta_{11} & \delta_{12} & \delta_{13} \\
+      \delta_{21} & \delta_{22} & \delta_{33} \\
+      \delta_{31} & \delta_{32} & \delta_{33}
+    \end{array}\right)
+  \,=\,
+  \left(\begin{array}{ccc}
+      1 & 0 & 0 \\
+      0 & 1 & 0 \\
+      0 & 0 & 1
+    \end{array}\right)
+  \,=\,
+  I
+\]
+In other words, $\delta_{ij}$ is the $ij^{\rm th}$ element of the unit matrix $I$,
+\emph{i.e.}~$I_{ij}=\delta_{ij}$.
+
+\paragraph{Notes}
+\begin{enumerate}
+  \item Since there are two free indices $i$ and $j$, \ $\ei\cdot\ej = \delt{ij}$ is equivalent
+        to 9 equations.
+
+  \item $\delt{ij} = \delt{ji}$. \ \ We say $\delt{ij}$ is \emph{symmetric}
+        in its indices.
+
+  \item ${\displaystyle
+              \sum_{i=1}^3 \delt{ii}
+              \,=\, \delta_{11} + \delta_{22} + \delta_{33} = 3}$.
+
+  \item
+        %
+        % We showed above that
+        % \[
+        %   \sum_{j=1}^3a_{j}\delt{jk}
+        %   =
+        %   a_1 \delt{1k}+a_2\delt{2k}+a_3\delt{3 k}
+        % \]  
+        % To go further, first note that $k$ is a free index.
+        % 
+        % If $k=1$, then only the first term on the RHS contributes and the RHS
+        % $=a_1$.  Similarly, if $k=2$ then the RHS $=a_2$, and if $k=3$ the RHS $=a_3$.
+        %
+        We showed above that
+        \[
+          \bigbox{$\ds\sum_{j=1}^3a_{j} \, \delt{jk} \ = a_{k}$}
+        \]
+        In other words, Kronecker delta $\delta_{jk}$ picks out the $k^{\rm th}$ term in the sum
+        over $j$.
+
+        Generalising the reasoning implies the so-called \emph{sifting property} of Kronecker
+        delta
+        \[
+          \bigbox{${
+                  \displaystyle\sum_{j=1}^3(\mbox{anything})_{j} \,\delt{jk}
+                  \,=\,
+                  (\mbox{anything})_{k}}
+            $}
+        \]
+        where (anything)$_{j}$ denotes any expression that has a single free index $j$.
+
+\end{enumerate}
+
+\mnote{04L 18/01/08}
+\mnote{04L 23/01/09}
+
+\paragraph{Examples of the use of Kronecker delta}
+\[
+  \begin{array}{lrcl}
+    \mbox{(1)} \qquad
+     &
+    \v{a}\cdot\ej
+     & = & \left(\ds\sum_{i=1}^3 a_{i} \, \ei\right) \cdot \ej
+    \, = \,  \ds\sum_{i=1}^3 a_{i}\; (\ei\cdot\ej)             \\[3.5ex]
+    %
+     &
+     & = &
+    \ds\sum_{i=1}^3a_{i} \, \delt{ij}
+    \, = \,
+    a_{j} \quad \mbox{because terms with $i \neq j$ vanish.}   \\[5.5ex]
+    %
+    \mbox{(2)} \qquad
+     &
+    \v{a} \cdot \v{b}
+     & = &
+    \left(\ds\sum_{i=1}^3 a_{i} \, \ei \right)
+    \cdot \left(\ds \sum_{j=1}^3 b_{j} \, \ej \right)          \\[3.5ex]
+    %
+     &
+     & = &
+    \ds\sum_{i=1}^3 \ds\sum_{j=1}^3 a_{i} b_{j}\: (\ei\cdot\ej)
+    ~ = ~
+    \ds\sum_{i=1}^3 \ds\sum_{j=1}^3 a_{i} b_{j} \delt{ij}      \\[3.5ex]
+    %
+     &
+     & = &
+    \ds\sum_{i=1}^3 a_{i} b_{i}
+    \quad
+    \left( \mbox{ or } \ds\sum_{j=1}^3a_{j}b_{j} \right)
+  \end{array}
+\]
+
+%\nsection{Suffix notation}
+
+\subsection{Free indices and summation indices}
+
+Consider the vector equation
+\begin{equation}
+  \v{a} - (\v{b}\cdot\v{c})\, \v{d} + 3 \v{n}=0
+\end{equation}
+The basis vectors are linearly independent, so this equation must hold
+for each component separately
+\begin{equation}\label{example}
+  a_i - (\v{b}\cdot\v{c})\, d_i + 3 n_i = 0
+  \quad\mbox{for all} \quad i=1,2,3
+\end{equation}
+The free index $i$ occurs \emph{once}, and \emph{only} once, in each
+term of the equation.  In general every term in the equation must be
+of the same kind, \emph{i.e.}~it must have the \emph{same free
+  indices}.
+
+Now suppose that we want to write the scalar product that appears in the second term of
+equation~(\ref{example}) in suffix notation. As we have seen, summation indices are
+`dummy' indices and can be relabelled. For example
+\[
+  \v{b}\cdot\v{c}
+  \,=\,
+  \sum_{i=1}^3 b_i \, c_i
+  \,=\,
+  \sum_{k=1}^3 b_k \, c_k
+\]
+This freedom should \emph{always} be used to avoid confusion with other indices in the
+equation. In this case, we avoid using $i$ as a summation index, as we have already used
+it as a free index, and rewrite equation~(\ref{example}) as
+\[
+  a_i - \left(\sum_{k=1}^3 b_k \, c_k\right) d_i + 3 n_i
+  \,=\,
+  0 \quad\mbox{for} \quad i=1,2,3
+\]
+\textbf{NB} Do \emph{not} write equation~(\ref{example}) as
+\[
+  a_i - \left(\sum_{i=1}^3 b_i \, c_i\right) d_i + 3 n_i=0
+  \quad\mbox{for} \quad i=1,2,3
+\]
+which would lead to great confusion and inevitably lead to mistakes when the brackets are
+removed -- as they will be very soon!
+
+\subsection{Handedness of basis}
+
+In the usual Cartesian basis that we've considered up to now, the basis vectors $\eone$,
+$\etwo$, and $\ethree$ form a \emph{right-handed} basis: $\eone\times\etwo = \ethree,
+  \;\, \etwo\times\ethree = \eone, \;\, \ethree\times\eone = \etwo$.
+
+However, we \emph{could} choose $\eone\times\etwo = -\ethree$, and so on, in which case
+the basis is said to be \emph{left-handed}.
+
+\begin{picture}(300,90)(0,-10)
+  \put(20,0){\vector(1,0){40}}
+  \put(65,-12){\makebox(0,0)[rb]{$\eone$}}
+  \put(20,0){\vector(0,1){40}}
+  \put(5,40){\makebox(0,0)[lt]{$\ethree$}}
+  \put(20,0){\vector(3,2){25}}
+  \put(35,28){\makebox(0,0)[lt]{$\etwo$}}
+  \put(18,50){\makebox(0,0)[lb]{\bf Right handed}}
+  \put(220,0){\vector(1,0){40}}
+  \put(265,-12){\makebox(0,0)[rb]{$\eone$}}
+  \put(220,0){\vector(0,1){40}}
+  \put(205,40){\makebox(0,0)[lt]{$\etwo$}}
+  \put(220,0){\vector(3,2){25}}
+  \put(238,28){\makebox(0,0)[lt]{$\ethree$}}
+  \put(218,50){\makebox(0,0)[lb]{\bf Left handed}}
+\end{picture}
+
+\vspace*{-5ex}
+\begin{minipage}[t]{2in}
+  \begin{eqnarray*}
+    \ethree &=& \eone\times\etwo \\
+    \eone &=& \etwo\times\ethree \\
+    \etwo &=& \ethree\times\eone
+  \end{eqnarray*}%&&\\
+  \vspace*{-3ex}
+  \[
+    \bigbox{$(\eone,\, \etwo,\, \ethree) ~=~ 1$}
+  \]
+\end{minipage}
+%
+\hspace{0.5in}
+%
+\begin{minipage}[t]{2in}
+  \begin{eqnarray*}
+    \ethree &=& \etwo\times\eone \\
+    \eone   &=& \ethree\times\etwo \\
+    \etwo   &=& \eone\times\ethree
+  \end{eqnarray*}
+  \vspace*{-3ex}
+  \[
+    \bigbox{$(\eone,\, \etwo,\, \ethree) ~=~ -1$}
+  \]
+\end{minipage}
+
+\medskip
+
+In this course, we will always use a right-handed basis unless stated otherwise.
+
+\newpage
+
+\subsection{The vector product in a right-handed basis}
+\[
+  \v{a}\times\v{b}
+  ~=~
+  \left(\sum_{i=1}^3\;a_{i}\;\ei\right)
+  \times
+  \left(\sum_{j=1}^3\;b_{j}\;\ej\right)
+  ~=~
+  \sum_{i=1}^3\;\sum_{j=1}^3\;a_{i}\;b_{j}\;(\ei\times\ej)\;.
+\]
+Since $\eone\times\eone = \etwo\times\etwo = \ethree\times\ethree = 0$, and
+$\eone\times\etwo =- \etwo\times\eone= \ethree $, \emph{etc}, we have
+\begin{equation}\label{vecprod}
+  \v{a}\times\v{b}
+  \,=\,
+  \eone(a_2b_3 - a_3b_2)
+  + \etwo(a_3b_1 - a_1b_3)
+  + \ethree(a_1b_2 - a_2b_1)
+\end{equation}
+from which we deduce that
+\[
+  (\v{a}\times\v{b})_1 = a_2b_3 - a_3b_2 \mbox{ , \emph{etc}.}
+\]
+Notice that the right-hand side of equation (\ref{vecprod}) corresponds to the expansion
+of the determinant
+\[
+  \left|
+  \begin{array}{ccc}
+    \eone & \etwo & \ethree \\
+    a_1   & a_2   & a_3     \\
+    b_1   & b_2   & b_3
+  \end{array}
+  \right|
+\]
+by the first row (see the next section for some properties of determinants.)
+
+\subsection{Determinants and the scalar triple product}
+We may label the elements of a $3\times 3$ array of numbers or \emph{matrix} $A$ by
+$a_{ij}$ (or alternatively by $A_{ij}$) where $i$ labels the row and $j$ labels the
+column in which $a_{ij}$ appears
+\[
+  A
+  \,=\,
+  \left(\begin{array}{ccc}
+      a_{11} & a_{12} & a_{13} \\
+      a_{21} & a_{22} & a_{23} \\
+      a_{31} & a_{32} & a_{33}
+    \end{array}\right).
+\]
+Then the \emph{determinant} of the matrix $A$ is defined as
+\begin{eqnarray*}
+  \det A
+  &\equiv&
+  \left| \begin{array}{ccc}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33}
+  \end{array}
+  \right|
+  \,=\,
+  a_{11} \left| \begin{array}{cc}
+    a_{22} & a_{23} \\
+    a_{32} & a_{33} \\
+  \end{array}
+  \right|
+  \,-\,
+  a_{12} \left| \begin{array}{cc}
+    a_{21} & a_{23} \\
+    a_{31} & a_{33} \\
+  \end{array}
+  \right|
+  \,+\,
+  a_{13} \left| \begin{array}{cc}
+    a_{21} & a_{22} \\
+    a_{31} & a_{32} \\
+  \end{array}
+  \right| \\[1ex]
+  &=&
+  a_{11} \left(a_{22}a_{33} - a_{23}a_{32}\right) -
+  a_{12} \left(a_{21}a_{33} - a_{23}a_{31}\right) +
+  a_{13} \left(a_{21}a_{32} - a_{22}a_{31}\right)
+\end{eqnarray*}
+It is now easy to write down an expression for the scalar triple
+product
+\begin{eqnarray*}
+  \v{a}\cdot\left(\v{b}\times\v{c}\right)
+  & = &
+  \sum_{i=1}^3 a_{i} \, \left(\v{b} \times \v{c}\right)_{i} \\[0.5ex]
+  &=&
+  a_1 \left(b_2 c_3 - b_3 c_2 \right)
+  - a_2 \left(b_1 c_3 - b_3 c_1 \right)
+  + a_3 \left(b_1 c_2 - b_2 c_1  \right) \\[1.5ex]
+  &=&
+  \left|
+  \begin{array}{ccc}
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3 \\
+  \end{array}
+  \right|
+\end{eqnarray*}
+which you should commmit to memory (if you haven't already done so already).
+
+\subsubsection*{Some properties of the determinant}
+An alternative expression for the determinant is given by noting that
+\begin{eqnarray*}
+  \det A &=& a_{11} (a_{22}a_{33} - a_{23}a_{32}) -
+  a_{12} (a_{21}a_{33} - a_{23}a_{31}) +
+  a_{13} (a_{21}a_{32} - a_{22}a_{31})
+  \\
+  &=& a_{11} (a_{22}a_{33} - a_{23}a_{32}) -
+  a_{21} (a_{12}a_{33} - a_{32}a_{13}) +
+  a_{31} (a_{12}a_{23} - a_{22}a_{13})
+  \\[1ex]
+  &=& \left| \begin{array}{ccc}
+    a_{11} & a_{21} & a_{31} \\
+    a_{12} & a_{22} & a_{32} \\
+    a_{13} & a_{23} & a_{33} \\
+  \end{array} \right|
+\end{eqnarray*}
+Evidently, the rows and columns of the matrix can be interchanged or
+\emph{transposed} without changing the determinant. This may be
+written more elegantly by defining the \emph{transpose} $A^T$ of a
+matrix $A$ as the matrix with elements $(A^T)_{ij} = a_{ji}$. Then
+\[
+  \det A = \det A^T \,.
+\]
+The symmetry properties of the determinant may be deduced from the scalar triple product
+(STP) by noting that interchanging two adjacent vectors in the STP is equivalent to
+interchanging two adjacent rows (or columns) of the determinant and changes its value by
+a factor $-1$. Also adding a multiple of one row (or column) to another does not change
+the value of $\det A$.
+
+\subsection{Summary of the algebraic approach to vectors}
+We are now able to define vectors and the various products of vectors in an algebraic way
+(as opposed to the geometrical approach of lectures 1 and 2).
+
+A \textbf{vector} is \emph{represented} (in some orthonormal basis $\eone,\, \etwo,\,
+\ethree$) by an ordered set of 3 numbers with certain laws of addition. For example
+\begin{eqnarray*}
+  \v{a} & \mbox{is represented by} & \left( \begin{array}{c} a_1\\ a_2\\ a_3\end{array} \right)\qquad
+  \v{a} + \v{b} \quad
+  \mbox{is represented by}
+  \left( \begin{array}{c} a_1+b_1\\ a_2+b_2\\ a_3+b_3\end{array} \right)
+  % \quad (a_1 + b_1,\, a_2 + b_2\, , a_3 + b_3)\,.
+\end{eqnarray*}
+It is important to remember that the representation \emph{depends on
+  the basis}.  We usually use a column vector, as we do here.  Sometimes
+we use a row vector which we denote
+$\v{a}^{T}$.%
+%
+\footnote{Beware:~sometimes we break these conventions and represent
+  $\v{a}$ by a row vector $(a_1,\, a_2,\, a_3)$. We may even write
+  $\v{a} = (a_1,\, a_2,\, a_3)$ when the meaning is not ambiguous.}
+
+The various `products' of vectors are now defined as follows:
+
+\textbf{The Scalar Product} is denoted by $\v{a}\cdot\v{b}$ and
+\emph{defined} as
+\begin{eqnarray*}
+  \v{a}\cdot\v{b}
+  & \equiv &
+  \sum_{i} a_{i}b_{i}\\
+  %
+  \v{a}\cdot\v{a}
+  & = &
+  a^2  \quad \mbox{defines the magnitude $a$ of the vector.}
+\end{eqnarray*}
+
+\textbf{The vector product} is denoted by $\v{a}\times\v{b}$ and
+\emph{defined} in a right-handed basis as
+\[
+  \v{a} \times \v{b}
+  \equiv
+  \left|
+  \begin{array}{ccc}
+    \eone & \etwo & \ethree \\
+    a_1   & a_2   & a_3     \\
+    b_1   & b_2   & b_3
+  \end{array}
+  \right|
+\]
+
+\textbf{The scalar triple product}
+\[
+  (\v{a},\v{b},\v{c})
+  ~\equiv~
+  \sumi a_{i} \, (\v{b}\times\v{c})_{i}
+  ~=~
+  \left|
+  \begin{array}{ccc}
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3
+  \end{array}
+  \right|
+\]
+
+In all the above formula the summations imply sums over each index taking values
+$1,\,2,\,3$.

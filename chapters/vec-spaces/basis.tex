@@ -1,0 +1,528 @@
+% !TEX root = ../../fields.tex
+%% Brian Lecture 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\nsection{Change of Basis {\it ( BK 1.5 RHB 7.14)}} 
+
+\subsection{Linear transformation of basis in suffix notation}
+Suppose $\{\ei\}$ and $\{\ei\!'\}$ are two different orthonormal bases. How do we relate
+them?
+
+Clearly $\eone\!'$ can be written as a linear combination of the vectors $\eone, \,
+  \etwo, \, \ethree$. Let us write the linear combination as
+\[
+  \eone\!'
+  ~=~
+  \ell_{11} \, \eone + \ell_{12} \, \etwo + \ell_{13} \, \ethree
+\]
+with similar expressions for $\etwo\!'$ and $\ethree\!'$. Hence we may write
+\begin{equation}
+  \bigbox{$\ei\!'\ ~=~  \ell_{ij}\,\ej$}
+\end{equation}
+where we are using the summation convention. The nine numbers
+$\ell_{ij}$, with $i,\,j = 1,2,3$, relate the basis vectors $\eone\!',\
+  \etwo\!'$, $\ethree\!'$ to the basis vectors $\eone$, $\etwo$, $\ethree$.
+
+\paragraph{Notes}
+\begin{enumerate}
+
+  \item The nine numbers $\ell_{ij}$ define the change of basis or `linear transformation'.
+
+        %\item [Here a linear transformation is `passive' and only the basis
+        %changes. In your maths courses you may have also met `active
+        %transformations' which are mappings between vector spaces]
+
+  \item
+        To determine $\ell_{ij}$, consider the quantity
+        \begin{eqnarray*}
+          \ei\!' \cdot \,\ej
+          & = &
+          (\ell_{ik} \, \ek) \cdot \ej
+          =
+          \ell_{ik} \, \delt{kj}
+          =
+          \ell_{ij}\,.
+        \end{eqnarray*}
+        Therefore
+        \begin{equation}
+          \bigbox{$\ds\ei\!' \cdot \, \ej  =  \ell_{ij}\;$}
+        \end{equation}
+        so $\ell_{ij}$ are the projections (or direction cosines) of
+        $\ei\!'\,$ ($i = 1,\, 2,\, 3$) onto the $\v{e}_{\,i}$ basis.
+
+  \item
+        The basis vectors $\ei\!'$ are orthonormal, therefore
+        \[
+          \ei\!'\cdot\ej\!' ~=~ \delt{ij}
+        \]
+        The LHS of this equation may be written as
+        \[
+          \ei\!'\cdot\ej\!'
+          =
+          (\ell_{ik}\,\ek) \cdot ( \ell_{jl}\, \e{l})
+          =
+          \ell_{ik} \, \ell_{jl} \, (\ek\cdot\e{l})
+          =
+          \ell_{ik} \, \ell_{jl} \, \delt{kl}
+          =
+          \ell_{ik}\, \ell_{jk}
+        \]
+        where we used the sifting property of $\delt{kl}$ in the final step. Hence
+        \begin{equation}\label{orthog1}
+          \bigbox{$ \ell_{ik}\ell_{jk} ~ = ~ \delt{ij}$}
+        \end{equation}
+
+\end{enumerate}
+
+\mnote{06L 30/01/09}
+
+\subsection{Inverse relations}
+Let us now express the unprimed basis in terms of the primed basis. If we write
+\[
+  \ei =  m_{ij}\,\ej\!'
+\]
+then
+\[
+  \ell_{ij}
+  = \ei\!' \cdot \, \ej
+  = \ei\!' \cdot \big(m_{jk} \, \ek\!'\big)
+  = m_{jk} \, \delta_{ik}
+  = m_{ji}
+\]
+and we deduce that
+\begin{equation}
+  m_{ij} = \ell_{ji}
+  \label{eq:m}
+\end{equation}
+The $\ei$ are orthonormal so $\ei\cdot \ej =\delta_{ij}$. The LHS of
+this equation may be re-written
+\[
+  \ei\cdot \ej
+  = \big(m_{ik} \: \ek\!'\big) \cdot \big(m_{jl} \: \e{l}\!'\big)
+  = m_{ik} \, m_{jl}\, \delta_{kl}
+  = m_{ik} \, m_{jk}
+  = \ell_{ki} \, \ell_{kj}
+\]
+and we obtain a second relation
+\begin{equation}\label{orthog2}
+  \bigbox{$ \ell_{ki}\ell_{kj} \ = \ \delt{ij}$}
+\end{equation}
+
+%Note that $\delt{ij} \ = \ \ei\cdot\ej \ =
+% m_{ik}(\v{e}^\prime_k\cdot\v{e}_j) \ =
+% \ell_{ki}\,(\e{\ds k\phantom{i}\!\!}'\cdot\ej) \ =
+% \ell_{ki} \ell_{kl} (\v{e}_l\cdot\v{e}_j) \ =
+% \ell_{ki} \ell_{kl} \delta_{lj} \ =
+% \ell_{ki}\ell_{kj}$ and so we obtain a second relation
+
+\mnote{06L 25/01/08}
+
+%\vspace*{-2ex}
+\subsection{The transformation matrix}
+\label{transf_matrix}
+
+Let us re-write the above results using matrix notation.
+
+Recall (again) that we may label the elements of a $3\times3$ matrix $A$ by $a_{ij}$, or
+alternatively $(A)_{ij}$, where $i$ labels the row and $j$ labels the column in which
+$a_{ij}$ appears:
+\[
+  A
+  \,=\,
+  \left(
+  \begin{array}{ccc}
+      a_{11} & a_{12} & a_{13} \\
+      a_{21} & a_{22} & a_{23} \\
+      a_{31} & a_{32} & a_{33}
+    \end{array}
+  \right).
+\]
+First note that the summation convention can be used to describe matrix multiplication.
+The $ij^{\rm th}$ component of the product of two $3\times 3$ matrices $A$ and $B$ is
+obtained by `multiplying the $i^{\rm th}$ row of $A$ into the $j^{\rm th}$ column of
+$B$', namely
+\begin{equation}\label{mat_mult}
+  (AB)_{ij}
+  \,=\,
+  a_{i1} \, b_{1j} \,+\,
+  a_{i2} \, b_{2j} \,+\,
+  a_{i3} \, b_{3j}
+  \,=\,
+  a_{ik} \, b_{kj}
+\end{equation}
+Likewise, recalling the definition of the transpose of a matrix
+$(A^T)_{ij}= A_{ji}$ (or $a_{ji}$),
+\begin{equation}\label{trans_mult}
+  (A^{T} B)_{ij}
+  \,=\,
+  (A^{T})_{ik} \, (B)_{kj}
+  \,=\,
+  a_{ki} b_{kj}
+\end{equation}
+We may identify the nine numbers $\ell_{ij}$ as the elements of a
+square matrix, denoted by $L$, and known as the \emph{transformation
+  matrix}
+\[
+  L
+  \,=\,
+  \left(
+  \begin{array}{ccc}
+      \ell_{11} & \ell_{12} & \ell_{13} \\
+      \ell_{21} & \ell_{22} & \ell_{23} \\
+      \ell_{31} & \ell_{32} & \ell_{33}
+    \end{array}
+  \right)
+\]
+Equation (\ref{eq:m}) then tells us that $M= L^T$ is the transformation matrix for the
+\emph{inverse} transformation.
+
+% We also note that $\delt{ij}$ may be thought of as elements of
+% a $3\times3$ unit matrix:
+% \vspace*{-3ex}
+% \begin{center}
+% \[\left(\begin{array}{ccc}
+% \delta_{11} & \delta_{12} & \delta_{13}\\
+% \delta_{21} & \delta_{22} & \delta_{33}\\
+% \delta_{31} & \delta_{32} & \delta_{33}
+% \end{array}\right)=
+% \left(\begin{array}{ccc}
+% 1 & 0 & 0\\
+% 0 & 1 & 0\\
+% 0 & 0 & 1
+% \end{array}\right)\ =\ I .\]
+% \end{center}
+% $i.e.$ the matrix representation of the Kronecker delta symbol
+% is  the {\bf unit matrix} $I$.
+
+Comparing equation~(\ref{orthog1}) with equation~(\ref{mat_mult}), and
+equation~(\ref{orthog2}) with equation (\ref{trans_mult}), and recalling that
+$\delta_{ij}$ is the $ij^{\rm th}$ element of the \emph{unit matrix} $I$, we see that the
+relations $\ell_{ik}\, \ell_{jk} = \ell_{ki} \, \ell_{kj} = \delt{ij}$ can be written in
+matrix notation as
+\begin{center}
+  \bigbox{$L L^T ~=~ \ L^T L ~=~ I$}
+  \quad \mbox{and hence} \quad
+  \bigbox{$L^{-1} ~=~ \ L^T$}
+\end{center}
+where $L^{-1}$ is the matrix inverse of $L$.
+
+A matrix that satisfies these conditions is called an \emph{orthogonal matrix}, and the
+transformation (from the $\ei$ basis to the $\ei\!'$ basis) is called an \emph{orthogonal
+  transformation}.
+
+Now from $\ei\!' = \ell_{ij} \, \v{e}_j$, we have for the scalar triple product (assuming
+$\ei$ is a RH basis)
+\begin{eqnarray*}
+  \big(\eone\!', \, \etwo\!', \, \ethree\!' \big)
+  &=&
+  \eone\!' \cdot \big(\etwo\!' \times \ethree\!'\big) \\[0.5ex]
+  &=&
+  \ell_{1i} \, \ei \cdot
+  (\ell_{2j} \, \ej \times \ell_{3k} \, \ek) \\[0.5ex]
+  &=&
+  \ell_{1i}\, \ell_{2j} \, \ell_{3k} \;
+  \ei \cdot (\ej \times \ek) \\[0.5ex]
+  &=&
+  \ell_{1i}\, \ell_{2j} \, \ell_{3k} \;
+  \ei \cdot (\epsilon_{ljk} \, \el) \\[0.5ex]
+  &=&
+  \ell_{1i}\, \ell_{2j} \, \ell_{3k} \,
+  \epsilon_{ljk} \, \delta_{il} \\[0.5ex]
+  &=&
+  \epsilon_{ijk} \, \ell_{1i}\, \ell_{2j} \, \ell_{3k}
+  ~=~ \det L
+\end{eqnarray*}
+So
+\[
+  \det L ~=~ \big(\eone\!', \, \etwo\!', \, \ethree\!' \big)
+  ~=~ \left\{ \begin{array}{cl}
+    +1 & \mbox{if primed basis is RH} \\
+    -1 & \mbox{if primed basis is LH} \\
+  \end{array}
+  \right.
+\]
+We say
+%\vspace*{-4ex}
+\begin{center}
+  \bigbox{
+    \vspace*{-6ex}
+    \parbox{60mm}{
+      \vspace*{-2ex}
+      \begin{tabbing}
+        If \= $\det L=+1$ \= the orthogonal transformation is `proper'\\[0.5ex]
+        If \> $ \det L=-1$ \> the orthogonal transformation is `improper'
+      \end{tabbing}
+      \vspace*{-2ex}
+    }
+  }
+\end{center}
+
+An alternative proof uses the following properties of determinants: $\det AB = \det A \,
+  \det B$ and $\det A^T = \det A$. These, together with $\det I = 1$, give
+\[
+  \det{LL^T} = \det{L}\,\det{L^T} = (\det{L})^2 = 1 \,,
+\]
+hence $\det{L} = \pm 1$.
+
+\newpage
+
+\subsection{Examples of orthogonal transformations}
+\label{sec:ExamplesofTransformations}
+
+\paragraph{Rotation about the $\ethree$ axis:}
+We have $\ethree\!' = \ethree$ and thus for a rotation through $\theta$,
+
+\medskip
+
+\parbox{5cm}{
+  \epsfxsize=5cm
+  \includegraphics{tikz_rot_basis.pdf}
+}\hfill
+\parbox{11cm}{
+  \begin{eqnarray*}
+    \quad
+    \ethree\!'\cdot\eone
+    & = &
+    \eone\!'\cdot\ethree
+    = \ethree\!'\cdot\etwo
+    =
+    \etwo\!'\cdot\ethree
+    = 0\,,
+    \quad \ethree\!'\cdot\ethree=1 \\
+    \eone\!'\cdot\eone
+    & = &
+    \cos\theta\\
+    \eone\!'\cdot\etwo
+    & = &
+    \cos\left(\pi/2 - \theta\right) ~ = ~ \sin\theta\\
+    \etwo\!'\cdot\etwo
+    & = &
+    \cos\theta\\
+    \etwo\!'\cdot\eone
+    & = &
+    \cos\left(\pi/2 + \theta\right) ~ = ~ -\sin\theta
+  \end{eqnarray*}
+}
+
+\medskip
+
+Thus
+\[
+  L
+  ~ = ~
+  \left(
+  \begin{array}{ccc}
+      \msp\cos\theta & \sin\theta & 0 \\
+      -\sin\theta    & \cos\theta & 0 \\
+      \msp0          & 0          & 1
+    \end{array}\right).
+\]
+
+It is easy to check that $ L L^T = I$. Since $\det{L} = \cos^2\theta + \sin^2\theta = 1$,
+this is a \emph{proper} transformation. Note that rotations cannot change the handedness
+of the basis vectors.
+
+\paragraph{Inversion or parity transformation:} This is defined by $\ei\!' = -\ei, \;\; i = 1, \, 2, \, 3$.
+
+\[
+  \mbox{\emph{i.e. } $\ell_{ij} \ = \ -\delt{ij}$\qquad or}\qquad
+  L  \ = \ \left(
+  \begin{array}{rrr}
+      -1 & 0  & 0  \\
+      0  & -1 & 0  \\
+      0  & 0  & -1
+    \end{array}\right) \ = \ - I\,.
+\]
+
+\parbox{7.5cm}{ Clearly $L L^T = I$. Since $\det{L} = -1$, this is an
+  \emph{improper} transformation. Note that the handedness of the
+  basis is reversed: $\eone\!'\times\etwo\!'=-\ethree\!'$
+} \hfill
+\parbox{8.5cm}{
+  \epsfxsize=8.5cm
+  \includegraphics{tikz_parity.pdf}
+}
+
+\paragraph{Reflection:}
+Consider reflection of the axes in $\etwo{-}\ethree$ plane so that $\eone\!' = -\eone$,
+$\;\etwo\!' = \etwo$ and $\ethree\!' = \ethree$. The transformation matrix is
+\[
+  L
+  ~=~
+  \left(
+  \begin{array}{rrr}
+      -1 & 0 & 0 \\
+      0  & 1 & 0 \\
+      0  & 0 & 1
+    \end{array}\right)
+\]
+Since $\det{L} = -1$, this is an \emph{improper} transformation, therefore the handedness
+of the basis changes.
+
+\newpage
+
+\subsection{Products of transformations}
+Consider a transformation $L$ to the basis $\{\ei\!'\}$ followed by a transformation $M$
+to another basis $\{\ei\!''\}$
+\[
+  \ei
+  \begin{array}[b]{c}
+    L \\[-1.2ex]
+    ~\rightarrow~
+  \end{array}
+  \ei\!'
+  \begin{array}[b]{c}
+    M \\[-1.2ex]
+    ~\rightarrow~
+  \end{array}
+  \ei\!''
+\]
+Clearly there must be an orthogonal transformation $ \ei \begin{array}[b]{c} N \\[-1.2ex] \rightarrow \end{array} \ei\!''.$
+\ \ To find it, we write
+\[
+  \ei\!''
+  =
+  m_{ij} \, \ej\!'
+  =
+  m_{ij} \, \ell_{jk} \, \ek
+  =
+  (ML)_{ik} \, \ek
+  \quad \mbox{so} \quad \bigbox{$\ds N = M L$}
+\]
+
+\vspace*{-5ex}
+
+\paragraph{Notes}
+\begin{enumerate}
+  \item Note the order of the product: the matrix corresponding to the first change of basis
+        stands to the right of that for the second change of basis. In general, transformations
+        do not commute, \emph{i.e.} $ML \ne LM$.
+
+        \textbf{Example:} a rotation of $\theta$ about $\ethree$ followed by a
+        reflection in the $\etwo{-}\ethree$ plane.
+        %\vspace*{-2ex}
+        \[
+          \left(
+          \begin{array}{rrr}
+              -1 & 0 & 0 \\
+              0  & 1 & 0 \\
+              0  & 0 & 1
+            \end{array}\right)
+          \left(
+          \begin{array}{ccc}
+              \msp\cos\theta & \sin\theta & 0 \\
+              -\sin\theta    & \cos\theta & 0 \\
+              \msp0          & 0          & 1
+            \end{array}\right)
+          = \left(
+          \begin{array}{ccc}
+              -\cos\theta & -\sin\theta    & 0 \\
+              -\sin\theta & \msp\cos\theta & 0 \\
+              \msp0       & 0              & 1
+            \end{array}\right)
+        \]
+        whereas if we reverse the order
+        %\vspace*{-1em}
+        \[
+          \left(
+          \begin{array}{ccc}
+              \msp\cos\theta & \sin\theta & 0 \\
+              -\sin\theta    & \cos\theta & 0 \\
+              \msp0          & 0          & 1
+            \end{array}\right)
+          \left(
+          \begin{array}{rrr}
+              -1 & 0 & 0 \\
+              0  & 1 & 0 \\
+              0  & 0 & 1
+            \end{array}\right)
+          =
+          \left(
+          \begin{array}{ccc}
+              -\cos\theta    & \sin\theta & 0 \\
+              \msp\sin\theta & \cos\theta & 0 \\
+              \msp0          & 0          & 1
+            \end{array}\right)
+        \]
+
+  \item The inversion and the identity transformations commute with all transformations.
+\end{enumerate}
+
+\mnote{07L 03/02/09}
+
+\subsection{Improper transformations}
+
+We may write any improper transformation $M$ (for which $ \det{M} = -1$) as $ M = (-I)
+  L$, where $L= -M$ and $\det{L} = +1$. Thus an improper transformation can always be
+expressed as a proper transformation followed by an inversion.
+
+\textbf{Example:} The matrix $M$ for a reflection in the
+$\eone{-}\ethree$ plane is
+\[
+  \left(
+  \begin{array}{rrr}
+      1 & 0  & 0 \\
+      0 & -1 & 0 \\
+      0 & 0  & 1
+    \end{array}\right)
+  =
+  \left(
+  \begin{array}{rrr}
+      -1 & 0  & 0  \\
+      0  & -1 & 0  \\
+      0  & 0  & -1
+    \end{array}\right)
+  \left(
+  \begin{array}{rrr}
+      -1 & 0 & 0  \\
+      0  & 1 & 0  \\
+      0  & 0 & -1
+    \end{array}\right)
+\]
+Identifying $L$ from $M = \left(- I \right) L$ we see that $L$ is a rotation of $\pi$
+about $\etwo$.
+
+\medskip
+
+\begin{picture}(270,60)(-35,-15)
+  \unitlength 1.5pt
+  \put(0,-10){\vector(1,0){30}}
+  \put(34,-12){\makebox(0,0)[lb]{$\eone$}}
+  \put(0,-10){\vector(0,1){30}}
+  \put(4,20){\makebox(0,0)[lt]{$\ethree$}}
+  \put(0,-10){\vector(2,1){25}}
+  \put(25,5){\makebox(0,0)[lb]{$\etwo$}}
+
+  \put(70,0){\makebox(0,0)[ct]{$\rightarrow$}}
+  \put(70,3){\makebox(0,0)[cb]{$L$}}
+
+  \put(130,10){\vector(-1,0){30}}
+  \put(100,14){\makebox(0,0)[lb]{$\eone\!'$}}
+  \put(130,10){\vector(0,-1){30}}
+  \put(135,-20){\makebox(0,0)[lb]{$\ethree\!'$}}
+  \put(130,10){\vector(2,1){25}}
+  \put(160,20){\makebox(0,0)[lb]{$\etwo\!'$}}
+
+  \put(190,0){\makebox(0,0)[ct]{$\rightarrow$}}
+  \put(190,3){\makebox(0,0)[cb]{$-I$ }}
+
+  \put(240,0){\vector(1,0){30}}
+  \put(270,2){\makebox(0,0)[lb]{$\eone\!''$}}
+  \put(240,0){\vector(0,1){30}}
+  \put(243,32){\makebox(0,0)[lt]{$\ethree\!''$}}
+  \put(240,0){\vector(-2,-1){25}}
+  \put(220,-20){\makebox(0,0)[lb]{$\etwo\!''$}}
+\end{picture}
+
+\subsection{Summary}
+If $\det{L}=+1$ we have a \emph{proper} orthogonal transformation which is equivalent to
+rotation of axes. It can be proven that any rotation is a proper orthogonal
+transformation and vice-versa. The essence of the proof is that any rotation through a
+finite angle $\theta$ can be \emph{continuously} connected to an infinitesimal or zero
+rotation for which $\det L = \det I = 1$ trivially, whereas $\det L = 1 \mapsto \det L =
+  -1$ is discontinuous.
+
+%\vspace*{2ex}
+If $\det{L}=-1$ we have an \emph{improper} orthogonal transformation which is equivalent
+to rotation of axes then inversion. This is known as an improper rotation since it
+\emph{changes the handedness of the basis}.
+
+%\vfill

@@ -1,0 +1,517 @@
+% !TEX root = ../../fields.tex
+%% Brian Lecture 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{More About Suffix Notation}
+
+%\nsection{More About Suffix Notation}
+
+The novelty of writing out summations soon wears thin. The standard way to avoid this
+tedium is to adopt the Einstein summation convention. By adhering \emph{strictly} to the
+following conventions or ``rules'' the summation signs are suppressed completely.
+
+\paragraph{Rules of the summation convention}
+\begin{enumerate}
+
+  \item Omit \emph{all} summation signs.
+
+  \item If a suffix appears \emph{twice}, a summation is implied, \emph{e.g.}~$a_i b_i = a_1 b_1
+          +a_2 b_2 +a_3 b_3\,$.
+
+        Here $i$ is a \emph{dummy} or \emph{repeated} index.
+
+  \item If a suffix appears only \emph{once} it can take any value \emph{e.g.}~$a_i = b_i$ holds
+        for $i=1,\, 2,\, 3$.
+
+        Here $i$ is a \emph{free} index. Note that there may be more than one free index.
+
+        \textbf{Always} check that the free indices match on both sides of an
+        equation.\\ For example, $a_{j}=b_{i}$ is WRONG.
+
+  \item A given suffix must \textbf{not} appear more than \textbf{twice} in any term in an
+        expression.
+
+        \textbf{Always} check that there aren't more than two identical
+        indices \emph{e.g.}~$a_i b_i c_i$ is simply WRONG.
+
+\end{enumerate}
+
+\paragraph{Examples}\mbox{}
+
+\hspace{5ex} $\v{a} = a_{i} \, \ei$ \hfill ($i$ is a dummy index)
+
+\hspace{5ex} $\v{a}\cdot \ej = a_{i} \, \ei \cdot \ej = a_{i} \delt{ij}
+  = a_{j}$ \hfill ($i$ is a dummy index, but $j$ is a free index)
+
+\hspace{5ex} $\v{a}\cdot \v{b} = (a_{i} \, \ei) \cdot (b_{j} \, \ej ) =
+  a_{i} b_{j} \delt{ij}= a_{j} b_{j}$ \hfill ($i,\,j$ are both dummy
+indices)
+
+\hspace{5ex} $(\v{a}\cdot \v{b})(\v{a}\cdot
+  \v{c})=a_{i}b_{i}a_{j}c_{j}$\hfill (again $i,\,j$ are dummy
+indices)
+
+\bigskip
+
+Armed with the summation convention one can rewrite many of the equations from the
+previous sections without summation signs, \emph{e.g.}~the sifting property of
+$\delt{ij}$ now becomes
+\begin{center}
+  \bigbox{${ [\ldots]_{j} \, \delt{jk}  = [\ldots]_{k}}$}
+\end{center}
+The repeated index $j$ is implicitly summed over, so that, for
+example, $\displaystyle \delt{ij} \delt{jk} = \delt{ik}$.
+
+\begin{center}
+  \fbox{\parbox{15cm}{
+      \vspace*{1ex}
+      From now on, except where indicated, the summation convention
+      will be assumed.\\
+      You should make sure that you are completely at ease with it.
+      \vspace*{1ex}
+    }}
+\end{center}
+
+\subsection{Levi-Civita symbol $\eps{ijk}$}
+
+We have seen how $\delt{ij}$ can be used to express the orthonormality of basis vectors
+succinctly.
+
+We now seek to make a similar simplification for the vector products of basis vectors
+(taken here to be right handed), \emph{i.e.}~we seek a simple, uniform way of writing the
+equations
+\[
+  \begin{array}{rcl rcl rcl}
+    \eone \times\etwo    & =      & \ethree
+                         & \qquad
+    \etwo\times\ethree   & =      & \eone
+                         & \qquad
+    \ethree\times\eone   & =      & \etwo   \\[1ex]
+    %
+    \eone\times\eone     & =      & 0
+                         &
+    \etwo\times\etwo     & =      & 0
+                         &
+    \ethree\times\ethree & =      & 0
+  \end{array}
+\]
+To do so we define the Levi-Cevita or `epsilon symbol' $\eps{ijk}$ (pronounced
+\emph{`epsilon i j k'}), where $i$, $j$ and $k$ can take on the values 1 to 3, such that
+\begin{center}
+  \fbox{
+    \parbox[c]{27em}{
+      \vspace*{-2ex}
+      \begin{eqnarray*}
+        \eps{ijk} & = & +1
+        \mbox{ if $ijk$ is an \emph{even} permutation of 123} \\
+        & = & -1
+        \mbox{ if $ijk$ is an \emph{odd\,}\ \ permutation of 123} \\
+        & = &
+        \ \ 0 \mbox{ otherwise (\emph{i.e.}~2 or more indices are the same)}
+      \end{eqnarray*}
+      \vspace*{-3ex}
+    }}
+\end{center}
+An \emph{even} permutation consists of an \emph{even} number of
+transpositions of two indices;\\
+An \emph{odd\,}\ \ permutation consists of
+an \emph{odd\,}\ \ number of transpositions of two indices.
+\begin{eqnarray*}
+  \mbox{\textbf{Examples:}} \qquad\quad\;
+  \epsilon_{123} & = & +1\\
+  \epsilon_{213} & = & -1
+  \mbox{ \{since (123) $\to$ (213) under \emph{one} transposition
+      [1 $\leftrightarrow$ 2]\}}\\
+  \epsilon_{312} & = & +1
+  \mbox{ \{(123) $\to$ (132) $\to$ (312);
+  2 transpositions; [2 $\leftrightarrow$ 3][1 $\leftrightarrow$ 3]\}}\\
+  \epsilon_{113} & = & 0\,;\quad\epsilon_{111} \ = \ 0\,;\mbox{ \emph{etc.}}
+\end{eqnarray*}
+
+\begin{center}
+  \bigbox{$\epsilon_{123} = \epsilon_{231} = \epsilon_{312} = +1 \qquad
+      \epsilon_{213} = \epsilon_{321} = \epsilon_{132} = -1 \qquad
+      \mbox{all others } = 0$}
+\end{center}
+
+%This symbol is also called the {\bf alternating}
+%symbol, or even the {\bf epsilon} symbol.
+%\{ It generalizes straightforwardly to any number of dimensions. \}\\
+
+Note the symmetry of $\eps{ijk}$ under \emph{cyclic permutations}
+\begin{equation}
+  \eps{ijk} =  \eps{kij} =  \eps{jki} =
+  -\eps{jik} = -\eps{ikj} = -\eps{kji}
+  \label{eq:cyclic-perms}
+\end{equation}
+This holds for all values of $i$, $j$ and $k$. To understand it, note
+that
+\begin{enumerate}
+  \item If any two of the free indices $i$, $j$, $k$ are the same, all terms vanish.
+
+  \item If ($ijk$) is an even (odd) permutation of (123), then so are ($jki$) and ($kij$), but
+        ($jik$), ($ikj$) and ($kji$) are odd (even) permutations of (123).
+\end{enumerate}
+Each of equations~(\ref{eq:cyclic-perms}) has three free indices so
+they each represent $3^3 = 27$ equations.\\ \emph{E.g.} in $\eps{ijk} =
+  \eps{kij}$, 3 equations say `$1=1$', 3 equations say `$-1=-1$', and 21
+equations say `$0=0$'.
+
+\subsection{Vector product}
+The equations satisfied by the vector products of the (right-handed) orthonormal basis
+vectors $\ei$ can now be written uniformly as
+\begin{center}
+  \bigbox{
+    $\ei\times\ej =  \eps{ijk}\,\ek$
+  }
+  \qquad $\forall \, i,j$ = 1,2,3
+\end{center}
+where there is an implicit sum over the `dummy' or `repeated' index
+$k$. For example,
+\begin{eqnarray*}
+  \eone\times\etwo
+  &=&
+  \eps{12k}\:\ek
+  \,=\,
+  \epsilon_{121}\;\eone + \epsilon_{122}\;\etwo + \epsilon_{123}\;\ethree
+  \,=
+  \phantom{-}\,\ethree
+  \\[0.75ex]
+  \etwo\times\eone
+  &=&
+  \eps{21k}\:\ek
+  \,=\,
+  \epsilon_{211}\;\eone + \epsilon_{212}\;\etwo + \epsilon_{213}\;\ethree
+  \,=\,
+  -\ethree
+  \\[0.75ex]
+  \eone\times\eone
+  &=&
+  \eps{11k}\:\ek
+  \,=\,
+  \epsilon_{111}\;\eone + \epsilon_{112}\;\etwo + \epsilon_{113}\;\ethree
+  \,= \,
+  \phantom{-}0
+\end{eqnarray*}
+Now consider
+\[
+  \v{a}\times\v{b}
+  \,=\,
+  a_{i}\, b_{j}\, \ei\times\ej
+  \,=\,
+  \eps{ijk}\,a_{i}b_{j}\,\ek
+\]
+but, by definition, we also have
+\[
+  \v{a}\times\v{b} \,=\,  (\v{a}\times\v{b})_{k}\,\ek
+\]
+therefore
+\begin{center}
+  \bigbox{
+    $(\v{a}\times\v{b})_{k} \,=\, \eps{ijk}\,a_{i}b_{j}$
+  }
+\end{center}
+Note that we are using the summation convention. For example, writing
+out the sums
+\begin{eqnarray*}
+  (\v{a}\times\v{b})_{3}
+  &=&
+  \epsilon_{113}\,a_1 b_1 +
+  \epsilon_{123}\,a_2 b_3 +
+  \epsilon_{133}\,a_3 b_3 +
+  \epsilon_{213}\,a_2 b_1 +
+  \cdots \\
+  &=&
+  \epsilon_{123}\,a_1 b_2 + \epsilon_{213}\,a_2 b_1
+  \qquad\mbox{(plus terms that are zero)}\\
+  &=&
+  a_1 b_2 - a_2 b_1
+\end{eqnarray*}
+
+We can use the cyclic symmetry of the $\epsilon$ symbol to find an alternative form for
+the components of the vector product
+\[
+  (\v{a}\times\v{b})_{k}
+  \,=\,
+  \eps{ijk}\,a_{i}b_{j}
+  \,=\,
+  \eps{kij}\,a_{i}b_{j} \,,
+\]
+or \emph{relabelling} both the free index $k\to i,$ and the dummy indices $i\to j, \quad
+  j \to k$
+\begin{center}
+  \bigbox{$(\v{a}\times\v{b})_{i} \,=\, \eps{ijk}\,a_{j}b_{k}$}
+\end{center}
+which is (probably) the most useful form.
+
+\mnote{05L 22/01/08}
+\mnote{05L 27/01/09}
+
+\newpage
+
+The scalar triple product can also be written using $\eps{ijk}$
+\[
+  (\v{a},\v{b},\v{c})
+  \,=\,
+  \v{a}\cdot \, (\v{b}\times\v{c})
+  \,=\,
+  a_{i}(\v{b}\times\v{c})_{i}
+\]
+giving \vspace*{-2ex}
+\begin{center}
+  \bigbox{$
+      (\v{a},\v{b},\v{c}) \,=\,  \eps{ijk}\,a_{i}b_{j}c_{k}$}
+\end{center}
+As an exercise in index manipulation we can prove the
+cyclic symmetry of the scalar product
+\vspace*{-2ex}
+\begin{eqnarray*}
+  (\v{a},\, \v{b},\, \v{c})
+  &=&
+  % \phantom{-}
+  \eps{ijk}\,a_{i}b_{j}c_{k}\\[0.5ex]
+  %  &=&
+  %  -\eps{ikj}\,a_{i}b_{j}c_{k}
+  %  \qquad\qquad\mbox{(interchanging two indices of $\eps{ijk}$})\\[0.5ex]
+  %
+  %  &=&
+  %  +\eps{kij}\,a_{i}b_{j}c_{k}
+  %  \qquad\qquad \mbox{(interchanging two indices again)}\\[0.5ex]
+  &=&
+  \eps{kij}\,a_{i}b_{j}c_{k}
+  \qquad\qquad \mbox{(cyclic permutation of the indices of $\eps{ijk}$)}\\[0.5ex]
+  &=&
+  %  \phantom{-}
+  \eps{ijk}\,a_{j}b_{k}c_{i}\quad\quad\qquad
+  \mbox{(relabelling indices}\; k\to i,\; i\to j,\; j \to k) \\[0.5ex]
+  &=&
+  %  \phantom{-}
+  \eps{ijk}\,c_{i} a_{j}b_{k}\\[0.5ex]
+  &=&
+  %  \phantom{-}
+  (\v{c},\, \v{a},\, \v{b})
+\end{eqnarray*}
+
+\subsection{Product of two Levi-Civita symbols}
+We have already shown geometrically that
+\[
+  \v{a}\times(\v{b}\times\v{c})
+  \,=\,
+  (\v{a}\cdot\v{c})\v{b} - (\v{a}\cdot\v{b})\v{c}
+\]
+This can be derived independently using components. For example,
+\begin{eqnarray*}
+  [\v{a}\times(\v{b}\times\v{c})]_1
+  &=& a_2\, (\v{b}\times\v{c})_3 - a_3\, (\v{b}\times\v{c})_2 \\
+  &=& a_2\, (b_1c_2-b_2c_1) - a_3\, (b_3c_1-b_1c_3) \\
+  &=& b_1\, (a_2c_2+a_3c_3) - c_1\, (a_2b_2+a_3b_3) \\
+  &=& b_1\, (a_1c_1 + a_2c_2+a_3c_3) - c_1\, (a_1b_1 +  a_2b_2+a_3b_3) \\
+  &=& b_1\, (\v{a}\cdot\v{c}) - c_1\, (\v{a}\cdot\v{b})
+\end{eqnarray*}
+From this equality we deduce that there must be a relation between two
+$\epsilon$ symbols (because there are two cross products on the LHS)
+and some number of $\delta$ symbols (because there are dot products on
+the RHS). Consider
+\begin{eqnarray*}
+  [\v{a}\times(\v{b}\times\v{c})]_i
+  &=& \epsilon_{ijk}a_j \, (\v{b}\times\v{c})_k \\
+  &=& \epsilon_{ijk}a_j \, \epsilon_{klm} \, b_l \, c_m \\
+  &=& \epsilon_{ijk} \, \epsilon_{klm} \, a_j \, b_l \, c_m
+\end{eqnarray*}
+Alternatively
+\begin{eqnarray*}
+  [(\v{a}\cdot\v{c})\v{b} - (\v{a}\cdot\v{b})\v{c}]_i
+  &=&
+  (\v{a}\cdot\v{c}) \, b_i - (\v{a}\cdot\v{b}) \,c_i \\
+  &=& (a_j \, c_m \, \delta_{jm}) \, \delta_{il} \, b_l -
+  (a_j \, b_l \, \delta_{jl})\, \delta_{im} \, c_m \\
+  &=& (\delta_{il} \, \delta_{jm} -
+  \delta_{im} \, \delta_{jl}) \,
+  a_j \, b_l \, c_m \,.
+\end{eqnarray*}
+These equations must be equal for \emph{all} components $a_j$, $b_l$, $c_m$
+independently, so we must have
+\begin{center}
+  \bigbox{
+    $\epsilon_{ijk} \, \epsilon_{klm}
+      = \delta_{il} \, \delta_{jm} - \delta_{im} \, \delta_{jl}$}
+\end{center}
+This is a \textbf{very} important result and must be learnt by heart.
+
+\newpage
+
+To verify it, one can check all possible cases. For example
+\[\epsilon_{12k}\,\epsilon_{k12}
+  \,=\,
+  \epsilon_{121}\,\epsilon_{112} +
+  \epsilon_{122}\,\epsilon_{212} +
+  \epsilon_{123}\,\epsilon_{312}
+  \,=\,
+  1
+  \,=\,
+  \delta_{11}\delta_{22} - \delta_{12}\delta_{21}
+\]
+However as we have $3^4 = 81$ equations, $6$ saying `$1=1$', $6$ saying `$-1=-1$', and
+$69$ saying $0=0$', this will take some time. More generally, note that the left hand
+side of the boxed equation may be written out as \vspace*{-2ex}
+\begin{itemize}
+  \item $\epsilon_{ij1}\,\epsilon_{1lm} + \epsilon_{ij2}\,\epsilon_{2lm}
+          + \epsilon_{ij3}\,\epsilon_{3lm}$
+        where $i,j,l,m$ are free indices;
+  \item for this to be non-zero we must have $i\neq j$ and $l\neq m$;
+  \item only one term of the three in the sum can be non-zero;
+  \item if $i=l$ and $j=m$ we have $+1$,\ \ if $i=m$ and $j=l$ we have $-1$.
+\end{itemize}
+
+%\subsection{Product of two Levi-Civita symbols}
+%We state without formal proof the following identity (see 
+%questions on Problem Sheet 3)
+%\begin{center}
+%\bigbox{
+%\rule{0cm}{.5cm}
+%$
+%\eps{ijk}\,\eps{rsk} 
+% = \delt{ir}\delt{js} - \delt{is}\delt{jr}.
+%$ }
+%\end{center}
+
+%To verify this is true one can check all possible cases
+%{\it e.g.} $\epsilon_{12k}\,\epsilon_{12k} 
+%=\epsilon_{121}\,\epsilon_{121}+ \epsilon_{122}\,\epsilon_{122}+\epsilon_{123}\,\epsilon_{123}
+%=1 = \delta_{11}\delta_{22}-\delta_{12}\delta_{21}$.
+%More generally, note that the left hand side of the boxed equation
+%may be written out as
+%\vspace*{-2ex}
+%\begin{itemize}
+%\item $\epsilon_{ij1}\,\epsilon_{rs1}+ \epsilon_{ij2}\,\epsilon_{rs2}+\epsilon_{ij3}\,\epsilon_{rs3}$
+%where $i,j,r,s$ are free indices;
+%\item for this to be non-zero we must have $i\neq j$ and
+%$r\neq s$
+%\item only one term of the three in the sum can be non-zero ;
+%\item if $i=r$ and $j=s$ we have  $+1\quad$ ; if $i=s$ and $j=r$ we
+%  have  $-1$ .
+%\end{itemize}
+
+%The product identity furnishes an  algebraic
+%proof for the `BAC-CAB' rule. Consider the $i^{\rm th}$ 
+%component of $\v{a}\times(\v{b}\times\v{c})$:
+%\begin{eqnarray*}
+%\left[\v{a}\times(\v{b}\times\v{c})\right]_{\ds\,i}  & = &
+%\eps{ijk}\,a_{j}(\v{b}\times\v{c})_{k}\\[1ex]
+%& = & \eps{ijk}\,a_{j}\,\eps{krs}\,b_{r}c_{s}
+%\ = \  \eps{ijk}\,\eps{rsk}\,a_{j}b_{r}c_{s}\\[1ex]
+%& = & (\delt{ir}\,\delt{js} - \delt{is}\,\delt{jr})\,a_{j}b_{r}c_{s}\\[9pt]
+%& = & (a_{j}b_{i}c_{j} - a_{j}b_{j}c_{i})\\[9pt]
+%& = & b_{i}(\v{a}\cdot\v{c}) - c_{i}(\v{a}\cdot\v{b})\\[9pt]
+%& = & \left[\v{b}(\v{a}\cdot\v{c}) - \v{c}(\v{a}\cdot\v{b})\right]_{\ds\,i}
+%\end{eqnarray*}
+%Since $i$ is a free index we have proven the identity for 
+%all three components $i=1,2,3$.
+
+\paragraph{Example:}
+Simplify $(\v{a}\times\v{b}) \cdot (\v{c}\times\v{d})$ using suffix notation.
+\begin{eqnarray*}
+  (\v{a}\times\v{b}) \cdot (\v{c}\times\v{d})
+  & = &
+  (\v{a}\times\v{b})_i \: (\v{c}\times\v{d})_i
+  \,=\,
+  \epsilon_{ijk}\,  a_j\, b_k \: \epsilon_{ilm}\,  c_l\, d_m \\[0.5ex]
+  & = &
+  (\delta_{jl} \, \delta_{km} - \delta_{jm} \, \delta_{kl}) \,
+  a_j \, b_k \, c_l \, d_m
+  \,=\,
+  a_j \, b_k \, c_j \, d_k - a_j \, b_k \, c_k \, d_j \\[0.5ex]
+  & = &
+  (\v{a} \cdot \v{c}) \, (\v{b} \cdot \v{d})
+  \, - \,
+  (\v{a} \cdot \v{d}) \, (\v{b} \cdot \v{c})
+\end{eqnarray*}
+where we used the cyclic property $\epsilon_{ijk} = \epsilon_{jki}$ to
+obtain the first expression in the second line.
+
+\subsection{Determinants using the Levi-Civita symbol}\label{subsec:det-eps}
+
+The result for the scalar triple product gives another expression for the determinant
+\begin{equation}
+  \left| \begin{array}{ccc}
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3 \\
+  \end{array} \right|
+  =
+  \left(\v{a}, \v{b},\v{c}\right)
+  =
+  \epsilon_{ijk} \, a_i \, b_j \, c_k \,.
+  \label{eq:det}
+\end{equation}
+
+%We may label the elements of a $3\times3$ matrix $A$ by $a_{ij}$ (or
+%alternatively by $A_{ij}$), where $i$ labels the row and $j$
+%labels the column in which $a_{ij}$ appears:
+
+Consider the $3\times3$ matrix $A$, with elements $a_{ij}$
+\[
+  A \ = \ \left(\begin{array}{ccc}
+      a_{11} & a_{12} & a_{13} \\
+      a_{21} & a_{22} & a_{23} \\
+      a_{31} & a_{32} & a_{33}
+    \end{array}\right)
+\]
+Relabelling the rows in the matrix in equation~(\ref{eq:det}): $a_i \to a_{1i}, \; b_j
+  \to a_{2j}, \; c_k \to a_{3k}$ gives
+\begin{center}
+  \bigbox{
+    $\det A = \epsilon_{ijk} \, a_{1i} \, a_{2j} \, a_{3k}$}
+\end{center}
+which may be taken as the \emph{definition} of a determinant.
+
+An alternative expression is given by noting that previously we showed that
+\begin{eqnarray}
+  \left| \begin{array}{ccc}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33} \\
+  \end{array} \right|
+  =
+  \left| \begin{array}{ccc}
+    a_{11} & a_{21} & a_{31} \\
+    a_{12} & a_{22} & a_{32} \\
+    a_{13} & a_{23} & a_{33} \\
+  \end{array} \right| \qquad \mbox{or} \quad \det A = \det A^T
+  \nonumber
+\end{eqnarray}
+where $A^T_{ij} = a_{ji}$ so now $\det A = \det A^T = \epsilon_{ijk}
+  A^T_{1i} \, A^T_{2j} \,A^T_{3k}$ which may be rewritten
+\begin{center}
+  \bigbox{
+    $\det A = \epsilon_{ijk} \, a_{i1} \, a_{j2} \, a_{k3}$}
+\end{center}
+
+The other properties of determinants can be proved easily: namely interchanging two rows
+or columns changes the sign of the determinant and adding a multiple of one row/column to
+another row/column respectively does not change the value of the determinant (exercises
+for the student).
+
+For completeness, we quote here one further important result
+\begin{center}
+  \bigbox{
+    $\det AB = \det A \, \det B$}
+\end{center}
+[The definition of matix multiplication in suffix notation is given in
+Section~(\ref{transf_matrix}).] The proof of this result is
+discussed in a tutorial sheet.
+
+Another important result is
+\[
+  (AB)^T  \,=\, B^T A^T
+\]
+which follows because
+\[
+  {\left( AB \right)^T}_{ij}
+  \,=\, (AB)_{ji}
+  \,=\, a_{jk} \, b_{ki}
+  \,=\, (B^T)_{ik} \, (A^T)_{kj}
+  \,=\, (B^TA^T)_{ij}
+\]
+
+%\vfill
+
+%\vfill
