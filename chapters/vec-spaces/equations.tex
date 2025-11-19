@@ -1,22 +1,7 @@
 % !TEX root = ../../fields.tex
 %% Brian Lecture 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Position vector}
-
-A \emph{position vector} is a vector bound to some origin and gives the position of a
-point relative to that origin. It is often denoted by $\v{r}$ (or $\overrightarrow{OP}$
-or $\v{x}$).
-
-\medskip
-
-\parbox{3cm}{
-  \epsfxsize=3cm
-  \includegraphics{tikz_position_vec.pdf}
-}
-%
-\hspace*{5ex}
-%
-\parbox{65ex}{The equation for a point is simply $\v{r}=\v{a}$ where
-  $\v{a}$ is some vector.}
+A \emph{position vector} is a vector of a point $P$ relative to some origin $O$ is the
+vector $\overrightarrow{OP}$.
 
 \subsection{The equation of a line}
 
@@ -24,19 +9,20 @@ Suppose that $P$ lies on a straight line which passes through a point $A$ which 
 position vector $\v{a}$ with respect to an origin $O$. Let $P$ have position vector
 $\v{r}$ relative to $O$ and let $\v{u}$ be a vector through the origin in a direction
 parallel to the line.
-
-\parbox{4cm}{
-  \epsfxsize=4cm
-  \includegraphics{tikz_line.pdf}
-}
-\hspace{0.25in}
-\parbox{11.5cm}{
-  We may write
-  \[
-    \v{r} = \v{a} + \lambda\v{u}
-  \]
-  which is the \emph{parametric equation of the line}, \emph{i.e.} as we vary the parameter
-  $\lambda$ from $-\infty$ to $\infty$, $\v{r}$ describes all points on the line.}
+\begin{figure}[t]
+  \centering
+  \includegraphics{tikz_line.pdf}\hspace{1.5cm}
+  \includegraphics{tikz_plane.pdf}
+  \caption{Representation of the parametric equations of the line (left), and the plane (right).}
+  \label{fig:line-plane}
+\end{figure}
+We may write
+\[
+  \v{r} = \v{a} + \lambda\v{u}
+\]
+which is the \emph{parametric equation of the line}, \ie as we vary the parameter
+$\lambda$ from $-\infty$ to $\infty$, $\v{r}$ describes all points on the line,
+\cf\cref{fig:line-plane}.
 
 Rearranging and using $\v{u}\times\v{u} = 0$, we can also write this as
 \[
@@ -47,19 +33,17 @@ or \vspace*{-2ex}
   \bigbox{ $\v{r}\times \v{u} = \v{c}$}
 \end{center}
 where $\v{c} = \v{a}\times \v{u}$ is normal to the plane containing
-the line and origin.
-
-The magnitude $c = |\v{c}| = |\v{a}\times \v{u}|$ is the perpendicular distance of the
-line from the origin.
+the line and origin. The magnitude $|\v{c}|x$ is the perpendicular distance of the
+line from the origin, in units of $\v{u}$.
 
 \paragraph{Physical example:}
-If angular momentum $\vL$ of a particle and its velocity $\v{v}$ are known, we still
+If the angular momentum $\vL$ of a particle and its velocity $\v{v}$ are known, we still
 don't know the position exactly because the solution for $\v{r}$ of $\vL = m \vr \times
   \vv $ is a line $\vr = \vr_{0} + \lambda \vv$.
 
 \medskip
 
-\textbf{Notes:}
+\subsubsection{Notes:}
 \begin{enumerate}
 
   \item $\v{r}\times \v{u} = \v{c}$ is an \emph{implicit
@@ -71,18 +55,11 @@ don't know the position exactly because the solution for $\v{r}$ of $\vL = m \vr
 \end{enumerate}
 
 \subsection{The equation of a plane}
-\parbox{5.2cm}{
-  \epsfxsize=5cm
-  \includegraphics{tikz_plane.pdf}
-}
-\hspace*{1ex}
-\parbox[b]{60ex}{
-  $\v{r}$ is the position vector of an arbitrary point $P$ on the plane \\[0.5ex]
-  $\v{a}$ is the position vector of a fixed point $A$ in the plane \\[0.5ex]
-  $\v{u}$ and $\v{v}$ are parallel to  the plane
-  but non-collinear: $\v{u}\times\v{v} \neq 0$.}
-
-We can express the vector $\overrightarrow{AP}$ in terms of $\v{u}$ and $\v{v}$, so that:
+For a given plane in three dimensions, let $\v{r}$ be the position vector of an arbitrary
+point $P$ on the plane, $\v{a}$ the position vector of a fixed point $A$ in the plane,
+$\v{u}$ and $\v{v}$ are parallel to the plane but non-collinear, \ie $\v{u}\times\v{v}
+  \neq 0$. Then the vector $\overrightarrow{AP}$ in terms of $\v{u}$ and $\v{v}$ (they are
+coplanar), so that:
 \[
   \v{r} = \v{a} + \overrightarrow{AP}
   = \v{a} + \lambda\v{u} + \mu\v{v}
@@ -102,33 +79,26 @@ Alternatively, we can write this as
   \bigbox{$\v{r}\cdot\v{n} ~=~ p$}
 \end{center}
 where $p = \v{a}\cdot\v{n}$ is the perpendicular distance of the plane
-from the origin.
-
-This is a very important equation which you must be able to recognise.
-
-  {\bf Note}: $\v{r}\cdot\v{n} = 0$ is the equation for a plane
+from the origin. In particular, $\v{r}\cdot\v{n} = 0$ is the equation for a plane
 through the origin (with unit normal $\v{n}$).
 
 \subsection{Examples of dealing with vector equations}
 
-Before going through some worked examples let us state two simple rules which will help
-you to avoid many common mistakes
-
+Before going through some worked examples let us state two simple rules that can help to
+avoid many common mistakes
 \begin{enumerate}
-
   \item
         %
         {\bfseries Always} check that the quantities on both sides of an equation
         are of the same type. For example, any equation of the form
         \emph{vector} = \emph{scalar} is clearly wrong, as is \emph{vector} =
-        \emph{scalar} + \emph{vector}. (The only exception to this is when we
-        write \emph{vector} = $0$ instead of $\v{0}\,$.)
+        \emph{scalar} + \emph{vector}.
 
   \item {\bfseries Never} try to divide by a vector -- there is no such
         operation!
 \end{enumerate}
 
-\paragraph{Example 1:} Is the following set of equations consistent?
+\paragraph{Example 1:} Is the following set of equations with variable $\v{r}$ consistent?
 \begin{eqnarray}
   \v{r}\times\v{b} \,=\, \v{c} \label{line} \\[0.5ex]
   \v{r} \,=\, \v{a}\times\v{c}
@@ -175,11 +145,9 @@ Geometrical interpretation: both equations are equations for lines,
 $\v{b}$ is normal to the plane containing the line and the origin. The
 problem is to find the intersection of two lines -- assuming the
 equations are consistent and the lines do indeed have an intersection.
-
 Extending what we did in Example~1, we can check consistency and indeed solve these
 equations for $\v{r}$ by taking scalar and vector products of the equations with the
 vectors they contain, namely $\v{a}$, $\v{b}$, $\v{c}$ and $\v{d}$.
-
 Are these equations consistent? Take the scalar product of (\ref{line2}) with $\v{c}$,
 and of (\ref{line3}) with $\v{a}$:
 \begin{eqnarray}
@@ -188,7 +156,6 @@ and of (\ref{line3}) with $\v{a}$:
 \end{eqnarray}
 Using the cyclic properties of the scalar triple product, we must have
 $\v{b}\cdot\v{c} = - \v{d}\cdot\v{a}$ for consistency.
-
 To solve (\ref{line2}) and (\ref{line3}), we take the vector product of
 equation~(\ref{line2}) with $\v{d}$, which gives
 \[
@@ -269,15 +236,12 @@ then taking a scalar product with $\v{b}$ to obtain finally
   \,=\, 0
   \label{eq}
 \end{equation}
-where $\v{n}\cdot\v{n} = 1$.
-
-In order to unravel this equation we can try taking scalar and vector products of the
-equation with the vectors involved. However straight away we see that taking various
-products with $\v{r}$ will not help, since it will produce terms that are quadratic in
-$\v{r}$. Instead, we want to eliminate $(\v{n}\cdot\v{r})$ and $(\v{n}\times\v{r})$ so we
-try taking scalar and vector products with $\v{n}$.
-
-Taking the scalar product of $\v{n}$ with both sides of equation~(\ref{eq}) one finds
+where $\v{n}\cdot\v{n} = 1$. In order to unravel this equation we can try taking scalar
+and vector products of the equation with the vectors involved. However straight away we
+see that taking various products with $\v{r}$ will not help, since it will produce terms
+that are quadratic in $\v{r}$. Instead, we want to eliminate $(\v{n}\cdot\v{r})$ and
+$(\v{n}\times\v{r})$ so we try taking scalar and vector products with $\v{n}$. Taking the
+scalar product of $\v{n}$ with both sides of equation~(\ref{eq}) one finds
 \[
   \v{n}\cdot\v{r} + (\v{n}\cdot\v{r})(\v{n}\cdot\v{n})
   + 0 + 2\v{n}\cdot\v{b}
