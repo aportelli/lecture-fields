@@ -1,1 +1,1272 @@
 % !TEX root = ../fields.tex
+%\newcommand{\sqfrac}[2]{{\ds\frac{\raisebox{-2pt}{$#1$}}{\raisebox{2pt}{$#2$}}}}
+
+As we have seen already, it is often convenient to work with coordinate systems other
+than Cartesian coordinates $\{x_i\}$, \emph{i.e.}~($x_1$, $x_2$, $x_3$) or ($x$, $y$,
+$z$).
+
+% Since most of
+% the material in this chapter should be familiar, albeit in a slightly
+% different formalism, we won't go through it on the blackboard -- as
+% suggested by the 2018/19 class in their course feedback! Instead, you
+% should read through it on your own.
+
+\parbox{0.65\textwidth}{For example, spherical polar coordinates ($r$,
+  $\theta$, $\phi$) with \\
+  $0 \le r < \infty$,\ \ $0 \le \theta < \pi$,\ \ $0 \le \phi < 2\pi$\ \ are defined by:
+  \begin{eqnarray*}
+    x &=& r \sin\theta \cos\phi \qquad \\[0.5ex]
+    y &=& r \sin\theta \sin\phi \qquad \\[0.5ex]
+    z &=& r \cos\theta
+  \end{eqnarray*}
+}
+%
+\hspace*{-0.13\textwidth}
+%
+\parbox{0.4\textwidth}{
+  \setlength{\unitlength}{1.1pt}
+  \begin{picture}(200,100)(-100,-30)
+    \put(0,0){\vector(1,0){70}}
+    \put(72,0){\makebox(0,0)[lc]{$y$}}
+    \put(0,0){\vector(0,1){60}}
+    \put(-2,60){\makebox(0,0)[rt]{$z$}}
+    \put(0,0){\vector(-2,-1){50}}
+    \put(-50,-22){\makebox(0,0)[rb]{$x$}}
+    \put(0,0){\line(3,2){60}}
+    \put(32,20){\makebox(0,0)[lt]{$r$}}
+    \put(58,42){\makebox(0,0)[rb]{$P$}}
+    \put(2,6){\makebox(0,0)[lb]{$\theta$}}
+    \bezier{30}(0,15)(8,15)(12,8)
+    \put(0,-2){\makebox(0,0)[ct]{$\phi$}}
+    \bezier{40}(-12,-6)(0,-16)(15,-6)
+    %\put(60,40){\vector(3,2){12}}
+    %\put(74,48){\makebox(0,0)[lb]{$\er$}}
+    %\put(60,40){\vector(1,-2){6}}
+    %\put(66,26){\makebox(0,0)[lt]{$\etheta$}}
+    %\put(60,40){\vector(4,1){12}}
+    %\put(74,42){\makebox(0,0)[lt]{$\ephi$}}
+    \bezier{30}(0,0)(30,-12)(60,-24)
+    \bezier{30}(60,40)(60,10)(60,-24)
+  \end{picture}
+  \setlength{\unitlength}{1pt}
+}
+
+We shall set up a formalism to deal with rather general coordinate systems, of which
+spherical polars are a very important example.
+
+Suppose we make a transformation from the Cartesian coordinates $(x_1, x_2, x_3)$ to the
+variables ($u_1$, $u_2$, $u_3$), which are functions of the $\{\x{i}\}$
+\begin{eqnarray*}
+  u_1 & = & u_1(x_1,\, x_2,\, x_3)\\
+  u_2 & = & u_2(x_1,\, x_2,\, x_3)\\
+  u_3 & = & u_3(x_1,\, x_2,\, x_3)
+\end{eqnarray*}
+If the variables $\{u_{i}\}$ are single-valued functions of the
+variables $\{\x{i}\}$, then we can make the inverse transformations,
+\[
+  \x{i} ~=~  \x{i}(u_1,\, u_2,\, u_3) \quad \mbox{for $i=1,2,3,$}
+\]
+except possibly at certain points.
+
+A point may be specified by its Cartesian coordinates $\{\x{i}\}$, or its
+\emph{curvilinear coordinates}~$\{u_{i}\}$. We may define the curvilinear coordinates by
+equations giving $\{x_i\}$ as functions of $\{u_i\}$, or vice-versa.\footnote{Sometimes
+  the curvilinear coordinates are called $(u,v,w)$, just as Cartesians are called
+  $(x,y,z)$.}
+
+%In general we shall denote such \emph{curvilinear coordinates} by
+%$\{u_i\}$ ($i=1,2,3$), 
+
+\begin{itemize}
+
+  \item For Cartesian coordinates, the surfaces `$x_i = {\rm constant}$' $(i=1,2,3)$ are
+        \emph{planes}, with (constant) normal vectors $\ei\,$ (the Cartesian basis vectors)
+        \emph{intersecting at right angles}.
+
+        \parbox{0.44\textwidth}{
+
+        \vspace*{-3ex}
+
+  \item For general curvilinear coordinates, the surfaces `$u_i = {\rm constant}$' do \emph{not}
+        have constant normal vectors, nor do they intersect at right angles.
+
+        \medskip
+
+        For example, in 2-D, we might have the situtation illustrated in the diagram on the
+        right.}
+        %
+        \hspace*{0.03\textwidth}
+        %
+        \parbox{0.5\textwidth}{
+          \epsfxsize=0.5\textwidth
+          \includegraphics{VCA11_curvy.pdf}
+        }
+\end{itemize}
+
+\vspace*{-2ex}
+
+From the definition of spherical polar coordinates ($r$, $\theta$, $\phi$), we have
+\[
+  r \,=\, \sqrt{x^2+y^2+z^2}\quad\quad
+  \theta \,=\, \cos^{-1}\left\{\frac{z}{\sqrt{x^2+y^2+z^2}}\right\}
+  \quad \quad
+  \phi \,=\, \tan^{-1}\left(\frac{y}{x}\right)\;.
+\]
+The surfaces of constant $r,\,\theta$, and $\phi$ are
+\begin{eqnarray*}
+  r
+  & = &
+  \mbox{constant} \ \Rightarrow \
+  \mbox{spheres centred at the origin}\\
+  \theta
+  & = &
+  \mbox{constant} \ \Rightarrow
+  \ \mbox{cones of semi-angle $\theta$ and axis along the $z$-axis}\\
+  \phi
+  & = &
+  \mbox{constant} \ \Rightarrow
+  \ \mbox{planes passing through the $z$-axis}
+\end{eqnarray*}
+Not all of these surfaces are planes, but they \emph{do} intersect at
+right angles. The angle $\theta$ is undefined at the origin; $\phi$ is
+undefined on the $z$-axis.
+
+\section{Orthogonal curvilinear coordinates}
+If the coordinate surfaces (surfaces of constant $u_{i}$), intersect at right angles, as
+in the example of spherical polars, the curvilinear coordinates are said to be
+\emph{orthogonal}.
+
+%Varying only $u_1$ generates lines of intersection of the surfaces
+%$u_2\,=\,{\rm const}$, $u_3\,=\,{\rm const}$, \emph{etc.}
+
+\subsection{Scale factors and basis vectors}
+Let point $P$ have position vector $\v{r} = \v{r}(u_1,u_2,u_3)$. If we change $u_1$ by
+$\mbox{d}u_1$ (with $u_2$ and $u_3$ fixed), then $\v{r} \to \v{r}+\mbox{d}\v{r}\,$, with
+\[
+  \mbox{d}\v{r}
+  \,=\,
+  \frac{\partial\v{r}}{\partial u_1} \, \mbox{d}u_1
+  ~\equiv~
+  h_1 \, \eone \, \mbox{d}u_1
+\]
+where we have defined the \emph{scale factor} $h_1$ and the \emph{unit~vector} $\eone$ by
+\[
+  h_1
+  \,=\,
+  \left|\frac{\partial\v{r}}{\partial u_1}\right|
+  \quad\mbox{and} \quad
+  \eone
+  \,=\,
+  \frac{1}{h_1} \, \frac{\partial\v{r}}{\partial u_1}
+\]
+\begin{itemize}
+  \item The \emph{scale factor} $h_1$ gives the \emph{length} $h_1\, \dd u_1$ of $\mbox{d}\v{r}$
+        when we change $u_1\to u_1 + \mbox{d}u_1$.
+
+  \item $\eone$ is a \emph{unit vector} in the direction of increasing
+        $u_1$ (with \emph{fixed} $u_2$ and $u_3$.)
+\end{itemize}
+Similarly, we can define $h_i$ and $\ei$ for $i = 2$ and 3.
+
+%\newpage
+
+In general, if we change a single $u_{i}$, keeping the other two fixed, we have
+\[
+  \frac{\partial\v{r}}{\partial u_{i}}
+  \,=\,
+  h_i\,\ei
+  \qquad i = 1, 2, 3
+  \qquad
+  \mbox{[no sum on $i$]}
+\]
+\begin{itemize}
+  \item
+        The unit vectors $\{\ei\}$ are in general \emph{not} constant vectors
+        -- their directions depend on the position vector $\vr$, and hence on
+        the curvilinear coordinates $\{u_i\}$. [They should perhaps be called
+            $\{\v{e}_{\,u_i}\}$ or $\{\v{e}_{\,u}, \,\v{e}_{\,v}, \,\v{e}_{\,w}\}$ to
+            avoid confusion with Cartesian basis vectors.]
+
+  \item
+        If the curvilinear unit vectors satisfy $\ei\cdot\ej = \delt{ij}$, the
+        $\{u_{i}\}$ are said to be \emph{orthogonal curvilinear coordinates},
+        and the three unit vectors $\{\ei\}$ form an orthonormal basis. We
+        will always \emph{choose} the $u_i$ to give a right-handed basis.
+\end{itemize}
+
+\centerline{
+  \epsfxsize=0.28\textwidth
+  \includegraphics{VCA11_ortho_e.pdf}
+}
+
+\subsection{Examples of orthogonal curvilinear coordinates (OCCs)}
+
+\paragraph{Cartesian coordinates:}
+\[
+  \vr
+  \,=\,
+  x\,\ex \,+\, y\,\ey \,+\, z\,\ez
+  \qquad \Rightarrow \qquad
+  h_{x} \; \ex
+  \,=\,
+  \frac{\partial\v{r}}{\partial x}
+  \,=\,
+  \ex \,,\;
+  \mbox{\emph{etc.}}
+\]
+The scale factors are all \emph{unity}, and each individual unit vector points in the
+\emph{same} direction everywhere.
+
+\paragraph{Spherical polar coordinates:} $u_1=r\,$, $u_2=\theta\,$,
+$u_3=\phi\,$ (in that order)
+\[
+  \begin{array}{rclcrcccl}
+    \v{r}
+                                            & =           &
+    r \, \sin\theta \, \cos\phi \; \ex +
+    r \, \sin\theta \, \sin\phi \; \ey +
+    r \, \cos\theta \; \ez                                  \\[2ex]
+    %
+    {\ds\frac{\partial\v{r}}{\partial r}}
+                                            & =           &
+    \sin\theta \, \cos\phi \; \ex + \sin\theta \, \sin\phi \; \ey +
+    \cos\theta \; \ez
+    \hspace*{11ex}
+                                            & \Rightarrow &
+    h_{r}
+                                            & =           &
+    \left|{\ds\frac{\partial\v{r}}{\partial r}}\right|
+                                            & =           &
+    1                                                       \\[2.5ex]
+    %
+    {\ds\frac{\partial\v{r}}{\partial\theta}}
+                                            & =           &
+    r \, \cos\theta \, \cos\phi \; \ex +
+    r \, \cos\theta \, \sin\phi \; \ey -
+    r \, \sin\theta \; \ez  \;\;\;
+                                            & \Rightarrow &
+    h_{\theta}
+                                            & =           &
+    \left|{\ds\frac{\partial\v{r}}{\partial \theta}}\right|
+                                            & =           &
+    r                                                       \\[2.5ex]
+    %
+    {\ds\frac{\partial\v{r}}{\partial\phi}} & =           &
+    -r \, \sin\theta \, \sin\phi \; \ex +
+    r \; \sin\theta \, \cos\phi \; \ey
+                                            & \Rightarrow &
+    h_{\phi}
+                                            & =           &
+    \left|{\ds\frac{\partial\v{r}}{\partial \phi}}\right|
+                                            & =           &
+    r \, \sin\theta
+  \end{array}
+\]
+Hence the unit vectors for spherical polars are
+\begin{eqnarray*}
+  \er
+  & = &
+  \sin\theta\cos\phi\,\ex + \sin\theta\sin\phi\,\ey + \cos\theta\,\ez
+  \,=\,
+  \v{r}\,/\,r \\[1ex]
+  %
+  \e{\theta}
+  & = &
+  \cos\theta\cos\phi\,\ex + \cos\theta\sin\phi\,\ey - \sin\theta\,\ez \\[1ex]
+  \e{\phi}
+  & = &
+  -\sin\phi\,\ex + \cos\phi\,\ey
+\end{eqnarray*}
+These unit vectors are normal to the surfaces described above
+(spheres, cones and planes).
+
+\parbox{0.53\textwidth}{
+  They are orthogonal:
+  \[
+    \er\cdot\etheta
+    \,=\,
+    \er\cdot\ephi
+    \,=\,
+    \etheta\cdot\ephi
+    \,=\,
+    0
+  \]
+
+  \medskip
+
+  And they form a right-handed orthonormal basis:
+  \[
+    \er\times\etheta = \ephi \,, \quad
+    \etheta\times\ephi = \er \,, \quad
+    \ephi\times\er = \etheta \,.
+  \]
+
+  \medskip
+
+  See also tutorial sheet. }
+%
+%
+\parbox{0.4\textwidth}
+{
+  \centerline{
+    \setlength{\unitlength}{1.45pt}
+    \begin{picture}(200,100)(-100,-30)
+      \put(0,0){\vector(1,0){70}}
+      \put(72,0){\makebox(0,0)[lc]{$y$}}
+      \put(0,0){\vector(0,1){60}}
+      \put(-2,60){\makebox(0,0)[rt]{$z$}}
+      \put(0,0){\vector(-2,-1){50}}
+      \put(-50,-22){\makebox(0,0)[rb]{$x$}}
+      \put(0,0){\line(3,2){60}}
+      \put(32,20){\makebox(0,0)[lt]{$r$}}
+      \put(58,42){\makebox(0,0)[rb]{$P$}}
+      \put(2,6){\makebox(0,0)[lb]{$\theta$}}
+      \bezier{30}(0,15)(8,15)(12,8)
+      \put(0,-2){\makebox(0,0)[ct]{$\phi$}}
+      \bezier{40}(-12,-6)(0,-16)(15,-6)
+      \put(60,40){\vector(3,2){12}}
+      \put(74,48){\makebox(0,0)[lb]{$\er$}}
+      \put(60,40){\vector(1,-2){6}}
+      \put(66,26){\makebox(0,0)[lt]{$\etheta$}}
+      \put(60,40){\vector(4,1){12}}
+      \put(74,42){\makebox(0,0)[lt]{$\ephi$}}
+      \bezier{30}(0,0)(30,-12)(60,-24)
+      \bezier{30}(60,40)(60,10)(60,-24)
+    \end{picture}
+  }
+}
+
+\paragraph{Cylindrical coordinates:} $u_1=\rho\,$, $u_2=\phi\,$,
+$u_3=z\,$ (in that order)
+\[
+  \v{r}
+  \,=\,
+  \rho \, \cos\phi\; \ex + \rho\, \sin\phi \; \ey + z \; \ez
+\]
+\[
+  \Rightarrow \quad
+  {\ds\frac{\partial\v{r}}{\partial \rho}}
+  \,=\,
+  \cos\phi\;\ex + \sin\phi\;\ey
+  \qquad
+  {\ds\frac{\partial\v{r}}{\partial\phi}}
+  \,=\,
+  -\rho \, \sin\phi \; \ex +\rho \, \cos\phi \; \ey
+  \qquad
+  {\ds\frac{\partial\v{r}}{\partial z}}
+  \,=\,
+  \ez
+\]
+The scale factors are then (tutorial) \( h_{\rho} = 1 \,,\: h_{\phi} = \rho \,,\: h_{z} =
+1 \,,\: \) and the basis vectors are
+\[
+  \e{\rho}
+  \,=\,
+  \cos\phi\;\ex + \sin\phi\;\ey
+  \qquad
+  \e{\phi}
+  \,=\,
+  -\sin\phi\,\ex + \cos\phi\,\ey
+  \qquad
+  \e{z}
+  \,=\,
+  \ez
+\]
+These unit vectors are normal to surfaces which are (respectively): cylinders centred on
+the $z$-axis ($\rho$ = constant), planes through the $z$-axis ($\phi$ = constant), planes
+perpendicular to the $z$ axis ($z$ = constant), and they are clearly orthonormal.
+
+\section{Elements of length, area and volume}
+
+\subsection{Vector length}
+If we change $u_1\to u_1+\mbox{d}u_1$, keeping $u_2$ and $u_3$ \emph{fixed}, then
+$\v{r}\to \v{r} + \mbox{d}\v{r}_{\,1}$ with $\mbox{d}\v{r}_{\,1} = h_1 \, \eone \,
+  \mbox{d}u_1$. The infinitesimal element of length along $\eone$ is $h_1\,\mbox{d}u_1$.
+
+Similarly, the infinitesimal lengths along the \emph{curvilinear} basis vectors $\etwo$,
+$\ethree$, are \( \,
+%  h_1 \, \mbox{d}u_1
+%  , \;
+h_2 \, \mbox{d}u_2 , \; h_3 \, \mbox{d}u_3 \, \) respectively.%\mbox{and} \;
+
+If we change $u_i\to u_i+\mbox{d}u_i$, for all $i=1,2,3$, then
+\[
+  \mbox{d}\v{r}
+  \,=\,
+  h_1 \, \mbox{d}u_1 \; \eone
+  \,+\,
+  h_2 \, \mbox{d}u_2 \; \etwo
+  \,+\,
+  h_3 \, \mbox{d}u_3 \; \ethree
+  \,=\,
+  \sum_{i=1}^3   h_i \, \mbox{d}u_i \; \ei
+\]
+\textbf{Note:} We can't use the summation convention here -- because
+this expression for $\mbox{d}\v{r}$ contains 3 identical indices!
+Great care is needing when using the summation convention with OCCs.
+
+\subsection{Arc length} % and metric tensor}
+
+Defining $\dd s$ as the \emph{length} of the infinitesimal vector $\dd\v{r}\,$, we have
+$(\dd s)^2 = \dd\v{r} \cdot \dd\v{r}$
+
+In Cartesian coordinates:\ \ \ \( (\dd s)^2 \,=\, (\dd x)^2 \,+\, (\dd y)^2 \,+\, (\dd
+z)^2 \)
+
+%
+% Metric tensor stuff removed for IFW 2023/24
+%
+
+For an arbitrary set of curvilinear coordinates (\emph{not} necessarily orthogonal),
+letting $u_{i} \to u_{i} + \dd u_{i}\,$, $\forall \, i=1,2,3$, gives\footnote{The
+  shorthand $\ds\sum_i\,$ means $\,\ds\sum_{i=1}^{3}\:$ etc.}
+\begin{equation}
+  (\dd s)^2
+  \,=\,
+  %  \dd\v{r} \cdot \dd\v{r}
+  %  \,=\,
+  \left(\sum_i h_{i} \, \ei \, \dd u_{i}\right)
+  \cdot
+  \left(\sum_j h_{j}\,\ej \, \dd u_{j}\right)
+  \,=\,
+  \sum_{ij} h_i \, h_j
+  \left(\ei \cdot \ej \right) \mbox{d}u_{i} \, \mbox{d}u_{j}
+  \label{eq:arclengthwithhs}
+\end{equation}
+For \emph{orthogonal} curvilinear coordinates, we have
+$\ei{\,\cdot\,}\ej = \delt{ij}$, and hence
+\begin{equation}
+  (\dd s)^2
+  \, = \,
+  \sum_i h_{i}^2 \; (\dd u_{i})^2
+  \, = \,
+  h_1^2\; \dd u_1^2 \,+\, h_2^2\; \dd u_2^2 \,+\, h_3^2\; \dd u_3^2
+  \label{eq:arclengthocc}
+\end{equation}
+
+\textbf{Example:} For spherical polars, we showed that
+\[
+  h_{r} \,=\, 1
+  \qquad
+  h_{\theta} \,=\, r
+  \qquad
+  h_{\phi} \,=\, r \, \sin\theta
+\]
+In this case
+\[
+  (\mbox{d}s)^2
+  \,=\,
+  (\mbox{d}r)^2 +
+  r^2 (\mbox{d}\theta)^2 +
+  r^2  \sin^2\theta \; (\mbox{d}\phi)^2
+\]
+
+%\newpage
+
+%\subsection{Arc length:}
+%If $\mbox{d}s$ is the length of the infinitesimal vector
+%$\mbox{d}\v{r}$, then $(\mbox{d}s)^2 =
+%\mbox{d}\v{r}\cdot\mbox{d}\v{r}$.
+%
+%In Cartesian coordinates
+%\[
+%  (\mbox{d}s)^2
+%  \,=\,
+%(\mbox{d}x)^2 \,+\, (\mbox{d}y)^2 \,+\, (\mbox{d}z)^2
+%\]
+%In curvilinear coordinates, if we change the $i^{\rm th}$ coordinate
+%$u_{i}$ by $\mbox{d}u_{i}$, then\footnote{The shorthand
+%  $\ds\sum_i\,$ means $\,\ds\sum_{i=1}^{3}\:$ etc.}
+%\[
+%  (\mbox{d}s)^2
+%  ~ = ~
+%  \mbox{d}\v{r} \cdot \mbox{d}\v{r}
+%  \,=\,
+%  \left(\sum_i h_i \, \ei \, \mbox{d}u_{i}\right){\cdot}
+%  \left(\sum_j h_j \, \ej \, \mbox{d}u_{j}\right)
+%  \,=\,
+%  \sum_{ij} h_i \, h_j
+%  \left(\ei \cdot \ej \right) \, \mbox{d}u_{i} \, \mbox{d}u_{j}
+%\]
+%For \emph{orthogonal} curvilinear coordinates, we have $\ei\cdot\ej =
+%\delta_{ij}$, which tells us to set $j=i$, and we can perform the sum
+%over $j$. Hence
+%\[
+%  (\mbox{d}s)^2
+%  \,=\,
+%  \sum_i h_i^2 \; (\mbox{d}u_{i})^2
+%  \,=\,
+%  h_1^2\; \mbox{d}u_1^2 \,+\, h_2^2\; \mbox{d}u_2^2 \,+\, h_3^2\; \mbox{d}u_3^2
+%\]
+%For spherical polars, 
+%\(
+%  h_{r} = 1 \,,\:
+%  h_{\theta} = r \,,\:
+%  h_{\phi} = r \,\! \sin\theta \,,\,
+%\)
+%therefore
+%\[
+%  (\mbox{d}s)^2
+%  \,=\,
+%  (\mbox{d}r)^2 +
+%  r^2 (\mbox{d}\theta)^2 +
+%  r^2  \sin^2\theta \; (\mbox{d}\phi)^2
+%\]
+%\vspace*{-2ex}
+
+\parbox{0.6\textwidth}{
+  \subsection{Vector area}
+
+  \medskip
+
+  If we let $u_1 \to u_1 + \mbox{d}u_1\,$, with $u_2$, $u_3$ fixed, then
+
+  \begin{center}
+    $\v{r}\to \v{r}+\mbox{d}\v{r}_{\,1}$ with $\mbox{d}\v{r}_{\,1}
+      = h_1\,\eone\, \mbox{d}u_1\,$
+  \end{center}
+
+  \smallskip
+
+  Similarly, if we let $u_2\to u_2+\mbox{d}u_2$, with $u_1$, $u_3$ fixed,
+
+  \begin{center}
+    $\v{r}\to
+      \v{r}+\mbox{d}\v{r}_{\,2}$ with $\mbox{d}\v{r}_{\,2} = h_2\,\etwo\,
+      \mbox{d}u_2$
+  \end{center}
+}
+%
+\hfill
+%
+\parbox{0.3\textwidth}{
+  \centerline{
+    \epsfxsize=0.3\textwidth
+    \includegraphics{tikz_curvy_area.pdf}
+  }
+}
+
+\smallskip
+
+The \emph{vector area} of the infinitesimal parallelogram whose sides are the vectors
+$\mbox{d}\v{ r\!}_{\,1}$ and $\mbox{d}\v{r}_{\,2}$ is
+\[
+  \mbox{d}\v{S}
+  \,=\,
+  (\mbox{d}\v{r}_{\,1})\times(\mbox{d}\v{ r\!}_{\,2})
+  \,=\,
+  %  \frac{\partial\v{r}}{\partial u_1} \, \mbox{d}u_1
+  %  \times
+  %  \frac{\partial\v{r}}{\partial u_2} \, \mbox{d}u_2
+  %  \,=\,
+  \left(h_1 \, \mbox{d}u_1 \; \e1\right) \times
+  \left(h_2 \, \mbox{d}u_2 \; \e2\right)
+\]
+For OCCs, this simplifies to
+\[
+  \mbox{d}\v{S}_{\,3}
+  %  \,=\,
+  %  (\mbox{d}\v{r}_{\,1})\times(\mbox{d}\v{ r\!}_{\,2})
+  %  \,=\,
+  %  \left(h_1 \, \mbox{d}u_1 \; \e1\right) \times
+  %  \left(h_2 \, \mbox{d}u_2 \; \e2\right)
+  \,=\,
+  h_1 \, h_2 \; \mbox{d}u_1 \, \mbox{d}u_2 \; \ethree\;,
+\]
+since $\eone\times\etwo = \ethree$ for orthogonal systems. $\mbox{d}\v{S\!}_{\,3}$ points
+in the direction of $\ethree$, which is \emph{normal} to the surfaces $u_3 = $constant,
+and the infinitesimal area is a rectangle.
+
+The vector areas $\mbox{d}\v{S}_{\,1}$ and $\mbox{d}\v{S}_{\,2}$ are defined similarly.
+
+\paragraph{Example:} For \emph{spherical polars}, if we vary $\theta$ and $\phi$, keeping $r$ fixed, we easily
+obtain a familiar result
+\[
+  \mbox{d}\v{S}_{\,r}
+  \,=\,
+  \left(h_{\theta} \, \mbox{d}\theta \: \etheta\right)
+  \times
+  \left(h_{\phi}   \, \mbox{d}\phi   \: \ephi \right)
+  \,=\,
+  h_{\theta} \, h_{\phi} \, \mbox{d}\theta \, \mbox{d}\phi \; \er
+  \,=\,
+  r^2  \sin\theta \, \mbox{d}\theta \, \mbox{d}\phi\,\er
+\]
+Similarly, if we vary $\phi$ and $r$, keeping $\theta$ fixed, we obtain the vector
+element of area on a cone of semi-angle $\theta$, with its axis along the $z$ axis
+\[
+  \mbox{d}\v{S}_{\,\theta}
+  \,=\,
+  \left(h_{\phi}   \, \mbox{d}\phi   \: \ephi \right)
+  \times
+  \left(h_{r} \, \mbox{d}r \: \er \right)
+  \,=\,
+  h_{\phi} \, h_{r} \, \, \mbox{d}\phi \, \mbox{d}r \; \etheta
+  \,=\,
+  r \sin\theta \, \mbox{d}r \, \mbox{d}\phi \, \etheta
+\]
+Similarly for $\mbox{d}\v{S}_{\,\phi}$ [tutorial].
+
+\subsection{Volume} The volume of the infinitesimal parallelepiped with edges $\mbox{d}\v{r\!}_{\,1}$,
+$\mbox{d}\v{r\!}_{\,2}$ and $\mbox{d}\v{r\!}_{\,3}$ is
+\[
+  \mbox{d}V
+  \, = \,
+  \left|
+  \left( \mbox{d}\v{r\!}_{\,1} \times \mbox{d}\v{r\!}_{\,2} \right)
+  \cdot \mbox{d}\v{r\!}_{\,3}
+  \right|
+  \, = \,
+  \left|
+  \left(
+  \left(h_1 \, \mbox{d}u_1\, \eone\right)   \times
+  \left(h_2 \, \mbox{d}u_2\, \etwo\right)
+  \right)
+  \cdot
+  \left(h_3 \, \mbox{d}u_3\, \ethree \right)
+  \right| \\[1ex]
+  %  & = & 
+  %  h_1 \, h_2 \, h_3 \; \mbox{d}u_1 \, \mbox{d}u_2 \,\mbox{d}u_3
+\]
+For OCCs, we have $\left(\eone \times \etwo\right) \cdot \ethree=1$ (in a RH basis),
+hence
+\[
+  \mbox{d}V
+  \,=\,
+  h_1 \, h_2 \, h_3 \; \mbox{d}u_1 \, \mbox{d}u_2 \,\mbox{d}u_3
+\]
+In this case, the infinitesimal volume is a cuboid.
+
+For \emph{spherical polars}, we have \( \mbox{d}V \,=\, h_r \, h_\theta \, h_\phi \,
+\mbox{d}r \, \mbox{d}\theta \, \mbox{d}\phi \,=\, r^2\sin\theta \, \mbox{d}r \,
+\mbox{d}\theta \, \mbox{d}\phi \)
+
+% For a general set of curvilinear coordinates
+% \[
+%   \mbox{d}V
+%   \,=\,
+%   \sqrt{g} \; \mbox{d}u_1 \, \mbox{d}u_2 \,\mbox{d}u_3
+% \]
+% where $g$ is the determinant of the metric tensor.
+
+\section{Components of a vector field in curvilinear coordinates}
+
+A vector field $\v{a}(\v{r})$ can be expressed in terms of \emph{curvilinear components}
+$a_i$, defined by
+\[
+  \v{a}(\v{r})
+  \,=\,
+  \sum_{i=1}^3 a_{i}(u_1,u_2,u_3) \; \ei
+\]
+where $\ei$ is the $i^{\rm th}$ \emph{curvilinear} basis vector (which again should
+really be called $\v{e}_{u_i}$ to avoid confusion with the Cartesian basis vectors.)
+
+For \emph{orthogonal} curvilinear coordinates, the component $a_{i}$ can be obtained by
+taking the scalar product of $\v{a}$ with the $i^{\rm th}$ curvilinear basis vector $\ei$
+\[
+  a_{i} \,=\, \v{a}(\v{r}) \cdot \ei
+\]
+NB $a_{i}$ must be expressed in terms of $u_1$, $u_2$, $u_3$ (not $x,y,z$) when working
+in the $\{u_{i}\}$ basis.
+
+\paragraph{Example:} If $\v{a} = a\,\ex$ in Cartesians, then in spherical polars
+\[
+  a_{r}
+  \,=\,
+  \v{a}\cdot\er
+  \,=\,
+  \left(a \, \ex\right)
+  \:\! \cdot
+  \left(
+  \sin\theta\cos\phi \: \ex
+  \,+\,
+  \sin\theta\sin\phi \: \ey
+  \,+\,
+  \cos\theta \: \ez
+  \right)
+  \,=\,
+  a \, \sin\theta\cos\phi
+\]
+Similarly, $a_\theta = \v{a}\cdot\etheta$ and $a_\phi = \v{a}\cdot\ephi\,$, and we obtain
+$\v{a}$ in the spherical-polar basis (exercise)
+\[
+  \v{a}(r, \theta, \phi)
+  \,=\,
+  a
+  \left(
+  \sin\theta\cos\phi \, \er
+  \,+\,
+  \cos\theta\cos\phi \, \etheta
+  \,-\,
+  \sin\phi \:\ephi
+  \right)
+\]
+
+\begin{itemize}
+  \item You can often spot the curvilinear components ``by inspection''. %See tutorial question~(5.6) for an example of this.
+
+  \item In general, one chooses the set of coordinates which matches most closely the
+        \emph{symmetry} of the problem.
+
+        %\item An example of a set of curvilinear coordinates which is
+        %  \emph{not} orthogonal is that of \emph{elliptical cylindrical
+        %    coordinates}
+        %\begin{eqnarray*}
+        %  \vr
+        %  \,=\,
+        %  a \rho \cos\theta\;\ex \,+\,
+        %  b \rho \sin\theta\;\ey \,+\,
+        %  z \;\ez
+        %  \qquad (a \ne b)
+        %\end{eqnarray*}
+        %In this case the basis vectors (as defined above) are not orthogonal
+        %(exercise).
+
+\end{itemize}
+
+\newpage
+
+\section{Div, grad, curl and the Laplacian in OCCs}
+
+\subsection{Gradient}
+The gradient of a scalar field\footnote{We use $f(\v{r})$ rather than $\phi(\v{r})$ in
+  order to avoid confusion with the angle $\phi$ in spherical polars.} $f(\v{r})$ is
+defined in terms of the change $\mbox{d} f(\v{r})$ in the field $f(\v{r})$ when $\v{r}\to
+  \v{r}+\mbox{d}\v{r}$
+\begin{equation}
+  \mbox{d} f(\v{r})
+  \,=\,
+  \grad f(\vr) \cdot \mbox{d}\v{r}
+  \label{eq:def_grad}
+\end{equation}
+Now write $f(\v{r})$ in terms of orthogonal curvilinear
+coordinates: $f(\v{r}) = f(u_1,\,u_2,\,u_3)$.
+
+As usual, we denote the \emph{curvilinear} basis vectors by $\{\eone, \, \etwo,\,
+  \ethree\}\,$.
+
+Let $u_1\to u_1+\mbox{d}u_1$,\ \ $u_2\to u_2+\mbox{d}u_2$,\ \ and $u_3\to
+  u_3+\mbox{d}u_3$.
+
+Using the chain rule, we have
+\begin{equation}
+  \mbox{d} f
+  \,=\,
+  \parpar{f}{u_1}\: \mbox{d}u_1 \,+\,
+  \parpar{f}{u_2}\: \mbox{d}u_2 \,+\,
+  \parpar{f}{u_3}\: \mbox{d}u_3
+  \label{eq:occ-taylor}
+\end{equation}
+We need to rewrite the RHS of this equation in the form of
+equation~(\ref{eq:def_grad}). Start with
+\[
+  \mbox{d}\v{r}
+  \,=\,
+  h_1 \, \mbox{d}u_1 \: \eone
+  \,+\,
+  h_2 \, \mbox{d}u_2 \: \etwo
+  \,+\,
+  h_3 \, \mbox{d}u_3 \: \ethree
+\]
+and use orthogonality of the \emph{curvilinear} basis vectors, $\ei\cdot\ej = \delt{ij}$,
+to rewrite equation~(\ref{eq:occ-taylor}) as
+\begin{eqnarray*}
+  \mbox{d}f
+  & = &
+  \parpar{f}{u_1}\: \mbox{d}u_1 \,+\,
+  \parpar{f}{u_2}\: \mbox{d}u_2 \,+\,
+  \parpar{f}{u_3}\: \mbox{d}u_3 \\[1ex]
+  %
+  & = &
+  \left(
+  \parpar{f}{u_1}\: \eone  \,+\,
+  \parpar{f}{u_2}\: \etwo  \,+\,
+  \parpar{f}{u_3}\: \ethree
+  \right)
+  \cdot
+  \left(
+  \eone \, \mbox{d}u_1 \,+\, \etwo \, \mbox{d}u_2 \,+\, \ethree \, \mbox{d}u_3
+  \right) \\[1ex]
+  %
+  & = &
+  \left(
+  \frac{1}{h_1}\; \parpar{f}{u_1}\; \eone  \,+\,
+  \frac{1}{h_2}\; \parpar{f}{u_2}\; \etwo  \,+\,
+  \frac{1}{h_3}\; \parpar{f}{u_3}\; \ethree
+  \right)
+  \cdot
+  \left(
+  h_1 \; \eone \; \mbox{d}u_1 \,+\,
+  h_2 \; \etwo \; \mbox{d}u_2 \,+\,
+  h_3 \; \ethree \; \mbox{d}u_3
+  \right)\\[1ex]
+  %
+  & = &
+  \left(
+  \frac{1}{h_1}\; \parpar{f}{u_1}\; \eone  \,+\,
+  \frac{1}{h_2}\; \parpar{f}{u_2}\; \etwo  \,+\,
+  \frac{1}{h_3}\; \parpar{f}{u_3}\; \ethree
+  \right)
+  \cdot \mbox{d}\v{r}
+\end{eqnarray*}
+Comparing this result with equation~(\ref{eq:def_grad}), which holds
+for all $\mbox{d}\v{r}$, gives us $\grad f$ in orthogonal
+curvilinear coordinates
+\begin{center}
+  \bigbox{$
+      \ds
+      \grad f
+      \,=\,
+      \frac{1}{h_1}\; \parpar{f}{u_1}\; \eone  \,+\,
+      \frac{1}{h_2}\; \parpar{f}{u_2}\; \etwo  \,+\,
+      \frac{1}{h_3}\; \parpar{f}{u_3}\; \ethree
+      \;
+      \,=\,
+      \sum_{i=1}^3 \, \frac{1}{h_{i}}\; \parpar{f}{u_{i}}\; \ei
+    $}
+\end{center}
+
+For \emph{spherical polars}, $h_r=1$, $h_\theta=r$, $h_\phi=r\sin\theta$, and we have
+\[
+  \grad f(r,\theta,\phi)
+  \,=\,
+  \frac{\partial f}{\partial r} \; \er
+  \,+\,
+  \frac{1}{r} \: \frac{\partial f}{\partial\theta} \; \etheta
+  \,+\,
+  \frac{1}{r\sin\theta} \: \frac{\partial f}{\partial\phi} \; \ephi
+\]
+
+%%%
+%%%	The following is not needed, and it's probably confusing...
+%%%
+% \vspace*{0.1ex}
+% 
+% 	We can use orthogonal curvilinear coordinates to 
+% write $\del$ in operator form
+% \[
+% 	\del \,=\, \sum_{i=1}^3\,
+%          \ei \; \frac{1}{h_{i}}\; \parpar{\ }{u_{i}}
+% \]
+
+\subsection{Divergence}
+Let $\v{a}(\vr)$ be a vector field, which we write in orthogonal curvilinear coordinates
+as
+\[
+  \v{a}(\v{r}) \,=\, \sum_{i=1}^3 a_{i}(u_1,u_2,u_3) \; \ei
+\]
+where $a_i$ are the components of $\v{a}$ in the curvilinear basis, $\ei$ is the $i^{\rm
+      th}$ curvilinear basis vector, and $\v{a}$ is continuously differentiable.
+
+We obtain $\Div\v{a}$ in orthogonal curvilinears using the integral definition of
+divergence
+\[
+  \Div\v{a}
+  \,=\,
+  \lim_{\delta V\to0}\;
+  \frac{1}{\delta V} \; \int_{\delta S}\v{a}\cdot\mbox{d}\v{S\!}\;,
+\]
+where $\delta S$ is the closed surface bounding $\delta V$.
+
+\medskip
+Let the point $P$ have curvilinear coordinates $(u_1,u_2,u_3)$.
+
+\vspace*{-2ex}
+
+\parbox{0.6\textwidth}{
+
+  \bigskip
+
+  Choose $\delta V$ to be a small ``cuboid'' with its three edges $\{\delta\v{r}_{\,i}\}$
+  along the basis vectors $\{\ei\}$ at $P$:
+  \begin{eqnarray*}
+    \delta\v{r}_{\,1} & = & h_1 \; \delta u_1 \; \eone   \\[1ex]
+    \delta\v{r}_{\,2} & = & h_2 \; \delta u_2 \; \etwo   \\[1ex]
+    \delta\v{r}_{\,3} & = & h_3 \; \delta u_3 \; \ethree \\[1ex]
+  \end{eqnarray*}
+}
+\hfill
+\parbox{0.33\textwidth}{
+  \begin{center}
+    \setlength{\unitlength}{1.3pt}
+    \begin{picture}(160,100)(-20,-10)
+      \put(0,0){\makebox(0,0)[rt]{$P$}}
+      \put(60,0){\makebox(0,0)[rt]{$A$}}
+      \bezier{80}(0,0)(30,10)(60,0)		%PA
+      \put(60,0){\vector(3,-1){12}}
+      \put(74,0){\makebox(0,0)[lt]{$u_1$}}
+
+      \put(0,60){\makebox(0,0)[rb]{$S$}}
+      \bezier{80}(0,0)(-10,30)(0,60)		%PS
+      \put(0,60){\vector(1,3){4}}
+      \put(0,74){\makebox(0,0)[lb]{$u_3$}}
+
+      \put(60,60){\makebox(0,0)[lt]{$D$}}
+      \bezier{80}(0,60)(30,70)(60,60)		%SD
+      \bezier{80}(60,0)(50,30)(60,60)		%AD
+
+      \put(100,20){\makebox(0,0)[lt]{$B$}}
+      \bezier{80}(60,0)(80,15)(100,20)	%AB
+
+      \put(100,80){\makebox(0,0)[lt]{$C$}}
+      \bezier{80}(100,20)(90,50)(100,80)	%BC
+      \bezier{80}(60,60)(80,75)(100,80)	%DC
+
+      \put(40,82){\makebox(0,0)[rb]{$R$}}
+      \bezier{80}(0,60)(20,75)(40,80)		%SR
+      \bezier{80}(40,80)(70,90)(100,80)	%RC
+
+      \put(40,20){\vector(3,1){12}}
+      \put(50,26){\makebox(0,0)[rb]{$u_2$}}
+      \put(40,18){\makebox(0,0)[lt]{$Q$}}
+      \bezier{10}(40,20)(20,15)(0,0)		%QP
+      \bezier{10}(40,20)(30,50)(40,80)	%QR
+      \bezier{10}(40,20)(70,30)(100,20)	%QB
+    \end{picture}
+  \end{center}
+}
+
+The outward element of area on the face $ABCD$ is\ \ $\mbox{d}\v{S} = +h_2 \, h_3 \:
+  \mbox{d}u_2 \, \mbox{d}u_3 \; \eone$
+
+The outward element of area on the face $PQRS\,$ is\ \ $\mbox{d}\v{S} = -h_2 \, h_3 \:
+  \mbox{d}u_2 \, \mbox{d}u_3 \; \eone$
+
+The contributions to the surface integral from the faces $ABCD$ and $PQRS$ are then
+\begin{eqnarray}
+  & \msp &
+  \int_{u_3}^{u_3+\delta u_3}
+  \int_{u_2}^{u_2+\delta u_2}
+  \left\{
+  \left[a_1\,h_2\,h_3 \right]_{\scriptstyle ABCD}
+  \,-\,
+  \left[a_1\,h_2\,h_3\right]_{\scriptstyle PQRS}
+  \right\}
+  \: \mbox{d}u_2^\prime  \, \mbox{d}u_3^\prime \nonumber \\[1ex]
+  %
+  & = &
+  \int_{u_3}^{u_3+\delta u_3}
+  \int_{u_2}^{u_2+\delta u_2}
+  \left\{
+  \left[a_1\,h_2\,h_3\right]_{(u_1+\delta u_1,u_2^\prime,u_3^\prime)}
+  \,-\,
+  \left[a_1\,h_2\,h_3\right]_{(u_1,u_2^\prime,u_3^\prime)}
+  \right\}
+  \: \mbox{d}u_2^\prime \, \mbox{d}u_3^\prime \nonumber \\[1ex]
+  %
+  & = &
+  \int_{u_3}^{u_3+\delta u_3}
+  \int_{u_2}^{u_2+\delta u_2}
+  \left\{
+  \delta u_1\,
+  \left[
+    \frac{\partial}{\partial u_1}\,(a_1\,h_2\,h_3)
+    \right]_{(u_1,u_2^\prime,u_3^\prime)}
+  \right\}
+  \; \mbox{d}u_2^\prime \, \mbox{d}u_3^\prime
+  \qquad \mbox{(by Taylor's theorem)} \nonumber \\[1ex]
+  %
+  & = &
+  \delta u_1\,  \delta u_2 \, \delta u_3 \;
+  \left[\frac{\partial}{\partial
+      u_1}(a_1\,h_2\,h_3)\right]_{(u_1,u_2,u_3)}
+  \label{eq:curvi_div}
+  %  \left\{ \frac{\partial}{\partial u_1}\,
+  %  (a_1(u_1,u_2,u_3)\,h_2\,h_3)
+  %  \right\}
+\end{eqnarray}
+In the last step, we assumed that $\delta V$ is small enough that the
+integrand is approximately constant over the range of integration. We
+can then approximate the integrals over $u_2^\prime$ and $u_3^\prime$ by the
+integrand evaluated at the point $P$,
+\[
+  \delta u_1\,
+  \left[
+    \frac{\partial}{\partial u_1}(a_1\,h_2\,h_3)
+    \right]_{(u_1,u_2,u_3)}
+\]
+multiplied by the range of integration $\delta u_2 \: \delta u_3$. [This is a rather
+    crude use of the mean value theorem!]
+
+% \footnote{The
+% mean value theorem tells us that this ``approximation'' is actually
+% exact if we evaluate the integrand at some point within the cuboid.}
+
+The contributions of the other four faces to the integral over $\delta S$ can be obtained
+similarly, or by cyclic permutations of the indices $\{1,\,2,\,3\}$ in
+equation~(\ref{eq:curvi_div}).
+
+Finally, divide by the volume of the cuboid $\delta V = h_1\,h_2\,h_3\,\delta u_1\,\delta
+  u_2\,\delta u_3$, whereupon all the factors of $\delta u_i$ cancel, and we obtain our
+final expression for $\Div\v{a}$ in orthogonal curvilinear coordinates
+
+\begin{center}
+  \bigbox{
+    \parbox{0.8\textwidth}
+    {
+      \[
+        \Div\v{a}
+        \:=\:
+        \frac{1}{h_1 h_2 h_3} \;
+        \left\{
+        \frac{\partial}{\partial u_1}(a_1 h_2 h_3)
+        \,+\,
+        \frac{\partial}{\partial u_2}(a_2 h_3 h_1)
+        \,+\,
+        \frac{\partial}{\partial u_3}(a_3 h_1 h_2)
+        \right\}
+      \]
+    }
+  }
+\end{center}
+For Cartesian coordinates, the scale factors are all \emph{unity}, and
+we recover the usual expression for $\Div\v{a}$ in Cartesians.
+
+For \emph{spherical polars} we have
+\begin{eqnarray*}
+  \Div\v{a}\:\!(r,\theta,\phi)
+  & = &
+  \frac{1}{r^2\sin\theta}\left\{
+  \frac{\partial}{\partial r}\left(r^2\sin\theta\,  a_r\right)
+  \,+\,
+  \frac{\partial}{\partial\theta}\left(r\sin\theta \, a_\theta\right)
+  \,+\,
+  \frac{\partial}{\partial\phi}\left(r \, a_\phi\right)\right\} \\[1ex]
+  & = &
+  \frac{1}{r^2} \frac{\partial}{\partial r}\left(r^2 \, a_r\right)
+  \,+\,
+  \frac{1}{r\sin\theta}
+  \left\{
+  \frac{\partial}{\partial\theta}\left(\sin\theta \, a_\theta\right)
+  \,+\,
+  \frac{\partial}{\partial\phi}\left( a_\phi\right)
+  \right\}
+\end{eqnarray*}
+where $a_r$, $a_\theta$, and $a_\phi$ are the components of the vector
+field $\v{a}$ in the basis $\{\er, \, \etheta, \, \ephi\}$.
+
+% These expressions can also be obtained by differential methods (see
+% Bourne \& Kendall).
+
+\subsection{Curl} We obtain $\curl\v{a}$ in orthogonal curvilinear coordinates using the line integral
+definition of curl.
+
+\medskip
+
+\parbox{0.58\textwidth}{
+  The component of $\curl\v{a}$ in the direction of the unit vector $\vn$ is
+  \[
+    \v{n} \cdot \left(\curl \v{a}\right)
+    \,=\,
+    \lim_{\delta S \to0} \: \frac{1}{\delta S} \,
+    \oint_{\delta C} \v{a}\cdot\mbox{d}\v{r}
+  \]
+  where $\delta S$ is a small planar surface, with unit normal $\vn$, bounded by the closed
+  curve $\delta C$.
+
+  \bigskip
+
+  Let $\delta S$ be a small rectangular surface parallel to the $\etwo\!-\!\ethree$ plane
+  with one corner at $\v{r}(u_1,u_2,u_3)$, and with edges
+  \[
+    \delta\v{r}_{\,2}
+    \,=\,
+    h_2 \: \delta u_2 \;  \etwo
+    \quad \mbox{and} \quad
+    \delta\v{r}_{\,3}
+    \,=\,
+    h_3 \: \delta u_3 \; \ethree
+  \]
+  which lie along the basis vectors, so that $\v{n}=\eone$. } \hfill
+\parbox{0.37\textwidth}{ \epsfxsize=0.37\textwidth \includegraphics{tikz_curvy_curl.pdf}
+}
+
+\bigskip
+
+The line integral around the curve $\delta C$ is the sum of the line integrals along the
+lines $1\to4$ respectively,
+\begin{eqnarray*}
+  \oint_{\delta C} \v{a}\cdot\mbox{d}\v{r}
+  & = &
+  \phantom{-}
+  \int_{u_2}^{u_2+\delta u_2} \left[a_2 \, h_2 \right]_{(u_1,u_2^\prime,u_3)} \;
+  \mbox{d}u_2^\prime
+  \quad\quad ~+~
+  \int_{u_3}^{u_3+\delta u_3} \left[a_3 \, h_3\right]_{(u_1,\,u_2+\delta u_2,u_3^\prime)} \;
+  \mbox{d}u_3^\prime
+  \\[1ex]
+  %
+  &   &
+  -
+  \int_{u_2}^{u_2+\delta u_2} \left[a_2 \, h_2\right]_{(u_1,u_2^\prime,u_3+\delta u_3)} \;
+  \mbox{d}u_2^\prime
+  \:\, ~-~
+  \int_{u_3}^{u_3+\delta u_3} \left[a_3 \, h_3\right]_{(u_1,\,u_2,u_3^\prime)} \,
+  \mbox{d}u_3^\prime
+\end{eqnarray*}
+
+Using Taylor's theorem, we can write this as
+\begin{eqnarray*}
+  \oint_{\delta C} \v{a}\cdot\mbox{d}\v{r}
+  &=&
+  \,\phantom{-}\,
+  \int_{u_3}^{u_3+\delta u_3}
+  \left\{
+  \delta u_2 \; \left[\parpar{\ }{u_2} (a_3\,h_3)\right]_{(u_1,\,u_2,u_3^\prime)}
+  \right\} \; \mbox{d}u_3^\prime \\[1.5ex]
+  &&
+  \,-\,
+  \int_{u_2}^{u_2+\delta u_2}
+  \left\{
+  \delta u_3 \; \left[\parpar{\ }{u_3} (a_2\,h_2)\right]_{(u_1,\,u_2^\prime,u_3)}
+  \right\}
+  \; \mbox{d}u_2^\prime
+\end{eqnarray*}
+In each case, we approximate the integrals over $u_3^\prime$ and $u_2^\prime$ by the
+product of the integrand and the integration ranges $\delta u_3$ and
+$\delta u_2$, respectively.  Hence
+\[
+  \oint_{\delta C} \v{a}\cdot\mbox{d}\v{r}
+  \,=\,
+  \parpar{\ }{u_2} \; (a_3\,h_3) \; \delta u_2 \, \delta u_3
+  \,-\,
+  \parpar{\ }{u_3} \; (a_2\,h_2) \; \delta u_3 \, \delta u_2
+\]
+where all the $\{a_i\}$ and $\{h_i\}$ are evaluated at $\v{r}(u_1,u_2,u_3)$.
+
+Finally, we divide by the area of the rectangle $\delta S = h_2\:\! h_3 \, \delta u_2
+  \:\! \delta u_3$, whereupon all the factors of $\delta u_i$ cancel, and we obtain
+\[
+  \eone \cdot \left(\curl\v{a}\right)
+  \,=\,
+  \left(\curl\v{a}\right)_1
+  \,=\,
+  \frac{1}{h_2\,h_3} \;
+  \left\{
+  \frac{\partial}{\partial u_2}(a_3h_3)
+  \,-\,
+  \frac{\partial}{\partial u_3}(a_2h_2)
+  \right\}
+\]
+The components of $\curl\v{a}$ in the directions of the curvilinear basis vectors $\e2$
+and $\e3$ may be obtained similarly, or by cyclic permutations of the indices.
+
+It is convenient to write the final result in the form
+\begin{center}
+  \bigbox{
+  \parbox{0.5\textwidth}
+  {
+  \[
+    \curl\v{a}
+    \,=\,
+    \frac{1}{h_1\,h_2\,h_3} \,
+    \left|
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{array}{ccc}
+      h_1\,\eone                         & h_2\,\etwo & h_3\,\ethree \\[1ex]
+      {\ds\frac{\partial}{\partial u_1}} &
+      {\ds\frac{\partial}{\partial u_2}} &
+      {\ds\frac{\partial}{\partial u_3}}                             \\[1ex]
+      h_1\,a_1                           & h_2\,a_2   & h_3\,a_3
+    \end{array}}
+    \right|
+  \]
+  }
+  }
+\end{center}
+For \emph{spherical polars} we have
+\[
+  \curl\v{a}
+  \,=\,
+  \frac{1}{r^2\,\sin\theta}
+  \left|
+  {\renewcommand{\arraystretch}{1.5}
+  \begin{array}{ccc}
+    \er                                   & r\,\etheta   & r \sin\theta\,\ephi   \\[1ex]
+    {\ds\frac{\partial}{\partial r}}      &
+    {\ds\frac{\partial}{\partial \theta}} &
+    {\ds\frac{\partial}{\partial \phi}}                                          \\[1ex]
+    a_{r}                                 & r a_{\theta} & r \sin\theta a_{\phi}
+  \end{array}}
+  \right|
+\]
+
+\newpage
+
+\subsection{Laplacian of a scalar field}
+The action of the Laplacian operator on a \emph{scalar field} $f(\v{r})$ is defined by
+$\lap f = \Div(\grad f)\,$.
+
+Using the expression for $\Div \v{a}$, with $\v{a} = \grad f$, derived above, we find
+\begin{center}
+  \bigbox{
+    \parbox{0.98\textwidth}
+    {
+      \[
+        \lap f
+        \,=\,
+        \frac{1}{h_1\,h_2\,h_3}
+        \left\{
+        \frac{\partial}{\partial u_1}\left(\frac{h_2\,h_3}{h_1}\;
+        \frac{\partial f}{\partial u_1}\right) \,+\,
+        \frac{\partial}{\partial u_2}\left(\frac{h_3\,h_1}{h_2}\;
+        \frac{\partial f}{\partial u_2}\right) \,+\,
+        \frac{\partial}{\partial u_3}\left(\frac{h_1\,h_2}{h_3}\;
+        \frac{\partial f}{\partial u_3}\right)
+        \right\}
+      \]
+    }
+  }
+\end{center}
+
+%\vspace*{2ex}
+
+In \emph{spherical polars}, we have
+\begin{eqnarray*}
+  \lap f(r,\theta,\phi)
+  & = &
+  \frac{1}{r^2\sin\theta}
+  \left\{
+  \frac{\partial}{\partial r}\left(r^2\sin\theta\,
+  \frac{\partial f}{\partial r}\right) \,+\,
+  \frac{\partial}{\partial\theta}\left(\sin\theta\,
+  \frac{\partial f}{\partial\theta}\right) \,+\,
+  \frac{\partial}{\partial\phi}\left(\frac{1}{\sin\theta}\,
+  \frac{\partial f}{\partial\phi}\right)
+  \right\}\\[1.5ex]
+  & = &
+  \frac{1}{r^2}\,\frac{\partial}{\partial r}
+  \left(r^2\, \frac{\partial f}{\partial r}\right)
+  \,+\,
+  \frac{1}{r^2\sin^2\theta}
+  \left\{ \sin\theta\,\frac{\partial}{\partial\theta}
+  \left( \sin\theta\,\frac{\partial f}{\partial\theta}\right)
+  \,+\,
+  \frac{\partial^2f}{\partial\phi^2}\right\}
+\end{eqnarray*}
+
+The expression for the Laplacian of a scalar field in spherical polars is one of the most
+useful results in the course, with applications in electromagnetism, quantum mechanics,
+optics, elasticity, fluid mechanics, meteorology, general relativity, cosmology,~\ldots
+
+\subsection{Laplacian of a vector field}
+The Laplacian of a \emph{vector field} $\v{a}(\v{r})$ in curvilinear coordinates is
+\emph{defined} by means of the identity
+\[
+  \curl \left(\curl\v{a}\right)
+  \,=\,
+  \grad \left(\Div\v{a}\right) \,-\, \lap\,\v{a}
+\]
+in the form\footnote{Remember the mnemonic `grad-div-minus-curl-curl' or GDMCC,
+  pronounced `guddumk'. Thanks to Peter Boyle for teaching me this!}
+\begin{center}
+  \bigbox{$
+      \ds
+      \lap\,\v{a}
+      \,=\,
+      \grad\,\left(\Div\v{a}\right) \,-\,  \curl\left(\curl\v{a}\right)
+    $}
+\end{center}
+The quantities on the right hand side are evaluated using the
+expressions for grad, div and curl derived above.
+
