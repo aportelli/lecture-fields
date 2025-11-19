@@ -1,0 +1,850 @@
+% !TEX root = ../../fields.tex
+%% Brian Lecture 18
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A \emph{simply connected} region $R$ is a region where every closed curve in $R$ can be
+shrunk continuously to a point while remaining entirely in $R$. The inside of a sphere is
+simply connected while the region between two cylinders is {\bf not} simply connected:
+it's doubly connected. In this course we'll be concerned (mainly) with simply connected
+regions, but if we have time we will explore the consequences of multiply-connected
+regions.
+
+A vector field $\v{a}(\v{r})$ is defined to be irrotational or \emph{conservative} if its
+curl vanishes, \emph{i.e.} if
+\[
+  \curl \v{a} \,=\, 0
+\]
+
+\subsection{Path independence of line integrals for conservative fields}
+
+\parbox{0.62\textwidth}{Let $\curl\v{a} = 0$ everywhere in a
+simply-connected region, and consider two (different) paths $C_1$
+and $C_2$ from point $\v{r}_{\,0}$ to point $\v{r}$, say. Applying
+Stokes' theorem to the \emph{open} surface $S$ bounded by the
+\emph{closed} path $C_1{-}C_2$ gives
+\[
+  \int_S\, (\curl\v{a})\cdot \dd\v{S}
+  \,=\,
+  0
+  \,=\,
+  \int_{C_1}\, \v{a}(\v{r}^\prime)\cdot \dd\v{r}^\prime
+  \,-\,
+  \int_{C_2}\, \v{a}(\v{r}^\prime)\cdot \dd\v{r}^\prime
+\]
+where the $-$ve sign occurs in the second integral on the RHS because both paths are
+defined to go from $\v{r}_{\,0}$ to $\v{r}$. We use $\vr'$ as integration variable to
+distinguish it from the integration \emph{limits} $\vr_{\,0}$ and $\vr\,$. }
+%
+\hfill
+%
+\parbox{0.34\textwidth}{
+  \epsfxsize=0.34\textwidth
+  \includegraphics{tikz_irrot.pdf}
+}
+
+Therefore, when $\curl\v{a} = 0$ everywhere in $S$, we have
+\[
+  \int_{C_1}\, \v{a}(\v{r}^\prime)\cdot \mbox{d}\v{r}^\prime
+  \,=\,
+  \int_{C_2}\, \v{a}(\v{r}^\prime)\cdot \mbox{d}\v{r}^\prime
+\]
+This is true for \emph{any} $S$, and therefore for \emph{any} paths $C_1$ and $C_2$ from
+$\v{r}_{\,0}$ to $\v{r}$.
+
+% Since the line integral $\ds \int\v{a}(\v{r}^\prime)\cdot
+% \mbox{d}\v{r}^\prime$ is \emph{path independent} it can be a function
+% \emph{only} of the \emph{end points} of the path.
+
+Clearly, the converse is also true: if the line integral between two points is path
+independent, then the line integral around any closed curve (connecting the two points)
+is zero, and Stokes' theorem then gives $\curl \v{a} = 0$. We just reverse the steps of
+the argument above.
+
+Therefore
+\[
+  \bigbox{$ \ds
+      \curl\v{a} = 0
+      \quad \Leftrightarrow \quad
+      \int_{\ul{r}_{\,0}}^{\ul{r}} \, \v{a}(\v{r}^\prime)\cdot \mbox{d}\v{r}^\prime
+      \mbox{\ \ is path independent}
+    $}
+\]
+
+\subsection{Scalar potential for conservative vector fields}
+
+Since the line integral of a conservative vector field between two fixed points
+$\v{r}_{\,0}$ and $\v{r}$ is \emph{path independent}, it can be a function \emph{only} of
+the \emph{end points} of the path. Hence there must exist a function $\phi(\v{r})$ such
+that
+\begin{equation}
+  \phi(\v{r}) - \phi(\v{r}_{\,0})
+  \,=\,
+  \int_{\ul{r}_{\,0}}^{\ul{r}}\, \v{a}(\v{r}^\prime)\cdot
+  \mbox{d}\v{r}^\prime \; .
+  \label{eq:pot-diff}
+\end{equation}
+The scalar field $\phi(\vr)$ is called the \emph{scalar potential} of
+the \emph{vector field} $\v{a}(\vr)$.
+
+It is useful to invert this equation (and to give a more conventional result) by
+considering two neighbouring points $\v{r}$ and $\v{r}+\mbox{d}\v{r}$, for which
+\begin{eqnarray*}
+  \mbox{d}\phi
+  &=&
+  \phi(\v{r}+\mbox{d}\v{r}) - \phi(\v{r}) \\[1ex]
+  &=&
+  \left[\phi(\v{r}+\mbox{d}\v{r}) - \phi(\v{r}_{\,0})\right]
+  -
+  \left[\phi(\v{r}) - \phi(\v{r}_{\,0})\right] \\[1ex]
+  &=&
+  \int_{\ul{r}_{\,0}}^{\ul{r}+ {\rm d}\ul{r}}\,
+  \v{a}(\v{r}^\prime) \cdot \mbox{d}\v{r}^\prime
+  \,-\,
+  \int_{\ul{r}_{\,0}}^{\ul{r}}\,
+  \v{a}(\v{r}^\prime)\cdot \mbox{d}\v{r}^\prime
+  \qquad \mbox{(using equation~(\ref{eq:pot-diff}))}\\[1ex]
+  &=&
+  \int_{\ul{r}}^{\ul{r}+{\rm d}\ul{r}}\,
+  \v{a}(\v{r}^\prime) \cdot \mbox{d}\v{r}^\prime
+  \hspace*{0.234\textwidth} \mbox{(along \emph{any} path from $\v{r}$ to
+    $\v{r}+\mbox{d}\v{r}$)}\\[1ex]
+  &=&
+  \v{a}(\v{r}) \cdot \int_{\ul{r}}^{\ul{r}+{\rm d}\ul{r}}\,
+  \mbox{d}\v{r}^\prime \,+\, O(|\mbox{d}\v{r}|^2)
+  \hspace*{0.11\textwidth}
+  \mbox{(\emph{choosing} the straight line from $\v{r}$ to
+    $\v{r}+\mbox{d}\v{r}$)}
+  \\[1ex]
+  &=&
+  \v{a}(\v{r})\cdot \left[ \left(\v{r} + \mbox{d}\v{r}\right) - \v{r} \right]
+  \,=\,
+  \v{a}(\v{r})\cdot \mbox{d}\v{r}
+\end{eqnarray*}
+because $\v{a}(\v{r})$ is approximately constant between $\v{r}$ and
+$\v{r}+\mbox{d}\v{r}$, and the correction term $O(|\mbox{d}\v{r}|^2)$
+can be ignored as $\mbox{d}\v{r}\to0$.
+
+But $\mbox{d}\phi = \grad\phi\cdot \mbox{d}\v{r}$ (by definition), and so, since
+$\mbox{d}\v{r}$ is \emph{arbitrary}, we must have
+\[
+  \v{a}(\v{r}) \,=\, \grad\phi(\v{r})
+\]
+The converse is much easier to prove. If $\v{a} = \v{\nabla}\phi$, then $\curl\v{a} =
+  \curl(\v{\nabla}\phi) \equiv 0$.
+
+Therefore
+\[
+  \bigbox{$
+      \curl\v{a} = 0
+      \quad \Leftrightarrow \quad
+      \v{a} = \v{\nabla}\phi$}
+\]
+
+To determine whether a vector field is conservative, one simply checks whether
+$\curl\v{a} = 0$ (in the region of interest).
+
+%{\bf Terminology:}  A vector field is
+%\begin{itemize}
+%\vspace*{-1ex}
+%\item {\bf irrotational}
+%if $
+%        \curl\v{a}(\v{r}) \,=\, 0 $.
+%\item {\bf conservative} if $\v{a}(\v{r}) = \grad \phi\;$.
+
+%\item For simply connected regions we have shown
+%irrotational and conservative are synonymous. 
+%But note that for a multiply connected region this is not the case.
+%\end{itemize}
+
+\paragraph{NB:}
+The scalar potential $\phir$ is only determined up to a \emph{constant}. If $\psi = \phi
+  + \mbox{\emph{constant}}$ then $\grad \psi = \grad \phi$, so $\psi$ is an equally good
+potential. The freedom in the constant corresponds to the freedom in choosing $\vr_{\,0}$
+when calculating the potential. So $\phi(\v{r}_{\,0})$ in equation~(\ref{eq:pot-diff}) is
+just an irrelevant constant. Equivalently, the absolute value of a scalar potential has
+no meaning, only \emph{potential differences} are significant.
+
+\subsection{Finding scalar potentials}
+
+\subsubsection*{Method~(1): Integration along a straight line}
+
+We have shown that the scalar potential $\phir$ for a \emph{conservative} vector field
+$\v{a}(\v{r})$ can be constructed from a line integral which is \emph{independent} of the
+path of integration between the endpoints. A convenient way of evaluating such integrals
+is to integrate along a \emph{straight line} from $\v{r}_0$ to $\v{r}$. Depending on the
+convergence of the integral, there are two standard choices:
+
+\begin{enumerate}
+  \item $\v{r}_{\,0} = 0$:\ \ If $\phi(\v{r})$ is \emph{finite} or
+        \emph{zero} at $\v{r}=0$, we parameterise the straight line
+        by $\v{r}^\prime = \lambda \, \v{r}$\\[1ex] with $0 \le \lambda \le 1$.
+        Thus $\mbox{d}\v{r}^\prime = \mbox{d}\lambda \, \v{r}\,$, and hence
+        \[
+          \phi(\v{r})
+          \,=\,
+          \int_{0}^{\ul{r}}\, \v{a}(\v{r}^\prime) \cdot \mbox{d}\v{r}^\prime
+          \,=\,
+          \int_{\lambda=0}^{\lambda=1} \,
+          \v{a}(\lambda\v{r}) \cdot \v{r} \, \mbox{d}\lambda \,,
+        \]
+
+  \item $|\v{r}_0|=\infty$:\ \ If $\phi(\v{r})$ is \emph{finite} or
+        \emph{zero} as $|\v{r}|\to\infty$, we again parameterise the
+        straight line \\[1ex] by $\v{r}^\prime = \lambda \, \v{r}$, but this
+        time with $1 \le \lambda < \infty$. Again, we have
+        $\mbox{d}\v{r}^\prime = \mbox{d}\lambda\, \v{r}\,$, and hence
+        \[
+          \phi(\v{r})
+          \,=\,
+          \int_{\infty}^{\ul{r}}\, \v{a}(\v{r}^\prime) \cdot \mbox{d}\v{r}'
+          \,=\,
+          \int_{\lambda=\infty}^{\lambda=1} \,
+          \v{a}(\lambda\v{r}) \cdot \v{r} \, \mbox{d}\lambda \,,
+        \]
+
+\end{enumerate}
+
+\paragraph{Example~1:}
+Let $\v{a}(\v{r}) = (2xy+z^3)\v{e}_{\,x} + x^2\v{e}_{\,y} + 3xz^2\v{e}_{\,z}$.
+
+First check that $\v{\nabla}\times\v{a} = 0$, so the field is conservative (exercise).
+Then
+\begin{eqnarray*}
+  \phi(\v{r})
+  &=&
+  \int_{0}^{\ul{r}}\, \v{a}(\v{r}^\prime) \cdot \mbox{d}\v{r}^\prime
+  \,=\,
+  \int_{\,0}^1\, \v{a}(\lambda\v{r})\cdot \v{r} \, \mbox{d}\lambda \\[0.7ex]
+  &=&
+  \int_{\,0}^1\,
+  \left[
+    \left(2\lambda^2xy + \lambda^3z^3\right)x
+    + \left(\lambda^2x^2\right)y
+    + \left(\lambda^3 \, 3x z^2\right)z
+    \right] \mbox{d}\lambda \\[0.7ex]
+  &=&
+  \frac23 x^2 y + \frac14 xz^3 + \frac13 x^2y + \frac34 xz^3 \\[0.7ex]
+  &=&
+  x^2y + xz^3
+\end{eqnarray*}
+
+\textbf{NB:} Always check that your potential $\phir$ satisfies
+$\v{a}(\v{r}) = \grad\phir\,$. (Exercise)
+
+%{\bf Example~1:}
+%Let $\v{a}(\vr) \,=\, (\vc\cdot\v{r})\, \vc$ where $\vc$ is a constant
+%vector.\\[0.5ex]
+%First check that $\curl\va = 0$,
+%\begin{eqnarray}
+%   (\v{\nabla}\times\v{a})_i 
+%    = \epsilon_{ijk}\,\partial_j(c_lx_l)c_k 
+%    = \epsilon_{ijk}\,c_l\delta_{jl}c_k = \epsilon_{ijk}\,c_jc_k = 0
+%                                                              \nonumber
+%\end{eqnarray}
+%Thus
+%\begin{eqnarray*}
+%        \phir
+%        & = & \int_{\,0}^{\vr}\; \v{a}(\v{r'}) \cdot \v{dr}' 
+%          =     \int_{\,0}^{\vr}\; (\vc\cdot\v{r'})\,\vc
+%                                        \cdot\v{dr}' \\
+%        & = & \int_{\,0}^1 (\vc\cdot\lambda\,\vr)\, \vc \cdot
+%                (\mbox{d}\lambda \, \vr)
+%          =     (\vc\cdot\v{r})^2 \, \int_{\,0}^1 \lambda\,\mbox{d}\lambda\\
+%        & = &    \frac{1}{2} (\vc\cdot\v{r})^2
+%\end{eqnarray*}
+
+%Note: Always check that your $\phir$ satisfies $\v{a}(\v{r})\,=\,
+%\gra\mbox{d}\,\phir$.
+
+\paragraph{Example~2:}
+Let $\ds \v{a}(\vr) = 2\,(\vc\cdot\v{r})\, \vr + r^2 \, \vc$ where $\v{c}$ is a constant
+vector. %Check that $\v{a}$ is conservative:
+\[
+  \v{\nabla}\times\v{a}
+  \,=\,
+  2\,\left[
+    \v{\nabla}\left(\v{c}\cdot\v{r}\right) \times \v{r}
+    + \left(\v{c}\cdot\v{r}\right) \curl \v{r}
+    \right]
+  +
+  \left(\grad r^2\right) \times \v{c}
+  \,=\,
+  2 \left[ \v{c} \times \v{r} + 0 \right] + 2 \, \v{r} \times \v{c}
+  \,=\,
+  0
+\]
+%or, using indices,
+%\begin{eqnarray*}
+%  (\v{\nabla}\times\v{a})_i 
+%  &=&
+%  \epsilon_{ijk}\,\partial_j
+%  \left(2\, (c_l\,x_l) \, x_k + x_l \, x_l \, c_k\right) \\[0.5ex]
+%  &=&
+%  \epsilon_{ijk}
+%  \left(
+%    2  \, c_l \, \delta_{jl} \, x_k
+%    + 2\, \v{c}\cdot\v{r} \, \delta_{jk}
+%    + 2x_l \, \delta_{lj} \, c_k
+%  \right) \\[0.5ex]
+%  &=&
+%  2\epsilon_{ijk}\, (c_j \, x_k + x_j \, c_k) 
+%  \,=\,
+%  0
+%\end{eqnarray*}
+Then
+\begin{eqnarray*}
+  \phir
+  & = & \int_{\,0}^{\ul{r}}\; \v{a}(\v{r}') \cdot \mbox{d}\v{r}'
+  \,=\,
+  \int_0^1\; \v{a}\left(\lambda\,\vr\right)
+  \cdot \left(\mbox{d}\lambda\,\vr\right)
+  \\[1ex]
+  & = &
+  \int_0^1
+  \left(
+  2\,\left(\vc\cdot\lambda\,\v{r}\right) \lambda\,\vr
+  \,+\, \lambda^2 r^2 \, \vc
+  \right)
+  \cdot \vr \, \mbox{d}\lambda %\\[1ex]
+  ~ = ~
+  %  & = &
+  \left(
+  2\,(\vc\cdot\v{r}) \, \vr\cdot\vr \plus r^2 \, (\vc\cdot\v{r})
+  \right)
+  \int_0^1 \lambda^2 \, \mbox{d}\lambda \\[1.5ex]
+  %        & = & \bigg[ 2\,(\va\cdot\v{r}) \, r^2 \plus
+  %                                        r^2 \,(\va\cdot\v{r}) \bigg]
+  %                \; \frac13\\[1ex]
+  & = &
+  r^2 \, (\vc\cdot\vr)
+\end{eqnarray*}
+Integration along a straight line is a straightforward and fairly
+elegant method, and it's generally applicable.
+
+\clearpage
+
+\subsubsection*{Method~(2): Direct integration}
+
+Since $\v{a} = \v{\nabla}\phi$, we have
+\begin{eqnarray*}
+  \frac{\partial\phi}{\partial x} = a_x(x,y,z) \qquad
+  \frac{\partial\phi}{\partial y} = a_y(x,y,z) \qquad
+  \frac{\partial\phi}{\partial z} = a_z(x,y,z)
+\end{eqnarray*}
+We can integrate these equations separately to give
+\begin{eqnarray*}
+  \phi(x,y,z) &=& \int^x a_x(x^\prime, y, z) \, \dd x^\prime + f(y,z) \\
+  \phi(x,y,z) &=& \int^y a_y(x, y^\prime, z) \, \dd y^\prime + g(x,z) \\
+  \phi(x,y,z) &=& \int^z a_z(x, y, z^\prime) \, \dd z^\prime + h(x,y)
+\end{eqnarray*}
+and then determine the ``constants'' of integration $f(y,z)$, $g(x,z)$
+and $h(x,y)$ by consistency.
+
+% A variation is to differentiate the first equation wrt $y$ and then
+% solve for $f$, ie
+% \[
+%   {\partial\phi \over \partial y}
+%   = {\partial \over \partial y} \int^x\, dx^\prime\, a_x(x^\prime, y, z)
+%  + {\partial  f\over \partial y}(y,z) = a_y(x,y,z)
+% \]
+% to give a further `integration constant' $g(z)$, which can be found
+% by differentiating the first equation wrt $z$.
+
+\paragraph{Example~1 (revisited):}
+
+Let $\v{a} = (2xy+z^3)\v{e}_{\,x} + x^2\v{e}_{\,y} + 3xz^2\v{e}_{\,z}$. Then
+\begin{eqnarray*}
+  \phi &=& x^2y \,+\, xz^3 \,+\, f(y,z) \\
+  \phi &=& x^2y \phantom{\,+\, xz^3}  \,+\, g(x,z) \\
+  \phi &=& \phantom{x^2y \,+\,} xz^3 \,+\, h(x,y)
+\end{eqnarray*}
+These agree if we choose $f(y,z)=0$, $g(x,z)=xz^3$ and
+$h(x,y)=x^2y$, hence
+\[
+  \phi(\v{r})
+  \,=\,
+  x^2y + xz^3
+\]
+as before. This method is straightforward but it's rather clumsy for problems such as
+Example~2, which is typical of many Physics applications.
+
+%\paragraph{Example~1 revisited:}{\mbox{}
+%\begin{eqnarray*}
+%  \v{a}(\v{r})
+%  &=&
+%  (2xy+z^3, x^2, 3xz^2 ) \\[1ex]
+%  &=&
+%  \left(
+%    \frac{\partial}{\partial x} \left(x^2y + xz^3\right), \, 
+%    \frac{\partial}{\partial y} \left(x^2y + xz^3\right), \,
+%    \frac{\partial}{\partial z} \left(x^2y + xz^3\right)
+%  \right) \\[1ex]
+%  &=&
+%  \v{\nabla} \, \left(x^2y + xz^3 + \mbox{constant}\right)
+%\end{eqnarray*}
+
+\subsubsection*{Method~(3): Direct integration ``by inspection'' (guessing)}
+Sometimes the result can be spotted directly.
+
+For example, if $\v{a}(\v{r})=(\vc\cdot\v{r}) \vc$ where $\vc$ is a constant vector, then
+\[
+  \v{a}(\v{r})
+  \,=\,
+  (\vc\cdot\v{r}) \, \vc
+  \,=\,
+  (\vc\cdot\v{r}) \, \grad (\vc\cdot\v{r})
+  \,=\,
+  \grad \left(\frac12 \, (\vc\cdot\v{r})^2 \plus {\rm constant} \right)
+\]
+%This can be tricky to spot though.
+
+\paragraph{Example~2 (revisited)}\mbox{}
+%, let $\v{a}(\vr) \,=\, 2\,(\va\cdot\v{r})\, \vr \plus r^2 \, \va$
+\[
+  \v{a}(\v{r})
+  \,=\,
+  2\,(\v{c}\cdot\v{r})\, \vr \plus r^2 \, \v{c}
+  \,=\,
+  (\v{c}\cdot\v{r}) \grad r^2 \plus r^2 \, \grad (\v{c}\cdot\v{r})
+  \,=\,
+  \grad \bigg( (\v{c}\cdot\v{r}) \, r^2 \plus {\rm constant} \bigg)
+\]
+in agreement with what we had before if we choose the integration constant to be zero.
+
+%vspace*{1ex}
+
+%\newpage
+
+\subsection{Conservative forces: conservation of energy}
+
+%Consider again the work done by a force.
+%If the force is {\it conservative}, i.e. total energy is conserved,
+%then the work done is equal to minus the change in potential energy
+%\[
+%dV = -dW = - \vF\cdot \v{dr}= -F_{\ds i} dx_{\ds i}
+%\]
+%Now we can also write  dV as
+%\vspace*{-2ex}
+%\[
+%dV = \frac{\partial V}{\partial x_{\ds i}} dx_{\ds i} = 
+%(\grad V)_{\ds i} dx_{\ds i}
+%\]
+%Therefore we can identify
+%\hspace{2cm}
+%\bigbox{
+%$\vF = - \grad V$
+%}
+
+%Thus the force is minus the gradient of the (scalar) potential.  The
+%minus sign is conventional and chosen so that potential energy
+%decreases as the force does work.
+
+%In this example we knew that a potential existed (we postulated
+%conservation of energy). More generally we would like to know under
+%what conditions can a vector field $\v{A}(\vr)$ be written as the
+%gradient of a scalar field $\phi$, {\it i.e.} when does $\vA(\vr)
+%\,=\, (\pm)\, \grad\,\phi(\vr)$ hold?
+
+%{\bf Aside:} A \emph{simply connected} region $R$ is a region where
+%every closed curve in $R$ can be shrunk continuously to a point while
+%remaining entirely in $R$.  The inside of a sphere is simply connected
+%while the region between two concentric cylinders is \emph{not} simply
+%connected: it is doubly connected.
+%% See {\it RHB 9.2} for discussion.
+%For this course we shall be concerned with simply connected regions
+%\vspace{-2ex}
+
+We now show how the name \emph{conservative field} arises in Physics. Let the vector
+field $\vF(\vr)$ (assumed time-independent) be the total force acting on a particle of
+mass $m$ at position $\v{r}$. We will show that for a conservative/irrotational force,
+where we can write
+\[
+  \vF(\v{r}) = - \grad V(\v{r}) \,,
+\]
+the total energy is \emph{constant} in time. Note that the \emph{force} is \emph{minus}
+the gradient of the (scalar) potential. The minus sign is conventional.
+
+\paragraph{Proof:}
+Let $\v{r}(t)$ be the position vector of a particle at time $t$. Denote the first and
+second derivatives of $\v{r}$ with respect to time by $\v{\dot{r}}$ (velocity) and
+$\v{\ddot{r}}$ (acceleration) respectively.
+
+The particle moves under the influence of Newton's second law (N2):
+\[
+  m \v{\ddot r} = \vF(\vr)
+\]
+In time $\mbox{d}t$ the particle moves from $\v{r}$ to $\v{r}+\mbox{d}\v{r}\,$. From N2,
+we get
+\[
+  m \, \v{\ddot r}\cdot \mbox{d}\v{r}
+  \,=\,
+  \vF(\vr) \cdot \mbox{d}\v{r}
+  \,=\,
+  -\grad V(\vr) \cdot \mbox{d}\v{r}
+\]
+Integrating this expression along the path of the particle starting from $\v{r}_A$ at
+time $t_A\,$, to $\v{r}_B$ at time $t_B$, gives
+\begin{equation}
+  m \int_{\ul{r}_A}^{\ul{r}_B} \v{\ddot r}\cdot \mbox{d}\v{r}
+  \,=\,
+  - \int_{\ul{r}_A}^{\ul{r}_B} \grad V(\vr) \cdot \mbox{d}\v{r}
+  \label{eq:integrated-newton}
+\end{equation}
+We can evaluate the left-hand side of
+equation~(\ref{eq:integrated-newton})
+\[
+  m \int_{\ul{r}_A}^{\ul{r}_B} \v{\ddot r} \cdot \mbox{d}\v{r}
+  \,=\,
+  m \int_{t_A}^{t_B} \v{\ddot r} \cdot \frac{\mbox{d} \v{r}}{dt}\, \mbox{d}t
+  %  \,=\,
+  %  m \int_{t_A}^{t_B} \v{\ddot r} \cdot \v{\dot r}\, \mbox{d}t
+  \,=\,
+  m \int_{t_A}^{t_B} \frac{1}{2} \, \frac{d}{dt} \,
+  \left(\v{\dot r} \cdot \v{\dot r}\right) \mbox{d}t
+  \,=\,
+  \frac{1}{2} m \bigg[ \left|\v{\dot{r}}\right|^2 \bigg]_{t_A}^{t_B}
+  \,=\,
+  \frac{1}{2} m \left( v_B^2 - v_A^2 \right),
+\]
+where $v_A$ and $v_B$ are the magnitudes of the particle's velocity at points $A$ and $B$
+respectively.
+
+The right-hand side of equation~(\ref{eq:integrated-newton}) gives
+\[
+  - \int_{\ul{r}_A}^{\ul{r}_B} \grad V(\vr) \cdot \mbox{d}\v{r}
+  \,=\,
+  - \int_{\ul{r}_A}^{\ul{r}_B} dV = V_A - V_B
+\]
+where $V_A$ and $V_B$ are the values of the potential $V$ at $\v{r}_A$ and $\v{r}_B$,
+respectively. Therefore
+\[
+  \frac{1}{2} m \left( v_B^2 - v_A^2 \right)
+  \,=~
+  V_A - V_B
+\]
+Rearranging, we get
+\[
+  \frac{1}{2} m v_A^2 + V_A
+  \,=\,
+  \frac{1}{2} m v_B^2 + V_B
+  \label{eq:energy_conserv_2}
+\]
+Hence the \emph{total energy}, defined as $\; \ds E \equiv \frac{1}{2} m v^2 + V\:\!$, is
+\emph{conserved} -- it's \emph{constant in time}.
+
+(Choosing $\vF = + \grad V$ would lead to $\; \ds E \equiv \frac{1}{2}
+  m v^2 - V\,$, a less desirable convention.)
+
+\paragraph{Examples:} \emph{Newtonian gravity} and the
+\emph{electrostatic force} are both conservative.  \emph{Frictional
+  forces} are not conservative: energy is dissipated and work is done
+in traversing a closed path.  In general, time-dependent forces are
+not conservative.
+
+%We now return to where we started in section
+%(\ref{ExamplesGravitationandElectrostatics}).
+
+\newpage
+
+\subsection{Gravitation and Electrostatics} % (revisited)}
+The foundation of Newtonian Gravity is \emph{Newton's Law of Gravitation}. The force
+$\v{F}(\v{r})$ on a particle of mass $m_1$ at $\v{r}$ due to a particle of mass $m$
+situated at the origin is given (in SI units) by
+\[
+  \v{F}(\v{r}) \,=\, -G\:\! m\:\! m_1 \, \frac{\v{r}}{r^3}
+\]
+where $G = 6.672\,59(85) \times 10^{-11} \, N m^2 \mbox{\emph{kg}}^2$ is Newton's
+Gravitational Constant.
+
+The \emph{gravitational field} $\vG(\vr)$ due to the mass at the origin is \emph{defined}
+by
+\begin{equation}
+  \v{F}(\v{r})
+  ~\equiv~
+  m_1 \, \v{G}(\v{r})
+  \qquad \mbox{or} \qquad
+  \v{G}(\v{r}) \,=\, -G\, m \: \frac{\v{r}}{r^3}
+  \label{eq:grav-field-defn-2}
+\end{equation}
+where the test mass $m_1$ is so small that its gravitational field
+can be ignored. The gravitational field is conservative because
+\[
+  \curl \left( \frac{\v{r}}{r^3}\right)
+  \,=\,
+  \grad\left(\frac{1}{r^3}\right) \times \v{r}
+  \,+\,
+  \frac{1}{r^3} \left(\curl \v{r}\right)
+  \,=\,
+  \left(-\frac{3\v{r}}{r^5}\right) \times \v{r} \,+\,  0
+  \,=\,
+  0
+\]
+%or, using indices,
+%\[
+%  \left(\v{\nabla}\times\left(\v{r}/r^3\right)\right)_i 
+%  \,=\,
+%  \epsilon_{ijk} \partial_j (x_k/r^3)
+%  \,=\,
+%  \epsilon_{ijk} \left(\delta_{jk}/r^3 - 3x_jx_k/r^5 \right)
+%  \,=\,
+%  0
+%\]
+The \emph{gravitational potential} defined by
+\[
+  \v{G} = -\grad \phi
+\]
+can be obtained from equation~(\ref{eq:grav-field-defn-2}) by spotting the direct
+integration, $\grad(1/r) = -\v{r}/r^3$, giving
+\[
+  \phi   =-\frac{Gm}{r}
+\]
+Alternatively, we may evaluate it explicitly by a line integral. Choosing $\vr_{\,0}$ at
+infinity gives
+\begin{eqnarray*}
+  \phir
+  &=&
+  -\int_{\ul{r}_0}^{\ul{r}} \v{G}(\vr') \cdot \mbox{d}\v{r}'
+  \,=\,
+  -\int_\infty^{1} \v{G}(\lambda\vr) \cdot \mbox{d}\lambda \v{r} \\[1ex]
+  &=&
+  (-)^2 \, \int_\infty^{1} \frac{Gm\, (\v{r}\cdot\vr)}{r^3} \:
+  \frac{\mbox{d}\lambda}{\lambda^2}
+  \,=\,
+  -\frac{Gm}{r}
+\end{eqnarray*}
+
+\textbf{Note:} In this example, the vector field $\v{G}$ is
+\emph{singular} at the origin $\vr = 0$. This implies that we have to
+exclude the origin,
+%(but since it is a single point our domain is still simply 
+%connected). 
+so it's not possible to obtain the scalar potential at $\vr$ by integration along a path
+from the origin. Instead we integrate from infinity, which in turn means that the
+gravitational potential at infinity is zero.
+
+\textbf{Note:} Since $\vF = m_1 \, \v{G} = -\grad(m_1 \, \phi)$, the
+\emph{potential energy} of the mass $m_1$ is $V(\v{r})= m_1
+  \phi(\v{r})$. The distinction (a convention) between potential and
+potential energy is a common source of confusion.
+
+\paragraph{Electrostatics:}
+Coulomb's Law states that the force $\v{F}(\v{r})$ on a particle of charge $q_1$ situated
+at $\v{r}$ in the electric field $\v{E}(\v{r})$ due to a particle of charge $q$ situated
+at the origin is given (in SI units) by
+\[
+  \v{F}
+  \,=\,
+  q_1 \, \v{E}
+  \,=\,
+  \frac{q_1\,q}{4 \pi \epsilon_0}\: \frac{\v{r}}{r^3} \;,
+\]
+where $\epsilon_0 = 10^7/(4\pi c^2) = 8.854\,187\,817 \dots \times 10^{-12} \, C^2 N^{-1}
+  m^{-2}$ is called the \emph{permittivity of free space}. Again the test charge $q_1$ is
+taken as small, so as not to disturb the electric field.
+
+The \emph{electrostatic potential} may be obtained by inspection, or by integrating $E=
+  -\grad \phi$ from infinity to $\vr$,
+\begin{equation}
+  \phi(\v{r}) \,=\, \frac{q}{4 \pi \epsilon_0 r}
+  \label{eq:phiforpointcharge}
+\end{equation}
+The \emph{potential energy} of a charge $q_1$ in the electric field is
+$V(\v{r})= q_1 \phi(\v{r})$.
+
+Note that electrostatics and gravitation are very similar mathematically, the only real
+difference being that the gravitational force between two masses is always attractive,
+whereas like charges repel.
+
+\mnote{21L 18/03/08}
+\mnote{22L 27/03/09}
+
+%\newpage
+
+% \subsection{The equations of Poisson and Laplace}
+% In section~(\ref{sec:gausslaw}), we derived Gauss' Law and
+% Maxwell's first equation (ME1) for the electrostatic field
+% %$\v{E}(\v{r})$
+% \[
+%   \int_S \, \v{E}\cdot \mbox{d}\v{S}
+%   \,=\,
+%   \frac{Q}{\epsilon_0}
+%   \qquad \mbox{and}\qquad
+%   \Div \v{E}(\v{r})
+%   \,=\,
+%   \frac{\rho(\vr) }{\epsilon_0}
+% \]
+% where $\rho(\v{r})$ is the charge density at $\v{r}$, and $Q = \int_V \,
+% \rho(\v{r})\, \mbox{d}V$ is the total charge in volume $V$.
+% 
+% Writing $\v{E}(\v{r})=-\grad\phi(\v{r})$ and using Maxwell's first
+% equation gives \emph{Poisson's equation}
+% \[
+%   \lap \phi
+%   \,=\,
+%   -\frac{\rho}{\epsilon_0}
+% \]
+% If $\rho(\v{r})=0$ everywhere in some region, we have 
+% \[
+%   \lap \phi = 0
+% \]
+% which is \emph{Laplace's equation.}
+% 
+% These \emph{partial differential equations} are important in many
+% branches of Physics and Mathematics. You will study (and solve) them
+% next year.
+
+%%%
+%%% The following material on point charges was dropped in 2012/13.
+%%% The students no longer know about delta functions after the
+%%% abolition of MfP4: Waves.
+%%%
+
+%\subsubsection{Poisson's equation and ME1 for a point charge (not examinable)}
+%Define the three-dimensional Dirac delta function
+%$\delta^{(3)}(\v{r}-\v{r}_{\:\!0})$ as the product of three ordinary
+%`one dimensional' delta functions
+%\[
+%  \delta^{(3)}(\v{r}-\v{r}_{\:\!0})
+%  \,=\,
+%  \delta(x-x_0)\, \delta(y-y_0)\, \delta(z-z_0)
+%\]
+%Clearly, $\delta^{(3)}(\v{r}-\v{r}_{\:\!0})$ is zero everywhere,
+%\emph{except} at $\v{r}=\v{r}_{\:\!0}$ where it is formally
+%`infinite'.\footnote{See \emph{MfP4: Waves} notes for details on the
+%  definition and properties of the Dirac delta function.}
+%
+%The charge density for a point charge $q$ at $\v{r}_{\:\!0}$ is
+%\[
+%  \rho(\v{r}) \,=\, q \, \delta^{(3)}(\v{r}-\v{r}_{\:\!0})
+%\]
+%To see this, integrate over a small volume $V$ containing
+%$\v{r}_{\:\!0}$
+%\[
+%  \int_V \rho(\v{r}) \mbox{d}V
+%  \,=\,
+%  q \int_V  \delta(x-x_0)\, \delta(y-y_0)\, \delta(z-z_0)\,
+%  \mbox{d}x \, \mbox{d}y \, \mbox{d}z
+%  \,=\,
+%  q
+%\]
+%which is indeed the total charge in $V$. To get this, we used
+%$\int_a^b \delta(x-x_0) = 1$ when $a < x_0 < b$, and zero otherwise.
+%Similarly for the integrals over $y$ and $z$.
+%
+%For the case of a point charge $q$ at $\v{r}=\v{r}_{\:\!0}$, Maxwell's
+%first equation becomes
+%\[
+%  \Div \v{E}(\v{r})
+%  \,=\,
+%  \frac{q}{\epsilon_0} \: \delta^{(3)}(\v{r}-\v{r}_{\:\!0})
+%\]
+%and Poisson's equation is
+%\[
+%  \lap \phi(\v{r})
+%  \,=\,
+%  -\frac{q}{\epsilon_0} \, \delta^{(3)}(\v{r}-\v{r}_{\:\!0})
+%\]
+%We know that $\phi(\vr) =q/(4\pi\epsilon_0 r)$ for a point charge at
+%the origin (\emph{i.e.}~$\v{r}_{\:\!0}=0$) -- see
+%  equation~(\ref{eq:phiforpointcharge}).  Substituting for $\phi$ into
+%  Poisson's equation (and cancelling $q/\epsilon_0$) gives
+%\begin{equation}
+%  \lap \left( \frac{1}{r} \right) 
+%  \,=\,
+%  -4\pi \:\! \delta^{(3)}(\v{r})
+%  \label{eq:lap1onr}
+%\end{equation}
+%Similarly, for a point charge $q$ at the origin, we have
+%\[
+% \v{E}(\v{r})
+%  \,=\,
+%  \frac{\,q}{4 \pi \epsilon_0}\: \frac{\v{r}}{r^3}
+%\]
+%and Maxwell's first equation becomes
+%\begin{equation}
+%  \Div \left( \frac{\v{r}}{r^3}\right)
+%  \,=\,
+%  4\pi \:\! \delta^{(3)}(\v{r})
+%  \label{eq:divronrcubed}
+%\end{equation}
+%Note that equations~(\ref{eq:lap1onr}) and~(\ref{eq:divronrcubed})
+%hold for \emph{all} $\v{r}$, including the \emph{singular} point
+%$\v{r}=0$.
+
+\subsection{Example on joint use of Divergence and Stokes' theorems}
+Example: show that $\Div\curl\v{a} \equiv 0$ independent of co-ordinate system:
+
+Let $S$ be a closed surface, enclosing a volume $V$. Applying the divergence theorem to
+$\curl\v{a}$, we obtain
+\[
+  \intV \Div \left(\curl\v{a}\right)\;\dd V
+  \,=\,
+  \intS \left(\curl\v{a}\right)\cdot\dd\v{S}
+\]
+Now divide $S$ into two surfaces $S_1$ and $S_2$ with a \emph{common} boundary $C$ as
+shown below
+\begin{center}
+  \epsfxsize=11cm
+  \includegraphics{tikz_stokes_closed.pdf}
+\end{center}
+
+Now use Stokes' theorem to write
+\[
+  \intS \left(\curl\v{a}\right)\cdot\dd\v{S}
+  \,=\,
+  \int_{S_1} \left(\curl\v{a}\right)\cdot\dd\v{S}
+  \,+\, \int_{S_2} \left(\curl\v{a}\right)\cdot\dd\v{S}
+  \,=\,
+  \ointC \v{a}\cdot \mbox{d}\v{r} \,-\, \ointC \v{a}\cdot \mbox{d}\v{r}
+  \,=\,
+  0
+\]
+where the second line integral appears with a minus sign because it is traversed in the
+\emph{opposite} direction. (Recall that Stokes' theorem applies to curves traversed in
+the right hand sense with respect to the outward normal of the surface.)
+
+Since this result holds for arbitrary volumes, we must have
+\[
+  \Div\curl\v{a} \,\equiv\, 0
+\]
+
+\newpage
+
+\subsection{Non-conservative forces}
+
+As an example of a \emph{non-conservative force} let us mention the \emph{Lorentz Force}
+on a moving point charge $q$ at $\vr$
+\[
+  \vF(\vr) \,=\, q \vE(\vr) \,+\, q \v{v} \times \vB(\vr)
+\]
+where $\vB(\vr)$ is the \emph{magnetic field} at $\vr$. Since the force involves the
+particle velocity $\v{v}$ as well as position $\vr$ we cannot construct a scalar
+potential for this force.\footnote{This isn't quite true - we \emph{can} construct a
+  scalar potential $\tilde{V}$ for the Lorentz force, but it's a function of both $\v{r}$
+  \emph{and} $\v{v}$, and the expression for the force takes the form $\v{F} = -\grad
+    \tilde{V}\ + $ another term. See \emph{Lagrangian Dynamics} in Junior Honours.}
+
+It is often said that ``a magnetic force does no work'' because
+\[
+  \v{F} \cdot \dd \v{r}
+  \,=\,
+  \left(q\v{v} \times \vB(\vr)\right) \cdot\dd \v{r}
+  \,=\,
+  \left(q\v{v} \times \vB(\vr)\right) \cdot \v{v}\, \dd t
+  \,=\,
+  0 \,.
+\]
+In general, a force that depends on velocity $\vv$ is non-conservative because the $\vv$
+dependence implies some dependence on how the particle arrives at $\vr$ in addition to
+any explicit dependence on $\vr$.
+
+However forces that depend only on $\vr$ are non-conservative when $\curl \vF(\vr) \neq
+  0\,$.
+
+Generally, one may write \emph{any} vector field $\va(\v{r})$ as
+\[
+  \va \,=\, -\del \phi \,+\, \curl \vA \,,
+\]
+which is known as \emph{Helmholtz's theorem} or the \emph{fundamental theorem of vector
+  calculus}. It states that we can decompose a vector field into a curl-free (or
+conservative) part $-\del \phi$ and a divergence-free part $\curl \vA$. We are not yet in
+a position yet to prove this theorem.

@@ -1,0 +1,459 @@
+% !TEX root = ../../fields.tex
+%% Brian Lecture 15 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Most of the material on the next two or three pages should be revision. I will summarise
+it in lectures, but I will not cover all of it in detail. It should be sufficiently self
+contained to learn from.
+
+Volume integrals are conceptually simpler than line and surface integrals because the
+element of volume ${\rm d}V$ is a \emph{scalar} quantity.
+
+We define integrals over a volume $V$ in the standard way using the Riemann sum.
+
+\subsection{Integrals over scalar fields}
+
+Let $f(\v{r})$ be a scalar field defined in a volume $V$. Divide $V$ into $n$ small
+volumes $\delta V^{(i)}$. Then
+\[
+  \intV f(\v{r})\, {\rm d}V
+  \,=\,
+  \raisebox{-3ex}
+  {$
+      \shortstack{lim \\ $ {}_{n\to\infty}$ \\ ${}_{\delta
+              V^{(i)} \to 0}$}\;
+    $}
+  %%% \lim_{\stackrel{n\to\infty}{\it\small \delta V\to0}}\,
+  \sum_{i=0}^{n-1}\;
+  f(\v{r}^{(i)})\; \delta V^{(i)}
+\]
+where $f(\v{r}^{(i)})$ is the value of the function $f$ at some point $\v{r}^{(i)}$ in
+the element of volume $\delta V^{(i)}\,$.
+
+In Cartesian coordinates
+\[
+  \intV f(\v{r})\, {\rm d}V
+  \,=\,
+  \int_z \int_y \int_x f(x,y,z) \, {\rm d}x \, {\rm d}y \, {\rm d}z
+\]
+where the integrals over $x$, $y$ and $z$ have appropriate limits.
+%
+Note that $\int_V f(\v{r}) \, {\rm d}V$ is a \emph{triple} integral, but we use three
+integral signs only when writing it in terms of explicit integration variables, namely
+$x$, $y$, $z$ in this case.
+
+\paragraph{Example:} Integrate $f(x,y,z) = x y z^2$ over the cuboid: $\left\{0 \le x < a, \: 0 \le y < b, \: 0
+  \le z < c \right\}$.
+
+We \emph{choose} to perform the integral over $x$ first, keeping $y$ and $z$ fixed; then
+the integral over $y$, keeping $z$ fixed; and finally the integral over $z\,$:
+\begin{eqnarray*}
+  I
+  &=&
+  \intV f(\v{r}) \, {\rm d}V
+  \,=\,
+  \int_{z=0}^{z=c}  \int_{y=0}^{y=b}  \int_{x=0}^{x=a}
+  x \:\! y \:\! z^2 \: {\rm d}x \, {\rm d}y \, {\rm d}z \\
+  &=&
+  \int_{z=0}^{z=c}  {\rm d}z \int_{y=0}^{y=b} {\rm d}y
+  \; \frac{a^2}{2} \:\! y \:\! z^2
+  \,=\,
+  \frac{a^2}{2} \int_{z=0}^{z=c}  {\rm d}z \;
+  \frac{b^2}{2} \:\! z^2 \,
+  \,=\,
+  \frac{a^2}{2}  \, \frac{b^2}{2} \, \frac{c^3}{3}
+  \,=\,
+  \frac {a^2 \, b^2 \, c^3}{12}
+\end{eqnarray*}
+The volume of the cuboid is simply
+\[
+  V
+  \,=\,
+  \intV {\rm d}V
+  \,=\,
+  \int_{z=0}^{z=c}  \int_{y=0}^{y=b}  \int_{x=0}^{x=a}
+  \; {\rm d}x \, {\rm d}y \, {\rm d}z
+  \,=\,
+  abc
+\]
+
+The integrals may be performed in any order, but the limits on the integrals must be
+chosen appropriately to cover the volume $V$.
+
+For example, if we choose to perform the $z$ integral first, its limits may depend on $x$
+and $y$. The limits on the second integral over $y$ may then depend on $x$ (but not on
+$z$, because we have already integrated over $z$). The limits on the last integral over
+$x$ can't depend on either $y$ or $z$ (because we have already integrated over them.)
+
+\textbf{Example:}
+\[
+  \int_{0}^{1}   {\rm d}x
+  \int_{0}^{x^2} {\rm d}y
+  \int_{xy}^{1}  \,  2x^2 \:\! z \: {\rm d}z
+  \,=\,
+  \frac{28}{165} \quad \mbox{(exercise)}
+\]
+
+We now illustrate how to find the limits in an explicit example, albeit a rather
+complicated (and slightly masochistic) one.
+
+%\newpage
+
+\parbox{0.5\textwidth}{
+  \paragraph{Example:} Use Cartesian coordinates to evaluate
+  \[
+    \intV\,(x+y+z)\,{\rm d}V
+  \]
+  where $V$ is the positive octant of the unit sphere:
+  \[
+    x^{2}+y^{2}+z^{2}\leq 1, \qquad
+    x\geq 0, \; y\geq 0, \; z\geq 0 \\[0.3ex]
+  \]
+  If we \emph{choose} to perform the $z$ integral first: } \hfill \parbox{0.45\textwidth}{
+  \epsfxsize=0.45\textwidth \includegraphics{tikz_spherical_octant.pdf} }
+\begin{enumerate}
+  \item For \emph{fixed} $(x,y)$, we first integrate with respect to $z$, from the point
+        $(x,y,0)$ (\emph{i.e.} $z=0$), to the point $(x,y,z)$ with $z=\sqrt{1-x^2-y^2}$. This is
+        the integral up the strip shown.
+
+  \item Then, for fixed $x$, we integrate wrt $y$ from the vertical strip at $y=0$ to the
+        vertical strip at $y=\sqrt{1-x^2}$. This sums over all such strips in the planar quadrant
+        shown.
+
+  \item Finally, we integrate from $x=0$ to $x=1$, which sums over all planes from $x=0$ to $1$.
+\end{enumerate}
+
+\vspace*{-1ex}
+
+\[
+  \Rightarrow \quad
+  \intV\,(x+y+z)\,{\rm d}V
+  \,=\,
+  \int_{0}^{1}   {\rm d}x
+  \int_{0}^{\sqrt{1-x^2}} {\rm d}y
+  \int_{0}^{\sqrt{1-x^2-y^2}}    (x+y+z) \; {\rm d}z
+\]
+
+\subsection{Parametric form of volume integrals}
+The example above was very complicated -- because we used Cartesians. It's \emph{much}
+easier using a \emph{parametric} representation. (We would use spherical polars in this
+example.)
+
+Suppose we can write the position vector $\v{r}$ in terms of three real parameters $u$,
+$v$ and $w$, so that $\v{r}=\v{r}(u,v,w)$. If we make a small change in each of these
+parameters, then $\v{r}$ changes by
+\[
+  {\rm d}\v{r}
+  \,=\,
+  \parpar{\v{r}}{u}\; du +
+  \parpar{\v{r}}{v}\; dv +
+  \parpar{\v{r}}{w}\; dw
+\]
+Along the curves $\{v={\rm constant},\, w={\rm constant}\}$, we have $dv = dw = 0$, so
+${\rm d}\v{r}$ is simply
+\[
+  {\rm d}\v{r}_{\,u} \,=\,  \parpar{\v{r}}{u}\; du
+\]
+with ${\rm d}\v{r}_{\,v}$ and $ {\rm d}\v{r}_{\,w}$ having similar definitions.
+
+\bigskip
+
+\parbox{0.65\textwidth}{As illustrated in the figure, the vectors
+  ${\rm d}\v{r}_{\,u}$, $ {\rm d}\v{r}_{\,v}$ and ${\rm d}\v{r}_{\,w}$
+  form the sides of an infinitesimal parallelepiped of volume
+  \begin{eqnarray*}
+    {\rm d}V
+    & = &
+    \left|\,
+    {\rm d}\v{r}_{\,u} \cdot
+    \left(
+    {\rm d}\v{r}_{\,v} \times {\rm d}\v{r}_{\,w}
+    \right)
+    \right|
+  \end{eqnarray*}
+  \begin{center}
+    \bigbox{
+      \parbox{0.48\textwidth}{
+        \vspace{-1.5ex}
+        \[
+          \Rightarrow \quad
+          {\rm d}V
+          \,=\,
+          \left|
+          \parpar{\v{r}}{u} \,\cdot\,
+          \left(
+          \parpar{\v{r}}{v} \,\times\, \parpar{\v{r}}{w}
+          \right)
+          \right|
+          \; \mbox{d}u\, \mbox{d}v\, \mbox{d}w
+        \]
+        \vspace{-1.8ex}
+      }
+    }
+  \end{center}
+}
+\hfill
+\parbox{0.35\textwidth}{
+  \vspace*{-2ex}
+  \epsfxsize=0.35\textwidth
+  \includegraphics{tikz_dV.pdf}
+}
+%
+We take the \emph{magnitude} of the scalar triple product so that the element of volume
+${\rm d}V$ is always \emph{positive}.
+
+\paragraph{Jacobians revisited:} We may write the volume element in terms of the Jacobian $J\,$, \\ \( {\rm d}V \,=\,
+\left|J\right| {\rm d}u \, {\rm d}v \, {\rm d}w \,,\; \) where
+\[
+  J
+  \,\equiv\,
+  \frac{\partial(x,y,z)}{\partial(u,v,w)}
+  \,\equiv\,
+  \det \left(
+  \begin{array}{ccc}
+      \ds\frac{\partial x}{\partial u} &
+      \ds\frac{\partial y}{\partial u} &
+      \ds\frac{\partial z}{\partial u}
+      \\[2ex]
+      \ds\frac{\partial x}{\partial v} &
+      \ds\frac{\partial y}{\partial v} &
+      \ds\frac{\partial z}{\partial v}
+      \\[2ex]
+      \ds\frac{\partial x}{\partial w} &
+      \ds\frac{\partial y}{\partial w} &
+      \ds\frac{\partial z}{\partial w}
+    \end{array}
+  \right)
+\]
+
+% This is the three dimensional version of the $2\times2$ Jacobian
+% derived in \emph{LA\&SVC} Section~18 and (presumably)
+% in \emph{SVC\&DE}. It generalises to higher dimensions in a
+% straightforward way.
+
+% section (\ref{Elements-of-area-and-Jacobians}), and it
+
+\paragraph{Example:} Consider a circular cylinder of radius $a$, height $c$. We can parameterise $\v{r}$ using
+cylindrical coordinates. Within the cylinder, we have
+\[
+  \v{r}
+  \,=\,
+  \rho\cos\phi \: \eone + \rho\sin\phi \: \etwo + z \: \ethree
+  \quad \mbox{with} \quad
+  \left\{
+  0\leq\rho\leq a,\:
+  0\leq\phi\leq2\pi,\:
+  0\leq z \leq c
+  \right\}
+\]
+\parbox{0.57\textwidth}{
+  Then
+  \begin{eqnarray*}
+    \parpar{\v{r}}{\rho}
+    &=&
+    \cos\phi\,\eone + \sin\phi\,\etwo \quad\\[1ex]
+    %
+    \parpar{\v{r}}{\phi}
+    &=&
+    -\rho\, \sin\phi\,\eone + \rho\, \cos\phi\,\etwo\\[1ex]
+    %
+    \parpar{\v{r}}{z}
+    &=&
+    \ethree
+  \end{eqnarray*}
+  And hence (easy exercise)
+  \begin{eqnarray*}
+    {\rm d}V
+    & = &
+    \left|
+    \parpar{\v{r}}{\rho} \cdot
+    \left(
+    \parpar{\v{r}}{\phi} \times \parpar{\v{r}}{z}
+    \right)
+    \right|
+    \: {\rm d}\rho\, {\rm d}\phi\, \mbox{d}z
+    \,=\,
+    \rho\, {\rm d}\rho\, {\rm d}\phi\, \mbox{d}z
+    \phantom{Hence---------}
+  \end{eqnarray*}
+  The \emph{volume} of the cylinder is
+  \[
+    V
+    \,=\,
+    \intV {\rm d}V
+    \,=\,
+    \int^{z=c}_{z=0} \int^{\phi=2\pi}_{\phi=0} \int^{\rho=a}_{\rho=0}
+    \rho\, {\rm d}\rho\, {\rm d}\phi\, dz
+    \,=\,
+    \pi\,a^2c.
+  \]
+}\hfill
+\parbox{0.35\textwidth}{
+  \epsfxsize=0.35\textwidth
+  \includegraphics{tikz_cyl_dV.pdf}
+}
+\paragraph{Cylindrical basis:} the normalised vectors
+\[
+  \erho \,=\, \parpar{\v{r}}{\rho}\left/ \: \left|
+  \parpar{\v{r}}{\rho}\right| \right.  \quad;\quad \ephi \,=\,
+  \parpar{\v{r}}{\phi}\left/ \: \left| \parpar{\v{r}}{\phi} \right|
+  \right. \quad;\quad \ez \,=\, \parpar{\v{r}}{z}\left/ \: \left|
+  \parpar{\v{r}}{z} \right| \right.
+\]
+(shown in the figure) are the orthonormal basis vectors that we wrote
+down earlier for cylindrical coordinates (exercise).
+
+\paragraph{Exercise:} For spherical polars: \( \v{r} = r\sin \theta\cos\phi\,\eone + r\sin \theta \sin
+\phi\,\etwo + r \cos \theta\, \ethree \,,\; \) show that
+\begin{eqnarray*}
+  {\rm d}V
+  &=&
+  \left|
+  \parpar{\v{r}}{r} \, \cdot
+  \left(
+  \parpar{\v{r}}{\theta} \times \parpar{\v{r}}{\phi}
+  \right)
+  \right|
+  \; {\rm d}r\, {\rm d}\theta\, {\rm d}\phi
+  \,=\,
+  r^2 \sin \theta \, {\rm d}r\, {\rm d}\theta\, {\rm d}\phi
+\end{eqnarray*}
+
+\subsection{Integrals over vector fields}
+The integral of a vector field $\v{a}(\v{r})$ over a volume $V$ is
+\[
+  \intV \v{a}(\v{r})\; {\rm d}V
+  \,=\,
+  %  \sum_{i=1}^3 \;
+  \ei \intV a_i(x,y,z)\; {\rm d}V
+  \,=\,
+  %  \sum_{i=1}^3  \;
+  \ei \int_z\int_y\int_x a_i(x,y,z) \; \, {\rm d}x \, {\rm d}y \, {\rm d}z
+\]
+in Cartesian coordinates (using suffix notation and the summation convention).
+
+The result of the integral is a \emph{vector}, and we must evaluate a triple integral for
+\emph{each} of the $3$ components of the vector.
+
+\paragraph{Example:}
+Consider a solid hemisphere of radius $a$ centered on the $\ethree$ axis, with its bottom
+face at $x_3=0$. If the mass density (mass/unit volume), a scalar field, is $\rho(r)=
+  \rho_0/r$ where $\rho_0$ is a constant, what is the total mass, $M$, of the hemisphere?
+
+It is most convenient to use spherical polar coordinates. Then ${\rm d}V = r^2\sin\theta
+  \, {\rm d}r \, {\rm d}\theta \, {\rm d}\phi$ and
+\begin{eqnarray}
+  M
+  \,=\,
+  \int_V \rho(r) \, {\rm d}V
+  \,=\,
+  \int_{0}^{a}  \rho(r) \, r^2 \, {\rm d}r
+  \int_{0}^{\pi/2} \sin \theta \, {\rm d}\theta
+  \int_{0}^{2\pi} {\rm d}\phi
+  \,=\,
+  2\pi\rho_0 \int_{0}^{a} r \, {\rm d}r
+  \,=\,
+  \pi\rho_0 \, a^{2}\nonumber
+\end{eqnarray}
+
+\smallskip
+
+Now consider the \emph{centre of mass vector} $\v{R}=\left(X \, \eone + Y \, \etwo +Z \,
+  \ethree\right)$, defined by
+\[
+  M \vR
+  \,\equiv\,
+  \int_{V} \; \rho(r) \, \v{r} \: {\rm d}V
+\]
+We integrate each component of the vector field $\,\rho(r) \:\! \v{r}\,$ in turn using
+\[
+  \vr
+  \,=\,
+  r \sin\theta \cos \phi \, \eone
+  + r \sin\theta \sin \phi \, \etwo
+  + r \cos \theta \, \ethree
+  \quad \mbox{and} \quad
+  \mbox{d}V
+  \,=\,
+  r^2 \sin \theta \, {\rm d}r\, {\rm d}\theta\, {\rm d}\phi
+\]
+which gives
+\begin{eqnarray*}
+  MX
+  &=&
+  \int_{0}^{a} \rho(r) \, r^3 \, {\rm d}r
+  \int_{0}^{\pi/2} \sin^2\theta \, {\rm d}\theta
+  \int_{0}^{2\pi} \cos \phi\, {\rm d}\phi
+  \,=\, 0 \quad \mbox{(since the $\phi$ integral gives 0)}\\[1ex]
+  %
+  MY &=& \int_{0}^{a} \rho(r) \, r^3 \, {\rm d}r \int_{0}^{\pi/2} \sin^2\theta \, {\rm
+      d}\theta \int_{0}^{2\pi} \sin \phi \, {\rm d}\phi \,=\, 0 \quad \, \mbox{(since the
+    $\phi$ integral gives 0)} \\[1ex]
+  %
+  MZ &=& \int_{0}^{a} \rho(r) \, r^3 \, {\rm d}r \int_{0}^{\pi/2} \sin\theta \cos\theta \,
+  {\rm d}\theta \int_{0}^{2\pi} {\rm d}\phi \,=\, 2 \pi \rho_0 \int_{0}^{a} r^{2}{\rm d}r
+  \left[\frac12 \sin^2\theta\right]_0^{\pi/2} \\[1ex]
+  %  \int_{0}^{\pi/2} \frac{\sin 2\theta}{2} \, {\rm d}\theta
+  %
+  &=&
+  % \frac{2\pi\rho_0 a^3}{3}\left[\frac{-\cos 2\theta}{4}\right]_0^{\pi/2}
+  2\pi\rho_0 \, \frac{ a^3}{3} \, \frac12
+  \,=\,
+  \frac{\pi\rho_0 \, a^{3}}{3}
+\end{eqnarray*}
+
+Hence
+\[
+  %  \qquad \Rightarrow \quad
+  \vR
+  \,=\,
+  \frac{\pi\rho_0 \, a^3/3}{\pi\rho_0 \, a^2} \: \ethree
+  \,=\,
+  \frac{a}{3} \: \ethree
+  \qquad \mbox{(independent of $\rho_0$)}
+\]
+
+Note that the integrals over $\phi$ in the first two components of $M\v{R}$ are zero.
+Watch out for integrals that are zero -- spotting them can save you a lot of un-necessary
+work!
+
+\newpage
+
+\subsection{Summary of polar coordinate systems}
+\label{polar_coordinate_systems}
+To conclude this section, we give a brief summary of polar coordinate
+systems.
+
+In the figures below, ${\rm d}S$ indicates an area element and ${\rm d}V$ a volume
+element. We also sketch geometrical ``derivations'' of the infinitesimal elements of area
+and volume.
+
+% Note that different conventions, \emph{e.g.}~for the angles $\phi$ and
+% $\theta$, are sometimes used.
+
+\paragraph{Plane polar coordinates:} $(\rho, \, \phi)$
+
+\begin{figure}[ht]
+  %
+  \parbox{\textwidth}{
+    \centerline{\epsfxsize=0.4\textwidth\includegraphics{tikz_plane-polar-summary.pdf}}
+    %
+  }
+\end{figure}
+
+\vspace*{-2ex}
+
+\paragraph{Cylindrical coordinates:} $(\rho,\, \phi,\, z)$
+
+\begin{figure}[ht]
+  %
+  \centerline{\epsfxsize=0.5\textwidth\includegraphics{cylin_polar.pdf}}
+  %
+\end{figure}
+
+\paragraph{Spherical polar coordinates:} $(r,\, \theta,\, \phi)$
+
+\begin{figure}[ht]
+  %
+  \centerline{\epsfxsize=0.65\textwidth\includegraphics{sphere_polar.pdf}}
+  %
+\end{figure}

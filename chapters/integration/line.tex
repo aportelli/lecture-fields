@@ -1,0 +1,565 @@
+% !TEX root = ../../fields.tex
+%% Brian Lecture 12 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Having completed our study of differential calculus of scalar and vector fields using
+Cartesian coordinates, suffix notation and the Einstein summation convention, we now
+embark on integral calculus of scalar and vector fields, which we will (eventually!) use
+to do some physics.
+
+We begin with some revision of the standard definition of the integral of a function of a
+single variable. We then discuss line integrals, surface integrals and volume integrals.
+We shall assume familiarity with integrals over plane areas (double integrals) using
+Cartesian and plane polar coordinates, as covered in the specialist mathematics course
+\emph{Several Variable Calculus and Differential Equations}, but we will revise material
+when appropriate.
+
+\subsection{Revision: defining integrals in $\thickR^1$}
+
+We start with some formal definitions and discuss some limits, but we shall not be
+rigorous!
+
+Let $f(x)$ be a continuous real-valued function defined on the interval $a \le x \le b$.
+Begin by subdividing this interval into $n$ subintervals:
+\[
+  a = x_0 < x_1 < x_2 \, \ldots \, < x_n = b \,.
+\]
+In interval $j$, pick an arbitrary point $x_j^*$ with $x_j \le x_j^* \le x_{j+1}$, as
+illustrated in the figure.
+
+\medskip
+
+\centerline{\epsfxsize=0.5\textwidth \includegraphics{tikz_riemann.pdf}}
+
+Define the Riemann sum
+\[
+  S_n = \sum_{j=0}^{n-1} f(x_j^*) \left(x_{j+1}-x_j\right)
+\]
+It can be shown that $S_n \to$ \emph{unique limit} as we let $n\to\infty$ and
+$\left(x_{j+1}-x_j\right)\to0$ for all $j$, with
+$\sum_{j=0}^{n-1}\left(x_{j+1}-x_j\right)=(b-a)$ kept fixed. In this limit
+\[
+  S_n \to \int_a^b f(x) \, {\rm d}x % = \mbox{\emph{unique limit}}
+\]
+One can then prove the usual properties of integrals. Note that we also define
+\[
+  \int_b^a f(x) \, {\rm d}x
+  =
+  - \int_a^b f(x) \, {\rm d}x
+\]
+
+\subsection{Motivation and formal definition of line integrals}
+
+%
+% 2010/11 version
+%
+% Following the development of planar/double integrals of (scalar)
+% functions of two variables, we return to three dimensions and develop
+% integration of scalar and vector fields over surfaces and volumes. We
+% shall revert back to using $(x_1,x_2,x_3)$ as our default notation for
+% Cartesian coordinates, although we shall often use $(x,y,z)$ in
+% specific examples.
+
+%\medskip
+
+\parbox{0.63\textwidth}{\paragraph{Motivation:} As a physical example, consider a particle constrained to move along a wire under the
+influence of a force $\v{F}(\v{r})$.
+
+\medskip
+
+Only the component of the force \emph{along} the wire does work.
+
+\medskip
+
+Thus the work, $\mbox{d}W$, done by the force in moving the particle along the wire from
+$\vr$ to $\vr + {\rm d} \vr$ is
+\[
+  \mbox{d}W
+  \,=\,
+  \left(\left|\vF\right| \cos\theta\right) \, \left|\mbox{d}\vr\right|
+  \,=\,
+  \vF\cdot \mbox{d}\vr
+\]
+$\left|\vF\right| \cos\theta$ is the component of $\v{F}$ along
+$\mbox{d}\vr\,$, where $\theta$ is the angle between
+$\v{F}(\v{r})$ and $\mbox{d}\v{r}$.
+}
+%
+\hfill
+%
+\parbox{0.35\textwidth}{
+  \epsfxsize=0.36\textwidth
+  \includegraphics{tikz_line_int.pdf}
+}
+
+\medskip
+
+The \emph{total} work done in moving the particle along a wire which follows some curve
+$C$ from point $P$ to point $Q$ is then
+\[
+  W_C= \int_{P}^{Q} \mbox{d}W = \int_C \vF(\vr)\cdot \mbox{d} \v{r}
+\]
+This is a \emph{line} integral along the curve $C$.
+
+\paragraph{Formal definition:} Let $\v{a}(\vr)$ be a vector field defined in the region $R$, and let $C$ be a curve in
+$R$ between two points $P$ and $Q$. Let $\v{r}$ be the position vector at some point on
+the curve, and let $\dd\v{r}$ be an infinitesimal vector \emph{along} the curve at
+$\vr\,$.
+
+The \emph{magnitude} of ${\rm d}\v{r}$ is the infinitesimal \emph{arc length}: $\mbox{d}s
+  = \sqrt{{\rm d}\v{r}\cdot {\rm d}\v{r}}$
+
+If $\v{t}$ is the \emph{unit vector} tangent to the curve at $\vr$ ($\v{t}$ points in the
+direction of ${\rm d}\v{r}$ at $\v{r}$), then
+\[
+  \dd \vr \,=\, \vt \: \dd s
+  \qquad\mbox{or}\qquad
+  \frac{\dd\vr}{\dd s} \,=\, \vt
+\]
+The line integral is defined formally as a Riemann sum by dividing the curve into $n$
+intervals
+\[
+  \intC\v{a}\cdot \mbox{d}\v{r}
+  \,=\,
+  \intC \, \v{a}\cdot\vt \; \mbox{d}s
+  \,\equiv \,
+  \raisebox{-3ex}
+  {$
+      \shortstack{lim \\ $\small \delta s^{(i)}\to0$ \\ $\small n\to\infty$ }\;\,
+    $}
+  %             \,=\, \lim_{\stackrel{n\to\infty}{\it\small ds\to 0}}\;
+  \sum_{i=0}^{n-1}\;
+  \bigg(\v{a}\left(\v{r}^{(i)}\right)\cdot\vt^{(i)}\bigg)
+  \, \delta s^{(i)}
+\]
+the $i^{\rm th}$ interval having length $\delta s^{(i)}$, unit tangent vector
+$\vt^{(i)}$, \emph{etc}. It can be shown that the limit is unique for sufficiently smooth
+vector fields $\v{a}(\v{r})$.
+
+%$\v{r^*}$ is an arbitrary point between $\vr$ and $\vr+{\rm d}\v{r}$.
+
+In Cartesian coordinates, we have
+\begin{equation}
+  \intC\v{a}\cdot {\rm d}\v{r}
+  \,=\,
+  \intC \left(a_1 \mbox{d}x_1 + a_2 \mbox{d}x_2 + a_3 \mbox{d}x_3 \right)
+  \,=\,
+  \intC a_{i} \, {\rm d}x_i
+  %  \intC \sum_{i=1}^{3} a_{i} \, {\rm d}x_i
+\end{equation}
+where we used the summation convention in the last expression.
+
+\textbf{NB:} In general,
+\emph{the line integral depends on the path joining $P$ and $Q$}.  For
+example, the $a_1$ component is $a_1(x_1 , x_2 , x_3)$ and all three
+coordinates will generally change at once along the path. Therefore,
+you can \emph{not} compute $\int a_1 \,\mbox{d}x_1$ as an ordinary
+integral over $x_1$ holding $x_2$ and $x_3$ constant. That would only
+be correct if $x_2$ and $x_3$ were \emph{constant} along the path,
+\emph{i.e.} if the path were parallel to the $x_1$ axis. This is a
+common source of mistakes.
+
+\subsection{Parametric representation of line integrals}
+The definition above was rather formal. What follows is more useful in practice.
+
+Often a curve in 3d can be parameterised by a single real parameter, \emph{e.g.}~if the
+curve were the trajectory of a particle then a natural parameter would be the time $t$.
+Sometimes the parameter of a line integral is chosen to be the arc-length $s$ along the
+curve $C$.
+
+If we parameterise the curve by a real parameter $\lambda$ (varying from $\lambda_P$ to
+$\lambda_Q$) then we can write the three coordinates $x_i$ as functions of $\lambda$:
+\[
+  x_i \,=\, x_i(\lambda), \quad \mbox{with\ } \lambda_P \le \lambda \le \lambda_Q
+\]
+%In longhand notation:
+%\[
+%  x_1 \,=\, x_1(\lambda)\,, \quad
+%  x_2 \,=\, x_2(\lambda)\,, \quad
+%  x_3 \,=\, x_3(\lambda)\,,
+%\]
+
+\vspace*{-3ex}
+
+so that
+\[
+  \intC\v{a}\cdot {\rm d}\v{r}
+  \,=\,
+  \int_{\lambda_P}^{\lambda_Q}
+  \left( \v{a} \,\cdot\, \frac{{\rm d}\v{r}}{{\rm d}\lambda} \right)\,
+  {\rm d}\lambda
+  \,=\,
+  \int_{\lambda_P}^{\lambda_Q}
+  a_i\, \frac{{\rm d}x_i}{{\rm d}\lambda} \, {\rm d}\lambda
+  \,=\,
+  \int_{\lambda_P}^{\lambda_Q}
+  \left( a_1\, \frac{{\rm d}x_1}{{\rm d}\lambda} +
+  a_2\, \frac{{\rm d}x_2}{{\rm d}\lambda} +
+  a_3\, \frac{{\rm d}x_3}{{\rm d}\lambda}
+  \right) {\rm d}\lambda
+\]
+
+If necessary, the curve $C$ may be subdivided into sections, each with a different
+parameterisation (piecewise smooth curve).
+
+\paragraph{Example:}
+Let $\v{a}(\v{r}) = -ky\:\v{e}_{\,x} + kx \:\v{e}_{\,y}\,$, where $k$ is a positive
+constant.
+
+Evaluate $\int_C \v{a}\cdot {\rm d}\v{r}$ between the points with Cartesian coordinates
+$(1,0,0)$ and $(0,1,0)$ along the curve $C$:\ \ $x=\cos\lambda$, $y=\sin\lambda$, $z=0$
+where $0 \le \lambda \le \pi/2$.
+
+Convince yourself that $C$ is one quarter of a unit circle. Sketch the curve $C$ and the
+field $\v{a}(\v{r})$ on $C$.
+
+On the curve $C$, we have
+
+\vspace*{-5ex}
+
+\begin{eqnarray*}
+  \v{a}(\vr)
+  & = &
+  -ky \; \v{e}_{\,x} + kx \; \v{e}_{\,y}\,
+  \,=\,
+  -k\sin\lambda \; \v{e}_{\,x} + k\cos\lambda \; \v{e}_{\,y}  \\[0.75ex]
+  %
+  \vr
+  & = &
+  \cos\lambda\; \v{e}_{\,x} + \sin\lambda\; \v{e}_{\,y} \\[0.5ex]
+  %
+  \frac{{\rm d}\v{r}}{{\rm d}\lambda}
+  & = &
+  \left(-\sin\lambda\; \v{e}_{\,x}
+  +
+  \cos\lambda\; \v{e}_{\,y}\right)
+\end{eqnarray*}
+Therefore
+\[
+  \int_C \v{a}\cdot {\rm d}\v{r}
+  \,=\,
+  \int_{0}^{\pi/2}
+  \left( \v{a} \,\cdot\, \frac{{\rm d}\v{r}}{{\rm d}\lambda} \right)\,
+  {\rm d}\lambda
+  \,=\,
+  \int_{0}^{\pi/2} k \left(\sin^2\lambda+\cos^2\lambda\right)
+  {\rm d}\lambda
+  \,=\,
+  \int_{0}^{\pi/2} k \, {\rm d}\lambda
+  \,=\,
+  \frac{k\pi}{2}
+\]
+Note: the field $\v{a}$ is parallel to $\frac{\mbox{d}\v{r}}{\mbox{d}\lambda}$ and hence
+to $\mbox{d}\v{r}$, so the calculation is simple here.
+
+\paragraph{Example:}
+Let $\v{a}(\v{r})=(3x^2+6y)\:\v{e}_{\,x} - 14yz\:\v{e}_{\,y} + 20xz^2\:\v{e}_{\,z}$.
+
+Evaluate $\int_C \v{a}\cdot {\rm d}\v{r}$ between the points with Cartesian coordinates
+$(0,0,0)$ and $(1,1,1)$, along the two paths $C$:
+\begin{enumerate}
+  \item $(0,0,0) \rightarrow (1,0,0) \rightarrow (1,1,0) \rightarrow
+          (1,1,1)$
+
+        (These are $3$ contiguous straight lines parallel to the $x$, $y$ \&
+        $z$ axes respectively.)
+
+  \item $x=\lambda$, $y=\lambda^2$, $z=\lambda^3\,,\,$ from $\lambda=0$ to
+        $\lambda=1\,$.
+\end{enumerate}
+
+\begin{figure}[ht]
+  %
+  \centerline{\epsfxsize=5.8cm\includegraphics{tikz_line_paths.pdf} }
+  %
+\end{figure}
+
+\begin{enumerate}
+  \item
+        \begin{enumerate}
+
+          \item Along the line from $(0,0,0)$ to $(1,0,0)$, we have $y=z=0$, so ${\rm d}y={\rm d}z=0,$
+                hence ${\rm d}\v{r} = \v{e}_{\,x}\,{\rm d}x$ and $\v{a}=3x^2\,\v{e}_{\,x}$ (here the
+                parameter is just $x$ itself), and
+                \[
+                  \int^{(1,0,0)}_{(0,0,0)} \v{a}\cdot {\rm d}\v{r}
+                  \,=\,  \int^{x=1}_{x=0}3x^2\,{\rm d}x
+                  \,=\,  \left[x^3\right]_0^1 \,=\, 1
+                \]
+
+          \item Along the line from $(1,0,0)$ to $(1,1,0)$, we have $x=1$, ${\rm d}x=0$, $z={\rm d}z=0$,
+                so ${\rm d}\v{r} = \v{e}_{\,y}\,{\rm d}y$ (here the parameter is $y$), and
+                \begin{eqnarray*}
+                  \v{a}
+                  &=&
+                  \left(\left. 3x^2+6y\,\right)\right|_{x=1}\, \v{e}_{\,x}
+                  \,=\,
+                  (3+6y)\,\v{e}_{\,x} \\[1ex]
+                  %
+                  \Rightarrow \quad
+                  \int^{(1,1,0)}_{(1,0,0)} \v{a}\cdot {\rm d}\v{r}
+                  &=&
+                  \int^{y=1}_{y=0}\left(3+6y\right)
+                  \; \v{e}_{\,x} \!\cdot \v{e}_{\,y} \; {\rm d}y
+                  \,=\, 0
+                \end{eqnarray*}
+
+          \item Along the line from $(1,1,0)$ to $(1,1,1)$, we have $x=y=1$, ${\rm d}x={\rm d}y=0,$ and
+                hence ${\rm d}\v{r} = \v{e}_{\,z}\,{\rm d}z$ and
+                $\v{a}=9\,\v{e}_{\,x}-14z\,\v{e}_{\,y}+20z^2\, \v{e}_{\,z}\,$. Therefore
+                \[
+                  \int^{(1,1,1)}_{(1,1,0)} \v{a}\cdot {\rm d}\v{r}
+                  \,=\,
+                  \int^{z=1}_{z=0} 20 z^2 \, {\rm d}z
+                  \,=\,
+                  \left[\frac{20}{3} z^3 \right]_0^1
+                  \,=\,
+                  \frac{20}{3}
+                \]
+
+                Adding up the $3$ contributions, we get
+                \[
+                  \intC\v{a}\cdot {\rm d}\v{r}
+                  \,=\, 1 + 0 + \frac{20}{3}
+                  \,=\,
+                  \frac{23}{3}  \qquad \mbox{along path (i)}
+                \]
+
+        \end{enumerate}
+        %\vspace*{-2ex}
+  \item To integrate $\v{a}=(3x^2+6y)\,\v{e}_{\,x} - 14yz\v{e}_{\,y}\, + 20xz^2\v{e}_{\,z}$ along
+        path~(ii), we parameterise
+        \begin{eqnarray*}
+          \vr
+          & = &
+          \lambda\,\v{e}_{\,x}
+          +
+          \lambda^2\,\v{e}_{\,y}
+          +
+          \lambda^3\, \v{e}_{\,z} \\[1ex]
+          %
+          \frac{{\rm d}\vr}{{\rm d}\lambda}
+          &=&
+          \v{e}_{\,x} + 2\lambda\, \v{e}_{\,y} + 3\lambda^2\, \v{e}_{\,z}
+          \\[1ex]
+          %
+          \v{a}
+          & = &
+          \left(3\lambda^2+6\lambda^2\right)\,
+          \v{e}_{\,x} - 14\lambda^5\,\v{e}_{\,y} + 20\lambda^7\,\v{e}_{\,z}
+          \quad\mbox{so that} \\[1ex]
+          %\end{eqnarray*}
+          %\begin{eqnarray*}
+          \intC \left(\v{a}\cdot\frac{{\rm d}\vr}{{\rm d}\lambda}\right)\,
+          {\rm d}\lambda
+          &=&
+          \int^{\lambda=1}_{\lambda=0}
+          \left(9\lambda^2- 28\lambda^6+60\lambda^9\right)\, {\rm d}\lambda
+          \,=\,
+          \big[3\lambda^3-4\lambda^7+6\lambda^{10}\big]^1_0
+          \,=\,
+          5 \\[0.8ex]
+          %
+          \mbox{Hence}\qquad
+          \intC\v{a}\cdot {\rm d}\v{r}
+          &=&
+          5  \qquad \mbox{along path (ii)}
+        \end{eqnarray*}
+\end{enumerate}
+In this case, the integral of $\v{a}$ from $(0,0,0)$ to $(1,1,1)$
+depends on the path taken.
+
+\paragraph{Notes:}
+
+\begin{enumerate}
+
+  \item The line integral $\intC\v{a}\cdot {\rm d}\v{r}$ is a \emph{scalar} quantity. Another
+        \emph{scalar} line integral is $\intC f\, {\rm d}s$ where $f(\vr)$ is a scalar field and
+        ${\rm d}s = \sqrt{{\rm d}\v{r}\cdot {\rm d}\v{r}}$ is the infinitesimal arc-length
+        introduced earlier.
+
+        %{\it e.g.} the length of a curve is simply given by $\int_C {\rm d}s$.
+
+  \item A line integral around a \emph{simple} (doesn't intersect itself) \emph{closed} curve $C$
+        is denoted by the symbol $\ointC$
+        \[
+          \mbox{Example:}\quad \ointC \v{a}\cdot {\rm d}\v{r}
+          \,\equiv\, \mbox{the \emph{circulation} of $\v{a}$ around $C$}
+        \]
+
+\end{enumerate}
+
+\paragraph{Example:}
+Let $f(\vr) = ax^2 + by^2$. Evaluate $\ointC f\,{\rm d}s$ around the unit circle $C$
+centred on the origin in the $x{-}y$ plane:
+\[
+  x=\cos\phi, \, y=\sin\phi, \, z=0; \quad 0\leq\phi\leq2\pi.
+\]
+\begin{eqnarray*}
+  \mbox{On the curve $C$:} \hspace*{0.09\textwidth}
+  f(\vr)
+  & = &
+  ax^2 + by^2
+  \,=\,
+  a\cos^2\phi + b\sin^2\phi \hspace*{0.29\textwidth}\\[0.5ex]
+  \vr
+  & = &
+  \cos\phi\, \v{e}_{\,x} + \sin\phi\, \v{e}_{\,y} \\[0.25ex]
+  {\rm d}\v{r}
+  & = &
+  \left(-\sin\phi\, \v{e}_{\,x} + \cos\phi\, \v{e}_{\,y}\right)\, {\rm d}\phi\\
+  \Rightarrow \quad {\rm d}s & = & \sqrt{{\rm d}\v{r}\cdot {\rm d}\v{r}}
+  \,=\,
+  \left(\sin^2\phi+\cos^2\phi\right)^{1/2}\,{\rm d}\phi
+  \,=\,
+  {\rm d}\phi
+\end{eqnarray*}
+Therefore, in this example,
+\[
+  \ointC f\,{\rm d}s
+  \,=\,
+  \int^{2\pi}_0 \left(a\cos^2\phi + b\sin^2\phi \right) {\rm d}\phi
+  \,=\, \pi\left(a+ b\right)
+\]
+The \emph{length} $s$ of a curve $C$ is given by $s = \intC {\rm d}s$. In this example
+$\ds s = \int^{2\pi}_0 {\rm d}\phi = 2\pi$.
+
+%\medskip
+
+We can also define \emph{vector} line integrals, \emph{e.g.}
+\begin{enumerate}
+
+  \item
+        \(
+        \intC \v{a}\; {\rm d}s
+        \,=\,
+        \ei  \intC a_{i}\, {\rm d}s
+        \,=\,
+        \intC
+        \left(
+        \eone \: a_1 \,+\, \etwo \: a_2 \,+\, \ethree \: a_3 \,
+        \right)
+        {\rm d}s
+        \)
+        \ \ in Cartesian coordinates.
+
+  \item
+        \(
+        \intC \v{a}\times {\rm d}\v{r}
+        \,=\,
+        \ei \, \epsilon_{ijk} \,   \intC a_j \, {\rm d}x_k
+        %  \big[\,
+        %    \eone   \left(a_2 \, {\rm d}x_3 - a_3 \, {\rm d}x_2 \right)
+        %    \,+\,
+        %    \etwo   \left(a_3 \, {\rm d}x_1 - a_1 \, {\rm d}x_3 \right)
+        %    \,+\,
+        %    \ethree \left(a_1 \, {\rm d}x_2 - a_2 \, {\rm d}x_1 \right)
+        %  \big]
+        \)
+        \ \ in Cartesian coordinates, which is again a vector
+
+        The parametric form is simply \( \intC \v{a}\times {\rm d}\v{r} \,=\, \intC \left( \v{a}
+        \times \frac{\mbox{d}\v{r}}{\mbox{d}\lambda} \right) \, \mbox{d}\lambda \)
+
+  \item
+        \(
+        \intC f\, {\rm d}\v{r}
+        \,=\,
+        \ei \intC f \; {\rm d}x_i
+        \,=\,
+        \intC f \;
+        \left(
+        \eone   \, {\rm d}x_1
+        \,+\,
+        \etwo   \, {\rm d}x_2
+        \,+\,
+        \ethree \, {\rm d}x_3
+        \right)
+        \)
+        in Cartesian coordinates. In parametric form, this becomes
+        \(
+        \intC f\, {\rm d}\v{r}
+        \,=\,
+        \intC f \: \frac{\mbox{d}\v{r}}{\mbox{d}\lambda} \;\, \mbox{d}\lambda
+        \)
+
+\end{enumerate}
+
+Note that the result of performing the integral is a vector in each case.
+
+\mnote{16L 29/02/08}
+
+\newpage
+\subsection{Current loop in a magnetic field}
+Consider an electric current of magnitude $I$ flowing along a thin wire in the shape of a
+closed path $C$.
+
+The magnetic force on an element ${\rm d}\v{r}$ of the wire at $\v{r}$ due to an external
+magnetic field $\v{B}(\v{r})$ is given by the Lorentz force
+\[
+  {\rm d}\v{F}(\v{r})
+  \,=\,
+  I\, {\rm d}\v{r} \times \v{B}(\v{r})\,.
+\]
+The \emph{total} force $\v{F}$ on the wire is the vector sum of the forces on the
+individual elements, which is given by the line integral of ${\rm d}\v{F}$ around the
+closed curve $C$.
+\[
+  \v{F}
+  \,=\,
+  \ointC {\rm d}\v{F}
+  \,=\,
+  \ointC I \, {\rm d}\v{r} \times \v{B}(\v{r})
+  ~=
+  -I \ointC \v{B}(\v{r}) \times  {\rm d}\v{r}
+\]
+\parbox{0.55\textwidth}{\textbf{Example:} For the (unrealistic!) case
+  where the external magnetic field is $\vB(\vr) =
+    B_0 \big(x\,\v{e}_{\,x} + y\,\v{e}_{\,y}\big)$, evaluate the total
+  force on a circular current loop of radius $a$ which lies in the
+  $x{-}y$ plane and is centred on the origin.
+
+  \medskip
+
+  We parameterise the curve by the angle $\phi$ (as in plane polars), so that on the curve
+  $C$, we have } \hfill \parbox{0.42\textwidth}{ \epsfxsize=0.42\textwidth
+  \includegraphics{tikz_loop-in-B-field.pdf} }
+
+\vspace*{-5ex}
+
+\begin{eqnarray*}
+  \v{r}
+  & = &
+  a\cos\phi\,\v{e}_{\,x} + a\sin\phi\,\v{e}_{\,y} \\[1ex]
+  %
+  {\rm d}\v{r}
+  & = &
+  \big(-a\sin\phi\, \v{e}_{\,x} + a\cos\phi\,
+  \v{e}_{\,y}\big)\, {\rm d}\phi\\[1ex]
+  %
+  \vB
+  & = &
+  B_0 \big( a\cos\phi\,\v{e}_{\,x} + a\sin\phi\,\v{e}_{\,y} \big)
+  \\[1ex]
+  %
+  \Rightarrow\quad
+  \ointC\vB\times {\rm d}\v{r}
+  &=&
+  B_0 \,
+  \int^{2\pi}_0  \big(a^2\cos^2\phi + a^2\sin^2\phi \big)\,
+  \v{e}_{\,z}\; {\rm d}\phi
+  \,=\,
+  B_0 \,  \v{e}_{\,z}\; a^2 \int^{2\pi}_0 {\rm d}\phi
+  \,=\,
+  2\pi a^2 B_0 \, \v{e}_{\,z} \\[1ex]
+  \mbox{So} \quad
+  \v{F}
+  & = &
+  -2\pi a^2 B_0 I \, \v{e}_{\,z}
+  \quad \mbox{which is in a vertically downward direction.}
+\end{eqnarray*}
+
+\mnote{17L 10/03/09}
+
+%\vfill
+%\begin{flushright}
+%\tiny{K.C.~Bowler, March 2005}
+%\end{flushright}

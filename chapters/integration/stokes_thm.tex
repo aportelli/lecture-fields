@@ -1,0 +1,608 @@
+% !TEX root = ../../fields.tex
+%% Brian Lecture 17 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Line integral definition of curl}
+
+\parbox{0.62\textwidth}{Consider a small planar surface with unit
+  normal $\vn$ and (scalar) area $\delta S$, bounded by a
+  \emph{closed} curve $\delta C$, and containing the point $P$. Let
+  $\v{a}$ be a vector field defined on this surface.
+
+  \medskip
+
+  The component of $\curl\v{a}$ in the direction of $\vn$ is \emph{defined} to be} \hfill
+\parbox{0.35\textwidth}{ \epsfxsize=0.35\textwidth \includegraphics{tikz_loop.pdf} }
+
+\begin{center}
+  \vspace*{-1ex}
+  \bigbox{
+    \parbox{60mm}{
+      \vspace*{-1.5ex}
+      \[
+        % \v{n} \cdot \left({\rm curl\ }\v{a}\right)
+        %  \,=\,
+        \vn \, \cdot\, \left(\curl\v{a}\right)
+        \,=\,
+        \lim_{\delta S\to0} \; \frac{1}{\delta S}\;
+        \oint_{\delta C} \v{a} \,\cdot\, \mbox{d}\v{r}
+      \]
+      \vspace*{-2ex}
+    }
+  }
+\end{center}
+
+\paragraph{NB:} The integral around $\delta C$ is taken in the right-hand sense with respect to the
+normal $\vn$ to the surface -- as shown in the figure above.
+
+This definition of curl is \emph{independent of the choice of basis}.
+%respectively, but you are not required to prove this.
+
+\paragraph{Cartesian form of curl:}
+The usual Cartesian form for curl can be recovered from this general definition by
+considering small rectangles parallel to the $x{-}y$, $y{-}z$, and $z{-}x$ planes
+respectively.
+
+\parbox{0.5\textwidth}{Let $P$ be a point with Cartesian coordinates
+  $(x_0,y_0,z_0)$ situated at the \emph{centre} of a small rectangle
+  $\delta C=ABCD$ of size $\delta_x \times \delta_y$, area $\delta S =
+    \delta_x\, \delta_y$, parallel to the $x{-}y$ plane.
+
+  \bigskip\bigskip
+}
+\hfill
+\parbox{0.47\textwidth}{\epsfxsize=0.47\textwidth \includegraphics{tikz_curl.pdf} }
+
+The line integral around $\delta C$ is given by the sum of four terms
+\begin{eqnarray*}
+  \ointdC \v{a}\cdot \mbox{d}\v{r}
+  \,=\,
+  \int_A^B  \v{a}\cdot \mbox{d}\v{r}
+  \,+\,
+  \int_B^C  \v{a}\cdot \mbox{d}\v{r}
+  \,+\,
+  \int_C^D  \v{a}\cdot \mbox{d}\v{r}
+  \,+\,
+  \int_D^A  \v{a}\cdot \mbox{d}\v{r} \\[1ex]
+  \,=\,
+  \int_A^B  \v{a}\cdot \mbox{d}\v{r}
+  \,-\,
+  \int_C^B  \v{a}\cdot \mbox{d}\v{r}
+  \,-\,
+  \int_D^C  \v{a}\cdot \mbox{d}\v{r}
+  \,+\,
+  \int_D^A  \v{a}\cdot \mbox{d}\v{r}
+\end{eqnarray*}
+Since $\vr = x\,\ex+y\,\ey+z\,\ez$ we have
+$\mbox{d}\v{r}=\ex\,\mbox{d}x$ along $D\rightarrow A$ and
+$C\rightarrow B$, and $ \mbox{d}\v{r}=\ey\,\mbox{d}y$\\[0.5ex] along
+$A\rightarrow B$ and $D\rightarrow C$.  Therefore
+\[
+  \ointdC \v{a}\cdot \mbox{d}\v{r}
+  \,=\,
+  \int_A^B  a_y\, \mbox{d}y
+  \,-\,
+  \int_C^B  a_x\, \mbox{d}x
+  \,-\,
+  \int_D^C  a_y\, \mbox{d}y
+  \,+\,
+  \int_D^A  a_x\, \mbox{d}x
+\]
+For small $\delta_x$ and $\delta_y$, we can Taylor expand the integrands about $y=y_0$,
+\begin{eqnarray*}
+  \int_D^A a_x\, \mbox{d}x
+  & = &
+  \int_D^A a_x(x,y_0-\delta_y/2,z_0) \, \mbox{d}x \\[1ex]
+  %
+  & = &
+  \int_{x_0-\delta_x/2}^{x_0+\delta_x/2}
+  \left[
+    a_x(x,y_0,z_0)
+    \,-\,
+    \frac{\delta_y}{2}\; \parpar{a_x}{y}\bigg|_{(x,y_0,z_0)}
+    \,+\,
+    O(\delta_y^2)
+    \right]\, \mbox{d}x \\[1.5ex]
+  %
+  \int_C^B a_x\, \mbox{d}x
+  & = &
+  \int_C^B a_x(x,y_0+\delta_y/2,z_0) \, \mbox{d}x\\[1ex]
+  %
+  & = &
+  \int_{x_0-\delta_x/2}^{x_0+\delta_y/2}
+  \left[
+    a_x(x,y_0,z_0)
+    \,+\,
+    \frac{\delta_y}{2}\; \parpar{a_x}{y}\bigg|_{(x,y_0,z_0)}
+    \,+\,
+    O(\delta_y^2)
+    \right]\, \mbox{d}x
+\end{eqnarray*}
+so
+\begin{eqnarray*}
+  \frac{1}{\delta S}
+  \left[
+    \int_D^A
+    \v{a}\cdot \mbox{d}\v{r} \,+\, \int_B^C  \v{a}\cdot \mbox{d}\v{r}\right]
+  & = &
+  \frac{1}{\delta_x\, \delta_y}
+  \left[
+    \int_D^A a_x\, \mbox{d}x \,-\, \int_C^B a_x\, \mbox{d}x
+    \right]\\[1ex]
+  %
+  & = &
+  \frac{1}{\delta_x \delta_y}\;  \int_{x_0-\delta_x/2}^{x_0+\delta_x/2}
+  \left[
+    -\delta_y \parpar{a_x}{y}\bigg|_{(x,y_0,z_0)} \,+\, O(\delta_y^2)
+    \right] \, \mbox{d}x \\[1ex]
+  %
+  & \to &
+  -\parpar{a_x}{y}\bigg|_{(x_0,y_0,z_0)}
+  \quad \mbox{as}\quad \delta_x,\, \delta_y \to 0
+\end{eqnarray*}
+In the last step, as we take the limit $\delta_x \to 0$, the
+integrand tends to a constant in the region of integration:
+\[
+  \parpar{a_x}{y}\bigg|_{(x,y_0,z_0)}
+  ~\to~
+  \parpar{a_x}{y}\bigg|_{(x_0,y_0,z_0)}
+\]
+and the integral over $x$ is then trivial (as the integrand is a constant).
+
+A similar analysis of the line integrals along $A\rightarrow B$ and $C\rightarrow D$
+gives (exercise)
+\[
+  \frac{1}{\delta S}
+  \left[
+    \int_A^B \v{a}\cdot \mbox{d}\v{r} \,+\, \int_C^D \v{a}\cdot \mbox{d}\v{r}
+    \right]
+  ~\rightarrow~
+  \parpar{a_y}{x}\bigg|_{(x_0,y_0,z_0)}
+  \quad \mbox{as}\quad \delta_x,\, \delta_y \to 0
+\]
+
+Adding the results gives, for our line integral definition of curl,
+\[
+  \ez \cdot \left(\curl\v{a}\right)
+  \,=\,
+  \left(\curl\v{a}\right)_z
+  \,=\,
+  \left[ \parpar{a_y}{x} - \parpar{a_x}{y} \right]_{\:(x_0,\,y_0,\,z_0)}
+\]
+in agreement with our original definition in Cartesian coordinates.
+
+The other components of $\v{\nabla}\times\v{a}$ can be obtained from similar rectangles
+parallel to the $y{-}z$ and $x{-}z$ planes, respectively.
+
+It can be shown that $\v{\nabla}\times\v{a}$, when defined in this way, is independent of
+the \emph{shape} of the infinitesimal area $\delta S$.
+
+%\mnote{20L 20/03/09}
+
+\newpage
+
+\subsection{Physical/geometrical interpretation of curl}
+Consider a force field $\v{F}(\v{r}),$ and let $\delta C$ be a small rectangular contour
+which encloses an area $\delta S$ in the $x{-}y$ plane -- as in the line-integral
+definition of curl above.
+
+The \emph{work done} on a (point) test particle in moving it around the closed curve
+$\delta C$ is
+\[
+  \oint_{\delta C} \v{F}\cdot \mbox{d}\v{r}
+  \,=\,
+  \mbox{\emph{circulation} of $\v{F}(\v{r})$ about $\delta C$}
+\]
+From the integral definition of curl, we know that for small $\delta S$
+\[
+  \oint_{\delta C} \v{F}\cdot \mbox{d}\v{r}
+  ~\approx~
+  \left( \v{\nabla}\times\v{F}\right)_z \, \delta S
+\]
+Therefore $\,\left(\v{\nabla}\times\v{F}\right)_z \, \neq \, 0 \;$ is equivalent to
+saying that a non-zero amount of work is done in moving the test particle around a small
+closed path in the $x{-}y$ plane.
+
+Alternatively one can think of the non-zero circulation of $\v{F}$ as causing a small
+test particle to \emph{rotate} about its centre, with the axis of rotation in the
+direction of $\curl\v{F}$.
+
+More generally, $\vn\cdot\left(\v{\nabla}\times\v{a}\right)$ is a measure of the net
+\emph{circulation} (per unit area) of the vector field $\v{a}$ about an
+\emph{infinitesimal} area $\mbox{d}S$ with normal $\vn$.
+
+\begin{center}
+  \epsfxsize=0.9\textwidth
+  \includegraphics{tikz_net_circulation.pdf}
+\end{center}
+
+%\vspace*{-3ex}
+
+%xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+%\subsection{Physical Interpretation of Curl}
+%We illustrate the meaning of curl in physics by means of a
+%simple example (see figure).
+%
+%Consider a force $\v{F}= a y \v{e}_x$ so that $\displaystyle
+%\parpar{F_1}{y}\neq0$ and let $C$ be a small rectangular contour in
+%the ($\v{e}_x{-}\v{e}_y$) plane, enclosing an area $\delta S$.
+%\begin{center}
+%\epsfxsize=10cm
+%%\epsfxsize=12cm
+%\includegraphics{tikz_small_loop.pdf}
+%\end{center}
+%The \emph{ work done} on a test particle in moving it around the closed
+%curve $C$ is
+%\begin{center}
+%\vspace*{-1ex}
+%\bigbox{
+%\parbox{80mm}{
+%\vspace*{-1.5ex}
+%\[
+%\ointC \v{F}\cdot \mbox{d}\v{r}\quad
+%                        \mbox{= \emph{circulation} of $\v{F}$ about $C$}
+%\]
+%\vspace*{-2.5ex}
+%}}
+%\end{center}
+%(Remember that when the line integral of $\v{F}$ around a closed
+%curve is non-zero the force is non-conservative which implies
+%curl $\v{F}$ is non-zero.)
+%The integral is given by the sum of four terms
+%\begin{eqnarray*}
+%        \ointC \v{F}\cdot \mbox{d}\v{r}
+%                & = &   \int_A^B \v{F}\cdot \mbox{d}\v{r} \,+\,
+%                        \int_B^C \v{F}\cdot \mbox{d}\v{r} \,+\,
+%                        \int_C^D \v{F}\cdot \mbox{d}\v{r} \,+\,
+%                        \int_D^A \v{F}\cdot \mbox{d}\v{r} \\[1ex]
+%                & = &   \int_A^B F_x\,\mbox{d}x \,-\, \int_d^C F_x\,\mbox{d}x
+%\end{eqnarray*}
+%The $2$nd and $4$th terms vanish because $\v{F}\cdot \mbox{d}\v{r}=0$
+%along the vertical lines $bc$ and $ad$.\\[0.1ex]
+%
+%In the example (see figure), $F_x= ay$ $\ds \quad
+%\parpar{F_x}{y}\neq0, \quad$ therefore $\ds \quad \int_A^B F_x\,\mbox{d}x
+%\;\neq\; \int_D^C F_x\,\mbox{d}x$.  Hence
+%\[
+%        \ointC\v{F}\cdot \mbox{d}\v{r}\;\neq\;0.
+%\]
+%But, from the integral definition of curl, we know that
+%\[
+%        \ointC\v{F}\cdot \mbox{d}\v{r} \approx \left(
+%        \v{\nabla}\times\v{F}\right)_z
+%        \, \delta S
+%\]
+%Therefore $\,\left(\v{\nabla}\times\v{F}\right)_z \, \neq \, 0 \; $ (in
+%our example it is equal to $-a$) is equivalent to saying that a
+%non-zero amount of work is done in moving the test particle around the
+%small closed path.  Alternatively one can think of the non-zero
+%circulation of $\v{F}$ causing a small test particle to \emph{rotate}
+%about its centre with axis of rotation in the $-\v{e}_z$ direction
+%(using r.h. thumb rule).
+%
+%Thus, in general, $\vn\cdot\left(\v{\nabla}\times\v{F}\right)$ is a
+%measure of the \emph{circulation} of the vector field $\v{F}$ about an
+%\emph{infinitesimal} area with normal $\vn$.
+%(It can be shown that $\v{\nabla}\times\v{F}$, when defined in this way,
+%is independent of the shape of the infinitesimal area $\delta S$.)  
+%xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+\subsection{Stokes' theorem}
+
+\parbox{0.58\textwidth}{Let $S$ be an \emph{open} surface, bounded by
+  a simple \emph{closed} curve $C$, and let $\v{a}$ be a vector field
+  defined on $S$, then
+  \begin{center}
+    \bigbox{
+      \parbox{0.4\textwidth}{
+        \[
+          \intS \left(\curl\v{a}\right) \cdot \mbox{d}\v{S}
+          \,=\,
+          \ointC \v{a}\cdot \mbox{d}\v{r}
+        \]
+      }}
+  \end{center}
+  where $C$ is traversed in a right-hand sense about $\mbox{d}\v{S}$.
+  As usual, $\mbox{d}\v{S} = \vn \, \mbox{d}S$ where $\vn$ is the unit
+  normal to $S$.
+}
+\hfill
+\parbox{0.38\textwidth}{
+  \epsfxsize=0.38\textwidth
+  \includegraphics{tikz_stokes.pdf}
+}
+
+%\emph{Proof:} {\it (D 6.1; RHB 9.9)}
+
+\newpage
+
+\paragraph{Proof:}
+Divide the surface $S$ into $N$ adjacent small surfaces. Let $\delta \v{S}^{(i)} = \delta
+  S^{(i)}\, \v{n}^{(i)}$ be the vector element of area at $\vr^{(i)}$, enclosed by the
+curve $\delta C^{(i)}$.
+
+\centerline{\epsfxsize=0.4\textwidth \includegraphics{tikz_mesh.pdf}}
+
+Start with the integral definition of curl
+\[
+  \vn \cdot \left(\curl\v{a}\right)
+  \,=\,
+  \lim_{\delta S\to0} \; \frac{1}{\delta S}\;
+  \oint_{\delta C} \v{a}\cdot \mbox{d}\v{r} \,,
+\]
+For a small but not infinitesimal open surface $\delta S^{(i)}$
+\[
+  \bigg( \curl \v{a}\left(\vr^{(i)}\right)\bigg)
+  \cdot \vn^{(i)}
+  \,=\,
+  \frac{1}{\delta S^{(i)}} \oint_{\delta C^{(i)}} \v{a}\cdot \mbox{d}\v{r}
+  \,+\,
+  \epsilon^{(i)}
+\]
+where $\epsilon^{(i)}\to0$ as $\delta S^{(i)}\to0$.
+
+Multiply by $\delta S^{(i)}$ (before taking the limit), and sum over all $i$ to get
+\[
+  \sum_{i=1}^{N}\:
+  \bigg( \curl \v{a}\left(\vr^{(i)}\right)\bigg)
+  \cdot \vn^{(i)}\: \delta S^{(i)}
+  \,=\,
+  \sum_{i=1}^{N}\: \oint_{\delta C^{(i)}} \v{a}\cdot \mbox{d}\v{r}
+  %  \,+\, \ldots
+  \,+\, \sum_{i=1}^{N}\; \epsilon^{(i)}\, \delta S^{(i)}
+\]
+Since each small closed curve $\delta C^{(i)}$ is traversed in the \emph{same} sense,
+then, from the diagram, all contributions to ${\ds \sum_{i=1}^{N}\; \oint_{\delta
+        C^{(i)}}} \v{a}\cdot \mbox{d}\v{r}$ \emph{cancel}, except on those curves where part of
+$\delta C^{(i)}$ lies on\\[0.7ex] the curve $C$.  For example, the line integrals along
+the \emph{common} section of the two small closed curves $\delta
+  C^{(1)}$ and $\delta C^{(2)}$ in the figure \emph{cancel exactly}.
+Therefore
+\[
+  \sum_{i=1}^{N}\;\oint_{\delta C^{(i)}} \v{a}\cdot \mbox{d}\v{r}
+  \,=\,
+  \ointC \v{a}\cdot \mbox{d}\v{r}
+\]
+Hence, as $N\to\infty$,
+\[
+  \ointC \v{a}\cdot \mbox{d}\v{r}
+  \,=\,
+  \intS \left(\curl\v{a}\right) \cdot \mbox{d}\v{S}
+  \,=\,
+  \intS \vn\cdot\left(\curl\v{a}\right) \; \mbox{d}S
+\]
+
+\paragraph{Mathematical note:} For those worried about the `error term', note that, for finite $N$, we can establish an
+upper bound \vspace*{-1ex}
+\[
+  \left| \sum_{i=1}^{N}\; \epsilon^{(i)}\, \delta S^{(i)} \right|
+  \;\le\; S \;
+  \raisebox{-1.6ex}{$ \shortstack{max \\ \scriptsize{$i$} } $}
+  \left\{ \left|\epsilon^{(i)} \right|\right\}
+\]
+The RHS tends to zero in the limit $N\to\infty$, because $S$ is finite and
+$\epsilon^{(i)}\to0,$ $\,\forall i$. A similar analysis works in the proof of the
+divergence theorem.\footnote{The case of an infinite surface $S$ (or infinite $V$ in the
+  case of the divergence theorem) requires more care.}
+
+\subsection{Examples of the use of Stokes' theorem}
+\label{example_stokes}
+
+\paragraph{Hemisphere:} Given the vector field $\v{a} = 4y \, \v{e}_{\,x} + x \, \ey + 2z \, \ez\,$, verify
+Stokes' theorem for \\[0.5ex] the
+(open) hemispherical surface $x^2 + y^2 + z^2 = R^2$ with $z > 0$.
+
+In this case, we have $\curl\v{a} = -3\,\ez\,$, and we have shown previously that
+$\mbox{d}\v{S} = R^2\sin\theta \, \mbox{d}\theta \, \mbox{d}\phi \, \er$ on the surface
+of a (hemi)sphere of radius $R$. Direct integration then gives
+\begin{eqnarray*}
+  \int_{S_C} \curl \v{a}\cdot \mbox{d}\v{S}
+  &=&
+  \int_{S_C} (-3 \ez) \cdot
+  R^2 \, \sin\theta \, \mbox{d}\theta \, \mbox{d}\phi \, \er \\[1ex]
+  &=&
+  -3 R^2 \int_0^{\pi/2} \, \sin\theta  \cos\theta\, \mbox{d}\theta
+  \; \int_0^{2\pi} \mbox{d}\phi
+  \,=\,
+  -3 \pi R^2
+\end{eqnarray*}
+
+%\end{document}
+
+%\newpage
+
+We can check our result using Stokes' theorem. The closed curve $C$ bounding the
+hemisphere is a circle of radius $R$ in the $x{-}y$ plane. Parameterising this by $x =
+  R\cos\phi$, $y = R\sin\phi$, $z=0$, gives $\mbox{d}x = -R\sin\phi\,\mbox{d}\phi$,\ \
+$\mbox{d}y = R\cos\phi\,\mbox{d}\phi$, and $a_x = 4y = 4R\sin\phi$, $a_y = x =
+  R\cos\phi$, $a_z=2z=0$. Hence
+\begin{eqnarray*}
+  \oint_C \v{a}\cdot \mbox{d}\v{r}
+  &=&
+  \oint_C (4y \, \mbox{d}x + x \, \mbox{d}y) \\[1ex]
+  &=&
+  \int_0^{2\pi}
+  \left( -4R^2\sin^2\phi + R^2 \cos^2\phi \right)\,\mbox{d}\phi
+  \,=\,
+  -3\pi R^2
+\end{eqnarray*}
+
+\paragraph{Planar areas:}
+Consider a planar surface $S$ parallel to the $x{-}y$ plane, bounded by a closed curve
+$C$, and let the vector field $\v{a}(\v{r})$ be
+\[
+  \v{a}
+  \,=\,
+  \frac{1}{2} \left[ -y \, \ex + x \, \ey \right]
+\]
+In this case $\curl \v{a} = \v{e}_{\,z}$, and the vector element of area normal to the
+$x{-}y$ plane is $\mbox{d}\v{S} = \mbox{d}S\,\ez$. Hence
+\[
+  \int_S \curl\v{a} \cdot \mbox{d}\v{S}
+  \,=\,
+  \int_S \v{e}_{\,z}\cdot \mbox{d}\v{S} = \int_S \mbox{d}S
+  \,=\,
+  S
+\]
+We can then use Stokes' theorem to find the area of the surface
+\begin{eqnarray*}
+  S
+  &=&
+  \ointC \v{a}\cdot  \mbox{d}\v{r}
+  \,=\,
+  \frac{1}{2} \ointC
+  (-y \, \ex + x \ey)
+  \cdot
+  (\mbox{d}x \, \v{e}_{\,x} + \mbox{d}y \, \v{e}_{\,y} )
+\end{eqnarray*}
+which gives
+\[
+  S = \frac{1}{2} \ointC (x\,\mbox{d}y - y\,\mbox{d}x)
+\]
+
+\textbf{Example:} Find the area inside the curve
+\[
+  x^{2/3}+y^{2/3} =1 \, .
+\]
+The curve can be parameterised by $x= \cos^3 \phi$, $y= \sin^3 \phi$, for $0\leq \phi
+  \leq 2\pi$, so that
+\[
+  \frac{\mbox{d}x}{\mbox{d}\phi} = -3\cos^2\phi\, \sin\phi\;,
+  \quad
+  \frac{\mbox{d}y}{\mbox{d}\phi} = 3\sin^2\phi\, \cos\phi
+\]
+which gives
+\begin{eqnarray*}
+  S
+  &=&
+  \frac{1}{2} \ointC (x\,\mbox{d}y - y\,\mbox{d}x)
+  \,=\,
+  \frac{1}{2} \ointC
+  \left(
+  x\,\frac{\mbox{d}y}{\mbox{d}\phi} -
+  y\,\frac{\mbox{d}x}{\mbox{d}\phi}
+  \right)
+  \,\mbox{d}\phi
+  \\[1ex]
+  &=&
+  \frac{1}{2} \int_{0}^{2\pi}
+  \left(
+  3\cos^4\phi \, \sin^2\phi + 3 \sin^4\phi \, \cos^2\phi
+  \right) \mbox{d}\phi \\[1ex]
+  &=&
+  \frac{3}{2} \int_{0}^{2\pi} \sin^2\phi \, \cos^2\phi \, \mbox{d}\phi
+  \,=\,
+  \frac{3}{8} \int_{0}^{2\pi} \sin^2 2 \phi \,  \mbox{d}\phi
+  \,=\,
+  \frac{3\pi}{8}
+\end{eqnarray*}
+
+%\newpage
+
+\subsection{Corollaries of Stokes' theorem}
+We may deduce several immediate consequences of Stokes' theorem,
+\[
+  \int_S \, \left(\v{\nabla}\times\v{a}\right) \cdot \mbox{d}\v{S}
+  \,=\,
+  \oint_C \, \v{a}\cdot \mbox{d}\v{r}
+\]
+where $C$ is the boundary (traversed in the anticlockwise direction) of the open surface
+$S$.
+
+\begin{enumerate}
+
+  \item If $\v{a} = \v{c}$, where $\v{c}$ is a constant vector, then $\curl \v{a}=0$. Therefore
+        $\ds \v{c}\cdot \oint_C\, \mbox{d}\v{r} = 0$, and because $\v{c}$ is arbitrary, we have
+        \[
+          \oint_C \, \mbox{d}\v{r} \,=\, 0
+        \]
+
+        %\item Take $\v{a} = -Q(x,y) \, \ex + P(x,y) \, \ey$, and $S$ to lie in
+        %  the $x{-}y$ plane with area $A$. Then
+        %\begin{eqnarray*}
+        %  \curl \v{a} 
+        %  &=&
+        %  \left(
+        %       \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y}
+        %  \right) \ez
+        %  \quad\mbox{and}\quad
+        %  \mbox{d}\v{S} \,=\, \mbox{d}x \, \mbox{d}y \: \ez \\[1ex]
+        %%
+        %  \v{a}\cdot \mbox{d}\v{r}
+        %  &=& -Q \, \mbox{d}x + P \, \mbox{d}y
+        %  \nonumber
+        %\end{eqnarray*}
+        %so 
+        %\begin{eqnarray*}
+        %  \int_A
+        %  \left(
+        %    \frac{\partial P}{\partial x} 
+        %    +
+        %    \frac{\partial Q}{\partial y}
+        %  \right)
+        %  \, \mbox{d}x \, \mbox{d}y
+        %  \,=\,
+        %  \oint_C \left( -Q \, \mbox{d}x + P \, \mbox{d}y \right)
+        %\end{eqnarray*}
+        %which is again Green's theorem in the plane, sometimes known as
+        %Stokes' theorem in the plane.
+        %
+        %Taking $P = x/2$ and $Q = y/2$ and gives the planar area result of the
+        %previous section. Indeed, Green's theorem is a generalisation of this
+        %result.
+
+  \item Applying Stokes' theorem to $\v{a} = \phi \, \v{c}$ where $\v{c}$ is a constant vector,
+        we have
+        \[
+          \curl\left(\phi \, \v{c}\right)
+          \,=\,
+          \left(\grad \phi\right) \times \v{c}
+          +
+          \phi\left( \curl \v{c} \right)
+          \,=\,
+          \left(\grad \phi\right) \times \v{c}
+          +
+          0
+        \]
+        Hence
+        \[
+          \left( \curl \left(\phi \, \v{c}\right) \right) \cdot \mbox{d}\v{S}
+          \,=\,
+          \left(\left(\grad \phi\right) \times \v{c} \right)\cdot \mbox{d}\v{S}
+          \,=\,
+          \v{c} \cdot (\mbox{d}\v{S}\times \v{\nabla}\phi )
+        \]
+        which gives
+        \[
+          \int_S\, \left( \v{\nabla}\times(\phi \, \v{c})\right)\cdot \mbox{d}\v{S}
+          \,=\,
+          \v{c}\cdot \int_S\, \mbox{d}\v{S} \times \v{\nabla}\phi
+          \,=\,
+          \v{c}\cdot \oint_C\, \phi \, \mbox{d}\v{r}
+        \]
+        This holds for all constant vectors $\v{c}$, so
+        \[
+          \oint_C \, \phi \: \mbox{d}\v{r}
+          \,=\,
+          \int_S \, \mbox{d}\v{S} \times \v{\nabla}\phi
+          \,=\,
+          -\int_S \, \v{\nabla}\phi \times  \mbox{d}\v{S}
+        \]
+        Such results are hard to remember, but as we have seen, they can be derived quite easily.
+
+  \item In terms of indices, Stokes' theorem is
+        \[
+          \epsilon_{ijk} \int_S \, \frac{\partial a_k}{\partial x_j} \, \mbox{d}S_i
+          \,=\,
+          \oint_C \, a_k \, \mbox{d}x_k
+        \]
+
+        %For a second-rank tensor $T$, we again regard one index as a
+        %`spectator' index, so
+        %\[
+        %  \epsilon_{ijk} \int_S \,\frac {\partial T_{kl}}{\partial x_j} \, \mbox{d}S_i
+        %  \,=\,
+        %  \oint_C \, T_{kl} \, \mbox{d}x_k
+        %\]
+        %This is the \emph{generalised Stokes' theorem}. In particular, with
+        %$T_{kl} = \phi \, \delta_{kl}$ we recover the result in (ii) above.
+
+\end{enumerate}

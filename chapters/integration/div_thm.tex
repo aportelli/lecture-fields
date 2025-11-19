@@ -1,0 +1,846 @@
+% !TEX root = ../../fields.tex
+%% Brian Lecture 16 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Integral definition of divergence}
+
+Let $\v{a}$ be a vector field in the region $R$, and let $P$ be a point in $R$, then the
+divergence of $\v{a}$ at $P$ may be \emph{defined} by
+\begin{center}
+  \bigbox{
+    \parbox{50mm}{
+      \[
+        \rm{div}\, \v{a}
+        \,=\,
+        \lim_{\delta V\to0}\; \frac{1}{\delta V}\,
+        \int_{\delta S} \v{a}\,\cdot\, \mbox{d}\v{S}
+      \]}
+  }
+\end{center}
+where $\delta S$ is a \emph{closed} surface in $R$ which encloses the
+volume $\delta V$.  The limit must be taken so that the point $P$ is
+within $\delta V$. It can be shown that the limit is independent of
+the \emph{shape} of $\delta V$.
+
+This definition of $\rm{div}\,\v{a}$ is also \emph{basis independent}.
+%We shall not give a proof of this result.
+
+We now show that our original definition of $\Div \v{a}$ is recovered in Cartesian
+co-ordinates.
+
+\parbox{0.6\textwidth}{Let $P$ be a point with Cartesian coordinates
+  $(x_0, \, y_0, \, z_0)$ situated at the \emph{centre} of a
+  \emph{small} rectangular block of size $\delta_x \times \delta_y
+    \times \delta_z$, with volume $\delta V= \delta_x\, \delta_y\,
+    \delta_z$.
+  \begin{itemize}
+    \item On the \emph{front} face of the block, parallel to the $y{-}z$ plane at
+          $x=x_0+\delta_x/2$, we have \emph{outward} normal $\vn=\v{e}_{\,x}$ and so $
+            \mbox{d}\v{S} = \v{e}_{\,x}\, \mbox{d}y\, \mbox{d}z$
+
+    \item On the \emph{back} face of the block, parallel to the $y{-}z$ plane at
+          $x=x_0-\delta_x/2$, we have \emph{outward} normal $\vn=-\v{e}_{\,x}$ and so
+          $\mbox{d}\v{S} = -\v{e}_{\,x}\, \mbox{d}y\, \mbox{d}z$
+  \end{itemize}
+}
+%
+\hfill
+%
+\parbox{0.37\textwidth}{
+  \epsfxsize=0.37\textwidth
+  \includegraphics{tikz_cube_div.pdf}
+}
+
+Hence $\v{a}\cdot \mbox{d}\v{S} = \pm \, a_x\, \mbox{d}y\,\mbox{d}z$ on these two faces.
+Let us denote the union of the two faces orthogonal to the $x$ axis by $\delta S_x$.
+
+The contribution of these two surfaces to the integral $\int_{\delta S}\v{a}\cdot
+  \mbox{d}\v{S}$ is given by
+\begin{eqnarray*}
+  \int_{\delta S_x}\v{a}\cdot \mbox{d}\v{S}
+  & = &
+  \int_z\!\int_y
+  \bigg\{
+  a_x(x_0+\delta_x/2,y,z) - a_x(x_0-\delta_x/2,y,z)
+  \bigg\}
+  \: \mbox{d}y \, \mbox{d}z \\[1.5ex]
+  %
+  & = &
+  \int_z \int_y
+  \left\{\:
+  \left[
+    a_x(x_0,y,z) \,+\, \frac{\delta_x}{2}\;\parpar{a_x}{x}\bigg|_{(x_0,y,z)}
+    + \; O(\delta_x^2)
+    \right]
+  \right. \\[1ex]
+  &   &
+  \hspace*{9ex}
+  \left. - \;
+  \left[
+    a_x(x_0,y,z) \,-\, \frac{\delta_x}{2}\: \parpar{a_x}{x}\bigg|_{(x_0,y,z)}
+    + \; O(\delta_x^2)\,
+    \right]
+  \: \right\}
+  \; \mbox{d}y \, \mbox{d}z \\[1.5ex]
+  & = &
+  \int_z \int_y \,\delta_x \, \parpar{a_x}{x}\bigg|_{(x_0,y,z)}
+  \mbox{d}y \, \mbox{d}z
+\end{eqnarray*}
+where we Taylor-expanded $a_x(x,y,z)$ about the point $(x_0,y,z)$, and
+dropped the $O(\delta_x^2)$ terms which will vanish when we divide by
+$\delta V$ at the end.
+
+So
+\[
+  \frac{1}{\delta V}\; \int_{\delta S_x} \v{a}\cdot \mbox{d}\v{S}
+  \,=\,
+  \frac{1}{\delta_y\, \delta_z}
+  \int_z\int_y \; \parpar{a_x}{x}\bigg|_{(x_0,y,z)} \: \mbox{d}y \, \mbox{d}z
+\]
+As we take the limit $\delta_x,\delta_y,\delta_z \to 0$, the integrand tends to a
+constant in $\delta V$, so the \\[1ex] integral over $y$
+and $z$ tends to $\delta_y \:\! \delta_z
+  \ds\left. \parpar{a_x}{x}\right|_{(x_0,y_0,z_0)}\,$ and we obtain
+\[
+  \lim_{\delta V\to0} \;
+  \frac{1}{\delta V}\; \int_{\delta S_x} \v{a}\cdot \mbox{d}\v{S}
+  \,=\,
+  \parpar{a_x}{x}\bigg|_{(x_0,y_0,z_0)}
+\]
+Adding similar contributions from the other $4$ faces, we find
+\[
+  {\rm div}\,\v{a}
+  \,=\,
+  \parpar{a_x}{x} + \parpar{a_y}{y} + \parpar{a_z}{z}
+  \,=\,
+  \Div\v{a}
+\]
+in agreement with our original definition in Cartesian co-ordinates. Thus we can continue
+to use the notation $\v{\nabla}\cdot\v{a}$ for \emph{both} forms for the divergence of a
+vector field $\v{a}(\v{r})$.
+
+The integral definition
+\[
+  \rm{div}\, \v{a}
+  \,=\,
+  \Div \v{a}
+  \,=\,
+  \lim_{\delta V\to0}\; \frac{1}{\delta V}\,
+  \int_{\delta S} \v{a}\,\cdot\, \mbox{d}\v{S}
+\]
+provides a precise intuitive understanding of divergence as the (net) flux per unit
+volume leaving a small volume around a point $\vr$. In pictures, for an infinitesimal
+volume $\mbox{d}V$,
+\begin{center}
+  \epsfxsize=0.9\textwidth
+  \includegraphics{tikz_net_flux.pdf}
+\end{center}
+\vspace*{-4ex}
+
+\mnote{18L 07/03/08}
+
+%\newpage
+
+\subsection{The divergence theorem (Gauss' theorem)}
+
+Let $\v{a}$ be a vector field in a volume $V$, and let $S$ be the closed surface bounding
+$V$, then
+\begin{center}
+  \bigbox{$
+      \intV \Div \v{a} \; \mbox{d}V
+      \,=\,
+      \intS \v{a}\cdot \mbox{d}\v{S} \label{eq:div-th}
+    $}
+\end{center}
+
+\paragraph{Proof:}
+We derive the divergence theorem using the integral definition of $\v{\nabla}\cdot\v{a}$
+\[
+  \v{\nabla} \cdot \v{a}
+  \,=\,
+  \lim_{\delta V\to0}\; \frac{1}{\delta V} \,  \int_{\delta S} \,
+  \v{a} \cdot \mbox{d}\v{S}.
+\]
+Since this \emph{definition} of $\v{\nabla}\cdot\v{a}$ is valid for volumes of arbitrary
+shape, we can build a smooth surface $S$ from a large number, $N$, of small blocks of
+volume $\delta V^{(i)}$ and area $\delta S^{(i)}$. For small, but not infinitesimal,
+$\delta S^{(i)}$ we may write
+\[
+  \v{\nabla}\cdot \v{a}\:\!(\vr^{(i)})
+  \,=\,
+  \frac{1}{\delta V^{(i)}}\, \int_{\delta S^{(i)}} \, \v{a}\cdot \mbox{d}\v{S}
+  + \epsilon^{(i)}
+\]
+where $\epsilon^{(i)}\to0$ as $\delta V^{(i)}\to0$. Now multiply both sides by $\delta
+  V^{(i)}$ and sum over all $i$
+\begin{equation}
+  \sum_{i=1}^{N}\; \v{\nabla}\cdot\v{a}\:\!(\vr^{(i)}) \; \delta V^{(i)}
+  \,=\,
+  \sum_{i=1}^{N}\; \int_{\delta S^{(i)}} \v{a}\cdot \mbox{d}\v{S}
+  \,+\,
+  \sum_{i=1}^{N}\; \epsilon^{(i)}\, \delta V^{(i)}
+  \label{eq:sumoverblocks}
+\end{equation}
+On the RHS the contributions from surface elements \emph{interior} to
+$S$ \emph{cancel}. This is because where two blocks touch, the outward
+normals are in \emph{opposite} directions, implying that the
+contributions to the respective integrals cancel.
+
+\parbox{0.61\textwidth}{To illustrate this, consider two
+  adjacent blocks, $1$~and~$2$.
+
+  \medskip
+
+  The volume of block 1 is $\delta V_1$ and its surface is $\delta S_1$. Similarly for
+  block~2. Denote the shaded surface common to the two blocks by $\delta{\cal S}$, then
+  \begin{eqnarray*}
+    &&
+    \phantom{-} \int_{\delta{\cal S}} \v{a} \cdot \mbox{d}\v{S}
+    \quad \mbox{regarded as part of block 1}		\\[1ex]
+    &=&
+    - \int_{\delta{\cal S}} \v{a} \cdot \mbox{d}\v{S}
+    \quad \mbox{regarded as part of block 2}
+  \end{eqnarray*}
+
+} \hfill
+\parbox{0.36\textwidth}{ \epsfxsize=0.33\textwidth
+  \includegraphics{tikz_two_cube_div.pdf} }
+%
+because their outward normals $\mbox{d}\v{S}_1$ and $\mbox{d}\v{S}_2$ are equal and
+opposite. Therefore
+\begin{eqnarray*}
+  \int_{\delta S_1} \v{a} \cdot \mbox{d}\v{S}
+  \,+\,
+  \int_{\delta S_2} \v{a} \cdot \mbox{d}\v{S}
+  \,=\,
+  \int_{\delta S_{1+2}} \v{a} \cdot \mbox{d}\v{S} \quad
+  \mbox{(because contributions from $\delta{\cal S}$ cancel)}
+\end{eqnarray*}
+where we have denoted the \emph{exterior} surface of the
+\emph{compound block} by $\delta S_{1+2}$.
+
+%\begin{eqnarray*}
+%  \int_{\delta V_{1+2}} \Div\v{a} \;\mbox{d}V
+%  & = &
+%  \int_{\delta V_1} \Div\v{a}  \;\mbox{d}V \plus 
+%  \int_{\delta V_2} \Div\v{a}  \;\mbox{d}V %\\[1ex]
+%  ~ = ~
+%  & = &
+%  \int_{\delta S_1} \v{a} \cdot \mbox{d}\v{S} \plus
+%  \int_{\delta S_2} \v{a} \cdot \mbox{d}\v{S}	\\[1ex]
+%  & = &
+%  \int_{\delta S_{1+2}} \v{a} \cdot \mbox{d}\v{S} \quad 
+%  \mbox{(because contributions from $\delta{\cal S}$ cancel)}
+%\end{eqnarray*}
+%where we have denoted the \emph{exterior} surface of the
+%\emph{compound block} by $\delta S_{1+2}$, and its volume by $\delta
+%V_{1+2} = \delta V_1+\delta V_2$.
+
+Thus the contributions from all \emph{interior} surface elements cancel \emph{pairwise}.
+Using this result, and letting $N\to\infty$ in equation~(\ref{eq:sumoverblocks}), the
+$O(\epsilon^{(i)} \, \delta V^{(i)})$ terms go to zero, and we get
+\[
+  \intV \Div \v{a} \: \mbox{d}V
+  \,=\,
+  \intS \v{a}\cdot \mbox{d}\v{S}\; .
+\]
+For an alternative proof of the divergence theorem, see \emph{Bourne \& Kendall}, Chapter
+6.
+
+\emph{Note:} The divergence theorem is the generalisation to 3-D of
+\[
+  \int^b_a\; \frac{\mbox{d}f(x)}{\mbox{d}x} \, \mbox{d}x
+  \,=\,
+  f(b) - f(a)
+\]
+
+%\newpage
+
+\subsection{Examples of the use of the divergence theorem}
+
+\paragraph{Volume of a body:} This is simply given by \( \ds \; V = \int_V \mbox{d}V \)
+
+Recalling that $\Div \v{r} =3$ we can write
+\[
+  V
+  \,=\,
+  \frac{1}{3} \int_V \Div \v{r}\; \mbox{d}V
+  \,=\,
+  \frac{1}{3} \int_S \v{r}\cdot  \mbox{d}\v{S}
+\]
+where we used the divergence theorem in the last step.
+
+\paragraph{Example:} Consider the hemisphere $x^2+y^2+z^2 \leq R^2$ centered on $\ethree$ with its bottom face
+at $z=0$. Recalling that the divergence theorem holds for a \emph{closed} surface, the
+volume of the hemisphere is
+\[
+  V
+  \,=\,
+  \frac{1}{3}
+  \left[
+    \int_{S_C} \vr \cdot  \mbox{d}\v{S}
+    +
+    \int_{S_B} \vr \cdot  \mbox{d}\v{S}
+    \right]
+\]
+where $S_C$ is the curved surface of the hemisphere and $S_B$ is its bottom. On $S_B$, we
+have $\mbox{d}\v{S} = -\ez \,{\rm d}S$ and $z=0$, so $\vr\cdot \mbox{d}\v{S} = -z\, dS
+  =0$. Therefore the only contribution comes from the (open) curved surface $S_C$,
+\[
+  V
+  \,=\,
+  \frac{1}{3} \int_{S_C} \vr \cdot \mbox{d}\v{S}
+\]
+We can evaluate this surface integral using spherical polars. For a hemisphere of radius
+$R$ we showed previously that \( \: \mbox{d}\v{S} \,=\, R^2\, \sin\theta \,
+\mbox{d}\theta \, \mbox{d}\phi\, \er \: . \)
+
+On the hemisphere, $\vr \cdot \mbox{d}\v{S} = R \: \er \cdot \mbox{d}\v{S} = R^3\,
+  \sin\theta\, \mbox{d}\theta\, \mbox{d}\phi\,,$ therefore
+\[
+  \int_S \vr\cdot  \mbox{d}\v{S}
+  \,=\,
+  R^3 \int_{0}^{\pi/2}\sin \theta\,
+  \mbox{d}\theta \int_{0}^{2\pi} \mbox{d}\phi
+  \,=\,
+  2\pi R^3
+\]
+which gives the anticipated result
+\[
+  V
+  \,=\,
+  \frac{2\pi R^3}{3}
+\]
+
+\subsection{The continuity equation}
+Consider a fluid with mass density $\rho(\v{r},t)$ and velocity field $\v{v}(\vr,t)$. We
+have seen previously that the \emph{volume flux} (volume per unit time) flowing across a
+surface $S$ is $\int_S \v{v} \cdot \mbox{d}\v{S}$. The corresponding \emph{mass flux}
+(mass per unit time) flowing across the surface is
+\begin{equation}
+  \int_S \left(\rho\vv\,\right) \cdot \mbox{d}\v{S}
+  \,\equiv\,
+  \int_S \v{J}\cdot \mbox{d}\v{S}
+  \label{eq:mass-flux}
+\end{equation}
+where $\v{J}(\vr,t) \equiv \rho(\vr,t)\, \v{v}(\vr,t)$ is called the
+\emph{mass current density}.
+
+Now consider a volume $V$ bounded by the \emph{closed} surface $S$ containing \emph{no
+  sources or sinks} of fluid. Conservation of mass means that the \emph{outward} mass flux
+through the surface $S$ must be equal to the rate of \emph{decrease} of mass contained in
+the volume $V$,
+\begin{equation}
+  \int_S \v{J}\cdot \mbox{d}\v{S}
+  =
+  -\parpar{M}{t} \;.
+  \label{eq:mass-decrease}
+\end{equation}
+
+where $M$ is the total mass in $V$, which may be written as $M = \int_V \rho\,
+  \mbox{d}V$. Substituting this into equation~(\ref{eq:mass-decrease}), we get
+\[
+  \frac{\partial}{\partial t} \int_V \rho\, \mbox{d}V +\int_S \v{J}\cdot
+  \mbox{d}\v{S}
+  =
+  0\;.
+\]
+Using the divergence theorem to rewrite the second term as a volume integral, we obtain
+\[
+  \int_V \left[ \parpar{\rho}{t} + \Div \v{J} \right]\, \mbox{d}V
+  \,=\,
+  0
+\]
+Since this holds for arbitrary volumes $V$, we must have that
+\begin{center}
+  \bigbox{$\ds \parpar{\rho}{t} + \Div \v{J}= 0$}
+\end{center}
+This is known as the \emph{continuity equation}.
+
+%\begin{center}
+%\bigbox{
+%\parbox{30mm}{  
+%\[
+%  \parpar{\rho}{t} + \Div \v{J}= 0
+%\]
+%}}
+%\end{center}
+
+The continuity equation appears in many different contexts because it holds for \emph{any
+  conserved quantity}. Here we considered mass density $\rho$ and mass current density
+$\v{J}$ of a fluid; but equally it could have been number density of molecules in a gas
+and current density of molecules; electric charge density and electric-current density;
+thermal energy density and heat-current density; or more abstract quantities such as
+probability density and probability-current density in quantum mechanics (tutorial).
+
+In case of fluid flow, the continuity equation tells us that
+\begin{eqnarray*}
+  \mbox{if} \quad \Div \v{J} \,>\, 0 \quad \mbox{then} \quad
+  \parpar{\rho}{t} <0 \quad
+  \mbox{and the mass density at $\vr$ \emph{decreases}}   \\[1ex]
+  %
+  \mbox{if}  \quad \Div \v{J} \,<\, 0\quad \mbox{then} \quad
+  \parpar{\rho}{t} >0 \quad
+  \mbox{and the mass density at $\v{r}$ \emph{increases}}
+\end{eqnarray*}
+
+\paragraph{Static case:} Now consider \emph{time independent} behaviour where the mass density is
+time-independent: $\partial\rho/\partial t=0$. The continuity equation tells us that for
+the mass density to be constant in time when the total mass is conserved, we must have
+$\, \Div \v{J} =0$ so that the flux into a point equals the flux out.
+
+Further, if $\rho(\v{r},t)$ is a constant (\emph{i.e.}~time-independent and independent
+of $\v{r}$), then
+\[
+  \Div \v{J}
+  \,=\,
+  \rho \: \Div \v{v}
+  \,=\,
+  0
+  \qquad
+  \Rightarrow
+  \qquad
+  \Div \v{v} = 0
+\]
+Fluid flows with $\rho = $ \emph{constant}, and hence $\, \Div \v{v} = 0$, are said to be
+\emph{incompressible flows}.
+
+\subsection{Sources and sinks}
+\label{sec:sourcesandsinks}
+
+\paragraph{Sources and sinks:} If we have a \emph{source} or a \emph{sink} of a vector field, the divergence is
+\emph{non-zero} at that point. The quantity
+\[
+  \frac{1}{V}\, \intS \v{a}\cdot \mbox{d}\v{S}
+\]
+tells us whether there are sources or sinks of the vector field $\v{a}$ within $V$. If
+$V$ contains
+
+\begin{itemize}
+  \item a net \emph{source}, then $\intS \v{a}\cdot \mbox{d}\v{S} \,=\, \int_V \Div \v{a}\;
+          \mbox{d}V ~>~ 0$
+
+  \item a net \emph{sink}, then $\hspace{2ex} \intS \v{a}\cdot \mbox{d}\v{S} \,=\, \int_V \Div
+          \v{a}\; \mbox{d}V ~<~ 0$
+\end{itemize}
+
+\vspace*{-2ex}
+
+When $S$ contains neither sources nor sinks, or sources and sinks in equal measure, then\\[1.5ex]
+$\intS \v{a}\cdot \mbox{d}\v{S} = 0$.
+
+\medskip
+
+Therefore
+\[
+  \Div \v{a}
+  \,=\,
+  \lim_{V\to0}\; \frac{1}{V}\, \intS \v{a} \cdot \mbox{d}\v{S}
+\]
+is a measure of the \emph{density} of sources or sinks,
+\[
+  \Div\v{a}
+  \,=\,
+  \mbox{net \emph{outward} flux per unit volume at $\vr$.}
+\]
+These ideas generalise to \emph{electric} and \emph{magnetic} fields.
+
+%\newpage
+
+%\subsection{Electrostatics - Gauss' law and Maxwell's first equation}
+%\label{sec:gausslaw}
+%
+%As an example, we return to electrostatics.
+%
+%%You will have learned that electric field lines can only start and
+%%stop at charges.
+%
+%The electric field at $\v{r}$ due to a point charge $q$ at the \emph{origin}
+%is
+%\[
+%  \v{E}(\v{r}) \,=\, \frac{q}{4\pi \epsilon_0} \, \frac{\v{r}}{r^3}
+%\]
+%Then, for $r \ne 0$,
+%\[
+%  \v{\nabla}\cdot\v{E}
+%  \,=\,
+%  \frac{q}{4\pi\epsilon_0} \;\Div \left( \frac{\v{r}}{r^3}\right)
+%  \,=\,
+%  \frac{q}{4\pi\epsilon_0}
+%  \left(\,
+%    \grad\left(\frac{1}{r^3}\right) \cdot \v{r}
+%    +
+%    \frac{\Div \v{r}}{r^3} 
+%  \,\right)
+%  \,=\,
+%  \frac{q}{4\pi\epsilon_0}
+%  \left(
+%    -\frac{3\v{r}}{r^5} \,\cdot \v{r} +  \frac{3}{r^3} 
+%  \right)
+%  \,=\,
+%  0 	
+%\]
+%%\begin{eqnarray}
+%%   \v{\nabla}\cdot\v{E}
+%%                    = {q \over 4\pi\epsilon}
+%%                     \partial_i \left(x_i \over r^3\right)
+%%                   = {q \over 4\pi\epsilon}
+%%                     \left( {\delta_{ii}\over r^3} 
+%%                            - {3\over 2}r^{-5}\,2x_ix_i \right)
+%%                   = 0 \qquad r \not= 0
+%%\end{eqnarray}
+%
+%In section~(\ref{flux_concept}), we showed that
+%\begin{equation}
+%  \int_{\rm sphere} \v{E}\cdot \mbox{d}\v{S}
+%  \,=\,
+%  \frac{q}{4\pi\epsilon_0} \, \int_{\rm sphere}
+%     \frac{\v{r}\cdot \mbox{d}\v{S}}{r^3}
+%  \,=\,
+%  \frac{q}{4\pi\epsilon_0} \, 4\pi 
+%  \,=\, \frac{q}{\epsilon_0}
+%  \label{eq:gauss-sphere}
+%\end{equation}
+%where the integral is over the surface of a sphere centred on the
+%origin. The key result was $\int_{\rm sphere} (\v{r}\cdot
+%\mbox{d}\v{S})/r^3=4\pi$, independent of the radius of the sphere.
+%
+%\parbox{0.53\textwidth}{Now consider an \emph{arbitrary} closed
+%  surface $S$ which encloses the charge at the origin. Define the
+%  volume $V$ to be the region \emph{between} the surfaces $S$ and
+%  $S_1$, where $S_1$ is a small sphere, radius $\delta$, centred on
+%  the origin. The volume $V$ is then bounded by the closed surface
+%  $S{+}S_1$.
+%
+%\medskip
+%
+%(Ignore the spheres $S_2$ and $S_3$ in the figure for now.)}
+%\hspace*{0.05\textwidth}
+%\parbox{0.42\textwidth}{
+%  \epsfxsize=0.42\textwidth
+%  \includegraphics{tikz_gauss-law.pdf}
+%}
+%
+%\medskip
+%
+%Since the volume $V$ does \emph{not} contain the origin, $\v{r}=0$,
+%then $\Div \v{E}=0\,$ \emph{everywhere} in $V$, and the divergence
+%theorem tells us that
+%\begin{equation}
+%   \int_{S+S_1} \, \v{E}\cdot \mbox{d}\v{S}
+%   \,=\,
+%   \int_S \, \v{E}\cdot \mbox{d}\v{S}
+%   \,+\,
+%   \int_{S_1} \, \v{E}\cdot \mbox{d}\v{S}
+%   \,=\,
+%   \int_V \, \v{\nabla}\cdot\v{E} \; \mbox{d}V 
+%   \,=\,
+%   0
+%  \label{eq:gauss-general}
+%\end{equation}
+%Since the \emph{outward normal} from $V$ on the sphere $S_1$ points
+%\emph{towards} the origin, equation~(\ref{eq:gauss-sphere}) gives
+%\[
+%   \int_{\rm S_1} \, \v{E}\cdot \mbox{d}\v{S}
+%   \,=\,
+%   -\frac{q}{\epsilon_0}
+%\]
+%independent of $\delta$, and we may safely take the limit
+%$\delta\to0$. Equation~(\ref{eq:gauss-general}) then becomes
+%\begin{equation}
+%   \int_S \, \v{E}\cdot \mbox{d}\v{S}
+%   \,=\,
+%   \frac{q}{\epsilon_0}
+%\end{equation}
+%This holds for \emph{any} closed surface $S$ which encloses the
+%charge at the origin.
+%
+%If, instead of charge $q$ at the origin, we have charge $q_i$ at
+%position $\v{r}_{\, i}\,$ inside $S$, we can change integration
+%variable from $\v{r}$ to $\v{\rho} = \vr - \v{r}_{\, i}$ when
+%integrating over the sphere $S_i$ (with outward normal pointing
+%\emph{towards} its centre), and we get
+%\begin{equation}
+%  \int_{S_i} \v{E}_{\,i} \cdot \mbox{d}\v{S}
+%  \,=\,
+%  \frac{q_i}{4\pi\epsilon_0}
+%  \int_{S_i}
+%  \frac{(\v{r}-\v{r}_{\,i})\cdot \mbox{d}\v{S}} {|\v{r}-\v{r}_{\,i}|^3}
+%  \,=\,
+%  \frac{q_i}{4\pi\epsilon_0}
+%  \int_{S_i}
+%  \frac{\v{\rho}\cdot \mbox{d}\v{S}}{\rho^3}
+%  \,=\,
+%  -\frac{q_i}{\epsilon_0}
+%  \label{eq:gauss-for-qi}
+%\end{equation}
+%Equations~(\ref{eq:gauss-for-qi}) and (\ref{eq:gauss-general}) then give
+%\begin{equation}
+%   \int_S \, \v{E}_{\,i}\cdot \mbox{d}\v{S}
+%   \,=\,
+%   \frac{q_i}{\epsilon_0}
+%  \label{eq:gauss-for-qi2}
+%\end{equation}
+%Now let's replace the single charge by a set of $N$ charges $q_i$ at
+%positions $\v{r}_{\,i}\,$.
+%% (with $\v{r}_{\,1}=0$, as in the figure). % Not needed!
+%Experiment tells us that the total electric field $\v{E}$ is the sum
+%of the electric fields $\v{E}_{\,i}$ due to the individual
+%charges. Therefore, using equation~(\ref{eq:gauss-for-qi2}), we get
+%\[
+%  \int_S \, \v{E}\cdot \mbox{d}\v{S}
+%  \,=\,
+%  \int_S \, \left(\sum_{i=1}^N \v{E}_{\, i}\right) \cdot \mbox{d}\v{S}
+%  \,=\,
+%  \sum_{i=1}^N \, \int_S \v{E}_{\, i} \cdot \mbox{d}\v{S}
+%  \,=\,
+%  \sum_{i=1}^N \frac{q_i}{\epsilon_0}
+%  \,=\,
+%  \frac{Q}{\epsilon_0}
+%\]
+%where $Q=\sum_{i=1}^N q_i$ is \emph{the total charge} enclosed by
+%$S$. This is \emph{Gauss' Law} of electrostatics.
+%
+%\smallskip
+%
+%Generalising further, if we have a \emph{charge density} $\rho(\v{r})$
+%(charge/unit volume), then the total charge in a volume $V$ is
+%\[
+%  Q
+%  =
+% \int_V \, \rho(\v{r})\, \mbox{d}V
+%\]
+%Applying the divergence theorem and Gauss' Law (respectively), we get
+%\[
+%  \int_V \, \v{\nabla}\cdot\v{E} \: \mbox{d}V
+%  \,=\,
+%  \int_S \, \v{E}\cdot \mbox{d}\v{S}
+%  \,=\,
+%  \frac{Q}{\epsilon_0}
+%  \,=\,
+%  \frac{1}{\epsilon_0} \int_V \, \rho(\v{r})\, \mbox{d}V 
+%\]
+%
+%%\newpage
+%
+%Since this holds for arbitrary volumes $V$, we must have
+%\begin{center}
+%\bigbox{
+%  \parbox{40mm}{
+%\vspace*{-1.8ex}
+%\[
+%  \Div \v{E}(\v{r})
+%  \,=\,
+%  \frac{\rho(\vr) }{\epsilon_0}
+%\]
+%\vspace*{-2ex}
+%}}
+%\end{center}
+%which holds for all $\v{r}\,$. This is \emph{Maxwell's first equation}
+%of electromagnetism.\footnote{We proved it for static electric
+%  fields, but it also holds in electrodynamics -- see Junior Honours
+%  EM course.}
+%
+%Evidently, it states that the divergence of the electric field at any
+%point $\v{r}$ is equal to the charge density at that point divided by
+%(in SI units) the constant $\epsilon_0$.
+%
+%So a positive charge is a \emph{source} of electric field
+%(\emph{i.e.}~it creates a positive flux) and a negative charge is a
+%\emph{sink} (\emph{i.e.}~it absorbs flux, or, equivalently, creates a
+%negative flux).
+
+%xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+%FoMP/MP2h(?) version
+
+%The electric field due to a charge $q$ at the origin is
+%\[
+%\v{E} = \frac{q}{4\pi \epsilon_0}\frac{\v{\hat{r}}}{r^2}.
+%\]
+%It is easy to verify that $\Div \v{E}=0$ except at the origin where
+%the field is singular.
+
+%The flux integral for this type of field across a sphere (of any
+%radius) around the origin was evaluated in the last lecture and we
+%find the flux out of the sphere as:
+%\[
+%\int_S \v{E}\cdot  \mbox{d}\v{S} = \frac{q}{\epsilon_0}
+%\]
+%Now since $\Div \v{E}=0$ away from the origin the results holds for
+%\emph{any surface enclosing the origin}. Moreover if we have several
+%charges enclosed by $S$ then
+%\[
+%\int_S \v{E}\cdot  \mbox{d}\v{S} = \sum_i \frac{q_i}{\epsilon_0}.
+%\]
+
+%This recovers \emph{Gauss' Law} of electrostatics.
+
+%We can go further and consider a \emph{charge density} of $\rho(\v{r})$
+%per unit volume.  Then
+%\[
+%\int_S \v{E}\cdot  \mbox{d}\v{S} =  \int_V \frac{\rho (\vr) }{\epsilon_0}\mbox{d}V\;.
+%\]
+%We can rewrite the lhs using the divergence theorem
+%\[
+%\int_V \Div \v{E}\, \mbox{d}V = \int_V \frac{\rho(\vr) }{\epsilon_0}\mbox{d}V\;.
+%\]
+
+\subsection{Corollaries of the divergence theorem}
+We may deduce several immediate consequences of the divergence theorem
+\[
+  \int_V \v{\nabla}\cdot\v{a}\: \mbox{d}V
+  \,=\,
+  \int_S \v{a}\cdot \mbox{d}\v{S}
+\]
+
+\begin{enumerate}
+
+  \item
+        Let $\v{a}=\v{c}$ where $\v{c}$ is an arbitrary \emph{constant}
+        vector, then $\Div\v{c}=0$, and hence
+        \[
+          \int_S\v{c}\cdot \mbox{d}\v{S}
+          =
+          \v{c}\cdot \int_S\mbox{d}\v{S}
+          =
+          0
+        \]
+        Since this holds for \emph{all} constant vectors~$\v{c}$, we must have
+        \[
+          \int_S \mbox{d}\v{S} = 0
+        \]
+        for \emph{any closed surface} $S$ (as claimed previously.)
+
+  \item Let $\v{a}(\v{r})=f(\v{r}) \, \v{c}$ where $f(\v{r})$ is a scalar field and $\v{c}$ is a
+        constant vector, then (tutorial)
+        \[
+          \int_V \left(\grad f\right) \mbox{d}V
+          \,=\,
+          \int_S f  \, \mbox{d}\v{S}
+        \]
+
+  \item Consider the vector field $\v{a}\times\v{c}\,$, where $\v{a}(\v{r})$ is an arbitrary
+        vector field and $\v{c}$ is a \emph{constant} vector. We have, using a standard identity,
+        \[
+          \Div (\v{a}\times\v{c})
+          \,=\,
+          \v{c} \cdot (\curl \v{a})
+          -
+          \v{a} \cdot (\curl \v{c})
+          \,=\,
+          \v{c} \cdot (\curl\v{a}) - 0
+        \]
+        Now apply the divergence theorem to $\v{a}\times\v{c}\,$
+        \[
+          \v{c} \, \cdot \int_V (\v{\nabla}\times\v{a})\, \mbox{d}V
+          \,=\,
+          \int_V \v{\nabla}\cdot(\v{a}\times\v{c})\,\mbox{d}V
+          \,=\,
+          \int_S  \mbox{d}\v{S} \cdot (\v{a}\times\v{c})
+          \,=\,
+          \v{c} \, \cdot \int_S \mbox{d}\v{S}\times\v{a}
+        \]
+        This holds for all constant vectors $\v{c}\,$, hence
+        \[
+          \int_V \v{\nabla}\times\v{a}\: \mbox{d}V
+          \,=\,
+          \int_S \mbox{d}\v{S}\times\v{a}
+        \]
+
+  \item In suffix notation, the divergence theorem becomes
+        \[
+          \int_V \partial_i\, a_i \,\dd V \,=\, \int_S a_i\, \dd S_i
+        \]
+
+        % For a second-rank tensor $T$, we regard one index ($j$ in this case)
+        % as a `spectator' index, so
+        % \[
+        %   \int_V \, \partial_i\, T_{ij} \, \mbox{d}V \,=\, \int_S \, T_{ij}\,dS_i
+        % \]
+        % This is the \emph{generalised divergence theorem}.  In particular with
+        % $T_{ij} = -\epsilon_{ijk}a_k$ we recover the result in (ii) above.
+        % 
+
+        %\item \textbf{Green's theorem in the plane}
+        % 
+        %\medskip
+        %
+        %\parbox{0.6\textwidth}{Let $V$ be the volume inside the cylinder $0 <
+        %  z < 1$, and define the vector field $\v{a}(\v{r})$ as
+        %\[
+        %  \v{a}
+        %  \,=\,
+        %  P(x,y) \; \ex + Q(x,y) \; \ey
+        %\]
+        %Then
+        %\begin{eqnarray*}
+        %  \int_V \v{\nabla}\cdot\v{a} \, \mbox{d}V
+        %  &=&
+        %  \int_V \left( \frac{\partial P}{\partial x} +
+        %  \frac{\partial Q}{\partial y}
+        %  \right) \, \mbox{d}x \, \mbox{d}y \, \mbox{d}z \\[1ex]
+        %  &=&
+        % \int_{A}
+        % \left(
+        % \frac{\partial P}{\partial x}
+        % +
+        % \frac{\partial Q}{\partial y}
+        % \right) \, 
+        % \mbox{d}x \, \mbox{d}y
+        %\end{eqnarray*}
+        %}
+        %\hfill
+        %\parbox{0.35\textwidth}{ \epsfxsize=0.35\textwidth
+        %  \includegraphics{tikz_green_cylinder.pdf} } where we performed the (trivial)
+        %integral over $z$ to get unity, and defined $A=S_B$ to be the bottom
+        %surface of the cylinder in the $x{-}y$ plane.
+        %
+        %Let $S = S_C + S_T + S_B$ be the closed surface bounding $V$. On the
+        %top and bottom surfaces, $S_T$ and $S_B$, we have $\mbox{d}\v{S} = \pm
+        %\mbox{d}S \, \ez$ and therefore $\v{a}\cdot\mbox{d}\v{S}=0\,$.  On the
+        %curved surface, $S_C$,
+        %\[
+        %  \mbox{d}\v{S}
+        %  \,=\,
+        %  \left(
+        %    \mbox{d}x \, \ex + \mbox{d}y \, \ey
+        %  \right)
+        %  \times \ez \, \mbox{d}z
+        %  \,=\,
+        %  (\mbox{d}y \, \ex - \mbox{d}x \, \ey)  \, \mbox{d}z
+        %\]
+        %Hence
+        %\[
+        %  \int_S \v{a}\cdot \mbox{d}\v{S}
+        %  \,=\,
+        %  \int_{S_C} \v{a}\cdot \mbox{d}\v{S}
+        %  \,=\,
+        %  \int \!\!\! \int \left( P \, \mbox{d}y - Q \, \mbox{d}x \right) \mbox{d}z
+        %\]
+        %The (trivial) integral over $z$ again gives unity. Using the
+        %divergence theorem, we get
+        %\begin{center}
+        %\bigbox{
+        %\parbox{80mm}{
+        %\[
+        %  \int_{A}
+        %  \left(
+        %    \frac{\partial P}{\partial x} +
+        %    \frac{\partial Q}{\partial y }
+        %  \right) \,
+        %  \mbox{d}x \, \mbox{d}y
+        %  \,=\,
+        %  \oint_C \left( P \, \mbox{d}y - Q\mbox \, {d}x \right)
+        %\]
+        %}}
+        %\end{center}
+        %which is \emph{Green's theorem in the plane} (sometimes called the
+        %\emph{two dimensional divergence theorem}) relating the integral over
+        %a planar surface $A$ to the line integral around the closed curve $C$
+        %enclosing $A$. The theorem applies to \emph{any} surface in the
+        %$x{-}y$ plane, because the proof above doesn't rely on the base of the
+        %cylinder being circular.
+        %
+
+\end{enumerate}
+

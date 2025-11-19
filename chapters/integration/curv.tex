@@ -1,0 +1,671 @@
+% !TEX root = ../../fields.tex
+%% Brian Lecture 14 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Curvilinear coordinates}
+
+It is often convenient to work with coordinate systems other than the Cartesian
+coordinates ($x_1$, $x_2$, $x_3$) or ($x$, $y$, $z$).
+
+\subsubsection{Plane polar coordinates}
+\label{sec:Plane-polar-coordinates}
+We begin by revising a familiar example in the $x{-}y$ plane.
+
+\parbox{0.67\textwidth}{Define two new variables $\rho$, $\phi$ as
+  \[
+    \rho = \sqrt{x^2+y^2}
+    \quad\mbox{and} \quad
+    \tan\phi = \frac{y}{x}
+  \]
+  with $0 \le \rho \le \infty$ and $0 \le \phi < 2\pi$.
+
+  \smallskip
+
+  Clearly, $\rho$ is the distance from the origin $O$ to the point $P$ which has Cartesian
+  coordinates $(x,y)$, and $\phi$ is the angle between the $x$-axis and the line from the
+  origin to the point $P$ (measured in an anti-clockwise direction from the positive
+  $x$-axis.)
+
+  \smallskip
+
+}
+\hfill
+\parbox{0.33\textwidth}{
+  \centerline{\epsfxsize=0.33\textwidth \includegraphics{tikz_plane-polars.pdf}}
+}
+
+The inverse transformation is clearly
+\[
+  x = \rho \cos\phi
+  \quad\mbox{and} \quad
+  y = \rho \sin\phi
+\]
+The variables $\rho$ and $\phi$ are \emph{plane polar coordinates}. Any point in the
+plane can be specified by its Cartesian coordinates $(x,y)$, \emph{or} by its plane polar
+coordinates $(\rho,\phi)$. Clearly, $\rho=0$ at the origin, but $\phi$ is
+\emph{undefined} there.
+
+\paragraph{Basis vectors:} Thus far, we have used only Cartesian basis vectors $\{\eone\,, \etwo\,, \ethree\}$, also
+known as $\{\ex\,, \ey\,, \ez\}$. These point in the \emph{same} direction
+\emph{everywhere} in space.
+
+\parbox{0.72\textwidth}{Restricting ourselves to vectors in the
+  $(x{-}y$) plane for now, we can define two new orthonormal basis
+  vectors in the plane.
+
+  \medskip
+
+  Define the unit vector $\erho$ \emph{parallel} to the position vector
+  $\overrightarrow{OP} \equiv \v{\rho}\,$.
+
+  \medskip
+
+  Then define the unit vector $\ephi$ \emph{orthogonal} to $\erho$\ and pointing in the
+  direction of \emph{increasing} $\phi$.
+
+  \medskip
+
+  Note that $\erho$ and $\ephi$ point in \emph{different} directions at different points in
+  the plane, as shown in the figure for two points $P$ and $Q$.
+
+  \medskip
+
+  Since $\v{\rho} = x \, \ex + y \, \ey = \rho \left(\cos\phi \, \ex + \sin\phi \, \ey
+    \right)$ then
+  \begin{equation}
+    \erho \,=\, \cos\phi \; \ex \,+\, \sin\phi \; \ey
+    \quad\mbox{and}\quad
+    \ephi \,=\, -\sin\phi \; \ex \,+\, \cos\phi \; \ey
+    \label{planepolarbasisvectors}
+  \end{equation}
+
+}
+\hfill
+\parbox{0.26\textwidth}{
+  \centerline{\epsfxsize=0.26\textwidth \includegraphics{tikz_plane-polars2.pdf}}
+}
+
+\newpage
+
+\textbf{Components of vectors in plane polars:} Any vector $\v{a}$
+which lies in the $x{-}y$ plane may be expressed in the original
+Cartesian basis $\{\ex,\, \ey\}$, or in the plane polar basis
+$\{\erho,\, \ephi\}$
+\begin{equation}
+  \v{a}
+  \,=\,
+  a_x \, \ex \,+\, a_y \, \ey
+  \,=\,
+  a_\rho \, \erho \,+\, a_\phi \,\ephi
+  \label{eq:polar-components}
+\end{equation}
+The quantities $a_\rho$ and $a_\phi$ are the \emph{components} of the
+vector $a$ in the basis $\{\erho,\,\ephi\}$.
+
+\textbf{Example:} The position vector of a point in the $x{-}y$ plane
+(which we call $\v{\rho}$ to distinguish it from the position vector
+$\v{r}$ in 3-d) is
+\begin{equation}
+  \v{\rho}
+  \,=\,
+  x \, \ex + y \, \ey
+  \,=\,
+  \rho \, \cos\phi \; \ex \,+\, \rho \, \sin\phi \; \ey
+  \,=\,
+  \rho \, \erho
+  \label{eq:position-polar-components}
+\end{equation}
+\textbf{NB:} $\,\v{\rho} \ne \rho \, \erho + \phi \, \ephi\,.\,$ This
+is a common mistake and it's very important not to make it! \emph{By
+  definition}, $\v{\rho}$ has no component in the direction of
+$\ephi$, as can be seen in the figure.
+
+% In section~(\ref{sec:Plane-polar-coordinates}) we defined the plane
+% polar coordinates $(\rho,\phi)$ of a point with Cartesian coordinates
+% $(x,y)$ in the $(x{-}y)$ plane
+% \[
+%   x = \rho \cos\phi \quad\mbox{and} \quad y = \rho \sin\phi
+% \]
+% We wrote the position vector (in two dimensions) of this point
+% \[
+%   \v{\rho}
+%   \,=\, x \, \ex + y \, \ey
+%   \,=\,
+%   \rho \left(\cos\phi \, \ex + \sin\phi \, \ey \right)
+%   \,=\,
+%   \rho \, \erho
+% \]
+% and defined basis vectors $\erho$ and $\ephi$ as
+% \[
+%   \erho \,=\, \cos\phi \; \ex \,+\, \sin\phi \; \ey
+%   \qquad\mbox{and}\qquad
+%   \ephi \,=\, -\sin\phi \; \ex \,+\, \cos\phi \; \ey
+% %  \label{planepolarbasisvectorsrevisited}
+% \]
+% We now extend these ideas to three dimensions.
+
+\subsubsection{Cylindrical coordinates}
+
+This is the simplest extension of plane polars to three dimensions.\footnote{Cylindrical
+  coordinates are also known as \emph{circular cylindrical coordinates} or
+  \emph{cylindrical polar coordinates.}} The usual plane polar coordinates $\rho$ and
+$\phi$ replace the $x$ and $y$ coordinates, but the Cartesian $z$ coordinate is retained.
+
+\smallskip
+
+\parbox{0.6\textwidth}{The cylindrical
+  coordinates $(\rho,\phi,z)$ of a point are therefore related
+  to its Cartesian coordinates $(x,y,z)$ by
+  \[
+    x = \rho \cos\phi\,,
+    \quad
+    y = \rho \sin\phi\,,
+    \quad
+    z = z
+  \]
+  where $\,0 \le \rho < \infty \,,\;$ $0 \le \phi < 2\pi\,,\;$ and $\,-\infty < z <
+    \infty\,$.
+
+  \medskip
+
+  The position vector of the point with Cartesian coordinates $(x,y,z)$ is
+  \[
+    \v{r}
+    \,=\,
+    \rho\cos\phi \: \ex + \rho\sin\phi \: \ey + z \: \ez
+  \]
+  where $\{\ex,\,\ey,\,\ez\}$ are the usual Cartesian basis vectors.} \hfill
+\parbox{0.37\textwidth}{ \epsfxsize=0.37\textwidth \includegraphics{tikz_cyl_coords.pdf}
+}
+
+\smallskip
+
+The basis vectors for cylindrical coordinates are the plane polar basis vectors, plus the
+third Cartesian basis vector
+\[
+  \erho \,=\, \cos\phi \; \ex \,+\, \sin\phi \; \ey \:,
+  \quad
+  \ephi \,=\, -\sin\phi \; \ex \,+\, \cos\phi \; \ey\:,
+  \quad
+  \ez \,=\, \ez
+\]
+In this basis, the position vector for the point with cylindrical coordinates
+$(\rho,\phi,z)$ is\footnote{Note that $\,\v{r} \ne \rho \, \erho + \phi \, \ephi + z \,
+    \ez$}
+\[
+  \v{r}
+  \,=\,
+  \rho \: \erho
+  \,+\,
+  z \: \ez
+\]
+A general vector $\v{a}$ has components $(a_x, \, a_y, \, a_z)$ in the Cartesian basis,
+and components $(a_\rho, \, a_\phi, \, a_z)$ in the cylindrical basis, so that
+\[
+  \v{a}
+  \,=\,
+  a_x \: \ex + a_y \: \ey + a_z \: \ez
+  \,=\,
+  a_\rho \: \erho + a_\phi \: \ephi + a_z \: \ez
+\]
+Cylindrical coordinates are useful for problems with cylindrical symmetry, and also for
+problems involving cones and paraboloids.
+
+\vfill
+
+\subsubsection{Spherical polar coordinates}
+
+\parbox{0.54\textwidth}{The spherical polar coordinates $(r, \theta,
+    \phi)$ of a point with Cartesian coordinates $(x,y,z)$ are defined
+  by
+  \[
+    x \,=\, r \sin\theta\,\cos\phi\,,
+    \;\;
+    y \,=\, r\sin\theta\,\sin\phi\,,
+    \;\;
+    z \,=\, r\cos\theta
+  \]
+  \[
+    \mbox{with} \;\;
+    0 \le r < \infty \,,
+    \quad
+    0 \le \theta \le \pi \,,
+    \quad
+    0 \le \phi < 2\pi \,.
+    \qquad
+  \]
+
+  \smallskip
+
+  The \emph{azimuthal angle} $\phi$ runs from $0$ to $2\pi$, but since $\theta=\pi$
+  describes a point on the negative $z$ axis, the \emph{polar angle} $\theta$ runs from $0$
+  to $\pi$ only, so that $\theta$ and $\phi$ are specified uniquely.
+
+  \smallskip
+
+  Note that $\phi$ is not defined anywhere on the $z$ axis, and $\theta$ is not defined at
+  the origin.
+
+  \medskip
+
+  We may write the position vector as} \hspace*{0.02\textwidth} \parbox{0.45\textwidth}{
+  \epsfxsize=0.45\textwidth \includegraphics{tikz_spherical_coords.pdf} }
+\begin{eqnarray*}
+  \v{r}
+  &=&
+  r \sin\theta \cos\phi \: \eone
+  \,+\,
+  r \sin\theta\sin\phi \: \etwo
+  \,+\,
+  r \cos\theta \: \ethree
+  \,=\,
+  r \: \er \\[1ex]
+  \big( &=&
+  r \sin\theta
+  \left(
+    \cos\phi \: \eone
+    \,+\,
+    \sin\phi \: \etwo
+    \right)
+  \,+\,
+  r \cos\theta \, \ethree \;\; \big)
+\end{eqnarray*}
+where $\{\e1,\,\e2,\,\e3\}$ are the usual Cartesian basis vectors,
+and $\er$ is a unit vector in the direction of $\v{r}\,$,
+\[
+  \er
+  =
+  \sin\theta \cos\phi \: \eone
+  \,+\,
+  \sin\theta\sin\phi \: \etwo
+  \,+\,
+  \cos\theta \: \ethree
+\]
+Unit vectors $\etheta$ and $\ephi$ will be derived later.
+
+% \setlength{\unitlength}{2pt}
+% \begin{picture}(200,100)(-100,-30)
+% \put(0,0){\vector(1,0){70}}		% y axis
+% \put(72,0){\makebox(0,0)[lc]{\large $y$}}
+% \put(0,0){\vector(0,1){60}}		% z axis
+% \put(-2,60){\makebox(0,0)[rt]{\large $z$}}
+% \put(0,0){\vector(-2,-1){50}}		% x axis
+% \put(-50,-22){\makebox(0,0)[rb]{\large $x$}}
+% \put(0,0){\line(3,2){50}}		% Point P
+% \put(26,24){\makebox(0,0)[lt]{\large $r$}}
+% \put(55,42){\makebox(0,0)[rb]{$P$}}
+% \put(2,6){\makebox(0,0)[lb]{\large $\theta$}}
+% \bezier{30}(0,15)(8,15)(12,8)
+% \put(0,-2){\makebox(0,0)[ct]{\large$\phi$}}
+% \bezier{40}(-12,-6)(0,-16)(15,-6)
+% %\put(60,40){\vector(3,2){12}}
+% %\put(74,48){\makebox(0,0)[lb]{\large $\er$}}
+% %\put(60,40){\vector(1,-2){6}}
+% %\put(66,26){\makebox(0,0)[lt]{\large $\etheta$}}
+% %\put(60,40){\vector(4,1){12}}
+% %\put(74,42){\makebox(0,0)[lt]{\large $\ephi$}}
+% \bezier{30}(0,0)(30,-12)(60,-24)
+% \bezier{30}(60,40)(60,10)(60,-24)
+% \end{picture}
+% \setlength{\unitlength}{1pt}
+
+We may invert the expressions for $(x,y,z)$ in spherical polars ($r$, $\theta$, $\phi$)
+to obtain
+\[
+  r \,=\, \sqrt{x^2+y^2+z^2}
+  \,,\quad
+  \theta \,=\, \cos^{-1}\left\{\frac{z}{\sqrt{x^2+y^2+z^2}}\right\}
+  \,,\quad
+  \phi \,=\, \tan^{-1}\left(\frac{y}{x}\right)\;.
+\]
+
+\textbf{NB} with our conventions, the angle $\phi$ is the \emph{same}
+in each of plane polar coordinates, cylindrical coordinates and
+spherical polar coordinates, and $r$ is always the length of the
+position vector in three dimensions. Beware of other conventions!
+
+Note that $r\sin\theta$ in spherical polars is equal to the coordinate $\rho$ in
+cylindrical coordinates.
+
+\subsection{Flux of a vector field through a surface}
+\label{flux_concept}
+
+\parbox{0.35\textwidth}{
+  \begin{center}
+    \epsfxsize=0.35\textwidth
+    \includegraphics{tikz_flux.pdf}
+  \end{center}}
+\hfill
+\parbox{0.6\textwidth}{Let $\vv(\vr)$ be the velocity at a point $\vr$
+  in a moving fluid.
+
+  \smallskip
+
+  In a small region, where $\v{v}$ is approximately constant, the \emph{volume} of fluid
+  crossing the element of vector area ${\rm d}\v{S}=\vn\, {\rm d}S$ in time ${\rm d}t$ is
+  \[
+    \left( |\v{v}| \, {\rm d}t \right) \, \left({\rm d}S \, \cos\theta\right)
+    \,=\,
+    \left( \v{v} \cdot {\rm d}\v{S} \right) {\rm d}t
+  \]
+  This is just the distance, $|\v{v}|\,{\rm d}t$, travelled by the fluid, multiplied by the
+  scalar area \emph{normal} to the direction of motion, that it flows through.
+
+  \smallskip
+
+  This scalar area is ${\rm d}S\cos\theta = \v{\hat{v}}\cdot {\rm d}\v{S}\,$, where
+  $\v{\hat{v}}$ is a unit vector in the direction of $\v{v}$. }
+
+\begin{eqnarray*}
+  \mbox{Therefore}
+  \hspace*{0.1\textwidth}
+  \v{v}\cdot {\rm d}\v{S}
+  & = &
+  \mbox{\emph{volume per unit time} of fluid crossing\ }  {\rm d}\v{S}\\[0.5ex]
+  \Rightarrow \quad\intS \vv\cdot {\rm d}\v{S}
+  & = &
+  \mbox{\emph{volume per unit time}
+    of fluid crossing a finite surface $S$}
+  \hspace*{0.2\textwidth}
+\end{eqnarray*}
+More generally, for a vector field $\v{a}(\vr)$,
+\begin{center}
+  \bigbox{
+    \parbox{135mm}{ The surface integral $\intS\v{a}\cdot {\rm d}\v{S}$ is called
+      the \emph{flux} of $\v{a}$ through the surface $S$
+    }}
+\end{center}
+The concept of flux is useful in many different contexts
+\emph{e.g.}~flux of molecules in a flow of gas; electric or magnetic
+flux through a surface, \emph{etc}.
+
+\paragraph{Example:} Let $S$ be the surface of the sphere $x_1^2 + x_2^2 + x_3^2 = R^2$, with radius $R$.\ \
+Find the unit normal $\vn\,$, the vector element of area ${\rm d}\v{S}$, and evaluate the
+total flux of the vector field $\v{a}(\v{r}) = \v{r}/r^3$ out of the sphere.
+
+An arbitrary point $\vr$ on the surface $S$ may be parameterised using the spherical
+polar co-ordinates $\theta$ and $\phi$ as
+\begin{eqnarray*}
+  \vr
+  & = &
+  R\sin \theta\cos\phi\,\eone +
+  R\sin \theta \sin \phi\,\etwo +
+  R \cos \theta\, \ethree
+  \qquad
+  \left\{0 \leq \theta \leq \pi, \: 0 \leq \phi < 2\pi \right\}\\[0.7ex]
+  \mbox{so}\qquad \parpar{\vr}{\theta}
+  & = &
+  R\cos\theta \cos\phi \, \eone +
+  R\cos\theta \sin \phi \, \etwo -
+  R\sin\theta\, \ethree \\[0.7ex]
+  \mbox{and}\qquad
+  \parpar{\vr}{\phi}
+  & = &
+  -R\sin \theta\sin\phi\,\eone + R\sin \theta \cos \phi\,\etwo + 0 \, \ethree
+\end{eqnarray*}
+Therefore
+\begin{eqnarray*}
+  \parpar{\vr}{\theta} \times \parpar{\vr}{\phi}
+  & = &
+  \left|
+  \begin{array}{ccc}
+    \eone                    & \etwo & \ethree \\
+    \phantom{-}
+    R\, \cos\theta \cos \phi &
+    R\, \cos\theta \sin \phi &
+    -R\, \sin \theta                           \\
+    -R\sin \theta\sin\phi    &
+    R\sin \theta \cos \phi   & 0
+  \end{array}
+  \right| \\[1ex]
+  %
+  & = &
+  R^2\, \sin^2\theta \cos \phi\,\eone +
+  R^2\, \sin^2\theta \sin \phi\,\etwo +
+  R^2\, \sin\theta \cos\theta\,
+  \left(\cos^2 \phi + \sin^2 \phi\right) \ethree \\[0.5ex]
+  %
+  & = &
+  R^2\sin \theta\,
+  \left(
+  \sin \theta \cos \phi\, \eone +
+  \sin\theta \sin \phi\,\etwo +
+  \cos \theta\,\ethree
+  \right)\\[0.5ex]
+  & = &
+  R^2\sin \theta\; \er
+\end{eqnarray*}
+where $\er$ is the unit vector ($\er \cdot \er = 1$) in the direction
+of $\v{r}$ that we introduced previously
+\[
+  \er
+  \,=\,
+  \sin\theta \cos \phi \: \eone
+  +
+  \sin\theta \sin \phi \: \etwo
+  +
+  \cos\theta           \: \ethree
+\]
+Hence the unit normal \( \v{n} = \er \,. \) Note: $\er = \er(\theta,\phi)$ is a function
+of $\theta$ and $\phi$, but not of $r$.
+
+The vector element of area on the surface of the sphere is then
+\[
+  {\rm d}\v{S}
+  \,=\,
+  \parpar{\vr}{\theta} \times \parpar{\vr}{\phi}\ {\rm d}\theta\, {\rm d}\phi
+  \,=\,
+  R^2\sin \theta \, {\rm d}\theta\, {\rm d}\phi \: \er
+\]
+On $S$, we have $r=R$, so the vector field $\v{a}(\v{r})$ on the surface $S$ is $\v{a} =
+  (R\,\er)/R^3 = \er/R^2\,$.
+
+The flux of $\v{a}$ through the closed surface $S$ is then
+\[
+  \intS\v{a}\cdot {\rm d}\v{S}
+  \,=\,
+  \intS \frac{\v{r}}{r^3} \,\cdot\, {\rm d}\v{S}
+  \,=\,
+  \int_{0}^{\pi} {\rm d}\theta \, \int_{0}^{2\pi} {\rm d}\phi \;
+  \left(\frac{\er}{R^2}\right)
+  \cdot
+  \left(R^2\sin \theta \: \er \right)
+  \,=\,
+  \int_{0}^{\pi} \sin \theta  \, {\rm d}\theta \, \int_{0}^{2\pi} {\rm d}\phi
+  \,=\,
+  4\pi
+\]
+In this example, the result of the integral is the surface area of a unit sphere. This is
+an important result in Physics, as we shall now show\ldots
+
+\paragraph{Physics example:} The electric field $\v{E}(\v{r})$ at $\v{r}$ due to a point charge $q$ situated at the
+origin is
+\[
+  \v{E}(\v{r}) \,=\, \frac{q}{4 \pi \epsilon_0}\: \frac{\v{r}}{r^3}
+\]
+Evaluate the total flux of $\v{E}(\v{r})$ out of the sphere $x_1^2 + x_2^2 + x_3^2 =
+  R^2$.
+
+Noting that the electric field $\v{E}(\v{r}) = q/\left(4 \pi \epsilon_0\right) \;
+  \v{a}(\v{r})$ in the example above, we can use our previous result to obtain
+\[
+  \int_S \v{E} \cdot {\rm d}\v{S}
+  \,=\,
+  \frac{q}{4\pi\epsilon_0} \int_S \frac{\v{r} \cdot {\rm d}\v{S}}{r^3}
+  \,=\,
+  \frac{q}{\epsilon_0}
+\]
+This is an example of Gauss' Law of Electromagnetism. We shall show later that the total
+electric flux through \emph{any} closed surface is the total charge enclosed by the
+surface, divided by the constant $\epsilon_0$.
+
+\paragraph{Basis vectors for spherical polars:}\mbox{}
+
+\vspace*{-3ex}
+
+\parbox{0.54\textwidth}{ In spherical polars, the position vector at
+  the point $\v{r}$ with spherical polar coordinates $(r,\theta,\phi)$
+  is
+  \[
+    \vr
+    =
+    r\sin \theta\cos\phi\,\eone +
+    r\sin \theta \sin \phi\,\etwo +
+    r \cos \theta\, \ethree
+  \]
+  Consider the change in $\v{r}$ as we let $r \to r + \mbox{d}r$
+  \[
+    \mbox{d}\v{r}_{\,r}
+    ~\equiv~
+    \v{r}(r+\mbox{d}r,\theta,\phi)
+    -
+    \v{r}(r,\theta,\phi)
+    \,=\,
+    \frac{\partial \v{r}}{\partial r} \, \mbox{d}r
+  \]
+  Clearly $\mbox{d}\v{r}_{\,r}$ and hence $\partial \v{r}/\partial r$ are \emph{parallel}
+  to $\v{r}$. }
+%
+\hfill
+%
+\parbox{0.44\textwidth}{
+  %\begin{center}
+  \epsfxsize=0.43\textwidth
+  \includegraphics{tikz_sphere_dS.pdf}
+  %\end{center}
+}
+
+\medskip
+
+Similarly, we define the infinitesimal vectors $\mbox{d}\v{r}_{\,\theta}$ and
+$\mbox{d}\v{r}_{\,\phi}\,$.
+
+\medskip
+
+Then the normalised vectors
+\[
+  \er
+  =
+  \parpar{\vr}{r} \left/ \, \left| \parpar{\vr}{r}\right| \right.
+  \;,\qquad
+  \etheta
+  =
+  \parpar{\vr}{\theta} \left/ \, \left| \parpar{\vr}{\theta}\right| \right.
+  \;,\qquad
+  \ephi
+  =
+  \parpar{\vr}{\phi} \left/ \, \left| \parpar{\vr}{\phi} \right| \;,
+  \right.
+\]
+are (important exercise for the student)
+\begin{eqnarray*}
+  \er
+  &=&
+  \sin\theta\cos\phi \, \eone +
+  \sin\theta\sin\phi \, \etwo +
+  \cos\theta \, \ethree \\
+  %
+  \etheta
+  &=&
+  \cos\theta\cos\phi \, \eone +
+  \cos\theta\sin\phi \, \etwo -
+  \sin\theta \, \ethree \\
+  %
+  \ephi
+  &=&
+  -\sin\phi \, \eone + \cos\phi \, \etwo
+\end{eqnarray*}
+These form an \emph{orthonormal} basis, \emph{i.e.}
+\(
+\er \cdot \,\er =
+\etheta \cdot \,\etheta =
+\ephi \cdot \,\ephi = 1\,,
+\)
+and
+\(
+\v{e}_{\,r} \cdot \,\etheta =
+\v{e}_{\,\theta} \cdot \,\ephi =
+\v{e}_{\,\phi} \cdot \,\er = 0
+\)
+(exercise)
+
+The unit vector $\etheta$ points in the direction of increasing $\theta$, with $r$ and
+$\phi$ fixed -- as illustrated in the diagram above. Similarly for $\er$ and $\ephi$.
+
+The basis vectors $\v{e}_{\,r}$, $\v{e}_{\,\theta}$ and $\v{e}_{\,\phi}$ depend on
+$\theta$ and $\phi$, but not on $r$. They point in different directions at different
+points. We say they form a non-Cartesian or \emph{curvilinear} basis.
+
+\subsection{Other surface integrals}
+If $f(\vr)$ is a scalar field, we may define a scalar surface integral
+\[
+  \intS f \: \mbox{d}S
+\]
+For example, the (scalar) \emph{area} of the surface $S$ is just
+\[
+  S
+  \,=\,
+  \intS \mbox{d}S
+  \,=\,
+  \intS \left| {\rm d}\v{S}\right|
+  \,=\,
+  \int_v \int_u \, \left|\parpar{\vr}{u} \times \parpar{\vr}{v}\right|\;
+  \mbox{d}u \, \mbox{d}v
+\]
+
+We may also define vector surface integrals
+\[
+  \intS f \, \mbox{d}\v{S} \qquad
+  \intS \v{a} \: \mbox{d}S  \qquad
+  \intS \v{a} \times \mbox{d}\v{S}
+\]
+Each of these is a double integral, and is evaluated in a way similar to the scalar
+integrals, the result being a vector in each case.
+
+The \emph{vector area} of a surface is defined as $\v{S} = \intS {\rm d}\v{S}$.
+
+\paragraph{Example:}
+The \emph{vector area} $\v{S}$ of the (open) hemisphere, $x_1^2+x_2^2+x_3^2=R^2, \; (x_3
+  \ge 0)$, of radius $R$, is, using spherical polars,
+\[
+  \v{S}
+  ~\equiv~
+  \intS {\rm d}\v{S}
+  \,=\,
+  \int_{\phi=0}^{2\pi} \, \int_{\theta=0}^{\pi/2}
+  R^2 \sin\theta \, \er \, {\rm d}\theta \, {\rm d}\phi \;.
+\]
+\textbf{NB} Since $\er = \sin\theta \cos\phi\: \eone + \sin\theta
+  \sin\phi \: \etwo + \cos\theta \: \ethree$ is not a constant (it
+depends on $\theta$ and $\phi$), we can't take it out of the
+integral. So we have
+\begin{eqnarray*}
+  \v{S}
+  &=&
+  \eone\,
+  R^2\int_{0}^{\pi/2} \sin^2 \theta \, {\rm d}\theta
+  \int_{0}^{2\pi} \cos\phi \, {\rm d}\phi
+  \,+\,
+  \etwo\,
+  R^2\int_{0}^{\pi/2} \sin^2 \theta \, {\rm d}\theta
+  \int_{0}^{2\pi} \sin \phi \, {\rm d}\phi \, + \\
+  &&
+  \ethree\,
+  R^2\int_{0}^{\pi/2} \sin \theta \cos \theta \, {\rm d}\theta
+  \int_{0}^{2\pi} {\rm d}\phi \\[0.5ex]
+  &=&
+  0 + 0 + \pi R^2 \, \ethree
+\end{eqnarray*}
+
+\paragraph{Notes}\mbox{}
+
+The vector surface integral over the \emph{full} sphere $x_1^2+x_2^2+x_3^2=R^2$ is
+\emph{zero} because the contributions from the upper and lower hemispheres cancel.
+Similarly, the vector area of a \emph{closed} hemisphere is zero because the vector area
+of the bottom face, which is a circular disc of radius $R$ in the $x_1{-}x_2$ plane, is
+$-\pi R^2 \, \ethree$. This is just the projection of the sum of infinitesimal vector
+areas onto the base of the hemisphere.
+
+In fact, for \emph{any closed surface},
+\[
+  \int_S {\rm d}\v{S} = 0
+\]
+To show this, it is simplest to use the divergence theorem -- see later.
