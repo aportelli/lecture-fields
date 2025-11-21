@@ -1,8 +1,8 @@
 % !TEX root = ../../fields.tex
 %% Brian Lecture 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{The Kronecker delta symbol $\delt{ij}$}
-We \emph{define} the symbol $\delt{ij}$ (pronounced \emph{``delta i
-  j''}), where $i$ and $j$ can take on the values $1,\, 2,\, 3$, as follows
+\subsection{The Kronecker delta symbol \texorpdfstring{$\delt{ij}$}{δij}}
+In $d$-dimensions, we \emph{define} the Kronecker symbol $\delt{ij}$, where $i$ and $j$
+can take on the values $1, \dots, d$, as follows
 \vspace*{-2ex}
 \begin{center}
   \fbox{
@@ -16,20 +16,14 @@ We \emph{define} the symbol $\delt{ij}$ (pronounced \emph{``delta i
       \vspace*{-4ex}
     }}
 \end{center}
-\emph{i.e.}~~$\delta_{11} = \delta_{22} = \delta_{33} = 1$ and
-$\delta_{12} = \delta_{13} = \delta_{23} = \cdots = 0$.
-
-The equations satisfied by the three \emph{orthonormal basis vectors} $\ei$ can now be
-written as
-
+\ie $\delta_{11} = \delta_{22} = \dots = \delta_{dd} = 1$ and
+$\delta_{12} = \delta_{13} = \delta_{23} = \cdots = 0$.\\The equations satisfied
+by \emph{orthonormal basis vectors} $\ei$ can now be written as
 \begin{center}
   \bigbox{$\ei\cdot\ej ~=~ \delt{ij}$}
 \end{center}
-\emph{e.g.}~~$\eone\cdot\etwo ~=~ \delta_{12} =0\;, \quad
-  \eone\cdot\eone \ = \ \delta_{11}=1$
-
-%%%% New bit from Martin/Kristel
-
+\emph{e.g.}~$\eone\cdot\etwo ~=~ \delta_{12} =0\;, \quad
+  \eone\cdot\eone \ = \ \delta_{11}=1$\\
 We can use this relation to easily extract the $k^{\rm th}$ component, $a_k$, of a vector
 $\v{a}$ since
 \[
@@ -43,19 +37,16 @@ $\v{a}$ since
 \]
 
 To go further, first note that $k$ is a \emph{free index} -- we are not summing over $k$
-and the equation holds irrespective of whether $k = 1$, $2$ or $3$.
-
-If $k=1$, then only the first term on the RHS contributes and the RHS $=a_1$. Similarly,
-if $k=2$ then the RHS $=a_2$, and if $k=3$ the RHS $=a_3$. Hence
+and the equation holds irrespective of whether $k = 1$, $2$ or $3$. If $k=1$, then only
+the first term on the RHS contributes and the RHS $=a_1$. Similarly, if $k=2$ then the
+RHS $=a_2$, and if $k=3$ the RHS $=a_3$. Hence,
 \[
   \bigbox{$\ds \sum_{j=1}^3 a_{j} \, \delt{jk}
       \,=\,
       a_{k}$}
 \]
 In other words, Kronecker delta $\delta_{jk}$ picks out the $k^{\rm th}$ term in the sum
-over $j$.
-
-So in the end we have (as expected)
+over $j$. So in the end we have (as expected)
 \[
   \bigbox{$\ds\va\cdot \ek  \ = a_{k}$}
 \]
@@ -213,10 +204,9 @@ removed -- as they will be very soon!
 
 In the usual Cartesian basis that we've considered up to now, the basis vectors $\eone$,
 $\etwo$, and $\ethree$ form a \emph{right-handed} basis: $\eone\times\etwo = \ethree,
-  \;\, \etwo\times\ethree = \eone, \;\, \ethree\times\eone = \etwo$.
-
-However, we \emph{could} choose $\eone\times\etwo = -\ethree$, and so on, in which case
-the basis is said to be \emph{left-handed}.
+  \;\, \etwo\times\ethree = \eone, \;\, \ethree\times\eone = \etwo$. However, we
+\emph{could} choose $\eone\times\etwo = -\ethree$, and so on, in which case the basis is
+said to be \emph{left-handed}.
 
 \begin{picture}(300,90)(0,-10)
   \put(20,0){\vector(1,0){40}}
@@ -244,7 +234,7 @@ the basis is said to be \emph{left-handed}.
   \end{eqnarray*}%&&\\
   \vspace*{-3ex}
   \[
-    \bigbox{$(\eone,\, \etwo,\, \ethree) ~=~ 1$}
+    \bigbox{$\stpr{\eone}{\etwo}{\ethree} ~=~ 1$}
   \]
 \end{minipage}
 %
@@ -258,15 +248,12 @@ the basis is said to be \emph{left-handed}.
   \end{eqnarray*}
   \vspace*{-3ex}
   \[
-    \bigbox{$(\eone,\, \etwo,\, \ethree) ~=~ -1$}
+    \bigbox{$\stpr{\eone}{\etwo}{\ethree} ~=~ -1$}
   \]
 \end{minipage}
+\vspace{3ex}
 
-\medskip
-
-In this course, we will always use a right-handed basis unless stated otherwise.
-
-\newpage
+\noindent In this course, we will always use a right-handed basis unless stated otherwise.
 
 \subsection{The vector product in a right-handed basis}
 \[
@@ -291,18 +278,18 @@ from which we deduce that
 \[
   (\v{a}\times\v{b})_1 = a_2b_3 - a_3b_2 \mbox{ , \emph{etc}.}
 \]
-Notice that the right-hand side of equation (\ref{vecprod}) corresponds to the expansion
-of the determinant
-\[
-  \left|
-  \begin{array}{ccc}
-    \eone & \etwo & \ethree \\
-    a_1   & a_2   & a_3     \\
-    b_1   & b_2   & b_3
-  \end{array}
-  \right|
-\]
-by the first row (see the next section for some properties of determinants.)
+% Notice that the right-hand side of equation (\ref{vecprod}) corresponds to the expansion
+% of the determinant
+% \[
+%   \left|
+%   \begin{array}{ccc}
+%     \eone & \etwo & \ethree \\
+%     a_1   & a_2   & a_3     \\
+%     b_1   & b_2   & b_3
+%   \end{array}
+%   \right|
+% \]
+% by the first row (see the next section for some properties of determinants.)
 
 \subsection{Determinants and the scalar triple product}
 We may label the elements of a $3\times 3$ array of numbers or \emph{matrix} $A$ by
@@ -319,7 +306,7 @@ column in which $a_{ij}$ appears
 \]
 Then the \emph{determinant} of the matrix $A$ is defined as
 \begin{eqnarray*}
-  \det A
+  \det(A)
   &\equiv&
   \left| \begin{array}{ccc}
     a_{11} & a_{12} & a_{13} \\
@@ -367,14 +354,13 @@ product
     b_1 & b_2 & b_3 \\
     c_1 & c_2 & c_3 \\
   \end{array}
-  \right|
+  \right|\,.
 \end{eqnarray*}
-which you should commmit to memory (if you haven't already done so already).
 
 \subsubsection*{Some properties of the determinant}
 An alternative expression for the determinant is given by noting that
 \begin{eqnarray*}
-  \det A &=& a_{11} (a_{22}a_{33} - a_{23}a_{32}) -
+  \det(A) &=& a_{11} (a_{22}a_{33} - a_{23}a_{32}) -
   a_{12} (a_{21}a_{33} - a_{23}a_{31}) +
   a_{13} (a_{21}a_{32} - a_{22}a_{31})
   \\
@@ -403,13 +389,12 @@ the value of $\det A$.
 
 \subsection{Summary of the algebraic approach to vectors}
 We are now able to define vectors and the various products of vectors in an algebraic way
-(as opposed to the geometrical approach of lectures 1 and 2).
-
-A \textbf{vector} is \emph{represented} (in some orthonormal basis $\eone,\, \etwo,\,
-\ethree$) by an ordered set of 3 numbers with certain laws of addition. For example
+(as opposed to the geometrical approach of lectures 1 and 2). A \textbf{vector} is
+\emph{represented} (in some orthonormal basis $\eone,\, \etwo,\, \ethree$) by an ordered
+set of 3 numbers with certain laws of addition. For example
 \begin{eqnarray*}
-  \v{a} & \mbox{is represented by} & \left( \begin{array}{c} a_1\\ a_2\\ a_3\end{array} \right)\qquad
-  \v{a} + \v{b} \quad
+  \v{a} & \mbox{is represented by} & \left( \begin{array}{c} a_1\\ a_2\\ a_3\end{array}
+  \right)\qquad\v{a} + \v{b} \quad
   \mbox{is represented by}
   \left( \begin{array}{c} a_1+b_1\\ a_2+b_2\\ a_3+b_3\end{array} \right)
   % \quad (a_1 + b_1,\, a_2 + b_2\, , a_3 + b_3)\,.
@@ -422,10 +407,9 @@ $\v{a}^{T}$.%
 \footnote{Beware:~sometimes we break these conventions and represent
   $\v{a}$ by a row vector $(a_1,\, a_2,\, a_3)$. We may even write
   $\v{a} = (a_1,\, a_2,\, a_3)$ when the meaning is not ambiguous.}
+The various products of vectors are now defined as follows:
 
-The various `products' of vectors are now defined as follows:
-
-\textbf{The Scalar Product} is denoted by $\v{a}\cdot\v{b}$ and
+\noindent\textbf{The Scalar Product} is denoted by $\v{a}\cdot\v{b}$ and
 \emph{defined} as
 \begin{eqnarray*}
   \v{a}\cdot\v{b}
@@ -437,23 +421,33 @@ The various `products' of vectors are now defined as follows:
   a^2  \quad \mbox{defines the magnitude $a$ of the vector.}
 \end{eqnarray*}
 
-\textbf{The vector product} is denoted by $\v{a}\times\v{b}$ and
+\noindent\textbf{The vector product} is denoted by $\v{a}\times\v{b}$ and
 \emph{defined} in a right-handed basis as
 \[
   \v{a} \times \v{b}
   \equiv
-  \left|
-  \begin{array}{ccc}
-    \eone & \etwo & \ethree \\
-    a_1   & a_2   & a_3     \\
-    b_1   & b_2   & b_3
+  \eone \left| \begin{array}{cc}
+    a_{2} & a_{3} \\
+    b_{2} & b_{3} \\
+  \end{array}
+  \right|
+  \,-\,
+  \etwo \left| \begin{array}{cc}
+    a_{1} & a_{3} \\
+    b_{1} & b_{3} \\
+  \end{array}
+  \right|
+  \,+\,
+  \ethree \left| \begin{array}{cc}
+    a_{1} & a_{2} \\
+    b_{1} & b_{2} \\
   \end{array}
   \right|
 \]
 
-\textbf{The scalar triple product}
+\noindent\textbf{The scalar triple product}
 \[
-  (\v{a},\v{b},\v{c})
+  \stpr{a}{b}{c}
   ~\equiv~
   \sumi a_{i} \, (\v{b}\times\v{c})_{i}
   ~=~
@@ -465,6 +459,5 @@ The various `products' of vectors are now defined as follows:
   \end{array}
   \right|
 \]
-
 In all the above formula the summations imply sums over each index taking values
 $1,\,2,\,3$.
