@@ -40,16 +40,15 @@ $\smash{ \overrightarrow{PQ} = \overrightarrow{RS}}$.
 length) is noted $|\v{a}|$. A unit vector is a dimensionless vector with magnitude $1$.
 %
 \subsubsection*{Addition of vectors -- parallelogram law (geometrical)}
-\parbox{4cm}{
-  \includegraphics{tikz_parallelogram.pdf}
-}
-\parbox{35em}{
-  \begin{eqnarray*}
-    \v{a} + \v{b} & = & \v{b} + \v{a}\mbox{\hspace*{10ex} (commutative) }\\
-    (\v{a} + \v{b}) + \v{c} & = & \v{a} + (\v{b} + \v{c})
-    \mbox{\hspace*{5ex} (associative) }
-  \end{eqnarray*}
-}
+\begin{tabular}{cc}
+  \parbox{6.5cm}{\includegraphics{tikz_parallelogram.pdf}} &
+  \parbox{4cm}{
+    \begin{eqnarray*}
+      \v{a} + \v{b} & = & \v{b} + \v{a}\mbox{\hspace*{10ex} (commutative) }\\
+      (\v{a} + \v{b}) + \v{c} & = & \v{a} + (\v{b} + \v{c})
+      \mbox{\hspace*{5ex} (associative) }
+    \end{eqnarray*}}
+\end{tabular}
 
 \subsubsection*{Multiplication by scalars} A vector $\v{a}$ may be
 multiplied by a scalar $\alpha$ to give a new vector $\alpha \,
@@ -151,7 +150,7 @@ course.
 \subsection{The scalar triple product}
 In three dimensions, the scalar triple product is defined as follows
 \begin{eqnarray*}
-  (\v{a},\v{b},\v{c}) & \equiv & \v{a}\cdot(\v{b}\times\v{c})
+  \stpr{\v{a}}{\v{b}}{\v{c}} & \equiv & \v{a}\cdot(\v{b}\times\v{c})
   %& = & \v{c}\cdot(\v{a}\times\v{b})\\
   %& = & \v{b}\cdot(\v{c}\times\v{a})\,.
 \end{eqnarray*}
@@ -160,13 +159,13 @@ In three dimensions, the scalar triple product is defined as follows
 \begin{figure}[t]
   \centering
   \includegraphics{tikz_volume.pdf}
-  \caption{Parallelepiped with volume given by the triple scalar product $(\v{a},\v{b},\v{c})$.}
+  \caption{Parallelepiped with volume given by the triple scalar product $\stpr{\v{a}}{\v{b}}{\v{c}}$.}
   \label{fig:volume}
 \end{figure}
 \begin{enumerate}
   \item
         If $\v{a}$, $\v{b}$ and $\v{c}$ are three concurrent edges
-        of a parallelepiped, its volume is $(\v{a},\v{b},\v{c})$.
+        of a parallelepiped, its volume is $\stpr{\v{a}}{\v{b}}{\v{c}}$.
 
           %To see this, note that\\
           {To see this, note that:
@@ -196,16 +195,16 @@ In three dimensions, the scalar triple product is defined as follows
 
         We deduce the following symmetry/antisymmetry properties (exercise):
         \[
-          (\v{a}, \v{b}, \v{c} )
-          \,=\,  (\v{b}, \v{c}, \v{a} )
-          \,=\,  (\v{c}, \v{a}, \v{b} )
-          \,=\, -(\v{a}, \v{c}, \v{b} )
-          \,=\, -(\v{b}, \v{a}, \v{c} )
-          \,=\, -(\v{c}, \v{b}, \v{a} )
+          \stpr{\v{a}}{\v{b}}{\v{c}}
+          \,=\,  \stpr{\v{b}}{\v{c}}{\v{a}}
+          \,=\,  \stpr{\v{c}}{\v{a}}{\v{b}}
+          \,=\, -\stpr{\v{a}}{\v{c}}{\v{b}}
+          \,=\, -\stpr{\v{b}}{\v{a}}{\v{c}}
+          \,=\, -\stpr{\v{c}}{\v{b}}{\v{a}}
         \]
   \item \bigbox{
           $\v{a}$, $\v{b}$ and $\v{c}$ are coplanar
-          if and only if $(\v{a},\v{b},\v{c}) = 0$
+          if and only if $\stpr{\v{a}}{\v{b}}{\v{c}} = 0$
         }\,.
 
 \end{enumerate}
@@ -222,7 +221,7 @@ Expressions involving two (or more) vector products can be simplified by using t
 identity
 \begin{center}
   \bigbox{$\v{a}\times(\v{b}\times\v{c}) \ =
-      \ (\v{a}\cdot\v{c})\, \v{b} - (\v{a}\cdot\v{b})\,\v{c}$} .
+      \ (\v{a}\cdot\v{c})\, \v{b} - (\v{a}\cdot\v{b})\,\v{c}$}.
 \end{center}
 It's sometimes known as the ``bac-cab rule'', because the expression above can also be
 written $\v{a}\times(\v{b}\times\v{c}) = \v{b} \, (\v{a}\cdot\v{c})- \v{c} \,
@@ -257,8 +256,6 @@ and from this we deduce that $\beta = \alpha\, (\v{a}\cdot\v{c})$, $\gamma = -\a
 \]
 The constant $\alpha$ may be determined by considering the particular case when
 $\v{b}\perp\v{c}$ and $\v{c}\parallel\v{a}$, to give
-%%% \footnote{$\v{e}_{\,x}$, $\v{e}_{\,y}$ and $\v{e}_{\,z}$
-%%% are unit vectors parallel to the $x$, $y$ and $z$ axes)}
 \[
   \v{a}\times(\v{b}\times\v{c})
   \,=\,
@@ -286,7 +283,7 @@ the origin in direction $\v{n}$ is given by $\v{n} \cdot \v{G} = \v{n}\cdot (\v{
 
 \subsubsection{Angular velocity}
 
-Consider a point in a rigid body rotating with \emph{angular velocity} $\v{\omega}\,$,
+Consider a point in a rigid body rotating with \emph{angular velocity} $\v{\omega}$,
 where $\,|\v{\omega}| \equiv \omega$ is the angular speed of rotation measured in radians
 per second, and the unit vector $\v{\hat{\omega}}$ lies along the axis of rotation, so
 $\v{\omega} = \omega \, \v{\hat{\omega}}$. Let the position vector of the point with
