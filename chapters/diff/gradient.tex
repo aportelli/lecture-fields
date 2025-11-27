@@ -284,17 +284,6 @@ This is a very important result -- as we shall see.
   \quad \mbox{which holds for all $i,j=1,2,3.$}
 \]
 
-% \paragraph{Example:} Calculate the gradient of
-% $\ds \phi(\v{r}) = r^2 = x_1^2 + x_2^2 + x_3^2\,.$
-% \[
-%    (\grad r^2)_1
-%      = {\partial \over \partial x_1} (x_1^2 + x_2^2 + x_3^2) =  2x_1
-% \]
-% Similarly for $x_2$, $x_3$, and hence
-% \[
-%   \grad r^2 = 2\v{r}
-% \]
-
 \subsection{Interpretation of the gradient}
 In deriving the expression for $\delta\phi$ above, we assumed that the points $P$ and $Q$
 lie on \emph{different} level surfaces. Now consider the situation where $P$ and $Q$ are
@@ -478,7 +467,7 @@ unwieldy for more complicated examples, and suffix notation is more convenient.
         \[
           (\grad r^2)_i
           \,=\,
-          {\partial \over \partial x_i} (x_1^2 + x_2^2 +x_3^2 )
+          {\frac{\partial}{\partial x_i}} (x_1^2 + x_2^2 +x_3^2 )
           \,=\,
           2x_i \qquad \mbox{or} \qquad \grad r^2 = 2\v{r}
         \]
@@ -634,9 +623,9 @@ If $\phi(\vr)$ and $\psi(\vr)$ are real scalar fields, then:
           \,=\,
           \frac{\partial}{\partial x_i} (F(\phi) )
           \,=\,
-          {dF(\phi) \over d\phi} \: \frac{\partial\phi}{\partial x_i}
+          {\frac{dF(\phi)}{d\phi}} \: \frac{\partial\phi}{\partial x_i}
           \,=\,
-          {dF(\phi) \over d\phi} \, \left(\grad\phi\right)_i
+          {\frac{dF(\phi)}{d\phi}} \, \left(\grad\phi\right)_i
           %\grad  F(\phi(\vr))\ =\  
           %\ei\, \frac{\partial}{\partial\x{i}}\; F(\phi(\vr))
           %\ =\ \ei\, \frac{\partial F(\phi)}{\partial\phi}\;\,
@@ -682,7 +671,7 @@ We can also do this directly in suffix notation
   \,=\,
   - \frac12 \, (x_k x_k)^{-3/2}\, 2 \, \delta_{ij} \, x_j
   \,=\,
-  - { x_i \over r^3 }
+  - { \frac{x_i}{r^3} }
 \]
 
 \paragraph{Example:}
