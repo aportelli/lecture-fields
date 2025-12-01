@@ -1,52 +1,43 @@
 % !TEX root = ../../fields.tex
 %% Brian Lecture 8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Level surfaces or equipotentials of a scalar field}
-
 If $\phi(\v{r})$ is a non-constant scalar field, then the equation $\phi(\v{r}) = c$
 where $c$ is a constant, defines a \emph{level surface} of the field. Different level
-surfaces do not intersect, or $\phi$ would be multi-valued at the point of intersection.
-
+surfaces do not intersect, or $\phi$ would be multivalued at the point of intersection.
 Familiar examples in two dimensions are contours of constant height on a geographical
 map, $h(x_1,x_2) = c$, which are of course level curves rather than level surfaces.
-Isobars on a weather map are level curves of pressure $p(x_1,x_2)=c$.
-
-In physics, when the field is a scalar potential (see later) the level surfaces are known
-as \emph{equipotentials}.
-
+Isobars on a weather map are level curves of pressure $p(x_1,x_2)=c$. In physics, when
+the field is a scalar potential (see later) the level surfaces are known as
+\emph{equipotentials}.
+%
 \paragraph{Examples in three dimensions:}
-
 \begin{enumerate}
-  \item Let \( \; \phi(\v{r}) = r^2 \equiv x_1^2+x_2^2+x_3^2 = x^2 + y^2 + z^2
+  \begin{figure}[t]
+    \centering
+    \includegraphics{tikz_coulomb_pot.pdf}
+    \caption{Representation of the equipotentials of a Coulomb potential from a source with position vector $\v{a}$.}
+    \label{fig:coulomb_pot}
+  \end{figure}
+  \item Let \( \; \phi(\v{r}) = \v{r}^2 \equiv x_1^2+x_2^2+x_3^2
         %\equiv r_1^2 + r_2^2 + r_3^2
-        \)
-
+        \).
         The level surface $\phi(\v{r}) = r_0^2$ is a sphere of radius $r_0$ centred on the
-        origin.
-
-        As $r_0$ is varied, we obtain a family of level surfaces or equipotentials which are
+        origin. As $r_0$ is varied, we obtain a family of level surfaces or equipotentials which are
         concentric spheres.
 
-  \item The electrostatic potential at $\v{r}$ due to a point charge $q$ situated at the point
-        $\v{a}$ is
+  \item The electrostatic Coulomb potential at $\v{r}$ due to a point charge $q$ situated at the
+        point $\v{a}$ is
         \[
           \phi(\v{r}) = \frac{q}{4\pi\epsilon_0} \; \frac{1}{|\v{r} -\v{a}|}
         \]
         where $|\v{r} -\v{a}|$ denotes the length of the vector $\v{r} -\v{a}\,$:
         \[
           |\v{r} -\v{a}|
-          = \sqrt{(\v{r} -\v{a}) \cdot (\v{r} -\v{a})}
           = \sqrt{(x_1-a_1)^2 + (x_2-a_2)^2 + (x_3-a_3)^2}
         \]
         The equipotentials or level surfaces $\phi(\v{r}) = \mbox{constant}$ are concentric
-        spheres centred on the point $\v{a}$, as shown in the figure.
-
-        %\vspace*{-1ex}
-
-        \centerline{
-          \epsfxsize=0.35\textwidth
-          \includegraphics{tikz_coulomb_pot.pdf}
-        }
-        If $\v{a}=0$, the equipotentials are centered on the origin.
+        spheres centred on the point $\v{a}$, as shown in \cref{fig:coulomb_pot}. If $\v{a}=0$,
+        the equipotentials are centred on the origin.
 
   \item Let $\phi(\v{r}) = \vk\cdot\v{r}$.
 
@@ -64,17 +55,15 @@ as \emph{equipotentials}.
 \label{grad_scalar}
 
 How do we describe mathematically the variation of a scalar field as a function of
-position?
-
-As an example, think of a 2-d contour map of the height $h=h(x_1,x_2)$ of a hill.
-$h(x_1,x_2)$ is a scalar field. If we are on the hill and move in the $x_1{-}x_2$ plane
-then the change in height will depend on the direction in which we move (unless the hill
-is completely flat!) For example there will be a direction in which the height increases
-most steeply: `straight up the hill'. We now introduce a formalism to describe how a
-scalar field $\phir$ changes as a function of position $\v{r}$.
+position? As an example, think of a two-dimensional contour map of the height
+$h=h(x_1,x_2)$ of a hill, which is a scalar field. If we are on the hill and move in the
+$(x_1,x_2)$ plane then the change in height will depend on the direction in which we move
+(unless the hill is completely flat!). For example there will be a direction in which the
+height increases most steeply: ``straight up the hill''. We now introduce a formalism to
+describe how a scalar field $\phir$ changes as a function of position $\v{r}$ based on
+this intuition.
 
 We begin by recalling Taylor's theorem and the definition of partial derivatives.
-
 \paragraph{Taylor's theorem:} Recall that if $f(x)$ is an analytic function of a single variable $x$, Taylor's theorem
 states that $f(x+\delta x)$ can be expanded in powers of $\delta x$ about $x$.
 \[
@@ -82,24 +71,24 @@ states that $f(x+\delta x)$ can be expanded in powers of $\delta x$ about $x$.
   =
   f(x)
   +
-  \delta x \, \frac{df(x)}{dx}
+  \delta x \, \frac{\diff f(x)}{dx}
   +
-  \frac{(\delta x)^2}{2!} \, \frac{d^2f(x)}{dx^2}
+  \frac{(\delta x)^2}{2!} \, \frac{\diff ^2f(x)}{dx^2}
   + \cdots +
-  \frac{(\delta x)^n}{n!}  \, \frac{d^nf(x)}{dx^n}
+  \frac{(\delta x)^n}{n!}  \, \frac{\diff ^nf(x)}{dx^n}
   + \cdots
 \]
 If $\delta x$ is very small, we may approximate\ \ \( \displaystyle f(x+\delta x) = f(x)
-+ \delta x \, \frac{df(x)}{dx} + O\left((\delta x)^2\right) \)
++ \delta x \, \frac{\diff f(x)}{dx} + O[(\delta x)^2] \)
 
 \paragraph{Partial derivatives:} If $f(x_1,x_2,x_3)$ is a function of the three \emph{independent} variables $x_1$, $x_2$
 and $x_3$, then the \emph{partial derivative}
 \[
-  \frac{\partial f(x_1,x_2,x_3)}{\partial x_1}
+  \frac{\partial f(x_1,x_2,x_3)}{\partial x_1}=\lim_{\delta x\to 0}\frac{f(x_1+\delta x,x_2,x_3)-f(x_1,x_2,x_3)}{\delta x}\,,
 \]
-is obtained by differentiating $f(x_1,x_2,x_3)$ with respect to $x_1$, whilst keeping
-$x_2$ and $x_3$ \emph{fixed}. Similarly for the partial derivatives with respect to $x_2$
-and $x_3$.
+if it exists, is obtained by differentiating $f(x_1,x_2,x_3)$ with respect to $x_1$,
+whilst keeping $x_2$ and $x_3$ \emph{fixed}. The partial derivatives with respect to
+$x_2$ and $x_3$ can be similarly defined.
 
 \paragraph{Mathematical aside:} A scalar field $\phir = \phi(x_1, x_2, x_3)$ is said to be \emph{continuously
   differentiable} in a region $R$ if its partial derivatives
@@ -112,19 +101,18 @@ and $x_3$.
 We will generally assume scalar fields are continuously
 differentiable.
 
+\bigskip
+\begin{figure}[t]
+  \centering
+  \includegraphics{tikz_level_1.pdf}
+  \caption{Small displacement between two level surfaces of a scalar field.}
+  \label{fig:level_1}
+\end{figure}
 Let $\phi(\v{r})$ be a scalar field, and consider $2$ nearby points: $P$ with position
 vector $\v{r}$, and $Q$ with position vector $\v{r}+\delta\v{r}$, where $\delta\v{r}$ has
 components $(\delta x_1, \delta x_2, \delta x_3)$. Assume $P$ and $Q$ lie on
-\emph{different} level surfaces as shown:
-
-\bigskip
-
-\centerline{
-  \epsfxsize=0.5\textwidth
-  \includegraphics{tikz_level_1.pdf}
-}
-
-Now use Taylor's theorem to first order in each of the 3 variables $x_1$, $x_2$ and $x_3$
+\emph{different} level surfaces as shown in \cref{fig:level_1}.
+Now one can use Taylor's theorem to first order in each of the 3 variables $x_1$, $x_2$ and $x_3$
 to evaluate the change in $\phi$ as we move from $P$ to $Q$
 \begin{eqnarray*}
   \delta \phi & \equiv & \phi(\v{r}+\delta \v{r}) -\phi(\v{r}) \\[0.5ex]
@@ -181,38 +169,21 @@ form the Cartesian components of a \emph{vector field}
       +
       \frac{\partial\phi}{\partial x_3} \, \ethree
       ~=~
-      \frac{\partial\phi}{\partial \x{i}} \, \ei
+      (\partial_i\phi) \, \ei
     $}
 \]
 where we used the summation convention in the last line, there is an implicit sum over
-the dummy index $i$. (See later for a derivation of the transformation properties of
-$\grad \phi$.)
+the dummy index $i$. The vector field $\grad\phi(\v{r})$ is called the \emph{gradient} of
+$\phi(\v{r})$. It is sometimes pronounced ``grad phi'', and the character $\nabla$ is
+called ``nabla''.
 
-% Recall that the \emph{partial derivative} $\partial\phi/\partial \x{1}$
-% is the derivative of $\phi(\v{r})$ with respect to $x_1$, keeping
-% $x_2$ and $x_3$ fixed, \emph{etc}.
+Let us look at a few examples in the full $(x_1$, $x_2$, $x_3)$ notation before switching
+to suffix notation with the summation convention.
 
-In `$xyz$' notation
-\[
-  \grad \phi
-  =
-  \frac{\partial\phi}{\partial x}\, \v{e}_{\,x}
-  + \frac{\partial\phi}{\partial y}\, \v{e}_{\,y}
-  + \frac{\partial\phi}{\partial z}\, \v{e}_{\,z}
-\]
-
-The \emph{vector field} $\grad\phi(\v{r})$ is called the \emph{gradient} of
-$\phi(\v{r})$, and is pronounced \emph{`grad phi'}.
-
-Let's do few examples in `longhand' $(x_1$, $x_2$, $x_3)$ notation before switching to
-suffix notation with the summation convention.
-
-\paragraph{Example:} Calculate the gradient of the scalar field $\ds \phi(\v{r}) = r^2 = x_1^2 + x_2^2 +
-  x_3^2\,.$
-
-First, recall that the \emph{partial derivative} $\partial\phi/\partial \x{1}$ is the
-derivative of $\phi(\v{r})=\phi(x_1,x_2,x_2)$ with respect to $x_1$, keeping $x_2$ and
-$x_3$ \emph{fixed}, \emph{etc}.
+\paragraph{Example:} Calculate the gradient of the scalar field $\ds \phi(\v{r}) = \v{r}^2 = x_1^2 + x_2^2 +
+  x_3^2\,.$ First, recall that the \emph{partial derivative} $\partial\phi/\partial \x{1}$
+is the derivative of $\phi(\v{r})=\phi(x_1,x_2,x_2)$ with respect to $x_1$, keeping $x_2$
+and $x_3$ \emph{fixed}, \emph{etc}.
 \[
   \mbox{So} \quad
   \frac{\partial{x_1}}{\partial{x_1}} = 1
@@ -224,7 +195,7 @@ $x_3$ \emph{fixed}, \emph{etc}.
   \frac{\partial{x_2^2}}{\partial{x_1}} = 0\,,
   \quad \mbox{etc.}
 \]
-The first component of $\grad r^2$ is then
+The first component of $\grad\v{r}^2$ is then
 \[
   \frac{\partial}{\partial x_1} (x_1^2 + x_2^2 + x_3^2)
   =
@@ -234,19 +205,19 @@ The first component of $\grad r^2$ is then
 \]
 Similarly for the $2^{\rm nd}$ and $3^{\rm rd}$ components (exercise), and hence
 \[
-  \grad r^2
+  \grad\v{r}^2
   =
   2 x_1 \, \eone + 2 x_2 \, \etwo + 2 x_3 \, \ethree
   =
   2\v{r}
 \]
-The vector $\grad r^2 = 2\v{r}$ points radially outwards from the origin with
-\emph{magnitude} $2r$. The level surfaces, $r^2=\mbox{constant}$, are spheres centred on
-the origin.
+The vector $\grad\v{r}^2 = 2\v{r}$ points radially outwards from the origin with
+\emph{magnitude} $2|\v{r}|$. The level surfaces, $\v{r}^2=\mbox{constant}$, are spheres
+centred on the origin.
 
-\paragraph{Example:} Calculate the gradient of $\ds \phi(\v{r}) = \sin x_1 + 2x_1x_2^2$
+\paragraph{Example:} Calculate the gradient of $\ds \phi(\v{r}) = \sin(x_1) + 2x_1x_2^2$
 \[
-  \frac{\partial{\phi}}{\partial{x_1}} = \cos x_1 + 2x_2^2 \,,
+  \frac{\partial{\phi}}{\partial{x_1}} = \cos(x_1) + 2x_2^2 \,,
   \qquad
   \frac{\partial{\phi}}{\partial{x_2}} = 0 + 4x_1 x_2 \,,
   \qquad
@@ -256,7 +227,7 @@ the origin.
   \Rightarrow \quad
   \grad \phi
   =
-  (\cos x_1 + 2x_2^2) \, \eone
+  [\cos(x_1) + 2x_2^2] \, \eone
   +
   4x_1 x_2 \, \etwo
 \]
@@ -268,7 +239,7 @@ component is
   =
   a_1 + 0 + 0
 \]
-Similarly for the other two components. Hence
+Similarly for the other two components. Hence,
 \[
   \grad(\v{a}\cdot\v{r})
   =
@@ -276,11 +247,12 @@ Similarly for the other two components. Hence
   =
   \v{a}
 \]
-This is a very important result -- as we shall see.
+This is a very important result -- as we shall see later.
 
-\textbf{NB:} An important result for partial derivatives is
+\noindent\textbf{NB:}
+An important result for partial derivatives is
 \[
-  \frac{\partial{x_i}}{\partial{x_j}} = \delta_{ij}
+  \frac{\partial{x_i}}{\partial{x_j}} = \partial_ix_j=\delta_{ij}
   \quad \mbox{which holds for all $i,j=1,2,3.$}
 \]
 
@@ -291,14 +263,8 @@ nearby points on the \emph{same} level surface. In that case, $\delta\phi=0$ and
 \[
   \delta\phi = \grad\phi \cdot \delta\v{r} = 0
 \]
-
-\begin{center}
-  \epsfxsize=9cm
-  \includegraphics{tikz_grad_normal.pdf}
-\end{center}
-The infinitesimal vector $\delta\v{r}$ lies in the level surface at
-$\v{r}$, and the above equation holds for all such $\delta\v{r}$,
-hence
+The infinitesimal vector $\delta\v{r}$ lies in the level surface at $\v{r}$, and the
+above equation holds for all such $\delta\v{r}$, hence
 \begin{center}
   \bigbox{
     \vspace*{-2ex}
@@ -307,13 +273,12 @@ hence
     }
   }
 \end{center}
-
 To construct a \emph{unit normal} $\vn(\v{r})$ to the level surface at $\v{r}$, we divide
 $\grad\phi$ by its length
 \[
-  \vn(\v{r}) ~=~ \frac{\grad\phi}{|\grad\phi|}
+  \vn(\v{r}) ~=~ \frac{\grad\phi(\v{r})}{|\grad\phi(\v{r})|}
   \qquad
-  \left(\mbox{for} \quad |\grad\phi| \neq 0\right)
+  \left(\mbox{for} \quad |\grad\phi(\v{r})| \neq 0\right)
 \]
 
 \mnote{13L 24/02/09}
@@ -330,27 +295,25 @@ $\delta s$ in the direction of the unit vector $\v{\hat{s}}$, so that $\delta\v{
   (\grad\phi) \cdot \v{\hat{s}} \;\delta s
 \]
 As $\delta s \rightarrow 0$, the rate of change of $\phi$ as we move in the direction of
-$\v{\hat{s}}$ is
+$\v{\hat{s}}$ is given by
 \begin{equation}
-  \frac{d\phi}{ds}
+  \nabla_{\hat{\v{s}}}\,\phi=\v{\hat{s}} \cdot \grad\phi
   =
-  \v{\hat{s}} \cdot \grad\phi
-  =
-  |\grad\phi| \, \cos\theta
+  |\grad\phi| \, \cos(\theta)
   \label{eq:dir-deriv}
 \end{equation}
 where $\theta$ is the angle between $\v{\hat{s}}$ and the normal to the
 level surface at $\v{r}$.
 \begin{center}
   \bigbox{
-    $\v{\hat{s}} \cdot \grad\phi$ is called the \emph{directional
+    $\nabla_{\hat{\v{s}}}\,\phi$ is called the \emph{directional
       derivative} of the scalar field $\phi$ in the direction of
     $\v{\hat{s}}$
   }
 \end{center}
 The directional derivative has its \emph{maximum} value when
 $\v{\hat{s}}$ is \emph{parallel} to $\grad\phi$, and is \emph{zero}
-when $\delta s \, \v{\hat{s}}$ lies in the level surface. Therefore
+when $\v{\hat{s}}$ is tangent to the level surface. Therefore,
 \begin{center}
   \bigbox{$\grad \phi$ points in the direction of the \emph{maximum}
     rate of increase in $\phi$}
@@ -358,9 +321,6 @@ when $\delta s \, \v{\hat{s}}$ lies in the level surface. Therefore
 Recall that this direction is normal to the level surface.  A familiar
 example is that of contour lines on a map: the steepest direction is
 perpendicular to the contour lines.
-
-%        Equation~(\ref{eq:dir-deriv}) can be used as a \emph{coordinate
-%free} \emph{definition} of $\grad\phi(\v{r})$.
 
 \paragraph{Example:} Find the directional derivative of $\phi(\v{r})=xy(x+z)$ at the point $(1, 2, -1)$ in the
 direction of $(\v{e}_{\,x} +\v{e}_{\,y})/\sqrt{2}$.
@@ -378,8 +338,6 @@ Thus at this point
   \sqrt{2}
 \]
 
-\mnote{12L 15/02/08}
-
 \paragraph{Physical example:}
 Let $T(\v{r})$ be the temperature of the atmosphere at the point $\v{r}$. An object flies
 through the atmosphere with velocity $\v{v}\,$. Obtain an expression for the rate of
@@ -395,39 +353,38 @@ change in temperature
 \]
 Taking the limit $\delta t \to 0$, we obtain
 \[
-  \frac{dT(\v{r})}{dt} =   \vv \cdot \grad T(\v{r})
+  \frac{\diff T(\v{r})}{\diff t} =   \vv \cdot \grad T(\v{r})
 \]
 The RHS is referred to as a \emph{convective derivative}.
 %% Brian Lecture 9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Examples of the gradient in physical laws}
-
 A fundamental idea in physics is that we can express many forces in the form
 \begin{center}
   \bigbox{$  \v{F} = -\grad V $}
 \end{center}
-where $V$ is the potential energy.
+where $V$ is the potential energy. Such a force is called a {\em conservative} since, as
+we shall prove later on, Newton's law then implies that the total energy (kinetic plus
+potential) is conserved.
 
-Such a force is called a {\em conservative} since, as we shall prove later on, Newton's
-law then implies that the total energy (kinetic plus potential) is conserved.
-
-\paragraph{Gravitational force due to the Earth:} The potential energy of a particle of mass $m$ at a height $z$ above the Earth's surface
+\paragraph{Gravitational force due to the Earth:}
+The potential energy of a particle of mass $m$ at a height $z$ above the Earth's surface
 is $V = mgz$. The force due to gravity can be written as
 \[
-  \v{F} = -\grad V = -mg \, \v{e}_{\,z}
+  \v{F} = -\grad V = -mg \, \ethree
 \]
 
-\paragraph{Newton's Law of Gravitation:} Now consider the gravitational force on a mass $m$ at $\vr$ due to a mass $m_0$ at the
+\paragraph{Newton's Law of Gravitation:}
+Now consider the gravitational force on a mass $m$ at $\vr$ due to a mass $m_0$ at the
 origin. We can write this as
 \[
   \v{F}
   \,=\,
-  -\frac{G m m_0}{r^2} \: \v{\hat{r}}
+  -\frac{G m m_0}{\v{r}^2} \: \v{\hat{r}}
   \,=\,
   - \grad V
 \]
-where the potential energy $V = -Gm m_0/r$ and $\v{\hat{r}}$ is a unit vector in the
-direction of $\v{r}$. We shall show below that $\grad(1/r)= - \v{r}/r^3$.
-
+where the potential energy $V = -Gm m_0/|\v{r}|$ and $\v{\hat{r}}$ is a unit vector in
+the direction of $\v{r}$. We shall show below that $\grad(1/|\v{r}|)= - \v{r}/|\v{r}|^3$.
 In these two examples we see that the force acts down the potential energy gradient.
 
 \paragraph{Electrostatic potential:}
@@ -441,40 +398,34 @@ an electrostatic potential $\phi$:
 \begin{center}
   \bigbox{$\ds  \v{E} = -\grad \phi $}
 \end{center}
-where $V = q \phi$. (A comment for later: it is important to
-distinguish the potential energy $V$ from the electrostatic potential
-$\phi$.)
+where $V = q \phi$.
 
-\paragraph{Diffusion:} The idea of diffusion: for example in a gas the molecular motion effectively smoothes out
+\paragraph{Diffusion:}
+The idea of diffusion: for example in a gas the molecular motion effectively smooths out
 the density. This can be described by the current of particles $\v{j}(\v{r})$ being
-proportional to the gradient of the density $n(\v{r})$ (Fick's Law), \emph{i.e.}~the
-diffusion current flows down the concentration gradient
+proportional to the gradient of the density $n(\v{r})$ (Fick's Law), \ie the diffusion
+current flows down the concentration gradient
 \[
   \v{j}(\v{r}) \,=\,  - D \, \grad n(\v{r})
 \]
 where $D$ is a constant.
 
 \subsection{Examples on gradient}\label{sec:examples-on-gradient}
-The previous example on directional derivatives used the \emph{`xyz'} notation. This gets
+The previous example on directional derivatives used the ``xyz'' notation. This gets
 unwieldy for more complicated examples, and suffix notation is more convenient.
-
-% At this point we have two choices. We can calculate the $i^{\rm th}$
-% component $(\grad\phi)$ of the gradient, or we can evaluate
-% $\grad\phi$ directly. We shall use both methods.
-
 \begin{enumerate}
-  \item Let $\phi(\vr) = r^2 = x_1^2 + x_2^2 + x_3^2$, then
+  \item Let $\phi(\vr) = \v{r}^2 = x_1^2 + x_2^2 + x_3^2$, then
         \[
-          (\grad r^2)_i
+          (\grad \v{r}^2)_i
           \,=\,
           {\frac{\partial}{\partial x_i}} (x_1^2 + x_2^2 +x_3^2 )
           \,=\,
           2x_i \qquad \mbox{or} \qquad \grad r^2 = 2\v{r}
         \]
         Or, using the shorthand $\partial/\partial\x{i}\equiv\partial_i$ and the summation
-        convention to write $r^2=x_jx_j$
+        convention to write $\v{r}^2=x_jx_j$
         \[
-          (\del r^2)_i \,=\, \partial_i\, r^2
+          (\grad \v{r}^2)_i \,=\, \partial_i\,\v{r}^2
           \,=\, \partial_i\, (x_jx_j)
           \,=\, \delt{ij}\x{j} + \x{j}\delt{ij}
           \,=\, 2\x{i}
@@ -486,8 +437,8 @@ unwieldy for more complicated examples, and suffix notation is more convenient.
               \ds\frac{\partial\x{j}}{\partial\x{i}} \,=\, \delt{ij}  \,=\, \partial_i x_j
             $}
         \end{center}
-        The level surfaces of $r^2$ are spheres centred on the origin, and the
-        gradient of $r^2$ at $\vr$ points radially outward with magnitude $2r$.
+        The level surfaces of $\v{r}^2$ are spheres centred on the origin, and the
+        gradient of $\v{r}^2$ at $\vr$ points radially outward with magnitude $2|\v{r}|$.
 
   \item Let $\phi = \va\cdot\vr$ where $\va$ is a \emph{constant} vector.
         \[
@@ -498,43 +449,35 @@ unwieldy for more complicated examples, and suffix notation is more convenient.
         This is not surprising, since the equipotentials $\va\cdot\vr = c$ are planes orthogonal
         to $\va$.
 
-  \item Let $\phi(\vr) \,=\, r \,=\, \sqrt{x_1^2 + x_2^2 + x_3^2} \,=\, (\x{j}\x{j})^{1/2}$
+  \item Let $\phi(\vr) \,=\, |\vr| \,=\, \sqrt{x_1^2 + x_2^2 + x_3^2} \,=\, (\x{j}\x{j})^{1/2}$
         \begin{eqnarray*}
-          (\grad r)_i
+          (\grad|\v{r}|)_i
           & = &
           \partial_i \; (\x{j} \x{j})^{1/2} \\[0.5ex]
           & = &
           \frac{1}{2}\, (\x{j} \x{j})^{-1/2} \; \partial_i (\x{k} \x{k})
           \qquad \mbox{(chain rule)}\\[0.5ex]
           & = &
-          \frac{1}{2r}\; 2\, \x{i}\\[0.5ex]
+          \frac{1}{2|\v{r}|}\; 2\, \x{i}\\[0.5ex]
           & = &
           (\v{\hat{r}})_i
           \qquad \mbox{so} \qquad
-          \bigbox{$\ds \grad r \,=\, \frac1r \: \v{r} \,=\, \v{\hat{r}}$}
+          \bigbox{$\ds \grad |\v{r}| \,=\, \frac{\v{r}}{|\v{r}|}\,=\, \v{\hat{r}}$}
         \end{eqnarray*}
         The gradient of the length of the position vector is the unit vector
         pointing radially outwards from the origin.  It is normal to the level
-        surfaces which are spheres centered on the origin.
+        surfaces which are spheres centred on the origin.
 \end{enumerate}
 
 \subsection{Identities for gradients}\label{sec:identitiesforgradients}
-
 Thus far, we have calculated gradients from first principles -- we worked out each
 example from scratch, and we calculated the $i^{\rm th}$ component of $\grad\phi$ in each
-example. We shall now see what we can gain by considering more general cases.
-
-We shall derive several \emph{identities} which hold for the gradient of any scalar
-field, and which we may use to speed up the evaluation of the gradient of more
-complicated scalar fields.
-
-If $\phi(\vr)$ and $\psi(\vr)$ are real scalar fields, then:
+example. We shall now see what we can gain by considering more general cases. We shall
+derive several \emph{identities} which hold for the gradient of any scalar field, and
+which we may use to speed up the evaluation of the gradient of more complicated scalar
+fields. If $\phi(\vr)$ and $\psi(\vr)$ are real scalar fields, then we have the following
+properties.
 \begin{enumerate}
-
-  %%%
-  %%%     Linearity
-  %%%
-
   \item \textbf{Distributive law}
         \begin{center}
           \bigbox{$
@@ -607,25 +550,25 @@ If $\phi(\vr)$ and $\psi(\vr)$ are real scalar fields, then:
         %%%
         %%%     Chain rule
         %%%
-  \item \textbf{Chain rule:} If $F(\phi(\vr))$ is a scalar field, then
+  \item \textbf{Chain rule:} If $F$ is a real function of a single variable, then
 
         \begin{center}
           \bigbox{$\ds
               \grad F\left(\phi\right)
               \,=\,
-              \frac{d F(\phi)}{d\phi}\;\, \grad\phi
-            $}
+              F'(\phi)\;\, \grad\phi
+            $}\,,
         \end{center}
+        where $F'$ is the derivative if $F$.
 
         \textbf{Proof:}
         \[
           \left(\grad  F(\phi)\right)_i
           \,=\,
-          \frac{\partial}{\partial x_i} (F(\phi) )
+          \partial_i (F(\phi) )
           \,=\,
-          {\frac{dF(\phi)}{d\phi}} \: \frac{\partial\phi}{\partial x_i}
-          \,=\,
-          {\frac{dF(\phi)}{d\phi}} \, \left(\grad\phi\right)_i
+          F'(\phi) \: \partial_i\phi\,=\,
+          F'(\phi) \, \left(\grad\phi\right)_i
           %\grad  F(\phi(\vr))\ =\  
           %\ei\, \frac{\partial}{\partial\x{i}}\; F(\phi(\vr))
           %\ =\ \ei\, \frac{\partial F(\phi)}{\partial\phi}\;\,
@@ -633,35 +576,31 @@ If $\phi(\vr)$ and $\psi(\vr)$ are real scalar fields, then:
           %         \;=\; \frac{\partial F(\phi)}{\partial\phi}\;\,\grad\phi(\vr)
         \]
 \end{enumerate}
-where we used the ordinary chain rule to get the second-last
-expression.
 
-\textbf{Example of Chain Rule:} If $\phir = r$ we can use result (iii)
-from section~(\ref{sec:examples-on-gradient}) to give
+\paragraph{Example of Chain Rule:}
+If $\phir = |\vr|$ we can use result (iii) from section~(\ref{sec:examples-on-gradient})
+to give
 \[
-  \grad F(r) \;=\;
-  \frac{dF(r)}{dr} \,\grad r
+  \grad F(|\vr|) \;=\;
+  F'(|\vr|) \,\grad |\vr|
   \,=\,
-  \frac{F^\prime(r)}{r} \; \v{r}
+  F'(|\vr|)\; \hat{\v{r}}
 \]
-If $F\left(\phi(\vr)\right) = r^n$, we have $\phir = r$ as in the previous example, and
-so
+If $F\left(x\right) = x^n$, then $F'(x)=nx^{n-1}$ and we have
 \begin{center}
   \bigbox{$\ds
-      \grad(r^n)
+      \grad(|\vr|^n)
       \,=\,
-      \frac{\:d\,r^n\!}{dr} \: \left(\grad r\right)
+      n\,|\vr|^{n-1}\,  \hat{\v{r}}
       \,=\,
-      \left(n\,r^{n-1}\right)\,  \frac{1}{r}\, \vr
-      \,=\,
-      \left(n\,r^{n-2}\right)\, \vr
+      n\,|\vr|^{n-2}\, \vr
     $}
 \end{center}
 In particular
 \[
-  \grad \left(\frac{1}{r}\right)
+  \grad \left(\frac{1}{|\vr|}\right)
   \,=\,
-  - \frac{\v{r}}{r^3}
+  - \frac{\v{r}}{|\vr|^3}
 \]
 We can also do this directly in suffix notation
 \[
@@ -675,55 +614,45 @@ We can also do this directly in suffix notation
 \]
 
 \paragraph{Example:}
-Calculate $\grad\phi$ when $\ds \phi(\v{r}) = r^n \left(\v{a}\cdot\v{r}\right)^m$.
+Calculate $\grad\phi$ when $\ds \phi(\v{r}) = |\vr|^n \left(\v{a}\cdot\v{r}\right)^m$.
 \begin{eqnarray*}
-  \grad \left\{ r^n \left(\v{a}\cdot\v{r}\right)^m \right\}
+  \grad \left\{ |\vr|^n \left(\v{a}\cdot\v{r}\right)^m \right\}
   & = &
-  \left( \grad r^n \right) \left(\v{a}\cdot\v{r}\right)^m
+  \left( \grad |\vr|^n \right) \left(\v{a}\cdot\v{r}\right)^m
   +
-  r^n \left\{ \grad \left(\v{a}\cdot\v{r}\right)^m\right\}
+  |\vr|^n \left\{ \grad \left(\v{a}\cdot\v{r}\right)^m\right\}
   \qquad \qquad \qquad\!\! \mbox{(using the product rule)} \\[1ex]
   %
   & = &
-  \left( \grad r^n \right) \left(\v{a}\cdot\v{r}\right)^m
+  \left( \grad |\vr|^n \right) \left(\v{a}\cdot\v{r}\right)^m
   +
-  r^n \,
+  |\vr|^n \,
   m \left(\v{a}\cdot\v{r}\right)^{m-1}
   \left\{\grad \left(\v{a}\cdot\v{r}\right)\right\}
   \qquad \mbox{(using the chain rule)} \\[1ex]
   %
   & = &
-  n \, r^{n-2} \left(\v{a}\cdot\v{r}\right)^m \v{r}
+  n \, |\vr|^{n-2} \left(\v{a}\cdot\v{r}\right)^m \v{r}
   +
-  m r^n
+  m |\vr|^n
   \left(\v{a}\cdot\v{r}\right)^{m-1} \v{a}
 \end{eqnarray*}
 where, in the last line, we used
-$\grad\left(\v{a}\cdot\v{r}\right)=\v{a}$ and $\grad r^n = n \, r^{n-2}
+$\grad\left(\v{a}\cdot\v{r}\right)=\v{a}$ and $\grad |\vr|^n = n \, |\vr|^{n-2}
   \v{r}$.
-
 This example demonstrates the ``toolkit'' approach to evaluating gradients of complicated
-expressions. Here, we combined the product rule with \emph{known} gradients of ``simple''
-scalar fields $\left(\v{a}\cdot\v{r}\right)$ and $r^n$, which you should \emph{know},
-\emph{and} be able to work out from first principle. If you prefer, you can work out
-$\grad\phi$ for $\ds \phi(\v{r}) = r^n \left(\v{a}\cdot\v{r}\right)^m$ from scratch using
-index notation. \emph{Exercise:} Do it right now!
-
-The case $n=-3$, $m=1$ is used in calculating the electric field due to an electric
-dipole. (See later.)
+expressions. Here, we combined the product rule with known gradients of simple
+scalar fields $\left(\v{a}\cdot\v{r}\right)$ and $|\vr|^n$.
 
 \subsection{Transformation of the gradient}
-We now prove that the gradient of a scalar field is indeed a vector field - thus far we
-merely \emph{assumed} it's a vector!
-
-Let the point $P$ have coordinates $\x{i}$ in the $\{\ei\}$ basis, and the \emph{same}
-point $P$ have coordinates $\x{i}'$ in the $\{\ei\!'\}$ basis, \emph{i.e.}~we consider
-the vector transformation law $x_i \to x_i' = \ell_{ij} \, x_j$.
-
-$\phi(\vr)$ is a \emph{scalar field} if it depends only on the
-physical point $P$ and not on the coordinates $\x{i}$ or $\x{i}'$ used
-to specify $P$.  The \emph{value} of $\phi$ at $P$ is \emph{invariant}
-under a change of basis, but the function may look different, \emph{i.e.}
+We now prove that the gradient of a scalar field indeed transforms as a vector field. Let
+the point $P$ have coordinates $\x{i}$ in the $\{\ei\}$ basis, and the \emph{same} point
+$P$ have coordinates $\x{i}'$ in the $\{\ei\!'\}$ basis, \emph{i.e.}~we consider the
+vector transformation law $x_i \to x_i' = \ell_{ij} \, x_j$. $\phi(\vr)$ is a
+\emph{scalar field} if it depends only on the physical point $P$ and not on the
+coordinates $\x{i}$ or $\x{i}'$ used to specify $P$. The \emph{value} of $\phi$ at $P$ is
+\emph{invariant} under a change of basis, but the function may look different,
+\emph{i.e.}
 \begin{center}
   \bigbox{$\phi'(x'_1,\, x'_2,\, x'_3) \,=\, \phi(x_1,\, x_2,\, x_3)
     $}
@@ -738,7 +667,7 @@ transform as
     $}
 \end{center}
 
-Now consider $\grad \phi$ in the new (primed) basis. Its components transform as
+Now, let us consider $\grad \phi$ in the new (primed) basis. Its components transform as
 \[
   \partial^{\prime}_i\,\phi'(x_1',\, x_2',\, x_3')
   ~\equiv~
@@ -772,14 +701,11 @@ which shows that the components of $\grad \phi$ transform in the same way as the
 components of a vector. Thus $\grad\phi(\vr)$ transforms as a \emph{vector field} as
 claimed.
 
-\mnote{14L 27/02/09}
-
 \subsection{The operator \emph{del}}
 We can think of $\grad$ as a \emph{vector operator}, called
 \emph{del}, which acts on the \emph{scalar field} $\phi(\vr)$ to
-produce the \emph{vector field} $\grad \phi(\vr)$.
-
-In Cartesians: \hspace*{0.15\textwidth}
+produce the \emph{vector field} $\grad \phi(\vr)$.\medskip\\
+In Cartesians coordinates: \hspace*{0.02\textwidth}
 %
 \bigbox{$\ds
     \grad
@@ -793,11 +719,9 @@ In Cartesians: \hspace*{0.15\textwidth}
     \ei \;  \frac{\partial}{\partial x_i}
     \,\equiv\,
     \ei \;  \partial_i
-  $}
-\vspace*{1ex}
-
+  $}\medskip\\
 We call $\grad$ an \emph{operator} since it operates on something to its \emph{right}. It
-is a vector operator because it has vector transformation properties,
+is a vector operator because it has the transformation properties of a vector,
 \begin{center}
   \bigbox{$\partial^\prime_i \,=\, \ell_{ip} \: \partial_p$}
 \end{center}
@@ -823,7 +747,6 @@ $\v{a}\cdot\grad$ as a \emph{scalar operator}
   a_2\, \frac{\partial \phi}{\partial x_2} \,+\,
   a_3\, \frac{\partial \phi}{\partial x_3}
 \]
-
 We can also act with this operator on a vector field $\v{b}(\v{r})$ to get another vector
 field,
 \[
@@ -852,13 +775,6 @@ or, equivalently, in components
   \,=\,
   a_j \, \partial_j \, b_i
 \]
-The alternative expression $\v{a}\cdot\left(\grad\v{b}\right)$ is {\em undefined} because
-$\grad\v{b}$ doesn't make sense.
-
-(For this reason, the parentheses are sometimes omitted, and
-$\v{a}\cdot\grad\, \v{b}$ is taken to mean $(\v{a}\cdot\grad)\;
-  \v{b}$, but I wouldn't recommend doing this as it's likely to lead to
-mistakes!)
 
 \paragraph{NB}
 Great care is required with the order in products since, in general, products involving
@@ -879,27 +795,22 @@ have
   \phi(\v{r}+\delta \v{r})
   \,=\,
   \phi(\v{r}) +  \left(\grad \phi\right) \cdot \delta\v{r}
-  + O\left((\delta r)^2\right)
+  + \mathcal{O}[(\delta\vr)^2]
   \,=\,
-  \phi(\v{r}) + \delta\v{r} \cdot \grad \phi + O\left((\delta r)^2\right)
+  \phi(\v{r}) + \delta\v{r} \cdot \grad \phi +  \mathcal{O}[(\delta\vr)^2]
   \label{eq:grad-phi}
 \end{equation}
 If we set $\delta \v{r} = \v{a}$, where $\v{a}$ is an arbitrary (but
-small) vector, we have\footnote{We can write this equation as
-  $\phi(\v{r}+\v{a}) \,=\, \phi(\v{r}) + a \frac{d\phi}{da} +
-    O\left(a^2\right)$ where $\frac{d\phi}{da}$ is the directional
-  derivative in the direction of the unit vector $\v{\hat{a}}$, and
-  $a=|\v{a}|$, but this is rarely done in practice - possibly because
-  its aparent simplicity leads to errors!}
+small) vector, we have
 \begin{equation}
   \bigbox{$
       \phi(\v{r}+\v{a})
       \,=\,
-      \phi(\v{r}) + \v{a} \cdot \grad \phi(\v{r}) + O\left(a^2\right)
+      \phi(\v{r}) + \v{a} \cdot \grad \phi(\v{r}) + \mathcal{O}[(\delta\vr)^2]
     $}
   \label{eq:phi-expansion}
 \end{equation}
-As we shall see, this expression is is very useful when $\phi(\vr)$ is
+As we shall see, this expression is very useful when $\phi(\vr)$ is
 the electrostatic potential.
 
 We can expand a \emph{vector field} about some point $\v{r}$ in exactly the same way. For
@@ -911,7 +822,7 @@ component of the electric field, $E_i(\v{r})$:
   \,=\,
   E_i(\v{r}) +  \left(\delta\v{r} \cdot \grad\right) E_i(\v{r})
   +
-  O\left((\delta r)^2\right)
+  \mathcal{O}[(\delta\vr)^2]
 \]
 Setting $\delta\v{r} = \v{a}$ gives
 \begin{equation}
@@ -920,14 +831,9 @@ Setting $\delta\v{r} = \v{a}$ gives
       \,=\,
       \v{E}(\v{r}) + \left(\v{a} \cdot \grad\right) \v{E}(\v{r})
       +
-      O\left(a^2\right)
+      \mathcal{O}(\v{a}^2)
     $}
   \label{eq:E-expansion}
 \end{equation}
-
 Equations~(\ref{eq:phi-expansion}) and~(\ref{eq:E-expansion}) arise in the study of
 dipoles in electrostatics.
-
-\mnote{13L 19/02/08}
-
-\vfill
