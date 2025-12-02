@@ -2,22 +2,21 @@
 %% Brian Lecture 10 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\nsection{More on Vector Operators {\it (RHB 8.7.2, 8.7.3)}}
 
-We now combine the vector operator $\grad$ \emph{(del)} with a vector field to define two
-new operations \emph{div} and \emph{curl}. Then we define the \emph{Laplacian}.
+We now combine the vector operator $\grad$ with a vector field to define two new
+operations called \emph{divergence} and \emph{curl}. Then we define the \emph{Laplacian}.
 
 \subsection{Divergence}
 
-We define the \emph{divergence} of a vector field $\v{a}(\v{r})$ (pronounced \emph{`div
-  a'}) by
+We define the \emph{divergence} of a vector field $\v{a}(\v{r})$ (sometimes abbreviated
+as ``div a'') by
 \begin{center}
   \fbox{
     \parbox{45mm}{
       \[
-        {\rm div}\: \v{a}(\vr) ~\equiv~ \Div \v{a}(\vr)
+        {\rm div}[\v{a}(\vr)] ~\equiv~ \Div \v{a}(\vr)
       \]
     }}
 \end{center}
-
 In Cartesian coordinates
 \begin{center}
   \bigbox{
@@ -52,10 +51,8 @@ In Cartesian coordinates
       %\vspace*{-1.5ex}
     }}
 \end{center}
-
-It's easy to show that $\Div\v{a}$ is a scalar field when $\v{a}$ is a vector field:
-
-Under a transformation $x_i^\prime = \ell_{ij}\;x_j$, we have $\partial^\prime_i =
+It's easy to show that $\Div\v{a}$ is a scalar field when $\v{a}$ is a vector field.
+Indeed, under a transformation $x_i^\prime = \ell_{ij}\;x_j$, we have $\partial^\prime_i =
   \ell_{ij} \, \partial_j$ so
 \[
   (\grad \cdot\v{a})^\prime
@@ -65,27 +62,10 @@ Under a transformation $x_i^\prime = \ell_{ij}\;x_j$, we have $\partial^\prime_i
   = \partial_j \, a_j
   = \grad \cdot\v{a}
 \]
-%\begin{eqnarray*}
-%%% 1
-%        \left(\grad\cdot \v{a})\right)'
-%                & = & \frac{\partial}{\partial \x{i}'}\;
-%                         a'(x_1',\, x_2',\, x_3')\ =\
-%                      \frac{\partial\x{j}}{\partial \x{i}'}\;
-%                      \frac{\partial}{\partial \x{j}}\;
-%                      \left(\ell_{ik} a_{k}(x_1,\, x_2,\, x_3)\right)\\
-%%% 2
-%                & = & \ell_{ij}\,\ell_{ik} \, \frac{\partial}{\partial \x{j}}\;
-%                         a_{k}(x_1,\, x_2,\, x_3)\ =\ 
-%                      \delt{jk}\, \frac{\partial}{\partial \x{j}}\;
-%                      a_{k}(x_1,\, x_2,\, x_3)\\
-%%% 3
-%                & = &  \frac{\partial}{\partial \x{j}}\;
-%                                 a_{j}(x_1,\, x_2,\, x_3)
-%                         =  \grad\cdot \v{a}
-%\end{eqnarray*}
 Hence $\Div\v{a}$ is invariant under a change of basis and is thus a {\bf scalar field}.
 
-\paragraph{Example:} If $\v{a}(\vr)=\vr$ then \quad \bigbox{ $\Div \vr ~=~ 3$} \quad which is a useful and
+\paragraph{Example:}
+If $\v{a}(\vr)=\vr$ then \quad \bigbox{ $\Div \vr ~=~ 3$} \quad which is a useful and
 important result.
 
 \bigskip
@@ -105,13 +85,11 @@ important result.
 
 \medskip
 
-In suffix notation:
-\[
-  \Div \vr = \frac{\partial\x{i}}{\partial \x{i}} = \delt{ii} = 3
-\]
+In suffix notation: \hspace*{0.07\textwidth}\parbox{0.5\textwidth}{\(\ds \Div \vr =
+  \frac{\partial\x{i}}{\partial \x{i}} = \delt{ii} = 3 \)}
 
-\paragraph{Example:} In \emph{`xyz'} notation, let $\v{a} = x^2 z \,\v{e}_{\,x} - 2 y^3 z^2 \,\v{e}_{\,y} + x
-  y^2 z \,\v{e}_{\,z}$
+\paragraph{Example:} In ``xyz'' notation, let $\v{a} = x^2 z \,\v{e}_{\,x} - 2 y^3 z^2 \,\v{e}_{\,y} + x y^2 z
+  \,\v{e}_{\,z}$
 \begin{eqnarray*}
   \Div \v{a}
   & = &
@@ -126,17 +104,16 @@ Then, at the point $(1,1,1)$ for instance, $\Div \v{a} = 2-6+1=-3$.
 \subsection{Curl}
 We define the \emph{curl} of a vector field $\v{a}(\v{r})$ by
 \begin{center}
-  \fbox{
+  \bigbox{
     \parbox{45mm}{
       \[
-        \mbox{curl}\: \v{a}(\vr) \;\equiv\; \curl \v{a}(\vr)
+        \mbox{curl}[\v{a}(\vr)] \;\equiv\; \curl \v{a}(\vr)
       \]
     }}
 \end{center}
 If $\v{a}$ is a (true) vector field, then $\curl \v{a}$ is a
-\emph{pseudovector} field.  Exercise: Show that if $\v{a}$ is a
-pseudovector field then $\curl \v{a}$ is a vector field.
-
+\emph{pseudovector} field\footnote{Exercise: Show that if $\v{a}$ is a
+  pseudovector field then $\curl \v{a}$ is a vector field.}.
 In Cartesian coordinates
 \[
   \curl\v{a}
@@ -209,8 +186,8 @@ We can also write the curl in determinant form, as for the ordinary vector produ
 \end{center}
 
 \paragraph{Example:}
-If $\v{a}(\vr)=\vr$ \quad then \quad \bigbox{$ \curl \vr \,=\, 0 $} \quad another useful
-and important result
+If $\v{a}(\vr)=\vr$, then~\bigbox{$ \curl \vr \,=\, 0 $}~, another useful and important
+result
 
 \bigskip
 
@@ -283,35 +260,31 @@ Compute the curl of $\v{a} = x^2y \, \eone +y^2x \, \etwo + xyz \, \ethree$
   (xz-0) \, \v{e}_{\,x}  -  (yz-0) \, \v{e}_{\,y}  + (y^2-x^2) \, \v{e}_{\,z}
 \]
 
-\subsection{Physical interpretation of \emph{div} and \emph{curl}} A full interpretation of the divergence and curl of a vector field is
-best left until after we have studied the Divergence Theorem and Stokes' Theorem
-respectively. However, we can gain some intuitive understanding by looking at simple
-examples where div and/or curl vanish.
-
-\parbox{11.5cm}{First consider the radial field $\v{a} = \v{r}$. We have
-  just shown that $\Div \v{r} = 3$ and $\curl \v{r} = 0$.  We may
-  sketch the vector field $\v{a}(\v{r})$ by drawing vectors of the
-  appropriate direction and magnitude at selected points. These give
-  the tangents of `flow lines'.  Roughly speaking, in this example the
-  divergence is positive because bigger arrows come out of any point
-  than go into it.  So the field `diverges'. (Once the concept of flux
-  of a vector field is understood this will make more sense.)  }\hfill
-\parbox{4.2cm}{
-  \epsfxsize=4.2cm
-  \includegraphics{tikz_myradial.pdf}
-}
-
-\parbox{4.2cm}{
-  \epsfxsize=4.2cm
+\subsection{Physical interpretation of divergence and curl}
+\begin{figure}[t]
+  \centering
+  \includegraphics[height=5.5cm]{tikz_myradial.pdf}\qquad
   \includegraphics{tikz_v_for_rigid_body.pdf}
-}\hfill
-\parbox{10cm}{ Now consider the field $\v{v} = \v{\omega} \times\vr$
-  where $\v{\omega}$ is a \emph{constant} vector.  One can think of
-  $\vv$ as the velocity of a point in a rigid rotating body.  The
-  sketch shows a cross-section of the field $\vv$ with $\v{\omega}$
-  chosen to point out of the page.  We can calculate $\curl\vv$ as
-  follows: }
+  \caption{Representation of a curl-free (left) and divergence-free (right) field.}
+  \label{fig:curldiv_free}
+\end{figure}
+A full interpretation of the divergence and curl of a vector field is best left until
+after we have studied the Divergence Theorem and Stokes' Theorem respectively. However,
+we can gain some intuitive understanding by looking at simple examples where div and/or
+curl vanish.
 
+First consider the radial field $\v{a} = \v{r}$. We have just shown that $\Div \v{r} = 3$
+and $\curl \v{r} = 0$. We may sketch the vector field $\v{a}(\v{r})$ by drawing vectors
+of the appropriate direction and magnitude at selected points, as represented in
+\cref{fig:curldiv_free}. These give the tangents of \emph{flow lines}. Roughly speaking,
+in this example the divergence is positive because bigger arrows come out of any point
+than go into it. So the field \emph{diverges}. As the field is purely radial, it
+\emph{does not curl}, which is manifested by $\curl \v{r} = 0$.
+
+Now consider the field $\v{v} = \v{\omega} \times\vr$ where $\v{\omega}$ is a
+\emph{constant} vector. One can think of $\vv$ as the velocity of a point in a rigid
+rotating body. \cref{fig:curldiv_free} shows a cross-section of the field $\vv$ with
+$\v{\omega}$ chosen to point out of the page. We can calculate $\curl\vv$ as follows:
 \begin{eqnarray*}
   \left(\curl \left( \v{\omega} \times \vr\right)\right)_i
   & = &
@@ -341,29 +314,27 @@ We also have \bigbox{$\grad\cdot(\v{\omega}\times\v{r}) = 0$}:
   = \partial_i \, \epsilon_{ijk} \, \omega_j \, x_k
   = \epsilon_{ijk} \, \omega_j \, \delta_{ik}
   = \epsilon_{iji} \, \omega_j
-  = 0
+  = 0\,.
 \]
-
 To understand intuitively the non-zero curl imagine that the flow lines are those of a
 rotating fluid with a ball centred on a flow line of the field. The centre of the ball
-will follow the flow line. However the effect of the neighbouring flow lines is to make
-the ball rotate. Therefore the field has non-zero `curl' and the axis of rotation gives
+will follow the flow line. However, the effect of the neighbouring flow lines is to make
+the ball rotate. Therefore, the field has non-zero curl and the axis of rotation gives
 the direction of the curl. In the previous example ($\v{a}=\vr$) the ball would just move
 away from origin without rotating therefore the field $\vr$ has zero curl. Colloquially,
 the vector field $\v{a}(\v{r})=\vr\,,$ doesn't ``curl around'' any point.
 
-% Do this in the next section when we do the general case!
-
 \paragraph{Terminology:}
 \begin{enumerate}
-  \item If $\Div\,\v{a} = 0 \;\;\;$ in some region $R$, we say $\v{a}$ is \emph{solenoidal} in
-        $R$.
-  \item If $\curl\,\v{a} = 0\;$ in some region $R$, we say $\v{a}$ \emph{irrotational} in $R$.
+  \item If $\Div\,\v{a} = 0 \;\;\;$ in some region $R$, we say $\v{a}$ is \emph{divergence-free}
+        or \emph{solenoidal} in $R$.
+  \item If $\curl\,\v{a} = 0\;$ in some region $R$, we say $\v{a}$ is \emph{curl-free} or
+        \emph{irrotational} in $R$.
 \end{enumerate}
 
 %\newpage
 
-\subsection{The Laplacian operator\texorpdfstring{ $\lap$}{}}
+\subsection{The Laplacian operator}
 Consider taking the \emph{divergence} of the \emph{gradient} of a scalar field
 $\phi(\vr)$
 \[
@@ -376,8 +347,7 @@ $\phi(\vr)$
   ~\equiv~
   \lap \phi
 \]
-$\lap$ is the \emph{Laplacian operator}, pronounced
-\emph{`del-squared'}.  In Cartesian coordinates
+$\lap$ is the \emph{Laplacian operator}.  In Cartesian coordinates
 \[
   \lap
   ~=~ \frac{\partial}{\partial \x{i}}\;
@@ -438,7 +408,6 @@ Or, directly, using simple results derived previously,
   ~=~
   6\;.
 \]
-
 In \emph{Cartesian coordinates only}, the effect of the Laplacian on a vector field
 $\v{a}$ is \emph{defined} to be
 \[
@@ -452,8 +421,4 @@ $\v{a}$ is \emph{defined} to be
   ~+~
   \frac{\partial^2}{\partial x_3^2}\;\,  \v{a}
 \]
-
 The Laplacian acts on a vector field to produce another vector field.
-
-\mnote{14L 22/02/08}
-\mnote{15L 03/03/09}
