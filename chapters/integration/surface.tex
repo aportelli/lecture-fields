@@ -1,132 +1,119 @@
 % !TEX root = ../../fields.tex
 %% Brian Lecture 13 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\parbox{6cm}{
-  \epsfxsize=6cm
+\begin{figure}[t]
+  \centering
   \includegraphics{tikz_surface.pdf}
-}\hfill
-\parbox{10cm}{ Let $S$ be a two-sided surface in three-dimensional
-  space as shown.  If an infinitesimal element of surface with
-  (scalar) area ${\rm d}S$ has unit normal $\vn$, then the infinitesimal
-  \emph{vector element of area} is \emph{defined} by
-  \begin{center}
-    \bigbox{$
-        \ds    \mbox{d} \v{S} \,=\, \vn\, \mbox{d}S
-      $}
-  \end{center}
-}
+  \caption{Infinitesimal surface element and its unit normal vector.}
+  \label{fig:surface}
+\end{figure}
+Let $S$ be a two-sided surface in three-dimensional
+space as shown in \cref{fig:surface}.  If an infinitesimal element of surface with
+(scalar) area $\diff S$ has unit normal $\vn$, then the infinitesimal
+\emph{vector element of area} is \emph{defined} by
+\begin{center}
+  \bigbox{$
+      \ds    \diff  \v{S} \,=\, \vn\, \diff S
+    $}
+\end{center}}
 
 \paragraph{Example:} If $S$ lies in the $(x,y)$ plane, then in Cartesian coordinates the infinitesimal
-\emph{scalar} element of area is $\mbox{d}S = \mbox{d}x \, \mbox{d}y$, and the
-infinitesimal \emph{vector} element of area is $\mbox{d}\v{S}=\v{e}_{\,z}\,\mbox{d}x \,
-  \mbox{d}y$.
+\emph{scalar} element of area is $\diff S = \diff x \, \diff y$, and the infinitesimal
+\emph{vector} element of area is $\diff \v{S}=\v{e}_{\,z}\,\diff x \, \diff y$.
 
-\paragraph{Geometrical interpretation:}  $\v{m} \cdot {\rm d}\v{S}$
-gives the projected (scalar) element of area onto the plane with unit
-normal $\v{m}$. See later for more details.
+\paragraph{Geometrical interpretation:}
+$\v{m} \cdot \diff \v{S}$ gives the projected (scalar) element of area onto the plane
+with unit normal $\v{m}$. See later for more details. For \emph{closed} surfaces
+(\emph{e.g.}~a sphere) we always \emph{choose} $\vn$ to be the \emph{outward} normal. For
+\emph{open} surfaces (\emph{e.g.}~the curved surface of a hemisphere), the sense of $\vn$
+is arbitrary -- except that it is chosen in the \emph{same} sense for \emph{all} elements
+of the surface. We give some two-dimensional examples in \cref{fig:surf_normal}.
+\bigskip
 
-For \emph{closed} surfaces (\emph{e.g.}~a sphere) we always \emph{choose} $\vn$ to be the
-\emph{outward} normal. For \emph{open} surfaces (\emph{e.g.}~the curved surface of a
-hemisphere), the sense of $\vn$ is arbitrary -- except that it is chosen in the
-\emph{same} sense for \emph{all} elements of the surface.
-\begin{center}
-  \epsfxsize=0.6\textwidth
-  \includegraphics{tikz_surf_normal.pdf}
-\end{center}
-If $\v{a}(\vr)$ is a vector field defined on the surface $S$, we
-define the (normal) \emph{surface integral} formally by the Riemann sum
+If $\v{a}(\vr)$ is a vector field defined on the surface $S$, we define the (normal)
+\emph{surface integral} formally by the Riemann sum
 \[
-  \intS\v{a}\cdot {\rm d}\v{S} \,=\, \intS \v{a}\cdot\vn \, {\rm d}S
+  \intS\v{a}\cdot \diff \v{S} \,=\, \intS \v{a}\cdot\vn \, \diff S
   \,=\,
-  \raisebox{-3ex}{$
-      \shortstack{lim \\ ${}_{m\to\infty}$ \\ ${}_{\delta S^{(i)}\to0}$}\;
-    $}
+  \lim_{\substack{\delta S_i\to 0 \\ m\to\infty}}\,
   \sum_{i=0}^{m-1
   }\;
-  \left(\v{a}\left(\vr^{(i)}\right)\cdot\vn^{(i)}\right)\:  \delta S^{(i)}
+  \delta S_i\,\v{a}(\vr_i)\cdot\vn_i\:
 \]
-where we divided the surface $S$ into $m$ small areas, the $i^{\rm th}$ area having
-vector area $\delta\v{S}^{(i)}$. The quantity $\v{a}(\vr^{(i)})\cdot\vn^{(i)}$ is the
-component of $\v{a}$ \emph{normal} to the surface at the point $\vr^{(i)}$. This is
-similar to the definition of the Riemann sum for planar integrals,
+where we divided the surface $S$ into $m$ small areas, the $i$-th area having vector area
+$\delta\v{S}_{i}$. The quantity $\v{a}(\vr_i)\cdot\vn_i$ is the component of $\v{a}$
+\emph{normal} to the surface at the point $\vr_{i}$. This is similar to the definition of
+the Riemann sum for planar integrals,
 % given in \emph{Linear Algebra   and Several Variable Calculus},
-except that here the (scalar) area elements $\delta S^{(i)}$ are not constrained to lie
-in a plane.
+except that here the (scalar) area elements $\delta S_{i}$ are not constrained to lie in
+a plane.
 
 \begin{itemize}
-  \item We use the notation $\intS\v{a}\cdot {\rm d}\v{S}$ for both \emph{open} and \emph{closed}
+  \item We use the notation $\int_S\v{a}\cdot \diff \v{S}$ for both \emph{open} and \emph{closed}
         surfaces. Sometimes the integral over a \emph{closed} surface is denoted by
-        $\ointS\v{a}\cdot {\rm d}\v{S}$\ \ (\emph{not} used here).
+        $\oint_S\v{a}\cdot \diff \v{S}$.
   \item The integral over $S$ is an ordinary \emph{double integral} in each
-        case.\footnote{Surface integrals are sometimes denoted by $\ds\int\!\!\!\int_S\v{a}\cdot
-            {\rm d}\v{S}$\ \ (\emph{not} used here).}
+        case.\footnote{Surface integrals are sometimes denoted by $\int\!\!\!\int_S\v{a}\cdot
+            \diff \v{S}$.}
 \end{itemize}
-
+\begin{figure}[t]
+  \centering
+  \includegraphics{tikz_surf_normal.pdf}
+  \caption{Examples of normal unit vectors}
+  \label{fig:surf_normal}
+\end{figure}
 %\newpage
 
 \paragraph{Example:} Let $S$ be the surface of a unit cube. Note that $S$ is the sum of \emph{all six faces}
-of the cube.
+of the cube. On the \emph{front} face, parallel to the $(y,z)$ plane, at $x=1$,
+\[
+  \diff \v{S} \,=\, \vn\, \diff S \,=\, \v{e}_{\,x}\, \diff y\,\diff z
+\]
+On the \emph{back} face at $x=0$ in the $(y,z)$ plane,
+\[
+  \diff \v{S} \,=\, \vn\, \diff S \,=\, -\v{e}_{\,x}\, \diff y\,\diff z
+\]
+Similarly for the other four faces, \cf \cref{fig:cube_surf}.
 
-\parbox{0.58\textwidth}{On the \emph{front} face, parallel to the
-  $(y,z)$ plane, at $x=1$,
-  \[
-    {\rm d}\v{S} \,=\, \vn\, {\rm d}S \,=\, \v{e}_{\,x}\, {\rm d}y\,{\rm d}z
-  \]
-  On the \emph{back} face at $x=0$ in the $(y,z)$ plane,
-  \[
-    {\rm d}\v{S} \,=\, \vn\, {\rm d}S \,=\, -\v{e}_{\,x}\, {\rm d}y\,{\rm d}z
-  \]
-
-  Similarly for the other four faces.
-
-  \medskip
-
-  In each case, the unit normal $\vn$ is an \emph{outward} normal because $S$ is a
-  \emph{closed} surface.} \hfill \parbox{0.4\textwidth}{
-  \begin{center}
-    \epsfxsize=0.42\textwidth
-    \includegraphics{tikz_cube_surf.pdf}
-  \end{center}
-}
+In each case, the unit normal $\vn$ is an \emph{outward} normal because $S$ is a
+\emph{closed} surface.
 %
-If $\v{a}(\vr)$ is a vector field, the integral $\intS \v{a}\cdot {\rm d}\v{S}$ over the
-front face, where ${\rm d}\v{S} = \v{e}_{\,x}\, {\rm d}y\,{\rm d}z$, is
+If $\v{a}(\vr)$ is a vector field, the integral $\int_S \v{a}\cdot \diff \v{S}$ over the
+front face, where $\diff \v{S} = \v{e}_{\,x}\, \diff y\,\diff z$, is
 \[
   \int_{z=0}^{z=1} \int_{y=0}^{y=1}
-  \,  \v{a}\cdot \left(\v{e}_{\,x}\,{\rm d}y\,{\rm d}z\right)
+  \,  \v{a}\cdot \left(\v{e}_{\,x}\,\diff y\,\diff z\right)
   \,=\,
-  \int_{z=0}^{z=1} {\rm d}z \int_{y=0}^{y=1}
-  \v{a}\cdot\v{e}_{\,x}\,{\rm d}y
+  \int_{z=0}^{z=1} \diff z \int_{y=0}^{y=1}
+  \v{a}\cdot\v{e}_{\,x}\,\diff y
   \,=\,
-  \int_{z=0}^{z=1} \,{\rm d}z \left. \int_{y=0}^{y=1}
-  a_x\right|_{x=1} \,{\rm d}y
+  \int_{z=0}^{z=1} \,\diff z \left. \int_{y=0}^{y=1}
+  a_x\right|_{x=1} \,\diff y
 \]
 where $\left. a_x\right|_{x=1} \equiv a_x(1,y,z)$. The integral over $y$ and $z$ is an
-ordinary double integral over a square of side $1$.
-
-Similarly, the integral over the back face, where ${\rm d}\v{S} = -\v{e}_{\,x}\, {\rm
-      d}y\,{\rm d}z$ is
+ordinary double integral over a square of side $1$. Similarly, the integral over the back
+face, where $\diff \v{S} = -\v{e}_{\,x}\, \diff y\,\diff z$ is
 \[
   \int_{z=0}^{z=1} \int_{y=0}^{y=1}
-  \, \v{a}\cdot \left(-\v{e}_{\,x}\,{\rm d}y\,{\rm d}z\right)
+  \, \v{a}\cdot \left(-\v{e}_{\,x}\,\diff y\,\diff z\right)
   \,=\,
-  -\int_{z=0}^{z=1} {\rm d}z \int_{y=0}^{y=1}
-  \v{a}\cdot\v{e}_{\,x}\,{\rm d}y \,=\, -\int_{z=0}^{z=1} {\rm d}z
-  \left. \int_{y=0}^{y=1} a_x\right|_{x=0} \,{\rm d}y
+  -\int_{z=0}^{z=1} \diff z \int_{y=0}^{y=1}
+  \v{a}\cdot\v{e}_{\,x}\,\diff y \,=\, -\int_{z=0}^{z=1} \diff z
+  \left. \int_{y=0}^{y=1} a_x\right|_{x=0} \,\diff y
 \]
 where $\left. a_x\right|_{x=0} \equiv a_x(0,y,z)$. Again, this is an ordinary double
-integral over a square of side $1$.
-
-The total integral over $S$ is the sum of integrals over all $6$ faces of the cube. See
-tutorial for an explicit example.
+integral over a square of side $1$. The total integral over $S$ is the sum of integrals
+over all $6$ faces of the cube. See exercises for an explicit example.
+\begin{figure}[t]
+  \centering
+  \includegraphics{tikz_cube_surf.pdf}
+  \caption{Illustration of infinitesimal surface elements on a unit cube.}
+  \label{fig:cube_surf}
+\end{figure}
 
 \subsection{Parametric form of the surface integral}
-We now introduce a parametric representation for surface integrals.
-
-%\footnote{This is the extension to 3D of the representation
-%  used for planar integrals in \emph{LA\&SVC} Section~(18.4).}
-
-Suppose the points on a surface $S$ can be specified by two real parameters $u$ and $v$,
-so that the position vector on the surface may be written as
+We now introduce a parametric representation for surface integrals. Suppose the points on
+a surface $S$ can be specified by two real parameters $u$ and $v$, so that the position
+vector on the surface may be written as
 \[
   \vr \,=\, \vr(u,v) \,=\, x(u,v)\,\ex \,+\,  y(u,v)\,\ey \,+\, z(u,v) \, \ez
 \]
@@ -135,111 +122,75 @@ Then
   \item the lines $\vr(u,v)$ for fixed $u$, variable $v$, and
   \item the lines $\vr(u,v)$ for fixed $v$, variable $u$
 \end{itemize}
-are \emph{parametric lines} and form a \emph{grid} on the surface $S$ as
-shown.
-
-\vspace*{-3ex}
-
-\begin{center}
-  \epsfxsize=6.5cm
-  \includegraphics{tikz_grid.pdf}
-\end{center}
-
-\vspace*{-2ex}
-
-If we change $u$ by ${\rm d}u$, and $v$ by ${\rm d}v$, then $\vr$ changes by ${\rm
-      d}\v{r}$, where the infinitesimal vector ${\rm d}\v{r}$ lies in the surface, and is given
-by
+are \emph{parametric lines} and form a \emph{grid} on the surface $S$ as shown in
+\cref{fig:grid}. If we change $u$ by $\diff u$, and $v$ by $\diff v$, then $\vr$ changes
+by $\diff \v{r}$, where the infinitesimal vector $\diff \v{r}$ lies in the surface, and is
+given by
 \[
-  {\rm d}\v{r}
+  \diff \v{r}
   \,=\,
-  \parpar{\vr}{u}\; {\rm d}u + \parpar{\vr}{v}\; {\rm d}v
+  \parpar{\vr}{u}\; \diff u + \parpar{\vr}{v}\; \diff v
 \]
-
-\parbox{0.55\textwidth}{Along the curves $v=\mbox{\emph{constant}}$,
-we have ${\rm d}v=0$, so ${\rm d}\v{r}$ is just
+Along the curves $v=\mbox{\emph{constant}}$, we have $\diff v=0$, so $\diff \v{r}$ is
+just
 \[
-  {\rm d}\v{r}_{\,u}
+  \diff \v{r}_{\,u}
   \,=\,
-  \parpar{\vr}{u}\; {\rm d}u
+  \parpar{\vr}{u}\; \diff u
 \]
 The vector $\partial\vr/\partial u$ is tangent to the surface at $\vr$, and tangent to
-the lines $v = \mbox{\emph{constant}}$.
-
-\bigskip
-
-Similarly, for $u=\mbox{\emph{constant}}$, we have
+the lines $v = \mbox{\emph{constant}}$. Similarly, for $u=\mbox{\emph{constant}}$, we
+have
 \[
-  {\rm d}\v{r}_{\,v} \,=\,  \parpar{\vr}{v}\; {\rm d}v
+  \diff \v{r}_{\,v} \,=\,  \parpar{\vr}{v}\; \diff v
 \]
 so $\partial\vr/\partial v$ is tangent to the surface at $\vr$, and tangent to the lines
-$u = \mbox{\emph{constant}}$, as shown in the figure.}
-%
-\hfill
-%
-\parbox{0.42\textwidth}{
-  \epsfxsize=0.42\textwidth
-  \includegraphics{tikz_grid_uv.pdf}
-}
+$u = \mbox{\emph{constant}}$, as shown in \cref{fig:grid}. The infinitesimal vectors
+$\diff \v{r}_{\,u}$ and $\diff \v{r}_{\,v}$ lie \emph{in the surface} at $\vr$. The
+vectors $\smash{\parpar{\vr}{u}}$ and $\smash{\parpar{\vr}{v}}$ lie in the \emph{tangent
+  plane} to the surface at $\vr$.
 
-\medskip
-
-The infinitesimal vectors ${\rm d}\v{r}_{\,u}$ and ${\rm d}\v{r}_{\,v}$ lie \emph{in the
-  surface} at $\vr$.
-
-\smallskip
-
-The vectors $\ds\parpar{\vr}{u}$ and $\ds\parpar{\vr}{v}$ lie in the \emph{tangent plane}
-to the surface at $\vr$.
-
-\smallskip
-
-We can construct a \emph{unit vector} $\vn$, \emph{normal} to the surface at $\vr$
+We can then construct a \emph{unit vector} $\vn$, \emph{normal} to the surface at $\vr$
 \vspace*{0.5ex}
 \[
   \vn
   \,=\,
   \left(\parpar{\vr}{u}\times\parpar{\vr}{v}\right)
   \left/\,
-  \left|\parpar{\vr}{u}\times\parpar{\vr}{v}\right|
-  \right.
+  \left|\parpar{\vr}{u}\times\parpar{\vr}{v}\right|\right.
 \]
-Since the vector element of area, ${\rm d}\v{S}$, has magnitude equal to the area of the
-infinitesimal parallelogram shown in the figure above, and it points in the direction of
+Since the vector element of area, $\diff \v{S}$, has magnitude equal to the area of the
+infinitesimal parallelogram shown in \cref{fig:grid}, and it points in the direction of
 $\vn$, we can write
 \[
-  {\rm d}\v{S}
+  \diff \v{S}
   \,=\,
-  {\rm d}\v{r}_{\,u} \times {\rm d}\v{r}_{\,v}
+  \diff \v{r}_{\,u} \times \diff \v{r}_{\,v}
   \,=\,
-  \left(\parpar{\vr}{u}\; {\rm d}u \right)  \times \left(\parpar{\vr}{v}\; {\rm d}v\right)
+  \left(\parpar{\vr}{u}\; \diff u \right)  \times \left(\parpar{\vr}{v}\; \diff v\right)
   \,=\,
-  \left(\parpar{\vr}{u} \times \parpar{\vr}{v}\right)\; {\rm d}u\,{\rm d}v
-  %               \qquad
-  %               \left( \,=\,  \left(\v{t}_{\,u}\times \v{t}_{\,v}\right)
-  %                        \; {\rm d}u\,{\rm d}v \right)
+  \left(\parpar{\vr}{u} \times \parpar{\vr}{v}\right)\; \diff u\,\diff v
 \]
 \begin{center}
   \bigbox{
     $
-      \ds {\rm d}\v{S}
+      \ds \diff \v{S}
       =
-      \left(\parpar{\vr}{u} \times \parpar{\vr}{v}\right)\, {\rm d}u\,{\rm d}v$
+      \left(\parpar{\vr}{u} \times \parpar{\vr}{v}\right)\, \diff u\,\diff v$
   }
 \end{center}
-Finally, our integral is parameterised as
+Finally, our surface integral can be written as
 \begin{center}
-
   \bigbox{
-  \parbox{0.5\textwidth}{
-  \[
-    \intS \v{a}\cdot {\rm d}\v{S}
-    \,=\,
-    \int_v \int_u
-    \v{a}\cdot\left(\parpar{\vr}{u} \times
-    \parpar{\vr}{v}\right)\; {\rm d}u\,{\rm d}v
-  \]
-  }
+    \parbox{0.5\textwidth}{
+      \[
+        \intS \v{a}\cdot \diff \v{S}
+        \,=\,
+        \int_v \int_u
+        \v{a}\cdot\left(\parpar{\vr}{u} \times
+        \parpar{\vr}{v}\right)\; \diff u\,\diff v
+      \]
+    }
   }
 \end{center}
 We use two integral signs when writing surface integrals in
@@ -247,12 +198,16 @@ terms of \emph{explicit} parameters $u$ and $v$.  The limits for the
 integrals over $u$ and $v$ must be chosen appropriately for the
 surface.
 
-%This was a little abstract and a little complicated\ldots
-
 Fortunately, in most practical cases we don’t need the detailed form of this expression,
 since we tend to use orthogonal curvilinear coordinates, where the vectors
 $\partial{\vr}/\partial u$ and $\partial{\vr}/{\partial v}$ are orthogonal to each other.
 It is normally clear from the geometry of the situation whether this is the case, as it
 is for cylindrical coordinates and spherical polar coordinates - as we shall see.
-
-\newpage
+%
+\begin{figure}[t]
+  \centering
+  \includegraphics{tikz_grid.pdf}\hspace{0.5cm}
+  \raisebox{1cm}{\includegraphics{tikz_grid_uv.pdf}}
+  \caption{<caption>}
+  \label{fig:grid}
+\end{figure}
