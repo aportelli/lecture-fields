@@ -1,0 +1,201 @@
+% !TEX root = ../fields.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Exercises}
+\begin{ExerciseList}
+  %---------------------------------------------------------------------------------------
+  \Exercise A (plane) triangle is formed by the three vectors $\v{a}$,
+  $\v{b}$ and $\v{c}$, such that
+  \[
+    \v{a} + \v{b} + \v{c} = 0 \; ,
+  \]
+  and the internal angles at the vertices are $\alpha$, $\beta$ and $\gamma$, so that the
+  angles between the \emph{vectors} are $\pi - \alpha$ (between vectors $\v{b}$ and
+  $\v{c}$), \ $\pi -\beta$ (between vectors $\v{c}$ and $\v{a}$) and $\pi -\gamma$ (between
+  vectors $\v{a}$ and $\v{b}$). Show that $\v{a}\times\v{b} = \v{b}\times\v{c} =
+    \v{c}\times\v{a}$, and hence establish the \emph{sine rule}:
+  \[
+    \frac{\sin\alpha}{|\v{a}|}
+    \ = \
+    \frac{\sin\beta}{|\v{b}|}
+    \ = \
+    \frac{\sin\gamma}{|\v{c}|}\;.
+  \]
+
+  Establish the \emph{cosine rule}:
+  \[
+    a^2 \ = \ b^2 + c^2 - 2bc\cos\alpha\;,
+  \]
+  where $a = |\v{a}|$, etc.
+
+  \textit{Hint: Put $\v{a}=-\v{b}-\v{c}$ and evaluate $\v{a}\cdot\v{a}$.}
+  %---------------------------------------------------------------------------------------
+  \Exercise[label=bac-cab] Complete the proof, sketched in lectures, of the  identity
+  \[
+    \v{a}\times(\v{b}\times\v{c})
+    \ = \
+    \v{b} (\v{a}\cdot\v{c}) - \v{c} (\v{a}\cdot\v{b})
+  \]
+  Use this to deduce the identities
+
+  \Question $(\v{a}\times\v{b})\times\v{c} \ = \
+    (\v{a}\cdot\v{c})\v{b} - (\v{b}\cdot\v{c})\v{a}$;
+  \Question
+  $\v{a}\times(\v{b}\times\v{c}) + \v{b}\times(\v{c}\times\v{a}) +
+    \v{c}\times(\v{a}\times\v{b}) \ = \ 0$;
+  \Question $[\v{a}\times\v{b},\ \v{b}\times\v{c},\
+        \v{c}\times\v{a}] \ = \ \stpr{a}{b}{c}^2$;
+  %---------------------------------------------------------------------------------------
+  \Exercise Establish the identities:
+
+  \Question   $(\v{a}\times\v{b})\cdot(\v{c}\times\v{a}) \ =
+    \ (\v{a}\cdot\v{c})(\v{b}\cdot\v{a}) - (\v{a}\cdot\v{a})(\v{b}\cdot\v{c})$~;
+  \Question   $(\v{a}\times\v{b})\times(\v{c}\times\v{a}) \ =
+    \ -\stpr{a}{b}{c}\,\v{a}$.
+  %---------------------------------------------------------------------------------------
+  \Exercise The velocity of a point particle, rotating with angular velocity
+  vector $\v{\omega}$ through the origin, is $\v{v} = \v{\omega}\times
+    \v{r}$.
+  \Question
+  The angular momentum vector of such a particle is defined as
+  $\v{L} = m \v{r}\times \v{v}$ where $m$ is the mass.
+  Show that $l$, the component of the angular momentum vector along the axis of rotation,
+  is given by
+  \[
+    l = m \omega \left[ r^2 - | \v{r}\cdot \v{\hat{\omega}}|^2 \right]
+  \]
+  What is the geometrical meaning of the term in the square bracket?
+
+  \Question The kinetic
+  energy of such a particle is given by $K = \frac{m}{2} \v{v}^2$.
+  Show that
+  \[
+    K
+    =
+    \frac{m w^2}{2} \left[ r^2 - | \v{r}\cdot \v{\hat{\omega}}|^2 \right]
+  \]
+  %---------------------------------------------------------------------------------------
+  \Exercise Solve the following sets of equations for $\v{x}$, and give
+  a geometrical interpretation to your result:
+
+  \Question   $\v{a}\cdot\v{x} \ = \ l$\quad;
+  \quad$\v{b}\times\v{x} \ = \ \v{c}$,\ \ where $\v{a}\cdot\v{b} \neq 0$~;
+  \Question  $\v{a}\cdot\v{x} \ = \ l$\quad;
+  \quad$\v{b}\cdot\v{x} \ = \ m$\quad;\quad
+  $\v{c}\cdot\v{x} \ = \ n$, \ where $\stpr{a}{b}{c}\ \neq \ 0$.
+  %---------------------------------------------------------------------------------------
+  \Exercise Show that the solution of the vector equation
+  \[k\v{x} + (\v{x}\times\v{a}) \ = \ \v{b}\;,\]
+  where $k \neq 0$, is
+  \[\v{x}(k^2 + a^2) \ = \ (\v{a}\times\v{b})
+    + k\v{b} + \frac{(\v{a}\cdot\v{b})\v{a}}{k}\;.\]
+  \textit{Hint: Take vector and scalar products of original equation with $\v{a}$.}
+  %---------------------------------------------------------------------------------------
+  \Exercise Show that the minimal distance of the point $\v{d}$ from the plane
+  $\v{x}\cdot\v{a} = b$ is $|b - \v{d}\cdot\v{a}|/a$.
+  %---------------------------------------------------------------------------------------
+  \Exercise Show that the vectors $\v{A} = (1,2,3)$, $\v{B} = (1,-1,1)$ and
+  $\v{C} = (0,1,1)$ (where the basis is right handed orthonormal)
+  are linearly independent.
+  Express the vector $\v{D} = (2,1,1)$ in the form
+  \[
+    \v{D}
+    \,=\,
+    \alpha \, \v{A} \,+\, \beta \, \v{B} \,+\, \gamma \, \v{C}\,.
+  \]%---------------------------------------------------------------------------------------
+  \Exercise Find the general vector which is orthogonal to $\va$ and
+  coplanar with $\va$ and $\vb$ where $\va= (8,2,-1)$ and $\vb=
+    (3,-1,-3)$ in an orthonormal basis.
+  %---------------------------------------------------------------------------------------
+  \Exercise Verify that the components in the $\eone$ direction (of a right
+  hand orthonormal basis) of the vectors $\v{A}\times(\v{B}\times\v{C})$
+  and $\left[ \left(\v{A}\cdot\v{C}\right)\v{B} - \left(\v{A}\cdot\v{B}\right)\v{C} \right]$
+  are equal for any $\v A, \v B, \v C$.
+  %---------------------------------------------------------------------------------------
+  \Exercise The vectors $\v{A}$, $\v{B}$, $\v{C}$ are non-coplanar.  Consider
+  the reciprocal basis vectors defined as
+  \[
+    \v{A}^* \,=\, \frac{\v{B} \times \v{C}}{ \stpr{A}{B}{C}},\qquad
+    \v{B}^* \,=\, \frac{\v{C} \times \v{A}}{ \stpr{A}{B}{C}},\qquad
+    \v{C}^* \,=\,  \frac{\v{A} \times \v{B}}{\stpr{A}{B}{C}}\;.
+  \]
+  Show that
+
+  \Question $\ \v{A}\cdot\v{A}^* \,=\, \v{B}\cdot\v{B}^* \,=\, \v{C}\cdot\v{C}^*
+    \,=\, 1$
+
+  \Question $\ \v{A}\cdot\v{B}^* \,=\, \v{A}\cdot\v{C}^* \,=\, \v{B}\cdot\v{A}^*
+    \,=\, \cdots \,=\, 0$
+
+  \Question $\left(\v{A}^*,\, \v{B}^*,\, \v{C}^*\right) \,=\,
+    1/\left(\v{A},\, \v{B},\, \v{C}\right)$
+
+  \Question $\v{A} \,=\, \left(\v{B}^*\times
+    \v{C}^*\right) /\left(\v{A}^*,\, \v{B}^*,\, \v{C}^*\right)$
+  %---------------------------------------------------------------------------------------
+  \Exercise Let $\eone$, $\etwo$, $\ethree$ be an orthonormal basis
+
+  \Question Show that the three vectors $\v{A} = \frac{1}{2}(\etwo+\ethree),\,
+    \v{B}= \frac{1}{2}(\ethree+\eone),\, \v{C}= \frac{1}{2}(\eone+\etwo),$ form a basis (not orthonormal).
+
+  Construct the reciprocal basis vector $\v{A}^{\ds\ast}$ defined by
+  \[
+    \v{A}^{\ds\ast}
+    \,=\,
+    \frac{ (\v{B} \times \v{C})}{(\v{A},\, \v{B},\, \v{C})}
+  \]
+  and find its direction in the $\ei$ basis. Similarly, construct $\v{B}^{\ds\ast}$ and
+  $\v{C}^{\ds\ast}$.
+
+  \Question Sketch the original and reciprocal bases.
+  %---------------------------------------------------------------------------------------
+  \Exercise Consider three vectors $\v A = \sum_{i=1}^{3} A_i \,
+    \v{w}_{\,i}$, \ $\v B = \sum_{i=1}^{3} B_i \, \v{w}_{\,i}$, \ $\v C = \sum_{i=1}^{3}
+    C_i \, \v{w}_{\,i}$, where $\v{w}_{\,1}$, $\v{w}_{\,2}$, $\v{w}_{\,3}$ form a basis, which is not
+  necessarily orthonormal.
+  \Question Show  that the scalar triple product of the three
+  vectors is given by
+  \[
+    (\v A, \v B,\v C)
+    \,=\,
+    \left|
+    \begin{array}{ccc}
+      A_1 & A_2 & A_3 \\
+      B_1 & B_2 & B_3 \\
+      C_1 & C_2 & C_3
+    \end{array}
+    \right| \,
+    (\v{w}_{\,1},\v{w}_{\,2},\v{w}_{\,3})
+  \]
+  \Question What does this formula reduce to $(a)$ in a right-handed
+  orthonormal basis, and $(b)$ in a left-handed orthonormal basis?
+  %---------------------------------------------------------------------------------------
+  \Exercise Simplify the following expressions, where $\delt{ij}$ is the
+  Kronecker delta symbol.
+  \begin{tabbing}
+    (iv)$^*$ $\sum_{j=1}^3\sum_{k=1}^3\delt{ij}\,\delt{jk}\,\delt{kl}$ \hspace{10mm}
+    \= (ii) $\sum_{i=1}^3\sum_{j=1}^3A_i\,B_j\,\delt{ij}$ \hspace{10mm} \=
+    (iii)   $\sum_{j=1}^3\delt{ij}\,\delt{jk}$  \kill
+    (i)     $\sum_{i=1}^3A_i\,\delt{ij}$ \>
+    (ii)    $\sum_{i=1}^3\sum_{j=1}^3A_i\,B_j\,\delt{ij}$  \>
+    (iii)   $\sum_{j=1}^3\delt{ij}\,\delt{jk}$  \\
+    \\
+    (iv)  $\sum_{j=1}^3\sum_{k=1}^3\delt{ij}\,\delt{jk}\,\delt{kl}$
+    \>
+    (v)   $\sum_{i=1}^3 \sum_{j=1}^3 \sum_{k=1}^3 \sum_{l=1}^3 A_i \, B_j \, C_k \, D_l \, \delt{ij} \, \delt{kl}$
+  \end{tabbing}
+  %---------------------------------------------------------------------------------------
+  \Exercise Repeat the previous exercise using the Einstein summation
+  convention, \emph{i.e.} simplify
+  \[
+    \begin{array}{lllll}
+      \mbox{(i) }	  A_{i}\,\delt{ij} \;                  &
+      \mbox{(ii) }	  A_{i}\,B_{j}\,\delt{ij} \;          &
+      \mbox{(iii) }   \delt{ij}\,\delt{jk} \;            &
+      \mbox{(iv) } 	  \delt{ij}\,\delt{jk}\,\delt{kl} \; &
+      \mbox{(v) }	  A_{i}\,B_{j}\,C_{k}\,D_{l}\,\delt{ij}\,\delt{kl}
+    \end{array}
+  \]
+  where there is an implicit sum over each pair of dummy indices.
+  %---------------------------------------------------------------------------------------
+  \vfill
+\end{ExerciseList}
