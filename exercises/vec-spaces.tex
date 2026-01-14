@@ -86,12 +86,12 @@
   \Exercise Show that the solution of the vector equation
   \[k\v{x} + (\v{x}\times\v{a}) \ = \ \v{b}\;,\]
   where $k \neq 0$, is
-  \[\v{x}(k^2 + a^2) \ = \ (\v{a}\times\v{b})
+  \[\v{x}(k^2 + |\v{a}|^2) \ = \ (\v{a}\times\v{b})
     + k\v{b} + \frac{(\v{a}\cdot\v{b})\v{a}}{k}\;.\]
   \textit{Hint: Take vector and scalar products of original equation with $\v{a}$.}
   %---------------------------------------------------------------------------------------
   \Exercise Show that the minimal distance of the point $\v{d}$ from the plane
-  $\v{x}\cdot\v{a} = b$ is $|b - \v{d}\cdot\v{a}|/a$.
+  $\v{x}\cdot\v{a} = b$ is $|b - \v{d}\cdot\v{a}|/|\v{a}|$.
   %---------------------------------------------------------------------------------------
   \Exercise Show that the vectors $\v{A} = (1,2,3)$, $\v{B} = (1,-1,1)$ and
   $\v{C} = (0,1,1)$ (where the basis is right-handed orthonormal)
@@ -155,7 +155,7 @@
   \Question Show  that the scalar triple product of the three
   vectors is given by
   \[
-    (\v A, \v B,\v C)
+    \stpr{A}{B}{C}
     \,=\,
     \left|
     \begin{array}{ccc}
@@ -164,7 +164,7 @@
       C_1 & C_2 & C_3
     \end{array}
     \right| \,
-    (\v{w}_{\,1},\v{w}_{\,2},\v{w}_{\,3})
+    [\v{w}_{\,1},\v{w}_{\,2},\v{w}_{\,3}]
   \]
   \Question What does this formula reduce to $(a)$ in a right-handed
   orthonormal basis, and $(b)$ in a left-handed orthonormal basis?
