@@ -126,11 +126,11 @@
   \Question $\ \v{A}\cdot\v{B}^* \,=\, \v{A}\cdot\v{C}^* \,=\, \v{B}\cdot\v{A}^*
     \,=\, \cdots \,=\, 0$
 
-  \Question $\left(\v{A}^*,\, \v{B}^*,\, \v{C}^*\right) \,=\,
-    1/\left(\v{A},\, \v{B},\, \v{C}\right)$
+  \Question $\left[\v{A}^*,\, \v{B}^*,\, \v{C}^*\right] \,=\,
+    1/\stpr{A}{B}{C}$
 
   \Question $\v{A} \,=\, \left(\v{B}^*\times
-    \v{C}^*\right) /\left(\v{A}^*,\, \v{B}^*,\, \v{C}^*\right)$
+    \v{C}^*\right) /\left[\v{A}^*,\, \v{B}^*,\, \v{C}^*\right]$
   %---------------------------------------------------------------------------------------
   \Exercise Let $\eone$, $\etwo$, $\ethree$ be an orthonormal basis
 
@@ -141,7 +141,7 @@
   \[
     \v{A}^{\ds\ast}
     \,=\,
-    \frac{ (\v{B} \times \v{C})}{(\v{A},\, \v{B},\, \v{C})}
+    \frac{ (\v{B} \times \v{C})}{\stpr{A}{B}{C}}
   \]
   and find its direction in the $\ei$ basis. Similarly, construct $\v{B}^{\ds\ast}$ and
   $\v{C}^{\ds\ast}$.
@@ -244,7 +244,7 @@
   %---------------------------------------------------------------------------------------
   \Exercise Using the suffix notation and summation convention, show that
   \Question  $(\v{a}\times \v{b})\cdot (\v{a}\times \v{b}) \, \, =a^2 b^2-(\v{a}\cdot\v{b})^2$ ;
-  \Question  $(\v{a}\times \v{b})\times (\v{c}\times \v{d}) \,=\, (\v{a},\v{b},\v{d}) \, \v{c}-(\v{a},\v{b},\v{c}) \, \v{d}$.
+  \Question  $(\v{a}\times \v{b})\times (\v{c}\times \v{d}) \,=\, \stpr{a}{b}{d} \, \v{c}-\stpr{a}{b}{c} \, \v{d}$.
   %---------------------------------------------------------------------------------------
   \Exercise Construct the coefficients $\ell_{ij}$ of the transformation
   matrix $L$, and calculate its determinant for
