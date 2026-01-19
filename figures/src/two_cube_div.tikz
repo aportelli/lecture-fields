@@ -1,101 +1,92 @@
 \usetikzlibrary{arrows.meta,bending}
 {\pgfkeys{/pgf/fpu/.try=false}%
-\ifx\XFigwidth\undefined\dimen1=0pt\else\dimen1\XFigwidth\fi
-\divide\dimen1 by 4132
-\ifx\XFigheight\undefined\dimen3=0pt\else\dimen3\XFigheight\fi
-\divide\dimen3 by 2999
-\ifdim\dimen1=0pt\ifdim\dimen3=0pt\dimen1=3946sp\dimen3\dimen1
-  \else\dimen1\dimen3\fi\else\ifdim\dimen3=0pt\dimen3\dimen1\fi\fi
-\tikzpicture[x=+\dimen1, y=+\dimen3]
-{\ifx\XFigu\undefined\catcode`\@11
-\def\temp{\alloc@1\dimen\dimendef\insc@unt}\temp\XFigu\catcode`\@12\fi}
-\XFigu3946sp
-% Uncomment to scale line thicknesses with the same
-% factor as width of the drawing.
-%\pgfextractx\XFigu{\pgfqpointxy{1}{1}}
-\ifdim\XFigu<0pt\XFigu-\XFigu\fi
-\pgfdeclarearrow{
-  name = xfiga1,
-  parameters = {
-    \the\pgfarrowlinewidth \the\pgfarrowlength \the\pgfarrowwidth\ifpgfarrowopen o\fi},
-  defaults = {
-	  line width=+7.5\XFigu, length=+120\XFigu, width=+60\XFigu},
-  setup code = {
-    % miter protrusion = thk * sqrt(wd^2 + (tipmv*len)^2) / (2 * wd)
-    \dimen7 2.1\pgfarrowlength\pgfmathveclen{\the\dimen7}{\the\pgfarrowwidth}
-    \dimen7 2\pgfarrowwidth\pgfmathdivide{\pgfmathresult}{\the\dimen7}
-    \dimen7 \pgfmathresult\pgfarrowlinewidth
-    \pgfarrowssettipend{+\dimen7}
-    \pgfarrowssetbackend{+-\pgfarrowlength}
-    \dimen9 -\pgfarrowlength\advance\dimen9 by-0.45\pgfarrowlinewidth
-    \pgfarrowssetlineend{+\dimen9}
-    \dimen9 -\pgfarrowlength\advance\dimen9 by-0.5\pgfarrowlinewidth
-    \pgfarrowssetvisualbackend{+\dimen9}
-    \pgfarrowshullpoint{+\dimen7}{+0pt}
-    \pgfarrowsupperhullpoint{+-\pgfarrowlength}{+0.5\pgfarrowwidth}
-    \pgfarrowssavethe\pgfarrowlinewidth
-    \pgfarrowssavethe\pgfarrowlength
-    \pgfarrowssavethe\pgfarrowwidth
-  },
-  drawing code = {\pgfsetdash{}{+0pt}
-    \ifdim\pgfarrowlinewidth=\pgflinewidth\else\pgfsetlinewidth{+\pgfarrowlinewidth}\fi
-    \pgfpathmoveto{\pgfqpoint{-\pgfarrowlength}{-0.5\pgfarrowwidth}}
-    \pgfpathlineto{\pgfqpoint{0pt}{0pt}}
-    \pgfpathlineto{\pgfqpoint{-\pgfarrowlength}{0.5\pgfarrowwidth}}
-    \pgfpathclose
-    \ifpgfarrowopen\pgfusepathqstroke\else\pgfsetfillcolor{pgfstrokecolor}
-	\ifdim\pgfarrowlinewidth>0pt\pgfusepathqfillstroke\else\pgfusepathqfill\fi\fi
+  \ifx\XFigwidth\undefined\dimen1=0pt\else\dimen1\XFigwidth\fi
+  \divide\dimen1 by 4132
+  \ifx\XFigheight\undefined\dimen3=0pt\else\dimen3\XFigheight\fi
+  \divide\dimen3 by 2999
+  \ifdim\dimen1=0pt\ifdim\dimen3=0pt\dimen1=3946sp\dimen3\dimen1
+    \else\dimen1\dimen3\fi\else\ifdim\dimen3=0pt\dimen3\dimen1\fi\fi
+  \tikzpicture[x=+\dimen1, y=+\dimen3]
+  {\ifx\XFigu\undefined\catcode`\@11
+      \def\temp{\alloc@1\dimen\dimendef\insc@unt}\temp\XFigu\catcode`\@12\fi}
+  \XFigu3946sp
+  % Uncomment to scale line thicknesses with the same
+  % factor as width of the drawing.
+  %\pgfextractx\XFigu{\pgfqpointxy{1}{1}}
+  \ifdim\XFigu<0pt\XFigu-\XFigu\fi
+  \pgfdeclarearrow{
+    name = xfiga1,
+    parameters = {
+        \the\pgfarrowlinewidth \the\pgfarrowlength \the\pgfarrowwidth\ifpgfarrowopen o\fi},
+    defaults = {
+        line width=+7.5\XFigu, length=+120\XFigu, width=+60\XFigu},
+    setup code = {
+        % miter protrusion = thk * sqrt(wd^2 + (tipmv*len)^2) / (2 * wd)
+        \dimen7 2.1\pgfarrowlength\pgfmathveclen{\the\dimen7}{\the\pgfarrowwidth}
+        \dimen7 2\pgfarrowwidth\pgfmathdivide{\pgfmathresult}{\the\dimen7}
+        \dimen7 \pgfmathresult\pgfarrowlinewidth
+        \pgfarrowssettipend{+\dimen7}
+        \pgfarrowssetbackend{+-\pgfarrowlength}
+        \dimen9 -\pgfarrowlength\advance\dimen9 by-0.45\pgfarrowlinewidth
+        \pgfarrowssetlineend{+\dimen9}
+        \dimen9 -\pgfarrowlength\advance\dimen9 by-0.5\pgfarrowlinewidth
+        \pgfarrowssetvisualbackend{+\dimen9}
+        \pgfarrowshullpoint{+\dimen7}{+0pt}
+        \pgfarrowsupperhullpoint{+-\pgfarrowlength}{+0.5\pgfarrowwidth}
+        \pgfarrowssavethe\pgfarrowlinewidth
+        \pgfarrowssavethe\pgfarrowlength
+        \pgfarrowssavethe\pgfarrowwidth
+      },
+    drawing code = {\pgfsetdash{}{+0pt}
+        \ifdim\pgfarrowlinewidth=\pgflinewidth\else\pgfsetlinewidth{+\pgfarrowlinewidth}\fi
+        \pgfpathmoveto{\pgfqpoint{-\pgfarrowlength}{-0.5\pgfarrowwidth}}
+        \pgfpathlineto{\pgfqpoint{0pt}{0pt}}
+        \pgfpathlineto{\pgfqpoint{-\pgfarrowlength}{0.5\pgfarrowwidth}}
+        \pgfpathclose
+        \ifpgfarrowopen\pgfusepathqstroke\else\pgfsetfillcolor{pgfstrokecolor}
+          \ifdim\pgfarrowlinewidth>0pt\pgfusepathqfillstroke\else\pgfusepathqfill\fi\fi
+      }
   }
-}
-\definecolor{pink3}{rgb}{1,0.75,0.75}
-\clip(1778,-4704) rectangle (5910,-1705);
-\tikzset{inner sep=+0pt, outer sep=+0pt}
-\pgfsetfillcolor{black}
-\pgftext[base,left,at=\pgfqpointxy{3872}{-2730}] {\fontsize{16}{19.2}\selectfont S}
-\pgfsetlinewidth{+7.5\XFigu}
-\pgfsetstrokecolor{black}
-\pgfsetdash{{+60\XFigu}{+60\XFigu}}{++0pt}
-\draw (1790,-3977)--(3140,-3302);
-\pgfsetdash{}{+0pt}
-\draw (3150,-1725)--(4650,-2100);
-\pgfsetdash{{+60\XFigu}{+60\XFigu}}{++0pt}
-\draw (4662,-3680)--(5892,-3998);
-\pgfsetdash{}{+0pt}
-\draw (4652,-2105)--(5898,-2411);
-\pgfsetdash{{+60\XFigu}{+60\XFigu}}{++0pt}
-\draw (3151,-3305)--(4651,-3680);
-\pgfsetdash{}{+0pt}
-\draw (4553,-3096)--(5893,-2416)--(5887,-4003)--(4560,-4689)--cycle;
-\pgfsetdash{{+60\XFigu}{+60\XFigu}}{++0pt}
-\draw (3182,-3302)--(4682,-3677);
-\draw (3142,-3292)--(3142,-1717);
-\pgfsetdash{}{+0pt}
-\pgfsetfillcolor{pink3}
-\filldraw (3004,-2688)--(4344,-2008)--(4338,-3595)--(3011,-4281)--cycle;
-\pgfsetstrokecolor{red}
-\pgfsetarrows{[line width=7.5\XFigu]}
-\pgfsetarrowsend{xfiga1}
-\draw (3722,-3193)--(3172,-3062);
-\pgfsetstrokecolor{black}
-\draw (3718,-3194)--(4268,-3325);
-\pgfsetarrowsend{}
-\draw (3027,-2713)--(4544,-3085);
-\draw (1795,-2398)--(3295,-2773);
-\draw (1803,-3974)--(1803,-2399);
-\draw (1795,-3982)--(4564,-4692);
-\pgfsetfillcolor{black}
-\pgftext[base,left,at=\pgfqpointxy{3827}{-3539}] {\fontsize{16}{19.2}\selectfont dS}
-\pgftext[base,left,at=\pgfqpointxy{3953}{-3547}] {\fontsize{16}{19.2}\selectfont \_}
-\pgftext[base,left,at=\pgfqpointxy{3291}{-3397}] {\fontsize{16}{19.2}\selectfont \_}
-\pgftext[base,left,at=\pgfqpointxy{3162}{-3392}] {\fontsize{16}{19.2}\selectfont dS}
-\pgftext[base,left,at=\pgfqpointxy{4109}{-3625}] {\fontsize{10}{12}\selectfont 1}
-\pgftext[base,left,at=\pgfqpointxy{3452}{-3496}] {\fontsize{10}{12}\selectfont 2}
-\pgftext[base,left,at=\pgfqpointxy{2352}{-3256}] {\fontsize{16}{19.2}\selectfont V}
-\pgftext[base,left,at=\pgfqpointxy{2221}{-3256}] {\fontsize{16}{19.2}\selectfont d\char32}
-\pgftext[base,left,at=\pgfqpointxy{4916}{-3619}] {\fontsize{16}{19.2}\selectfont d\char32}
-\pgftext[base,left,at=\pgfqpointxy{5033}{-3619}] {\fontsize{16}{19.2}\selectfont V}
-\pgftext[base,left,at=\pgfqpointxy{5170}{-3673}] {\fontsize{10}{12}\selectfont 2}
-\pgftext[base,left,at=\pgfqpointxy{2480}{-3313}] {\fontsize{10}{12}\selectfont 1}
-\pgftext[base,left,at=\pgfqpointxy{3735}{-2733}] {\fontsize{16}{19.2}\selectfont d\char32}
-\draw (1800,-2400)--(3150,-1725);
-\endtikzpicture}%
+  \definecolor{pink3}{rgb}{1,0.75,0.75}
+  \clip(1778,-4704) rectangle (5910,-1705);
+  \tikzset{inner sep=+0pt, outer sep=+0pt}
+  \pgfsetfillcolor{black}
+  \pgfsetlinewidth{+7.5\XFigu}
+  \pgfsetstrokecolor{black}
+  \pgfsetdash{{+60\XFigu}{+60\XFigu}}{++0pt}
+  \draw (1790,-3977)--(3140,-3302);
+  \pgfsetdash{}{+0pt}
+  \draw (3150,-1725)--(4650,-2100);
+  \pgfsetdash{{+60\XFigu}{+60\XFigu}}{++0pt}
+  \draw (4662,-3680)--(5892,-3998);
+  \pgfsetdash{}{+0pt}
+  \draw (4652,-2105)--(5898,-2411);
+  \pgfsetdash{{+60\XFigu}{+60\XFigu}}{++0pt}
+  \draw (3151,-3305)--(4651,-3680);
+  \pgfsetdash{}{+0pt}
+  \draw (4553,-3096)--(5893,-2416)--(5887,-4003)--(4560,-4689)--cycle;
+  \pgfsetdash{{+60\XFigu}{+60\XFigu}}{++0pt}
+  \draw (3182,-3302)--(4682,-3677);
+  \draw (3142,-3292)--(3142,-1717);
+  \pgfsetdash{}{+0pt}
+  \pgfsetfillcolor{pink3}
+  \filldraw (3004,-2688)--(4344,-2008)--(4338,-3595)--(3011,-4281)--cycle;
+  \pgfsetstrokecolor{red}
+  \pgfsetarrows{[line width=7.5\XFigu]}
+  \pgfsetarrowsend{xfiga1}
+  \draw (3722,-3193)--(3172,-3062);
+  \pgfsetstrokecolor{black}
+  \draw (3718,-3194)--(4268,-3325);
+  \pgfsetarrowsend{}
+  \draw (3027,-2713)--(4544,-3085);
+  \draw (1795,-2398)--(3295,-2773);
+  \draw (1803,-3974)--(1803,-2399);
+  \draw (1795,-3982)--(4564,-4692);
+  \pgfsetfillcolor{black}
+  \pgftext[base,left,at=\pgfqpointxy{3827}{-3539}] {$\diff\v{S}_1$}
+  \pgftext[base,left,at=\pgfqpointxy{3162}{-3392}] {$\diff\v{S}_2$}
+  \pgftext[base,left,at=\pgfqpointxy{2221}{-3256}] {$\delta V_1$}
+  \pgftext[base,left,at=\pgfqpointxy{4916}{-3619}] {$\delta V_2$}
+  \pgftext[base,left,at=\pgfqpointxy{3735}{-2733}] {$\delta\mathcal{S}$}
+  \draw (1800,-2400)--(3150,-1725);
+  \endtikzpicture}%
