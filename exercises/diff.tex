@@ -20,6 +20,197 @@
   \Question $f(\vr) = |\v{r}-\v{a}|^{-1}$
   \Question $f(\vr) = (\v{a}\times\v{r})^{2}$
   \Question $f(\vr) = \v{a}\cdot\v{r} / r^2$
+  %---------------------------------------------------------------------------------------
+  \Exercise Find expressions for the equations of the tangent plane and
+  the line normal to the level surface $\phi(x,y,z)=c$ at the point P
+  with position vector $\vr_0=(x_0,y_0,z_0)$.
+
+  Use your result to show that the equation of the tangent plane to the surface of the
+  sphere $x^2+y^2+z^2=a^2$ at the point $(0,0,a)$ is $z=a$ and that the line normal to the
+  surface at that point is $x=y=0$.
+  %---------------------------------------------------------------------------------------
+  \Exercise Given a vector field
+  \[
+    \v{A}
+    \,=\,
+    xyz(x-y) \, \v{e}_x \,+\, xyz(x+y) \, \v{e}_y \,+\, xyz^2 \, \v{e}_z
+  \]
+  show that
+  \[
+    \del\cdot\v{A} \,=\, 6xyz+z(x^2-y^2),
+  \]
+  and that
+  \[
+    \del\times\v{A}
+    \,=\,
+    \left[x(z^2-y^2-xy)\right]\v{e}_x \,+\, \left[y(x^2-z^2-xy)\right]\v{e}_y \,+\, \left[z(4xy+y^2-x^2)\right ]\v{e}_z .
+  \]
+  %---------------------------------------------------------------------------------------
+  \Exercise Calculate the divergence and curl of the following vector fields
+  \Question $\v{A} = c\, \v{e}_{\,x}$
+  \Question $\v{A} = c \,  x \, \v{e}_{\,x}$
+  \Question $\v{A} = c \, y \, \v{e}_{\,x}$
+  \Question $\v{A} = -c \,\vr$
+  \Question $\v{A} = \v{d} \times \vr$
+  \Question $\v{A} = \v{d} \times \vr + c \, \vr$
+  \ExeText where $\vr = x \v{e}_{\,x} + y\v{e}_{\,y} + z\v{e}_{\,z}$ and $c$
+  and $\v{d}$ are constants.
+
+  Sketch the fields in the $\v{e}_{\,x}-\v{e}_{\,y}$ plane. For (v) and (vi) choose your
+  basis so that $\v{d} = d \v{e}_{\,z}$.
+  %---------------------------------------------------------------------------------------
+  \Exercise For a rigid body rotating with an angular velocity $\v{\omega}$,
+  the curl of the velocity $\vv=\v{\omega}\times\vr$ is simply
+  $2\v{\omega}$. The connection between a fluid's velocity and the curl
+  is more subtle.  Show that $\curl \vv= 0$ and $\Div \vv =0$ for a whirlpool
+  modelled by
+  \[
+    \vv
+    \,=\,
+    \frac{y}{x^2+y^2}\phantom{i}\v{e}_{\,x}
+    \,-\,
+    \frac{x}{x^2+y^2}\phantom{i}\v{e}_{\,y}\phantom{i}, \qquad r\ne0\,.
+  \]
+  If you are already familiar with plane polar coordinates, you may wish to use them to
+  help plot the flow lines.
+  %---------------------------------------------------------------------------------------
+  \Exercise In this question $\v{r}$ is the position vector,
+  $r=\left|\v{r}\right|$ is the length of position vector, $\v{a}$ and
+  $\v{b}$ are constant vectors, and $m$ and $n$ are integers.
+
+  \Question Show that $\left(\v{a}\cdot {\del}\right)\v{r}=\v{a}$.
+  \Question Evaluate $\grad\left[\v{a}\cdot \left(\v{b}\times \v{r}\right)\right]$.
+
+  \ExeText Use the product rule and the chain rule, as appropriate, to evaluate $\del \phi$ for the
+  following cases
+
+  \Question $\phi(\v{r})\,=\,\left|\v{a}\times \v{r}\right|^2$
+  \hfill[Hint: First show that $\left|\v{a}\times \v{r}\right|^2\,=\,a^2r^2-\left(\v{a}\cdot \v{r}\right)^2$.]
+  \Question $\phi(\v{r})\,=\,\left|\v{r}- \v{a}\right|^n$
+  \Question $\phi(\v{r})\,=\,r^m\left|\v{r}- \v{a}\right|^n$
+  \Question $\phi(\v{r})\,=\,
+    \left(\v{a}\cdot \v{r}\right)^m\left(\v{b}\cdot \v{r}\right)^m\left[\v{a}\cdot (\v{b}\times \v{r})\right]$
+  %---------------------------------------------------------------------------------------
+  \Exercise If $\phi$ is a scalar field, verify the
+  following results using suffix notation
+  \Question  $ \grad(1/r) \,=\, -r^{-3}\vr$
+  \Question  $ \grad(r^{n}) \,=\, nr^{n-2}\vr$
+  \Question  $ \Div(r^{n}\vr) \,=\, (n+3)r^{n}$
+  \Question  $ \Div\left[\phi(r)\vr\right] \,=\, 3\phi(r)+r\phi'(r)$
+  \Question  $ \curl\left[\phi(r)\vr\right] \,=\, 0$
+  %---------------------------------------------------------------------------------------
+  \Exercise The \emph{electrostatic potential} $\phi(\v{r})$ due to a charge
+  $q$ at the origin is
+  \[
+    \phi(\v{r}) \,=\, \frac{q}{4 \pi \epsilon_0 r}\,,
+  \]
+  where $\epsilon_0$ is a constant. Show that the electric field, defined as
+  $\v{E}(\v{r})=-\grad \phi(\v{r})$, is
+  \[
+    \v{E}(\v{r}) \,=\, \frac{q}{4 \pi \epsilon_0}\: \frac{\v{r}}{r^3}.
+  \]
+  Show that for small $\v{a}$ the potential $\phi(\v{r}+\v{a})$ may be approximated to
+  first order in $a$ by
+  \[
+    \phi(\v{r}+\v{a})
+    \,=\,
+    \frac{q}{4 \pi \epsilon_0}\:
+    \left[
+      \frac1r - \frac{\v{a}\cdot\v{r}}{r^3}
+      \right]
+    + O(a^2).
+  \]
+  Hence, find $\v{E}(\v{r}+\v{a})$ to first order in $a$.
+  %---------------------------------------------------------------------------------------
+  \Exercise If $\phi(\v{r})$ and
+  $\psi(\v{r})$ are scalar fields, and $\v{A}(\v{r})$ and $\v{B}(\v{r})$ are vector fields,
+  verify the following results using index/suffix notation:
+  \Question  $ \grad\left(\phi \psi\right) \,=\, \phi\grad \psi+\psi\grad \phi$
+  \Question  $ \grad\cdot\left(\phi\v{A}\right) \,=\, \v{A}\cdot\grad \phi + \phi\grad\cdot\v{A}$
+  \Question  $ \lap\left(\phi \psi\right) \,=\, \phi\lap \psi + 2\left(\grad \phi\right)\cdot\left(\grad \psi\right)
+    + \psi\lap \phi$
+  \Question  $ \grad\times\left(\phi \v{A}\right) \,=\,  \left(\grad \phi\right)\times\v{A} + \phi\grad\times\v{A}$
+  \Question  $ \curl \left(\v{A}\times\v{B}\right) \,=\, \v{A}\left(\Div\v{B}\right) - \v{B}\left(\Div\v{A}\right)
+    + \left(\v{B}\cdot\grad\right)\v{A}
+    - \left(\v{A}\cdot\grad\right)\v{B} $
+  %---------------------------------------------------------------------------------------
+  \Exercise If $\phi$ is a scalar field and $\v{a}$ and $\v{b}$ are
+  \emph{constant} vectors, evaluate the following using index/suffix notation:
+  \Question $ \lap \, \phi\left(r\right) $  \hfill (Note that $\phi(r)$ is a function of $r=|\v{r}|$.)
+  \Question $ \Div\left[\left(\v{a}\cdot\v{r}\right)\v{b}\right]$
+  \Question  $\Div\left[\v{a}\times\left(\v{r}\times\v{b}\right)\right]$
+  \Question  $\curl\left[\v{a}\times\left(\v{r}\times\v{b}\right)\right]$
+  \Question $\curl\left[\left(\v{a}\times\v{r}\right)/r^{3}\right]$
+  \Question  $\Div\left[\left(\v{a}\times\v{r}\right)/r^{3}\right]$
+  \ExeText\textit{Hint: In parts (iii) and (iv), simplify the expressions in
+    square brackets before taking any derivatives.}
+  %---------------------------------------------------------------------------------------
+  \Exercise If $\v{A}(\v{r})$ and $\v{B}(\v{r})$ are vector fields, verify the
+  following results using index/suffix notation
+  \Question  $ \Div(\curl\v{A}) \,=\, 0$
+  \Question  $ \v{\nabla}\times(\v{\nabla}\times\v{A})
+    \,=\, \v{\nabla}(\v{\nabla}\cdot\v{A}) - \nabla^2\v{A}  $
+  \Question  $ \v{\nabla}\times(\v{r}\times(\v{\nabla}\times\v{A}))
+    \,=\, - 2\,\v{\nabla}\times\v{A}
+    - (\v{r}\cdot\v{\nabla})(\v{\nabla}\times\v{A}) $
+  \Question  $ \grad (\v{A}\cdot\v{B})
+    \,=\, (\v{A}\cdot\grad)\v{B} + (\v{B}\cdot\grad)\v{A}
+    + \v{A}\times(\curl\v{B}) + \v{B}\times(\curl\v{A}) $
+  \ExeText\textit{Hint: consider first $\v{A}\times(\curl\v{B})$}
+  %---------------------------------------------------------------------------------------
+  \Exercise\hfill\\
+  \Question Evaluate the line integral $\smash{\intC \v{F}\cdot \dd \v{r}}$ with
+  $\v{F}=(y, -x,0)$, from the point $(a,0,0)$ to the point $(a,0,2\pi b)$ along
+  \subQuestion a circular helix between the two points, parameterized by
+  \[
+    \v{r}\,=\,(a\cos \lambda,\; a\sin \lambda,\; b\lambda)
+  \]
+  where $0\le\lambda\le 2\pi$.
+
+  \subQuestion a straight line between the two points,
+  parameterized by
+  \[
+    \v{r} \,=\, (a,\; 0,\; b\lambda)\; .
+  \]
+  \Question Repeat the questions above for the field $\v{F}=\v{r}$.
+  %---------------------------------------------------------------------------------------
+  \Exercise
+  Calculate the line integral
+  \[
+    \int_C \v{a}\cdot \dd \v{r}
+  \]
+  where
+  \[
+    \v{a} \,=\, {1 \over x_1^2 + x_2^2}
+    \left[ -x_2 \v{e}_1 + x_1\v{e}_2 \right]
+  \]
+  from the point $(1,0,0)$ to $(0,1,1)$ along
+
+  \Question $C_1$: $x_1 = \cos\lambda$,  $x_2 = \sin\lambda$,
+  $x_3 = {2\over\pi}\lambda$, with $0 \le \lambda \le {\pi \over 2}$
+  \Question $C_2$: $x_1 = \cos\lambda$,  $x_2 = -\sin\lambda$,
+  $x_3 = {2\over 3\pi}\lambda$, with $0 \le \lambda \le {3\pi \over 2}$
+  \Question $C_3$: $x_2 = x_3 = 1-x_1$, with $1 \ge x_1 \ge 0$
+  %---------------------------------------------------------------------------------------
+  \Exercise
+  \Question If $\v{F}(\v{r})=2y \, \v{e}_x -z \, \v{e}_y+x \, \v{e}_z$ show that
+  \[
+    \int_C \, \v{F}\times {\rm d}\v{r}
+    ~=~
+    (2 - {\pi \over 4}) \, \v{e}_x + (\pi - {1\over 2}) \, \v{e}_y
+  \]
+  where the integral is evaluated along the curve $x = \cos t$, $y = \sin t$, $z = 2\cos t$
+  from $t=0$ to $t = \pi/2$.
+
+  \Question If $\v{a}(\v{r}) = (3x+y)\v{e}_x - x\v{e}_y +
+    (y-2)\v{e}_z$, and $\v{b} = 2\v{e}_x - 3\v{e}_y + \v{e}_z$ show that
+  \[
+    \oint_C \, (\v{a}\times\v{b})\times {\rm d}\v{r}
+    ~=~
+    4\pi (7\v{e}_x + 3\v{e}_y)
+  \]
+  where the integral is evaluated anticlockwise around a circle of radius $2$, which lies
+  in the $(x,y)$ plane and is centred at the origin.
 
   \vfill
 \end{ExerciseList}
