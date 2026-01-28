@@ -157,60 +157,6 @@
     \,=\, (\v{A}\cdot\grad)\v{B} + (\v{B}\cdot\grad)\v{A}
     + \v{A}\times(\curl\v{B}) + \v{B}\times(\curl\v{A}) $
   \ExeText\textit{Hint: consider first $\v{A}\times(\curl\v{B})$}
-  %---------------------------------------------------------------------------------------
-  \Exercise\hfill\\
-  \Question Evaluate the line integral $\smash{\intC \v{F}\cdot \dd \v{r}}$ with
-  $\v{F}=(y, -x,0)$, from the point $(a,0,0)$ to the point $(a,0,2\pi b)$ along
-  \subQuestion a circular helix between the two points, parameterized by
-  \[
-    \v{r}\,=\,(a\cos \lambda,\; a\sin \lambda,\; b\lambda)
-  \]
-  where $0\le\lambda\le 2\pi$.
-
-  \subQuestion a straight line between the two points,
-  parameterized by
-  \[
-    \v{r} \,=\, (a,\; 0,\; b\lambda)\; .
-  \]
-  \Question Repeat the questions above for the field $\v{F}=\v{r}$.
-  %---------------------------------------------------------------------------------------
-  \Exercise
-  Calculate the line integral
-  \[
-    \int_C \v{a}\cdot \dd \v{r}
-  \]
-  where
-  \[
-    \v{a} \,=\, {1 \over x_1^2 + x_2^2}
-    \left[ -x_2 \v{e}_1 + x_1\v{e}_2 \right]
-  \]
-  from the point $(1,0,0)$ to $(0,1,1)$ along
-
-  \Question $C_1$: $x_1 = \cos\lambda$,  $x_2 = \sin\lambda$,
-  $x_3 = {2\over\pi}\lambda$, with $0 \le \lambda \le {\pi \over 2}$
-  \Question $C_2$: $x_1 = \cos\lambda$,  $x_2 = -\sin\lambda$,
-  $x_3 = {2\over 3\pi}\lambda$, with $0 \le \lambda \le {3\pi \over 2}$
-  \Question $C_3$: $x_2 = x_3 = 1-x_1$, with $1 \ge x_1 \ge 0$
-  %---------------------------------------------------------------------------------------
-  \Exercise
-  \Question If $\v{F}(\v{r})=2y \, \v{e}_x -z \, \v{e}_y+x \, \v{e}_z$ show that
-  \[
-    \int_C \, \v{F}\times {\rm d}\v{r}
-    ~=~
-    (2 - {\pi \over 4}) \, \v{e}_x + (\pi - {1\over 2}) \, \v{e}_y
-  \]
-  where the integral is evaluated along the curve $x = \cos t$, $y = \sin t$, $z = 2\cos t$
-  from $t=0$ to $t = \pi/2$.
-
-  \Question If $\v{a}(\v{r}) = (3x+y)\v{e}_x - x\v{e}_y +
-    (y-2)\v{e}_z$, and $\v{b} = 2\v{e}_x - 3\v{e}_y + \v{e}_z$ show that
-  \[
-    \oint_C \, (\v{a}\times\v{b})\times {\rm d}\v{r}
-    ~=~
-    4\pi (7\v{e}_x + 3\v{e}_y)
-  \]
-  where the integral is evaluated anticlockwise around a circle of radius $2$, which lies
-  in the $(x,y)$ plane and is centred at the origin.
 
   \vfill
 \end{ExerciseList}

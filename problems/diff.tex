@@ -1,0 +1,47 @@
+% !TEX root = ../fields.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{Exercise}[title={Quadruple curl of a rotational field},name={Problem},label=gibbs]
+  We define the vector field
+  \begin{equation*}
+    \v{a}(\v{r})=f(|\v{r}|) \: \v{c}\times \v{r}\,,
+  \end{equation*}
+  where $f$ is a differentiable real function, and $\v{c}$ is a constant non-zero vector.
+  \Question Show that $\v{a}(\v{r})$ is divergence-free, \ie $\Div\v{a}=0$.
+  \Question Prove that
+  \[
+    \curl\v{a}(\v{r})
+    \,=\,
+    f'(|\v{r}|) \left( r \v{c} - \frac{ \v{r} \cdot \v{c}}{r}
+    \v{r}\right)
+    \,+\,
+    2 f(|\v{r}|) \: \v{c}\,.
+  \]
+
+  \Question Show that
+  \[
+    \curl[\curl\v{a}(\v{r})]
+    \,=\,
+    -\left[f''(|\v{r}|) + 4\,\frac{f'(|\v{r}|)}{|\v{r}|}\right]  \v{c}\times
+    \v{r}\,.
+    % \quad \qquad  \qquad \qquad \qquad\qquad \qquad {\bf [4]}
+  \]
+
+  %\hfill {\bf [3]}
+
+  \Question We now assume that $f(r) = r^n$
+
+  \subQuestion Show that
+  \[
+    \curl[\curl\v{a}(\v{r})]
+    \,=\,
+    -n(n+3) |\v{r}|^{n-2}
+    \v{c} \times \v{r}\,.
+    %\qquad \qquad \qquad \qquad \qquad \qquad \qquad {\bf [1]} 
+  \]
+
+  \subQuestion Find all the values of $n$ such that
+  \[
+    \curl\{\curl[\curl(\curl\v{a})]\}\,=\,\v{0}\,.
+  \]
+  \emph{Hint: There are 4 solutions}.
+\end{Exercise}

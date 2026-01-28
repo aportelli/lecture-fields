@@ -1,0 +1,59 @@
+% !TEX root = ../fields.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{Exercise}[title={Divergence theorem on a cone},name={Problem},label=divcone]
+  The surface $S_C$ of a cone can be parametrised by
+  spherical polar coordinates $(r,\theta,\phi)$, where
+  \(
+  0 \le r \le b \,,
+  \;
+  0 \le \phi < 2\pi \,,
+  \;
+  \theta = \theta_0 = \mbox{constant} < \pi/2\, .
+  \)
+
+  \Question Sketch the surface $S_C$.
+
+  \Question Show that the vector element of area on $S_C$ is given by
+  \[
+    \diff \v{S}
+    \,=\,
+    r \sin(\theta_0) \, \diff r \, \diff \phi \, \v{e}_{\,\theta} \,,
+  \]
+  where \( \v{e}_{\,\theta} \,=\, \cos(\theta_0) \cos(\phi) \: \ex + \cos(\theta_0)
+  \sin(\phi) \: \ey - \sin(\theta_0) \: \ez \, . \)
+
+  \Question The vector field
+  $\v{a}(\v{r})$ is given by \( \v{a}(\v{r}) = z^2 \, \ez \, . \) Show that on $S_C$
+  \[
+    \v{a} \cdot \diff \v{S}
+    \,=\,
+    -r^3 \sin(\theta_0)^2 \cos(\theta_0)^2 \, \diff r \, \diff \phi \,,
+  \]
+  and hence that
+  \[
+    \int_{S_C} \v{a} \cdot \diff \v{S}
+    \,=\,
+    -\frac{\pi b^4}{2} \sin(\theta_0)^2 \, \cos(\theta_0)^2 \,.
+  \]
+
+  \Question We consider a curved surface $S_I$ closing the top of the cone forms, part of a sphere of
+  radius $b$ and centre $\v{0}$. $S_I$ can be parametrised by the angles $\theta$ and $\phi$ in spherical
+  polars, so that the vector element of area on $S_I$ is
+  \[
+    \diff \v{S}
+    \,=\,
+    b^2 \sin(\theta) \, \diff \theta \, \diff \phi \, \v{e}_{\,r} \,,
+  \]
+  where $0 \le \theta \le \theta_0 \, , 0 \le \phi < 2\pi$.
+  %
+  Show that
+  \[
+    \int_{S_I} \v{a} \cdot \diff \v{S}
+    \,=\,
+    \frac{\pi b^4}{2} \left[1 - \cos(\theta_0)^4 \right] \, .
+  \]
+
+  \Question Use the divergence theorem to check the \emph{sum} of the answers to questions 3 \& 4.\\
+  \emph{Hint: think carefully about the integral over the whole volume.}
+
+\end{Exercise}

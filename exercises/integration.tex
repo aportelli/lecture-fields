@@ -1,0 +1,370 @@
+% !TEX root = ../fields.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Exercises}
+\begin{ExerciseList}
+  %---------------------------------------------------------------------------------------
+  \Exercise\hfill\\
+  \Question Evaluate the line integral $\smash{\intC \v{F}\cdot \dd \v{r}}$ with
+  $\v{F}=(y, -x,0)$, from the point $(a,0,0)$ to the point $(a,0,2\pi b)$ along
+  \subQuestion a circular helix between the two points, parameterized by
+  \[
+    \v{r}\,=\,(a\cos \lambda,\; a\sin \lambda,\; b\lambda)
+  \]
+  where $0\le\lambda\le 2\pi$.
+
+  \subQuestion a straight line between the two points,
+  parameterized by
+  \[
+    \v{r} \,=\, (a,\; 0,\; b\lambda)\; .
+  \]
+  \Question Repeat the questions above for the field $\v{F}=\v{r}$.
+  %---------------------------------------------------------------------------------------
+  \Exercise
+  Calculate the line integral
+  \[
+    \int_C \v{a}\cdot \dd \v{r}
+  \]
+  where
+  \[
+    \v{a} \,=\, {1 \over x_1^2 + x_2^2}
+    \left[ -x_2 \v{e}_1 + x_1\v{e}_2 \right]
+  \]
+  from the point $(1,0,0)$ to $(0,1,1)$ along
+
+  \Question $C_1$: $x_1 = \cos\lambda$,  $x_2 = \sin\lambda$,
+  $x_3 = {2\over\pi}\lambda$, with $0 \le \lambda \le {\pi \over 2}$
+  \Question $C_2$: $x_1 = \cos\lambda$,  $x_2 = -\sin\lambda$,
+  $x_3 = {2\over 3\pi}\lambda$, with $0 \le \lambda \le {3\pi \over 2}$
+  \Question $C_3$: $x_2 = x_3 = 1-x_1$, with $1 \ge x_1 \ge 0$
+  %---------------------------------------------------------------------------------------
+  \Exercise
+  \Question If $\v{F}(\v{r})=2y \, \v{e}_x -z \, \v{e}_y+x \, \v{e}_z$ show that
+  \[
+    \int_C \, \v{F}\times {\rm d}\v{r}
+    ~=~
+    (2 - {\pi \over 4}) \, \v{e}_x + (\pi - {1\over 2}) \, \v{e}_y
+  \]
+  where the integral is evaluated along the curve $x = \cos t$, $y = \sin t$, $z = 2\cos t$
+  from $t=0$ to $t = \pi/2$.
+
+  \Question If $\v{a}(\v{r}) = (3x+y)\v{e}_x - x\v{e}_y +
+    (y-2)\v{e}_z$, and $\v{b} = 2\v{e}_x - 3\v{e}_y + \v{e}_z$ show that
+  \[
+    \oint_C \, (\v{a}\times\v{b})\times {\rm d}\v{r}
+    ~=~
+    4\pi (7\v{e}_x + 3\v{e}_y)
+  \]
+  where the integral is evaluated anticlockwise around a circle of radius $2$, which lies
+  in the $(x,y)$ plane and is centred at the origin.
+  %---------------------------------------------------------------------------------------
+  \Exercise
+  Consider the integrals
+  \[
+    I_1\,=\,\intV\,(x+y+z)\,\dd V \,\qquad\mbox{and}\quad \, I_2\,=\,\intV\,z\,\dd V \,,
+  \]
+  where the volume $V$ is the positive octant of the unit sphere
+  \[
+    x^{2}+y^{2}+z^{2}\leq 1, \qquad
+    x\geq 0, \; y\geq 0, \; z\geq 0\,.
+  \]
+  Explain why $I_1=3 I_2$ and use spherical polar coordinates to show that {${I_2 =
+            \pi/16}$}.
+
+  \noindent Evaluate the centre of mass vector for such an octant
+  of uniform mass density.
+  %---------------------------------------------------------------------------------------
+  \Exercise An arbitrary point $\v{r}$ on the curved surface $S$ of a right
+  circular cylinder
+  \[
+    x^2 + y^2 \,=\, a^2, \quad 0 \leq z \leq c,
+  \]
+  may be parametrised by the two real variables $\phi$ and $z$:
+  \[
+    \v{r}  \,=\,  a\cos\phi\,\eone + a\sin\phi\,\etwo + z\,\ethree
+    \qquad\left\{0\leq\phi\leq2\pi,\: 0\leq z \leq c\right\}.
+  \]
+  Find an expression for the tangent vectors along (a) the lines of constant $\phi$, and
+  (b) the lines of constant $z$. Deduce an expression for the vector element of area
+  $\dd\v{S}$ on the curved surface, and evaluate
+  \[
+    \intS \v{r}\cdot\dd\v{S}
+  \]
+  over the curved surface of the cylinder.
+  %---------------------------------------------------------------------------------------
+  \Exercise
+
+  If $\v{a} = 2x^{2}y\,\v{e}_x + xz\,\v{e}_y -y^{3}\,\v{e}_z\,$, evaluate explicitly the
+  surface integral $\ds \oint_S\v{a}\cdot \dd\v{S}$, where $S$ is the surface of the unit
+  cube bounded by $x=0,\; x=1,\; y=0,\; y=1,\; z=0,\; z=1.$
+
+  Check your result using the divergence theorem.
+  %---------------------------------------------------------------------------------------
+  \Exercise Use the divergence theorem to evaluate
+  \[
+    {\ds \intS} \v{F}\cdot \dd\v{S} \quad \mbox{with} \quad
+    \v{F} \,=\, xz\,\ex + 3x\,\ey -2z\,\ez \,,
+  \]
+  where
+
+  \Question $S$ is the closed cylinder bounded by the surface $x^{2}+y^{2}=1$, and
+  the planes $z=0$ and $z=3$;
+  \Question $S$ is the \emph{open} curved cylindrical
+  surface $x^{2}+y^{2}=1$, $0\leq z\leq 3$.
+  %---------------------------------------------------------------------------------------
+  \Exercise
+  Demonstrate the validity of the divergence theorem by
+
+  \Question Calculating the flux of the vector field
+  \[
+    \v{F} \,=\, { \alpha \v{r} \over (r^2 + a^2)^{3/2}}
+  \]
+  through the spherical surface $r = \sqrt{3}\,a$
+
+  \Question Finding $\v{\nabla}\cdot\v{F}$ and then evaluating the volume integral of
+  $\v{\nabla}\cdot\v{F}$ for the sphere $r = \sqrt{3}\,a$.
+  %---------------------------------------------------------------------------------------
+  \Exercise A spherical surface $S$ of radius $a$ centred on the origin has
+  a parametric representation
+  \[
+    \v{r} \,=\, a\sin\theta\cos\phi\,\eone + a\sin\theta\sin\phi\,\etwo
+    + a\cos\theta\,\ethree
+  \]
+  where $0\leq\theta\leq\pi\; \mbox{and} \;0\leq\phi\leq 2\pi$. Derive an expression for
+  the vector element of area on $S$ and relate it to the unit normal vector.
+
+  Evaluate the surface integrals
+  \[
+    \intS\va\cdot \dd\v{S} \quad \mbox{and} \quad \intS\va\times \dd\v{S}
+  \]
+  on the surface of the spherical \emph{octant} $0\leq\theta\leq\pi/2$ and
+  $0\leq\phi\leq\pi/2$, where the vector field $\v{a}$ is defined by
+  \[
+    \va \,=\, \cos\theta\cos\phi \, \eone + \cos\theta\sin\phi \, \etwo
+    - \sin\theta \, \ethree.
+  \]
+  %---------------------------------------------------------------------------------------
+  \Exercise
+  Evaluate the surface integral
+  \[
+    \int \v{r}\cdot \dd\v{S}
+  \]
+  over that part of the surface $z = a^2 - x^2 - y^2$ for which $z \ge 0$ by
+
+  \Question Parametrising the surface as $x = a\sin\theta\cos\phi$, $y = a\sin\theta\sin\phi$, $z =
+    a^2\cos^2\theta$ and show that
+  \[
+    \v{r}\cdot \dd\v{S}
+    \,=\,
+    a^4 \left( 2\sin^3\theta\cos\theta + \cos^3\theta\sin\theta \right) \dd\theta \, \dd\phi
+  \]
+
+  \Question Applying the divergence theorem to the volume bounded by the surface and the plane $z =
+    0$.
+  %---------------------------------------------------------------------------------------
+  \Exercise Let $\v{a}=\v{c}$ where $\v{c}$ is an arbitrary constant vector.
+  Use the divergence theorem to show that the vector area of a
+  \emph{closed} surface
+  \[
+    \int_S \dd\v{S} \,=\, \v{0}
+  \]
+  %---------------------------------------------------------------------------------------
+  \Exercise
+
+  The temperature at any point $\vr$ of a solid at time $t$ is $T(\vr,t)$.
+
+  \Question Write down a simple expression, involving the heat capacity
+  $C$, temperature $T$ and density $\rho$, for the `heat' energy contained in a
+  small volume $\Delta V$.
+  Then write a volume integral  for the energy contained in a finite
+  volume $V$.
+
+  \Question Now consider the heat current vector $\v{J}\;$: $J$ gives the heat flow
+  per unit area per unit time across element of surface normal to
+  $\v{\widehat{J}}$.
+
+  Write the rate of change of heat energy in a finite volume $V$ as a flux integral.
+  % (i.e. a surface integral).
+
+  \Question Use the divergence theorem to deduce a continuity equation
+  for  the temperature $T$.
+
+  \Question Then use Fourier's law
+  $\ds \v{J} = -\kappa\,\grad T$ (i.e. heat flows down
+  a temperature gradient) to deduce the heat conduction equation
+  \[
+    \frac{\partial T}{\partial t} \,=\, \lambda\nabla^{2}T,
+  \]
+  where $\lambda=\kappa/\rho c.$
+  %---------------------------------------------------------------------------------------
+  \Exercise The vector field $\v{a}(\v{r})$ is given by
+  \[
+    \v{a}
+    =
+    (3x^2yz+y^3z+xe^{-x}) \, \v{e}_{\,x} +
+    (3xy^2z+x^3z+ye^{x})  \, \v{e}_{\,y} +
+    (x^3y+y^3x+xy^2z^2)   \, \v{e}_{\,z}
+  \]
+
+  \Question Calculate the integral
+  \[
+    \oint_C\,\v{a}\cdot \mbox{d}\v{r}
+  \]
+  where $C$ is the three-dimensional closed curve \emph{OABCDEO} defined by successive
+  vertices $(0,0,0)$, $(1,0,0)$, $(1,0,1)$, $(1,1,1)$, $(1,1,0)$, $(0,1,0)$, $(0,0,0$).
+
+  \Question Check your answer using Stokes' theorem.
+
+  \emph{Hints: Split the surface into two planar surfaces. The %common
+    result is $e/2 - 5/6$.}
+  %---------------------------------------------------------------------------------------
+  \Exercise Evaluate ${\ds \intS}(\curl\v{F})\cdot \mbox{d}\v{S}$ where $S$
+  is the \emph{open} hemisphere $x^{2}+y^{2}+z^{2} = a^{2}$, with $z\geq 0$, and
+  \[
+    \v{F}(\v{r}) \,=\, (1-ay)\,\eone + 2y^{2}\,\etwo +(x^{2}+1)\,\ethree
+  \]
+
+  \Question By direct evaluation. Take the vector element of area
+  $\mbox{d}\v{S}$ to point away from the origin.
+
+  \Question By using the divergence theorem applied to the vector field
+  $\curl\v{F}$. \\ (Recall that the divergence theorem applies to a
+  \emph{closed} surface.)
+
+  \Question By using Stokes' theorem applied to the vector field
+  $\v{F}$.
+
+  %---------------------------------------------------------------------------------------
+  \Exercise
+  Show that the area enclosed by the ellipse
+  \[
+    \frac{x^{2}}{a^{2}} \,+\, \frac{y^{2}}{b^{2}} \,=\, 1
+  \]
+  is $\pi ab$ by using the parametrisation
+  \[
+    \v{r}
+    \,=\,
+    a\lambda\cos\phi \, \v{e}_x \,+\, b\lambda \sin\phi \, \v{e}_y \, ,
+  \]
+  where $0 \le \lambda \le 1$ and $0 \le \phi \le 2\pi$.
+
+  %---------------------------------------------------------------------------------------
+  \Exercise If $C$ is a simple closed curve in the $(x,y)$ plane, use
+  Stokes' theorem to show that the area $S$ enclosed by $C$ is given by
+  \[
+    S \,=\, \frac{1}{2} \oint_{C} (x \, \dd y - y \, \dd x) \, .
+  \]
+  Use this result and the parametrisation of 8.4 to find the area enclosed by the ellipse
+  \[
+    \frac{x^{2}}{a^{2}} \,+\, \frac{y^{2}}{b^{2}} \,=\, 1
+  \]
+  %---------------------------------------------------------------------------------------
+  \Exercise~\hfill\\
+  \Question
+  By applying Stokes' theorem to $\v{a}= \phi\left(\v{r}\right) \v{c}$ where $\v{c}$ is an
+  arbitrary constant vector show that
+  \[
+    \int_S \, \dd\v{S}\times \left(\v{\nabla}\phi\right)
+    \,=\,
+    \oint_C\,\phi \, \dd\v{r}.
+  \]
+  \emph{Hint: first show that}
+  \[
+    \left(\displaystyle \curl \left(\phi \, \v{c}\right)\right) \cdot \dd\v{S}
+    \,=\,
+    \v{c} \cdot \left(\dd\v{S} \times \v{\nabla} \phi \right) \,.
+  \]
+
+  \Question By applying Stokes' theorem to $\v{a}\times\v{c}$ where $\v{c}$ is an
+  arbitrary constant vector show that
+  \[
+    \int_S \,(\dd\v{S} \times \v{\nabla}) \times \v{a}
+    \,=\,
+    \oint_C\, \dd\v{r} \times \v{a}.
+  \]
+  \emph{Hint: first show that}
+  \[
+    \left( \curl ( \v{a} \times \v{c})\right) \cdot \dd\v{S}
+    \,=\,
+    \v{c} \cdot \left[ \left(\dd\v{S} \times \v \nabla\right) \times \v a\right] \,.
+  \]
+  %---------------------------------------------------------------------------------------
+  \Exercise Given that $\va$ is a constant vector and $f(r)$ is an arbitrary
+  function of the length $r$ of the position vector $\v{r}$, which of
+  the following vector fields $\vA$ are irrotational?
+
+  Find a scalar potential for those that are irrotational. \Question $\vA=\va$ \Question
+  $\vA=(\va\cdot\v{r})\va$ \Question $\vA=(\va\cdot\v{r})\v{r}$ \Question
+  $\vA=\va\times\v{r}$ \Question $\vA=\va f(|\v{r}|)$ \Question $\vA=\v{r} f(|\v{r}|)$
+  \Question If $f(r)=r^n$ in question 6, for which value of $n$ does the potential diverge
+  at both $r=0$ and infinity?
+  %---------------------------------------------------------------------------------------
+  \Exercise A particle moves in three dimensions under the influence of a
+  force $\v{F}(\v{r}) = -k\v{r}$ where $k$ is a constant.  Show that $\v{F}$ is
+  irrotational.
+
+  \Question Calculate the potential energy of the particle at the
+  point $\v{r}$ by evaluating the line integral
+  \[
+    U(\v{r}) \,=\, -\intC \v{F}(\v{r}') \cdot \dd\v{r}' \nonumber
+  \]
+  along the following paths C:
+
+  \subQuestion the straight line from the origin to the point
+  $\v{r}$;
+
+  \subQuestion three contiguous straight lines parallel to the Cartesian coordinate axes: from $(0,0,0)$ to
+  $\smash{(x_1,0,0)}$, then $\smash{(x_1,0,0)}$ to $\smash{(x_1,x_2,0)}$, and finally $\smash{(x_1,x_2,0)}$ to
+  $\smash{(x_1,x_2,x_3)}$.
+
+  \Question In all cases above, verify that $\v{F}(\v{r})=-\del\,U(\v{r})$.
+  %---------------------------------------------------------------------------------------
+  \Exercise The total energy of a particle of mass $m$ moving in three
+  dimensions under the influence of a conservative force can be written
+  as the sum of its kinetic and potential energies
+  \[
+    E
+    \,=\,
+    \frac{1}{2} \, m \, \v{\dot r} \cdot \v{\dot r}
+    \,+\,
+    U(\v{r}) \,,
+  \]
+  where $\v{r} = \v{r}(t)$ and $\v{\dot r} =\v{\dot r}(t)$ are the position and velocity
+  vectors of the particle at time $t$. By differentiating the above expression with respect
+  to $t$, and using conservation of energy, obtain Newton's second law of motion in the
+  form
+  \[
+    m \, \v{\ddot r} \,=\, -\grad\,U(\v{r}) \,.
+  \]
+  %---------------------------------------------------------------------------------------
+  \Exercise
+  The \emph{gravitational potential} $\phi$ produced by a mass $m$
+  situated at the origin is defined by \( \v{G} \,=\, -\grad \phi, \)
+  where the gravitational field is
+  \[
+    \v{G}(\v{r}) \,=\, -G\, m \: \frac{\v{r}}{r^3}.
+  \]
+  Evaluate $\phi$ by computing a line integral
+  \[
+    \phir
+    \,=\,
+    -\int_\infty^{\ul{r}} \v{G}(\v{r}') \cdot \dd\v{r}',
+  \]
+  where we have chosen $\v{r}_{\,0}$ at $\infty$, with the origin, $\v{r}$ and
+  $\v{r}_{\,0}$ being collinear.
+  %---------------------------------------------------------------------------------------
+  \Exercise Consider the position vector of a mass $m$ at height $h$ above
+  the Earth's surface to be $\v{r} = (R+h) \ez$ where $R$ is the radius
+  of the Earth (the origin is at the Earth's centre).
+
+  Make a Taylor expansion in $h/R \ll 1$ of the gravitational field
+  \[
+    \v{G}(\v{r}) \,=\, -G\, M \: \frac{\v{r}}{r^3}
+  \]
+  to show that the gravitational force on a mass m can be written as
+  \[ \v{F} \simeq m g \ez \]
+  giving an expression for $g$ in terms of $R$ and $M$ the mass of the Earth.
+
+  Find the first correction ($h$-dependent) to the gravitational force.
+
+  \vfill
+\end{ExerciseList}
