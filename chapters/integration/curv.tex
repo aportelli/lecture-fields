@@ -6,14 +6,6 @@ other than the Cartesian coordinates. In this section we present important coord
 systems for physical systems.
 \subsubsection{Plane polar coordinates}
 \label{sec:Plane-polar-coordinates}
-\begin{figure}[t]
-  \centering
-  \includegraphics{tikz_plane-polars.pdf}
-  \hspace{2cm}
-  \includegraphics{tikz_plane-polars2.pdf}
-  \caption{Illustration of polar coordinates in the $(x,y)$ plane.}
-  \label{fig:plane-polars}
-\end{figure}
 We begin by revising a familiar example in the $(x,y)$ plane.
 Define two new variables $\rho$, $\phi$ as
 \[
@@ -54,6 +46,14 @@ direction of \emph{increasing} $\phi$. Note that $\erho$ and $\ephi$ point in
   \label{planepolarbasisvectors}
 \end{equation}
 
+\begin{figure}[t]
+  \centering
+  \includegraphics{tikz_plane-polars.pdf}
+  \hspace{2cm}
+  \includegraphics{tikz_plane-polars2.pdf}
+  \caption{Illustration of polar coordinates in the $(x,y)$ plane.}
+  \label{fig:plane-polars}
+\end{figure}
 \paragraph{Components of vectors in plane polars:}
 Any vector $\v{a}$ which lies in the $(x,y)$ plane may be expressed in the original
 Cartesian basis $\{\ex,\, \ey\}$, or in the plane polar basis $\{\erho,\, \ephi\}$
@@ -223,7 +223,7 @@ cylindrical coordinates.
 \begin{figure}[t]
   \centering
   \includegraphics{tikz_flux.pdf}
-  \caption{<caption>}
+  \caption{Illustration of the flux of a velocity field through an element of surface.}
   \label{fig:flux}
 \end{figure}
 Let $\vv(\vr)$ be the velocity at a point $\vr$
@@ -236,9 +236,10 @@ crossing the element of vector area $\diff \v{S}=\vn\, \diff S$ in time $\diff t
   \left( \v{v} \cdot \diff \v{S} \right) \diff t
 \]
 This is just the distance, $|\v{v}|\,\diff t$, travelled by the fluid, multiplied by the
-scalar area \emph{normal} to the direction of motion, that it flows through. This scalar
-area is $\diff S\cos(\theta) = \v{\hat{v}}\cdot \diff \v{S}$, where $\v{\hat{v}}$ is a
-unit vector in the direction of $\v{v}$.
+scalar area \emph{normal} to the direction of motion, that it flows through, as
+illustrated in \cref{fig:flux}. This scalar area is $\diff S\cos(\theta) =
+  \v{\hat{v}}\cdot \diff \v{S}$, where $\v{\hat{v}}$ is a unit vector in the direction of
+$\v{v}$.
 
 \begin{eqnarray*}
   \mbox{Therefore}
@@ -349,10 +350,10 @@ On $S$, we have $r=R$, so the vector field $\v{a}(\v{r})$ on the surface $S$ is 
   \left(\frac{\er}{R^2}\right)
   \cdot
   \left(R^2\sin(\theta) \: \er \right)
-  \\                  & \,=\,
-                     \int_{0}^{\pi} \sin(\theta)  \, \diff \theta \, \int_{0}^{2\pi} \diff \phi
-                     \,=\,
-                     4\pi
+  \\                         & \,=\,
+                            \int_{0}^{\pi} \sin(\theta)  \, \diff \theta \, \int_{0}^{2\pi} \diff \phi
+                            \,=\,
+                            4\pi
 \end{align*}
 In this example, the result of the integral is the surface area of a unit sphere. This is
 an important result in Physics, as we shall now show.
@@ -380,7 +381,7 @@ surface, divided by the constant $\epsilon_0$.
 \begin{figure}[t]
   \centering
   \includegraphics{tikz_sphere_dS.pdf}
-  \caption{<caption>}
+  \caption{Illustration of the spherical curvilinear basis.}
   \label{fig:sphere_dS}
 \end{figure}
 In spherical polars, the position vector at
@@ -451,7 +452,7 @@ and
 \v{e}_{\,\phi} \cdot \,\er = 0
 \).
 The unit vector $\etheta$ points in the direction of increasing $\theta$, with $r$ and
-$\phi$ fixed -- as illustrated in the diagram above. Similarly, for $\er$ and $\ephi$.
+$\phi$ fixed -- as illustrated in \cref{fig:sphere_dS}. Similarly, for $\er$ and $\ephi$.
 The basis vectors $\v{e}_{\,r}$, $\v{e}_{\,\theta}$ and $\v{e}_{\,\phi}$ depend on
 $\theta$ and $\phi$, but not on $r$. They point in different directions at different
 points. We say they form a non-Cartesian or \emph{curvilinear} basis.
