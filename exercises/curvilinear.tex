@@ -1,0 +1,277 @@
+% !TEX root = ../fields.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Exercises}
+\begin{ExerciseList}
+  %---------------------------------------------------------------------------------------
+  \Exercise Define spherical polar coordinates by:
+  \(
+  \v{r}
+  \,=\,
+  r\sin(\theta)\cos(\phi)\,\eone
+  \,+\,
+  r\sin(\theta)\sin(\phi)\,\etwo
+  \,+\,
+  r\cos(\theta)\,\ethree
+  \)
+
+  \Question Show that
+  \(
+  \;
+  h_r
+  \,\equiv\,
+  | \parpar{\vr}{r}|
+  = 1
+  \,,\;
+  h_\theta
+  \,\equiv\,
+  | \parpar{\vr}{\theta}|
+  = r
+  \,,\;
+  h_\phi
+  \,\equiv\,
+  | \parpar{\vr}{\phi} |
+  =
+  r\sin(\theta)  \,.
+  \)
+
+  The quantities $h_r$, $h_\theta$ and $h_\phi$ are the \emph{scale factors} for spherical
+  polars.
+
+  \Question Hence, show that
+  \begin{eqnarray*}
+    \er
+    &\equiv&
+    \frac{1}{h_r} \: \parpar{\vr}{r}
+    \,=\,
+    \sin(\theta)\cos(\phi) \, \eone +
+    \sin(\theta)\sin(\phi) \, \etwo +
+    \cos(\theta) \, \ethree \\[0.5ex]
+    %
+    \etheta
+    &\equiv&
+    \frac{1}{h_\theta} \: \parpar{\vr}{\theta}
+    \,=\,
+    \cos(\theta)\cos(\phi) \, \eone +
+    \cos(\theta)\sin(\phi) \, \etwo -
+    \sin(\theta) \, \ethree \\[0.5ex]
+    %
+    \ephi
+    &\equiv&
+    \frac{1}{h_\phi}\parpar{\vr}{\phi}
+    \,=\,
+    -\sin(\phi) \, \eone + \cos(\phi)\etwo
+  \end{eqnarray*}
+
+  \Question Verify that $\er$, $\etheta$, and $\ephi$ form an
+  \emph{orthonormal} basis:
+  \[
+    \er \cdot \,\er = \etheta \cdot \,\etheta = \ephi \cdot \,\ephi = 1
+    \;\mbox{and}\;
+    \v{e}_{\,r} \cdot \,\etheta = \v{e}_{\,\theta} \cdot \,\ephi
+    = \v{e}_{\,\phi} \cdot \,\er = 0 \,.
+  \]
+
+  \Question Show that:
+  \(
+  \quad
+  \er \times \etheta = \ephi \,,
+  \quad
+  \etheta \times \ephi = \er \,,
+  \quad
+  \ephi \times \er = \etheta \,.
+  \)
+
+  \Question Hence, show that the vector element of area on a sphere of radius
+  $r$ is
+  \[
+    {\rm d}\v{S}_r
+    \,=\,
+    h_\theta \, h_\phi \, \er \, {\rm d}\theta \, {\rm d}\phi
+    \,=\,
+    r^2\sin(\theta) \: \er \, {\rm d}\theta \, {\rm d}\phi \,.
+  \]
+
+  \Question Find expressions for the vector elements of area on the
+  cone $\theta=\theta_0$ where $\theta_0$ is constant, and on the plane
+  $\phi=\phi_0$, where $\phi_0$ is constant. Illustrate your results
+  with sketches.
+
+  \Question Show that the volume element is
+  \[
+    {\rm d}V
+    \,=\,
+    h_r \, h_\theta \, h_\phi \,{\rm d}r \, {\rm d}\theta \, {\rm d}\phi
+    \,=\,
+    r^2 \sin(\theta) \, {\rm d}r \, {\rm d}\theta \, {\rm d}\phi \,.
+  \]
+
+  %---------------------------------------------------------------------------------------
+  \Exercise Show that the scale factors for cylindrical coordinates ($\rho$, $\phi$, $z$) are
+  \(
+  h_\rho {=} 1 \,,
+  %\qquad 
+  h_\phi {=} \rho \,,
+  %\qquad
+  h_z {=} 1 \,. \)
+
+  Write down expressions for $\grad f\,,\,$ $\Div \v{a}$, $\curl\v{a}$ and $\nabla^2f$ in
+  cylindrical coordinates. Evaluate the curl of each the following vector fields
+  \[
+    \mbox{(i)}
+    \qquad   \v{a} = \ephi
+    \qquad\quad
+    \mbox{(ii)}
+    \qquad    \v{a} = \rho \; \ephi
+    \qquad\quad
+    \mbox{(iii)}
+    \qquad   \v{a} = {\ds \frac{1}{\rho}} \; \ephi
+  \]
+  Note that each of the fields $\v{a}$ has a non-zero circulation around the $z$ axis, but
+  this does not imply that $\curl\v{a}\neq0$ in every case.
+
+  %---------------------------------------------------------------------------------------
+  \Exercise In cylindrical coordinates ($\rho$, $\phi$, $z$), a vector
+  field $\vA$ has components
+  \[
+    A_\rho \,=\, A_z \,=\, 0, \quad A_\phi \,=\, \frac{a}{\rho}
+  \]
+  where $a$ is a constant. Therefore, $\vA$ is defined in an annular region outside an
+  infinitesimal cylinder around the $z$ axis (i.e.~for $\rho>0$). Verify that $\curl\vA=0$.
+  By considering a path along the arc of a circle of radius $\rho$ parallel to the $x{-}y$
+  plane and centred on the z axis, show that for two points $P_1$ and $P_2$ of angular
+  separation $\alpha$
+  \[
+    \intC \vA \,.\, \dd\v{r}
+    \,=\,
+    \left(2\pi n + \alpha\right) a
+  \]
+  where $C$ is a path joining $P_1$ to $P_2$ and $n$ is the number of times this path
+  encircles the cylinder in the direction of increasing $\phi$. Why is this line integral
+  not independent of the path between $P_1$ and $P_2$? How would you show that this result
+  holds for \emph{any} path which wraps $n$ times around the cylinder?
+
+  %---------------------------------------------------------------------------------------
+  \Exercise Evaluate $\curl\v{a}$,
+  where the vector field $\v{a}(\v{r})$ is given in Cartesians by
+  \[
+    \v{a}
+    =
+    \left(-x^2y - y^3\right) \, \v{e}_{\,x}
+    +
+    \left(x^3  + xy^2\right)  \, \v{e}_{\,y}
+    +
+    z^2  \, \v{e}_{\,z}
+  \]
+
+  \Question Show that in cylindrical coordinates
+  $\v{a} = \rho^3 \, \ephi + z^2 \, \ez$.
+
+  \Question Evaluate $\curl \v{a}$ in cylindrical coordinates, checking that your
+  answer agrees with the result in Cartesian coordinates.
+
+  \Question Show that
+  \[
+    \int_S \left( \curl \v{a} \right) \cdot \mbox{d}\v{S}
+    ~=~
+    2\pi \left( \beta^4 - \alpha^4 \right)
+  \]
+  where $S$ is the planar annular surface $\alpha \le \rho \le \beta$, $0 \le \phi < 2\pi$,
+  $z = \gamma$, where $\alpha$, $\beta$ and $\gamma$ are positive constants.
+
+  \Question  Use Stokes' theorem to check your result for (iii).
+
+  \emph{Hint: The surface $S$ is bounded by the circles with radius
+    $\rho=\alpha$ and $\rho=\beta$. In which direction does the line
+    integral around the inner circle go?}
+  %---------------------------------------------------------------------------------------
+  \Exercise Parabolic cylindrical coordinates $(u, v, w)$ are defined by
+  \[
+    x = uv \,, \qquad
+    y = \frac{1}{2}(v^{2}-u^{2}) \,, \qquad
+    z = w \,
+  \]
+  where $(x, y, z)$ are Cartesian coordinates. Find the scale factors $h_u$, $h_v$ and
+  $h_w\:\!$. Hence, find expressions for the curvilinear basis vectors $\{\v{e}_{\,u}, \,
+    \v{e}_{\,v}, \, \v{e}_{\,w}\}\,$ in terms of $\ex$, $\ey$ and $\ez$, and show that they
+  are mutually orthogonal.
+
+  The vector field $\v{a}(\v{r})$ has components \( (a_{u}=v, \, a_{v}=-u, \, a_{w}=0) \)
+  in the basis $\{\v{e}_{\,u}, \, \v{e}_{\,v}, \, \v{e}_{\,w}\}$,
+  % \emph{i.e.},
+  %so% that
+  \[
+    \v{a}(\v{r})
+    =
+    v  \, \v{e}_{\,u} - u \, \v{e}_{\,v}
+  \]
+  Show that $\Div \v{a} = 0$
+
+  \item  Recall that the Laplacian $\nabla^2 f$ in spherical polars is given by
+  \[
+    \nabla^2 f
+    ~ = ~
+    \frac{1}{r^2}\,\frac{\partial}{\partial r}
+    \left(r^2\, \frac{\partial f}{\partial r}\right)
+    \,+\,
+    \frac{1}{r^2\sin(\theta)} \:
+    \frac{\partial}{\partial\theta}
+    \left( \sin(\theta) \: \frac{\partial f}{\partial\theta}\right)
+    \,+\,
+    \frac{1}{r^2\sin^2\theta} \;
+    \frac{\partial^2f}{\partial\phi^2} \;.
+  \]
+
+  In (super)natural units, the electrostatic potential $\Phi(\v{r})$ due to an electric
+  dipole at the origin is given in spherical polars by
+  \[
+    \Phi(\v{r})
+    ~=~
+    \frac{\cos(\theta)}{r^2} \, ,
+  \]
+  where $r$ is the length of the position vector $\v{r}$. Show that, for $r\ne 0$,
+  \[
+    \nabla^2 \Phi
+    \,=~
+    0 \, .
+  \]
+
+  The wave function $\psi(\v{r})$ of a three-dimensional quantum harmonic oscillator in its
+  ground state is given in spherical polars by
+  \[
+    \psi(\v{r})
+    ~=~
+    \exp \left( - r^2/2 \right) \,.
+  \]
+  Show that $\psi$ satisfies Schr\"odinger's equation (dimensions have been ignored for
+  simplicity)
+  \[
+    -\nabla^2 \psi + r^2 \psi
+    ~=~
+    2E_0 \, \psi \,,
+  \]
+  and thus determine the value of the ground-state energy $E_0$.
+  %---------------------------------------------------------------------------------------
+  \Exercise A vector field $\v{A}$
+  has components in spherical polar coordinates
+  \begin{align*}
+    A_{r}      & = r^{2}\cos(\theta)^2\sin(\theta)\cos(\phi) \,,  \\
+    A_{\theta} & = -r^{2}\cos(\theta)\sin(\theta)^2\cos(\phi) \,, \\
+    A_{\phi}   & = 0 \, .
+  \end{align*}
+
+  \Question Show that
+  \subQuestion $\Div\v{A}=r\sin(\theta)\cos(\phi)$
+
+  \subQuestion $\vB=\curl\v{A}$ has
+  components
+  \begin{align*}
+    B_{r}      & =-r\sin(\theta)\cos(\theta)\sin(\phi) \,, \\
+    B_{\theta} & =-r\cos(\theta)^2\sin(\phi) \,,           \\
+    B_{\phi}   & = -r\cos(\theta)\cos(\phi) \,.
+  \end{align*}
+  \subQuestion $\nabla^{2}\v{A} = 0$
+  \Question Find the components of $\v{A}$ in Cartesian coordinates, and comment on
+  the suitability of spherical polars for this problem.
+
+  \vfill
+\end{ExerciseList}
